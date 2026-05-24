@@ -1,0 +1,42 @@
+/* ─── CTA SECTION ────────────────────────────────────────── */
+.cta-section {
+  padding: 120px 0;
+  background-color: var(--color-sage);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--color-gold));
+}
+
+.cta-section .section-label {
+  color: var(--color-primary);
+}
+
+.cta-section .section-title {
+  color: var(--color-dark);
+  margin-bottom: 20px;
+}
+
+.cta-section .section-subtitle {
+  color: var(--color-primary);
+  margin: 0 auto 48px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.cta-section__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}

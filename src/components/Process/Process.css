@@ -1,0 +1,67 @@
+/* ─── PROCESS ────────────────────────────────────────────── */
+.process {
+  padding: 120px 0;
+  background-color: var(--color-beige);
+}
+
+.process__head {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.process__head .section-subtitle {
+  margin: 16px auto 0;
+}
+
+.process__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.process__steps::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: calc(12.5% + 28px);
+  right: calc(12.5% + 28px);
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-rose), var(--color-gold));
+}
+
+.step {
+  padding: 0 24px;
+  text-align: center;
+}
+
+.step__number {
+  width: 56px;
+  height: 56px;
+  background-color: var(--color-primary);
+  color: var(--color-gold);
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.step__title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.step__text {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--color-dark);
+  opacity: 0.7;
+}

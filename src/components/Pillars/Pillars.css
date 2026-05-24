@@ -1,0 +1,64 @@
+/* ─── PILLARS ────────────────────────────────────────────── */
+.pillars {
+  padding: 120px 0;
+  background-color: var(--color-cream);
+}
+
+.pillars__head {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.pillars__head .section-subtitle {
+  margin: 16px auto 0;
+}
+
+.pillars__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.pillar-card {
+  background-color: var(--color-beige);
+  padding: 52px 40px;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.pillar-card:hover {
+  border-bottom-color: var(--color-gold);
+}
+
+.pillar-card__icon {
+  width: 52px;
+  height: 52px;
+  background-color: var(--color-primary);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pillar-card__icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--color-gold);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.pillar-card__title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-primary);
+  margin-bottom: 14px;
+}
+
+.pillar-card__text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--color-dark);
+  opacity: 0.7;
+}

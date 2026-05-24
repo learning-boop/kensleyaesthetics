@@ -1,0 +1,108 @@
+/* ─── HERO ───────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  background-color: var(--color-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+/* ── Centered block ── */
+.hero__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  text-align: center;
+}
+
+/* ── Title ── */
+.hero__title {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: clamp(72px, 12vw, 160px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: var(--color-dark);
+}
+
+/* ── Scroll indicator ── */
+.hero__scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 100px;
+  background-color: rgba(18, 60, 63, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__scroll-dot {
+  position: absolute;
+  top: -40%;
+  left: 0;
+  width: 1px;
+  height: 40%;
+  background: linear-gradient(to bottom, transparent, var(--color-gold));
+  animation: scrollDrop 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.hero__scroll-arrow {
+  width: 28px;
+  height: 28px;
+  stroke: var(--color-gold);
+  stroke-width: 0.8;
+}
+
+.hero__scroll-tag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 3px;
+}
+
+.hero__scroll-tag-num {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--color-dark);
+  text-transform: uppercase;
+}
+
+.hero__scroll-tag-text {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  opacity: 0.55;
+}
+
+/* ── Animation ── */
+@keyframes scrollDrop {
+  0%   { top: -40%; opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
