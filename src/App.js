@@ -1,32 +1,37 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header       from './components/Header';
-import Hero         from './components/Hero';
-import ScrollText   from './components/ScrollText';
-import Stats        from './components/Stats';
-import About        from './components/About';
-import Services     from './components/Services';
-import Process      from './components/Process';
-import Pillars      from './components/Pillars';
-import Testimonials from './components/Testimonials';
-import CtaSection   from './components/CtaSection';
 import Footer       from './components/Footer';
-
+import ScrollToTop  from './components/ScrollToTop';
+import Home         from './pages/Home';
+import About        from './pages/About';
+import Services     from './pages/Services';
+import TreatmentDetail from './pages/TreatmentDetail';
+import Gallery      from './pages/Gallery';
+import SkinConcerns from './pages/SkinConcerns';
+import Testimonials from './pages/Testimonials';
+import FAQ          from './pages/FAQ';
+import Contact      from './pages/Contact';
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
+      <ScrollToTop />
       <Header />
-      <Hero />
-      <ScrollText />
-      <Stats />
-      <About />
-      <Services />
-      <Process />
-      <Pillars />
-      <Testimonials />
-      <CtaSection />
+      <Routes>
+        <Route path="/"                     element={<Home />} />
+        <Route path="/about"                element={<About />} />
+        <Route path="/services"             element={<Services />} />
+        <Route path="/treatments/:slug"     element={<TreatmentDetail />} />
+        <Route path="/gallery"              element={<Gallery />} />
+        <Route path="/skin-concerns"        element={<SkinConcerns />} />
+        <Route path="/testimonials"         element={<Testimonials />} />
+        <Route path="/faq"                  element={<FAQ />} />
+        <Route path="/contact"              element={<Contact />} />
+        <Route path="*"                     element={<Home />} />
+      </Routes>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 

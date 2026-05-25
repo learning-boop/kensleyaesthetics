@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import TREATMENTS from '../../data/treatments';
 import './Footer.css';
 
 function Footer() {
@@ -14,39 +16,42 @@ function Footer() {
               just for you.
             </p>
             <div className="footer__social">
-              <a href="#" className="footer__social-link">in</a>
-              <a href="#" className="footer__social-link">ig</a>
-              <a href="#" className="footer__social-link">fb</a>
+              <span className="footer__social-link">in</span>
+              <span className="footer__social-link">ig</span>
+              <span className="footer__social-link">fb</span>
             </div>
           </div>
 
           <div>
-            <h4 className="footer__col-title">Services</h4>
+            <h4 className="footer__col-title">Treatments</h4>
             <ul className="footer__links">
-              <li><a href="#">Service One</a></li>
-              <li><a href="#">Service Two</a></li>
-              <li><a href="#">Service Three</a></li>
-              <li><a href="#">Service Four</a></li>
+              {TREATMENTS.slice(0, 4).map((t) => (
+                <li key={t.slug}>
+                  <Link to={`/treatments/${t.slug}`}>{t.label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h4 className="footer__col-title">Company</h4>
             <ul className="footer__links">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Our Process</a></li>
-              <li><a href="#">Gallery</a></li>
-              <li><a href="#">FAQ</a></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/services">All Treatments</Link></li>
+              <li><Link to="/gallery">Before &amp; After</Link></li>
+              <li><Link to="/skin-concerns">Skin Concerns</Link></li>
+              <li><Link to="/testimonials">Testimonials</Link></li>
+              <li><Link to="/faq">FAQ</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="footer__col-title">Contact</h4>
             <ul className="footer__links">
-              <li><a href="#">info@creativetouchrenova.com</a></li>
-              <li><a href="#">+1 (000) 000-0000</a></li>
-              <li><a href="#">Location, City</a></li>
-              <li><a href="#contact">Book a Visit</a></li>
+              <li><a href="mailto:hello@creativetouchrenova.com">hello@creativetouchrenova.com</a></li>
+              <li><a href="tel:+442000000000">+44 (0) 20 0000 0000</a></li>
+              <li>London, United Kingdom</li>
+              <li><Link to="/contact">Book an Appointment</Link></li>
             </ul>
           </div>
         </div>
@@ -56,8 +61,8 @@ function Footer() {
             &copy; {new Date().getFullYear()} Creative Touch Renova. All rights reserved.
           </p>
           <div className="footer__legal">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+            <Link to="/faq">Privacy Policy</Link>
+            <Link to="/faq">Terms of Service</Link>
           </div>
         </div>
       </div>

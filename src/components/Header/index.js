@@ -1,12 +1,20 @@
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import TREATMENTS from '../../data/treatments';
-import { PRIMARY_LINKS, SECONDARY_LINKS } from '../../data/links';
+import { PRIMARY_LINKS } from '../../data/links';
 import './Header.css';
 
 function Header() {
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(null);
+  const navigate = useNavigate();
+
   const close = () => { setOpen(false); setHovered(null); };
+
+  const handleNavClick = (href) => {
+    close();
+    navigate(href);
+  };
 
   return (
     <>
@@ -25,13 +33,13 @@ function Header() {
             </svg>
           </button>
 
-          <a href="#top" className="header__logo">
+          <Link to="/" className="header__logo" onClick={close}>
             Creative Touch<span> Renova</span>
-          </a>
+          </Link>
 
-          <a href="#contact" className="header__book">
+          <Link to="/contact" className="header__book" onClick={close}>
             Book an Appointment
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -47,45 +55,43 @@ function Header() {
 
           <nav className="nav-overlay__primary">
             {TREATMENTS.map((t, i) => (
-              <a
+              <button
                 key={t.num}
-                href="#services"
                 className={`nav-overlay__primary-link${hovered === t.num ? ' nav-overlay__primary-link--active' : ''}`}
                 style={{ animationDelay: open ? `${i * 0.07}s` : '0s' }}
                 onMouseEnter={() => setHovered(t.num)}
                 onMouseLeave={() => setHovered(null)}
-                onClick={close}
+                onClick={() => handleNavClick(`/treatments/${t.slug}`)}
               >
                 <span className="nav-overlay__primary-num">{t.num}</span>
                 {t.label}
-              </a>
+              </button>
             ))}
           </nav>
 
           <nav className="nav-overlay__secondary-nav">
             {PRIMARY_LINKS.map((link, i) => (
-              <a
+              <button
                 key={link.label}
-                href={link.href}
                 className="nav-overlay__secondary-link"
                 style={{ animationDelay: open ? `${0.38 + i * 0.05}s` : '0s' }}
-                onClick={close}
+                onClick={() => handleNavClick(link.href)}
               >
                 {link.label}
-              </a>
+              </button>
             ))}
           </nav>
 
           <div className="nav-overlay__footer">
             <p className="nav-overlay__tagline">Refined to Perfection</p>
             <div className="nav-overlay__socials">
-              <a href="#" onClick={close}>Instagram</a>
+              <button onClick={close}>Instagram</button>
               <span className="nav-overlay__dot" />
-              <a href="#" onClick={close}>Privacy Policy</a>
+              <button onClick={() => handleNavClick('/faq')}>Privacy Policy</button>
               <span className="nav-overlay__dot" />
-              <a href="#" onClick={close}>Terms</a>
+              <button onClick={() => handleNavClick('/faq')}>Terms</button>
               <span className="nav-overlay__dot" />
-              <a href="#contact" onClick={close}>Location</a>
+              <button onClick={() => handleNavClick('/contact')}>Location</button>
             </div>
           </div>
 
@@ -114,7 +120,7 @@ function Header() {
             </div>
           ))}
 
-          <div className="nav-overlay__book-cta">
+          <div className="nav-overlay__book-cta" onClick={() => handleNavClick('/contact')}>
             Book an <br/> Appointment
           </div>
         </div>

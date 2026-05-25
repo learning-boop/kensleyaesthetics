@@ -1,0 +1,698 @@
+/* ─── Page Sections ───────────────────────────────────────── */
+.page-section {
+  padding: 100px 0;
+}
+
+.page-section--tinted {
+  background-color: var(--color-beige);
+}
+
+.page-centered {
+  text-align: center;
+}
+
+/* ─── Two-column Layout ───────────────────────────────────── */
+.page-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.page-body-text {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--color-primary);
+  opacity: 0.85;
+  max-width: 600px;
+}
+
+/* ─── Image Placeholders ──────────────────────────────────── */
+.page-image-placeholder {
+  background-color: var(--color-sage);
+  opacity: 0.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  aspect-ratio: 4/3;
+  width: 100%;
+}
+
+.page-image-placeholder--tall {
+  aspect-ratio: 3/4;
+}
+
+/* ─── Values Grid ─────────────────────────────────────────── */
+.page-values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.page-value-card {
+  border-top: 1px solid var(--color-gold);
+  padding-top: 28px;
+}
+
+.page-value-card__num {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.page-value-card__title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--color-dark);
+  margin-bottom: 16px;
+}
+
+.page-value-card__text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--color-primary);
+  opacity: 0.8;
+}
+
+/* ─── Team Grid ───────────────────────────────────────────── */
+.page-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+}
+
+.page-team-card__name {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--color-dark);
+  margin-top: 28px;
+  margin-bottom: 6px;
+}
+
+.page-team-card__role {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 16px;
+}
+
+.page-team-card__bio {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-primary);
+  opacity: 0.8;
+}
+
+/* ─── Services Page Grid ──────────────────────────────────── */
+.services-page-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.services-page-card {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.services-page-card:hover {
+  transform: translateY(-6px);
+}
+
+.services-page-card__image {
+  margin-bottom: 20px;
+}
+
+.services-page-card__num {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.services-page-card__title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+}
+
+.services-page-card__tagline {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-primary);
+  opacity: 0.75;
+  margin-bottom: 16px;
+}
+
+.services-page-card__link {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* ─── Treatment Detail ────────────────────────────────────── */
+.treatment-benefits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 800px;
+}
+
+.treatment-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.treatment-benefit__icon {
+  color: var(--color-gold);
+  font-size: 14px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.treatment-benefit__text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-primary);
+}
+
+.treatment-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.treatment-nav__card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px 32px;
+  border: 1px solid rgba(18, 60, 63, 0.15);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.treatment-nav__card:hover {
+  border-color: var(--color-gold);
+  background: rgba(200, 169, 106, 0.05);
+}
+
+.treatment-nav__card--next {
+  text-align: right;
+}
+
+.treatment-nav__direction {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.treatment-nav__num {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--color-primary);
+  opacity: 0.5;
+}
+
+.treatment-nav__name {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--color-dark);
+}
+
+/* ─── Gallery ─────────────────────────────────────────────── */
+.gallery-categories {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.gallery-category-btn {
+  padding: 10px 24px;
+  border: 1px solid rgba(18, 60, 63, 0.2);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gallery-category-btn:hover,
+.gallery-category-btn--active {
+  background: var(--color-primary);
+  color: var(--color-cream);
+  border-color: var(--color-primary);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.gallery-item__images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.gallery-item__before,
+.gallery-item__after {
+  position: relative;
+}
+
+.gallery-item__badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: rgba(31, 36, 36, 0.7);
+  color: var(--color-cream);
+  padding: 4px 8px;
+}
+
+.gallery-item__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gallery-item__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.gallery-item__treatment {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* ─── Skin Concerns ───────────────────────────────────────── */
+.concerns-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.concern-card {
+  border-top: 1px solid var(--color-gold);
+  padding-top: 28px;
+}
+
+.concern-card__title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+}
+
+.concern-card__desc {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--color-primary);
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.concern-card__treatments {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.concern-card__tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  transition: opacity 0.2s;
+}
+
+.concern-card__tag:hover {
+  opacity: 0.7;
+}
+
+/* ─── Testimonials Page ───────────────────────────────────── */
+.testimonials-page-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.testimonial-page-card {
+  background: white;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.testimonial-star {
+  color: var(--color-gold);
+  font-size: 14px;
+}
+
+.testimonial-page-card__quote {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--color-dark);
+  flex: 1;
+  margin-bottom: 24px;
+}
+
+.testimonial-page-card__footer {
+  border-top: 1px solid var(--color-beige);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.testimonial-page-card__name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-dark);
+}
+
+.testimonial-page-card__meta {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+}
+
+/* ─── FAQ ─────────────────────────────────────────────────── */
+.faq-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 80px;
+  align-items: start;
+}
+
+.faq-category {
+  margin-bottom: 60px;
+}
+
+.faq-category:last-child {
+  margin-bottom: 0;
+}
+
+.faq-category__title {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--color-dark);
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(18, 60, 63, 0.1);
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(18, 60, 63, 0.1);
+}
+
+.faq-item__question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-dark);
+  text-align: left;
+  gap: 16px;
+}
+
+.faq-item__icon {
+  font-size: 20px;
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.faq-item__answer {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-primary);
+  opacity: 0.85;
+  padding: 0 0 20px;
+  max-width: 620px;
+}
+
+.faq-sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.faq-sidebar__card {
+  background: var(--color-dark);
+  padding: 36px;
+}
+
+.faq-sidebar__card .section-label {
+  margin-bottom: 12px;
+}
+
+.faq-sidebar__title {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-cream);
+  margin-bottom: 12px;
+}
+
+.faq-sidebar__text {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--color-cream);
+  opacity: 0.65;
+}
+
+.faq-sidebar__card .btn-primary,
+.faq-sidebar__card .btn-outline {
+  display: block;
+  text-align: center;
+}
+
+.faq-sidebar__card .btn-outline {
+  border-color: var(--color-cream);
+  color: var(--color-cream);
+}
+
+/* ─── Contact ─────────────────────────────────────────────── */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-form__label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.contact-form__input {
+  padding: 14px 16px;
+  border: 1px solid rgba(18, 60, 63, 0.2);
+  background: white;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--color-dark);
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.contact-form__input:focus {
+  border-color: var(--color-gold);
+}
+
+.contact-form__input::placeholder {
+  color: var(--color-primary);
+  opacity: 0.4;
+}
+
+.contact-form__select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.contact-form__textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-form__submit {
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.contact-success {
+  text-align: center;
+  padding: 80px 40px;
+}
+
+.contact-success__icon {
+  font-size: 32px;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 24px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px;
+  background: var(--color-dark);
+  color: var(--color-cream);
+  align-self: start;
+}
+
+.contact-info__block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-info__text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-cream);
+  opacity: 0.75;
+}
+
+.contact-info__socials {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-info__social-link {
+  font-size: 14px;
+  color: var(--color-gold);
+  transition: opacity 0.2s;
+}
+
+.contact-info__social-link:hover {
+  opacity: 0.7;
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .services-page-grid,
+  .gallery-grid,
+  .concerns-grid,
+  .page-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials-page-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .faq-layout,
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-section {
+    padding: 60px 0;
+  }
+
+  .page-two-col {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .services-page-grid,
+  .gallery-grid,
+  .concerns-grid,
+  .page-values-grid,
+  .testimonials-page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .treatment-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .treatment-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form__row {
+    grid-template-columns: 1fr;
+  }
+}
