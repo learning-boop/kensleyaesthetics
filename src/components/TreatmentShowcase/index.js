@@ -224,48 +224,88 @@ function TreatmentContent({ treatment, scrollRef }) {
 // ─── Main TreatmentShowcase ───────────────────────────────────────
 function TreatmentShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const sectionRef       = useRef(null);
   const desktopScrollRef = useRef(null);
   const mobileScrollRef  = useRef(null);
 
-  // Track active index from scroll position
-  const makeScrollHandler = useCallback((ref) => () => {
-    const el = ref.current;
-    if (!el) return;
-    const idx = Math.round(el.scrollLeft / el.clientWidth);
-    setActiveIndex(Math.min(Math.max(idx, 0), TREATMENTS.length - 1));
+  // Lerp state — target set by scroll, current chased by RAF
+  const targetLeftRef  = useRef(0);
+  const currentLeftRef = useRef(0);
+  const rafRef         = useRef(null);
+
+  // RAF lerp loop — runs continuously on desktop, gives the "weight"
+  useEffect(() => {
+    const WEIGHT = 0.07; // lower = heavier / more lag
+    const lerp   = (a, b, t) => a + (b - a) * t;
+
+    const tick = () => {
+      const track = desktopScrollRef.current;
+      if (track && window.innerWidth > 860) {
+        const diff = targetLeftRef.current - currentLeftRef.current;
+        if (Math.abs(diff) > 0.25) {
+          currentLeftRef.current = lerp(currentLeftRef.current, targetLeftRef.current, WEIGHT);
+        } else {
+          currentLeftRef.current = targetLeftRef.current;
+        }
+        track.scrollLeft = currentLeftRef.current;
+
+        const idx = Math.round(currentLeftRef.current / track.clientWidth);
+        setActiveIndex((prev) => {
+          const next = Math.min(Math.max(idx, 0), TREATMENTS.length - 1);
+          return prev === next ? prev : next;
+        });
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
   }, []);
 
+  // Window vertical scroll → update target only (RAF handles the actual move)
   useEffect(() => {
-    const el = desktopScrollRef.current;
-    if (!el) return;
-    const handler = makeScrollHandler(desktopScrollRef);
-    el.addEventListener('scroll', handler, { passive: true });
-    return () => el.removeEventListener('scroll', handler);
-  }, [makeScrollHandler]);
+    const onScroll = () => {
+      if (window.innerWidth <= 860) return;
+      const wrapper = sectionRef.current;
+      const track   = desktopScrollRef.current;
+      if (!wrapper || !track) return;
 
+      const rect       = wrapper.getBoundingClientRect();
+      const scrollable = wrapper.offsetHeight - window.innerHeight;
+      const progress   = Math.max(0, Math.min(1, -rect.top / scrollable));
+      targetLeftRef.current = progress * (track.scrollWidth - track.clientWidth);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Mobile — track active panel from swipe scroll
   useEffect(() => {
     const el = mobileScrollRef.current;
     if (!el) return;
-    const handler = makeScrollHandler(mobileScrollRef);
+    const handler = () => {
+      const idx = Math.round(el.scrollLeft / el.clientWidth);
+      setActiveIndex(Math.min(Math.max(idx, 0), TREATMENTS.length - 1));
+    };
     el.addEventListener('scroll', handler, { passive: true });
     return () => el.removeEventListener('scroll', handler);
-  }, [makeScrollHandler]);
-
-  // Mouse wheel → horizontal scroll (desktop)
-  useEffect(() => {
-    const el = desktopScrollRef.current;
-    if (!el) return;
-    const onWheel = (e) => {
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        e.preventDefault();
-        el.scrollLeft += e.deltaY;
-      }
-    };
-    el.addEventListener('wheel', onWheel, { passive: false });
-    return () => el.removeEventListener('wheel', onWheel);
   }, []);
 
-  // Programmatic scroll to a panel
+  // Desktop dot click — jump target & scroll window in sync
+  const scrollToDesktopPanel = useCallback((index) => {
+    const wrapper = sectionRef.current;
+    const track   = desktopScrollRef.current;
+    if (!wrapper || !track) return;
+    // Snap target so the lerp eases to the panel
+    targetLeftRef.current = index * track.clientWidth;
+    // Also move the window so the sticky section stays correctly positioned
+    const scrollable = wrapper.offsetHeight - window.innerHeight;
+    const progress   = index / (TREATMENTS.length - 1);
+    window.scrollTo({ top: wrapper.offsetTop + progress * scrollable, behavior: 'smooth' });
+  }, []);
+
+  // Mobile dot click — scroll the track directly
   const scrollTo = useCallback((ref, index) => {
     const el = ref.current;
     if (!el) return;
@@ -273,7 +313,8 @@ function TreatmentShowcase() {
   }, []);
 
   return (
-    <section className="ts-root">
+    /* Height = N panels × 100 vh so the section occupies enough scroll distance */
+    <section ref={sectionRef} className="ts-root" style={{ height: `${TREATMENTS.length * 100}vh` }}>
 
       {/* ════ DESKTOP ════════════════════════════════════════════ */}
       <div className="ts-desktop">
@@ -307,7 +348,7 @@ function TreatmentShowcase() {
         <div className="ts-footer-bar">
           <ProgressDots
             activeIndex={activeIndex}
-            onDotClick={(i) => scrollTo(desktopScrollRef, i)}
+            onDotClick={scrollToDesktopPanel}
           />
 
           <span className="ts-scroll-hint">

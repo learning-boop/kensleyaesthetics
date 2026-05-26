@@ -3,13 +3,13 @@
    Change these variables to retheme the entire section.
    ═══════════════════════════════════════════════════════════════ */
 .ts-root {
-  --sc-bg:      #0c0f0d;
-  --sc-surface: #111512;
-  --sc-text:    #ede9e3;
-  --sc-muted:   rgba(237, 233, 227, 0.55);
-  --sc-dim:     rgba(237, 233, 227, 0.22);
+  --sc-bg:      #f5f0e8;
+  --sc-surface: #ede8dc;
+  --sc-text:    #0c0f0d;
+  --sc-muted:   rgba(12, 15, 13, 0.55);
+  --sc-dim:     rgba(12, 15, 13, 0.22);
   --sc-accent:  #c9aa71;
-  --sc-border:  rgba(237, 233, 227, 0.07);
+  --sc-border:  rgba(12, 15, 13, 0.10);
   --sc-ease:    cubic-bezier(0.76, 0, 0.24, 1);
 }
 
@@ -17,7 +17,7 @@
 .ts-root {
   background-color: var(--sc-bg);
   color: var(--sc-text);
-  overflow: hidden;
+  overflow: clip; /* clip without creating a scroll container — keeps sticky working */
   position: relative;
   width: 100%;
 }
@@ -27,6 +27,8 @@
    [header 68px] [scroll panels flex-1] [footer 52px]
    ═══════════════════════════════════════════ */
 .ts-desktop {
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -112,9 +114,7 @@
 .ts-scroll-track {
   flex: 1;
   display: flex;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  overflow-x: scroll; /* scrollLeft is set programmatically; no user snap */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -128,8 +128,6 @@
   min-width: 100%;
   height: 100%;
   display: flex;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   flex-shrink: 0;
 }
 
@@ -306,7 +304,7 @@
     var(--sc-bg) 0%,
     transparent 16%,
     transparent 84%,
-    rgba(12, 15, 13, 0.3) 100%
+    rgba(245, 240, 232, 0.3) 100%
   );
 }
 
@@ -315,7 +313,7 @@
   bottom: 0; left: 0; right: 0;
   height: 26%;
   pointer-events: none;
-  background: linear-gradient(to top, rgba(12, 15, 13, 0.4) 0%, transparent 100%);
+  background: linear-gradient(to top, rgba(245, 240, 232, 0.4) 0%, transparent 100%);
 }
 
 /* ═══════════════════════════════════════════
@@ -421,6 +419,11 @@
    Each panel stacks: image on top, content below
    ═══════════════════════════════════════════ */
 @media (max-width: 860px) {
+  /* Override the JS-set tall height — mobile uses swipe, not scroll-drive */
+  .ts-root {
+    height: auto !important;
+    overflow: hidden;
+  }
   .ts-desktop { display: none; }
   .ts-mobile-layout {
     display: flex;

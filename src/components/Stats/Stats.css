@@ -1,40 +1,187 @@
-/* ─── STATS BAR ──────────────────────────────────────────── */
-.stats {
-  background-color: var(--color-beige);
-  padding: 48px 0;
-  border-top: 1px solid rgba(200, 169, 106, 0.2);
-  border-bottom: 1px solid rgba(200, 169, 106, 0.2);
+/* ═══════════════════════════════════════════════════════════
+   SPLIT-IMAGE SERVICES SECTION
+   Left half  — outer 50% image | inner 50% dark bg
+   Right half — full image cover
+   Center     — "Our Services" text spanning entire section
+   ═══════════════════════════════════════════════════════════ */
+
+.si-root {
+  position: relative;
+  display: flex;
+  height: 92vh;
+  min-height: 560px;
+  gap: 10px;          /* little gap between left and right halves */
+  background: #f5f0e8;
+  overflow: hidden;
 }
 
-.stats__inner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+/* ── LEFT HALF ──────────────────────────────────────────── */
+.si-left {
+  flex: 1;            /* 50% of section */
+  display: flex;
+  overflow: hidden;
 }
 
-.stats__item {
+/* Outer 50% of left half = image */
+.si-left-img {
+  width: 50%;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Inner 50% of left half = light background */
+.si-left-bg {
+  flex: 1;
+  background: #ede8dc;
+}
+
+/* ── RIGHT HALF ─────────────────────────────────────────── */
+.si-right {
+  flex: 1;            /* 50% of section */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left-edge gradient on right image so center text is legible */
+.si-right-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    rgba(245, 240, 232, 0.70) 0%,
+    transparent 38%
+  );
+}
+
+/* ── SHARED IMAGE STYLES ────────────────────────────────── */
+.si-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.si-img-placeholder {
+  position: absolute;
+  inset: 0;
+  background: #e8e2d6;
+  z-index: -1;
+}
+
+/* ── CENTER TEXT ────────────────────────────────────────── */
+/* Sits at the exact horizontal + vertical center of the section */
+.si-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
   text-align: center;
-  padding: 0 32px;
-  border-right: 1px solid rgba(18, 60, 63, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
 }
 
-.stats__item:last-child {
-  border-right: none;
-}
-
-.stats__number {
-  font-family: var(--font-serif);
-  font-size: 48px;
-  font-weight: 400;
-  color: var(--color-gold);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.stats__label {
-  font-size: 12px;
-  letter-spacing: 2px;
+.si-eyebrow {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  color: var(--color-primary);
-  opacity: 0.7;
+  color: #c9aa71;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.si-title {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: clamp(64px, 9vw, 128px);
+  font-weight: 300;
+  line-height: 0.88;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #0c0f0d;
+  margin: 0 0 28px 0;
+}
+
+.si-divider {
+  width: 40px;
+  height: 1px;
+  background: #c9aa71;
+  opacity: 0.45;
+  margin-bottom: 28px;
+}
+
+.si-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #0c0f0d;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(12, 15, 13, 0.25);
+  padding-bottom: 4px;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+.si-link:hover {
+  color: #c9aa71;
+  border-color: #c9aa71;
+}
+
+.si-link-arrow {
+  color: #c9aa71;
+  font-size: 13px;
+  transition: transform 0.4s ease;
+}
+
+.si-link:hover .si-link-arrow {
+  transform: translateX(4px);
+}
+
+/* ── TABLET ─────────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .si-root { height: 80vh; }
+  .si-title { font-size: clamp(52px, 8vw, 96px); }
+}
+
+/* ── MOBILE ─────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .si-root {
+    height: auto;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .si-left {
+    height: 45vw;
+  }
+
+  .si-right {
+    height: 60vw;
+  }
+
+  .si-center {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    text-align: center;
+    padding: 48px 24px 52px;
+    background: #ede8dc;
+    white-space: normal;
+  }
+
+  .si-title {
+    font-size: clamp(48px, 14vw, 72px);
+  }
 }
