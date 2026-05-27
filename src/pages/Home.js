@@ -10,6 +10,9 @@ import Process             from '../components/Process';
 import Pillars             from '../components/Pillars';
 import Testimonials        from '../components/Testimonials';
 import CtaSection          from '../components/CtaSection';
+import QuickContact        from '../components/QuickContact';
+import HomeFaqSection      from '../components/HomeFaqSection';
+import JourneySteps        from '../components/JourneySteps';
 
 function Home() {
   return (
@@ -20,12 +23,8 @@ function Home() {
       <Stats />
       <BeforeAfter />
       <ExpertSection />
-      <About />
-      <Services />
-      <Process />
-      <Pillars />
-      <Testimonials />
-      <CtaSection />
+      <JourneySteps />
+      <QuickContact />
     </>
   );
 }

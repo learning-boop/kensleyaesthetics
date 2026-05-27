@@ -1,0 +1,140 @@
+.qc-section {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Left: image panel ── */
+.qc-image {
+  flex: 0 0 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.qc-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* ── Right: form panel ── */
+.qc-form-panel {
+  flex: 0 0 50%;
+  background: var(--color-cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 80px 80px 72px;
+  position: relative;
+}
+
+/* ── Inputs ── */
+.qc-field {
+  margin-bottom: 48px;
+}
+
+.qc-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-gold);
+  outline: none;
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  padding: 8px 0 16px;
+  line-height: 1;
+}
+
+.qc-input::placeholder {
+  color: var(--color-gold);
+  opacity: 0.7;
+}
+
+.qc-input:focus {
+  border-bottom-color: var(--color-primary);
+}
+
+.qc-input:focus::placeholder {
+  opacity: 0.3;
+}
+
+/* ── Disclaimer ── */
+.qc-disclaimer {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  opacity: 0.55;
+  line-height: 1.7;
+  max-width: 340px;
+  margin-top: 8px;
+}
+
+.qc-disclaimer a {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* ── Send button ── */
+.qc-send-wrap {
+  position: absolute;
+  bottom: 64px;
+  right: 64px;
+}
+
+.qc-send-btn {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  transition: background 0.35s ease, color 0.35s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qc-send-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-cream);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .qc-section {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .qc-image {
+    flex: none;
+    height: 60vw;
+    min-height: 260px;
+  }
+
+  .qc-form-panel {
+    padding: 56px 32px 100px;
+  }
+
+  .qc-send-wrap {
+    bottom: 32px;
+    right: 32px;
+  }
+
+  .qc-send-btn {
+    width: 90px;
+    height: 90px;
+  }
+}

@@ -1,0 +1,165 @@
+/* ─── Section shell ─────────────────────────────────────────────── */
+.js-section {
+  background: var(--color-dark);
+  padding: 80px 0 100px;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* ─── Eyebrow text ──────────────────────────────────────────────── */
+.js-eyebrow {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(248, 244, 239, 0.55);
+  line-height: 1.9;
+  margin-bottom: 60px;
+}
+
+/* ─── Steps list ────────────────────────────────────────────────── */
+.js-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* ─── Individual step ───────────────────────────────────────────── */
+.js-step {
+  border-top: 1px solid rgba(200, 169, 106, 0.13);
+}
+
+.js-step:last-child {
+  border-bottom: 1px solid rgba(200, 169, 106, 0.13);
+}
+
+/* ─── Header row (clickable) ────────────────────────────────────── */
+.js-step-header {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px 60px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  gap: 0.18em;
+  position: relative;
+}
+
+/* ─── Giant title ───────────────────────────────────────────────── */
+.js-step-title {
+  font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(36px, 6.5vw, 96px);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  display: block;
+
+  /* Hover wipe: left of cursor = cream, right = gold */
+  background: linear-gradient(
+    to right,
+    var(--color-cream) 0%,
+    var(--color-cream) var(--cx, 0%),
+    var(--color-gold)  var(--cx, 0%),
+    var(--color-gold)  100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* No CSS transition — JS drives every frame */
+}
+
+/* Open step → solid cream override */
+.js-step--open .js-step-title {
+  background: var(--color-cream);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* ─── +/− toggle circle (superscript position) ──────────────────── */
+.js-step-toggle {
+  font-family: var(--font-sans);
+  font-size: clamp(10px, 0.9vw, 14px);
+  font-weight: 400;
+  color: rgba(200, 169, 106, 0.55);
+  width:  clamp(18px, 1.6vw, 26px);
+  height: clamp(18px, 1.6vw, 26px);
+  border: 1px solid rgba(200, 169, 106, 0.38);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.12em;   /* align with top of cap-height */
+  line-height: 1;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.js-step--open .js-step-toggle {
+  color: rgba(248, 244, 239, 0.7);
+  border-color: rgba(248, 244, 239, 0.35);
+}
+
+/* ─── Expandable body ───────────────────────────────────────────── */
+.js-step-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.js-step--open .js-step-body {
+  max-height: 700px;
+}
+
+/* Image thumbnail — centered */
+.js-step-img-wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+  animation: jsImgIn 0.55s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes jsImgIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.js-step-img-wrap img {
+  width:  clamp(160px, 14vw, 210px);
+  height: clamp(180px, 16vw, 250px);
+  object-fit: cover;
+  display: block;
+}
+
+/* Description text */
+.js-step-desc {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(248, 244, 239, 0.65);
+  line-height: 2;
+  text-align: center;
+  max-width: 640px;
+  margin: 32px auto 56px;
+  padding: 0 32px;
+  animation: jsDescIn 0.55s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes jsDescIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* ─── Mobile ────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .js-section { padding: 56px 0 72px; }
+  .js-eyebrow { margin-bottom: 36px; padding: 0 24px; }
+  .js-step-header { padding: 16px 24px; }
+.js-step-desc   { margin: 24px auto 40px; }
+}
