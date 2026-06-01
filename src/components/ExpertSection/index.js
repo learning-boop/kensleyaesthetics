@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import imgMain  from '../../data/images/six.webp';   // large center — gloved hand + tweezers
+import imgMain  from '../../data/images/export_touch.png';   // large center — gloved hand + tweezers
 import imgSmall from '../../data/images/seven.png';  // bottom-left  — gold scissors
 import './ExpertSection.css';
 

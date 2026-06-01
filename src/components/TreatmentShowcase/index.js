@@ -102,7 +102,7 @@ function ProgressDots({ activeIndex, onDotClick }) {
 }
 
 // ─── Image block ──────────────────────────────────────────────────
-function TreatmentImage({ treatment, scrollRef }) {
+function TreatmentImage({ treatment, isActive }) {
   return (
     <div className="ts-img-inner">
       <motion.img
@@ -110,28 +110,44 @@ function TreatmentImage({ treatment, scrollRef }) {
         alt={treatment.title}
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center center' }}
         initial={{ opacity: 0, scale: 1.06 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ root: scrollRef, amount: 0.5, once: true }}
-        transition={{ duration: 1.4, ease: E }}
+        animate={isActive ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.06 }}
+        transition={{ duration: 1.0, ease: E }}
         onError={(e) => { e.currentTarget.style.display = 'none'; }}
       />
     </div>
   );
 }
 
+// ─── Variants — shared across all content elements ────────────────
+const fadeUp = {
+  hidden: (delay = 0) => ({ opacity: 0, y: 18, transition: { duration: 0.2, ease: E } }),
+  visible: (delay = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.7, ease: E, delay } }),
+};
+
+const wordReveal = {
+  hidden: (delay = 0) => ({ y: '108%', transition: { duration: 0.2, ease: E } }),
+  visible: (delay = 0) => ({ y: '0%', transition: { duration: 1.0, ease: E, delay } }),
+};
+
+const scaleIn = {
+  hidden: { scaleX: 0, transition: { duration: 0.2 } },
+  visible: { scaleX: 1, transition: { duration: 0.9, ease: E, delay: 0.18 } },
+};
+
 // ─── Content block — word-by-word reveal ──────────────────────────
-function TreatmentContent({ treatment, scrollRef }) {
+function TreatmentContent({ treatment, isActive }) {
   const words = treatment.title.split(' ');
+  const state = isActive ? 'visible' : 'hidden';
 
   return (
     <div>
       {/* Number tag */}
       <motion.span
         className="ts-number-tag"
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ root: scrollRef, amount: 0.6, once: true }}
-        transition={{ duration: 0.7, ease: E, delay: 0.05 }}
+        custom={0}
+        variants={fadeUp}
+        initial="hidden"
+        animate={state}
       >
         {treatment.number}&ensp;&mdash;&ensp;Treatment
       </motion.span>
@@ -152,10 +168,10 @@ function TreatmentContent({ treatment, scrollRef }) {
           <span key={word + i} className="ts-title-word-row">
             <motion.span
               style={{ display: 'block' }}
-              initial={{ y: '108%' }}
-              whileInView={{ y: '0%' }}
-              viewport={{ root: scrollRef, amount: 0.6, once: true }}
-              transition={{ duration: 1.1, ease: E, delay: 0.12 + i * 0.1 }}
+              custom={0.06 + i * 0.08}
+              variants={wordReveal}
+              initial="hidden"
+              animate={state}
             >
               {word}
             </motion.span>
@@ -166,19 +182,18 @@ function TreatmentContent({ treatment, scrollRef }) {
       {/* Gold divider */}
       <motion.span
         className="ts-divider"
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ root: scrollRef, amount: 0.6, once: true }}
-        transition={{ duration: 1.0, ease: E, delay: 0.3 }}
+        variants={scaleIn}
+        initial="hidden"
+        animate={state}
       />
 
       {/* Description */}
       <motion.p
         className="ts-description"
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ root: scrollRef, amount: 0.6, once: true }}
-        transition={{ duration: 0.9, ease: E, delay: 0.34 }}
+        custom={0.22}
+        variants={fadeUp}
+        initial="hidden"
+        animate={state}
       >
         {treatment.description}
       </motion.p>
@@ -186,10 +201,10 @@ function TreatmentContent({ treatment, scrollRef }) {
       {/* Bullets */}
       <motion.ul
         className="ts-bullets"
-        initial={{ opacity: 0, y: 14 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ root: scrollRef, amount: 0.6, once: true }}
-        transition={{ duration: 0.8, ease: E, delay: 0.44 }}
+        custom={0.3}
+        variants={fadeUp}
+        initial="hidden"
+        animate={state}
       >
         {treatment.bullets.map((b) => (
           <li key={b} className="ts-bullet">
@@ -201,10 +216,10 @@ function TreatmentContent({ treatment, scrollRef }) {
 
       {/* Explore link */}
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ root: scrollRef, amount: 0.6, once: true }}
-        transition={{ duration: 0.7, ease: E, delay: 0.54 }}
+        custom={0.38}
+        variants={fadeUp}
+        initial="hidden"
+        animate={state}
       >
         <Link to={`/treatments/${treatment.slug}`} className="ts-explore-link">
           <span className="ts-explore-link__text">Explore Treatment</span>
@@ -248,12 +263,6 @@ function TreatmentShowcase() {
           currentLeftRef.current = targetLeftRef.current;
         }
         track.scrollLeft = currentLeftRef.current;
-
-        const idx = Math.round(currentLeftRef.current / track.clientWidth);
-        setActiveIndex((prev) => {
-          const next = Math.min(Math.max(idx, 0), TREATMENTS.length - 1);
-          return prev === next ? prev : next;
-        });
       }
       rafRef.current = requestAnimationFrame(tick);
     };
@@ -274,6 +283,10 @@ function TreatmentShowcase() {
       const scrollable = wrapper.offsetHeight - window.innerHeight;
       const progress   = Math.max(0, Math.min(1, -rect.top / scrollable));
       targetLeftRef.current = progress * (track.scrollWidth - track.clientWidth);
+
+      // Update activeIndex from intent immediately — no lerp lag on animation trigger
+      const targetIdx = Math.round(targetLeftRef.current / track.clientWidth);
+      setActiveIndex(Math.min(Math.max(targetIdx, 0), TREATMENTS.length - 1));
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -327,17 +340,17 @@ function TreatmentShowcase() {
 
         {/* Row 2: horizontal scroll — one panel per treatment */}
         <div ref={desktopScrollRef} className="ts-scroll-track">
-          {TREATMENTS.map((t) => (
+          {TREATMENTS.map((t, i) => (
             <div key={t.id} className={`ts-panel ts-panel--${t.variant}`}>
 
               {/* Left — content */}
               <div className="ts-panel-content">
-                <TreatmentContent treatment={t} scrollRef={desktopScrollRef} />
+                <TreatmentContent treatment={t} isActive={i === activeIndex} />
               </div>
 
               {/* Right — image */}
               <div className="ts-panel-image">
-                <TreatmentImage treatment={t} scrollRef={desktopScrollRef} />
+                <TreatmentImage treatment={t} isActive={i === activeIndex} />
               </div>
 
             </div>
@@ -386,17 +399,17 @@ function TreatmentShowcase() {
 
         {/* Horizontal scroll — same snap behavior */}
         <div ref={mobileScrollRef} className="ts-mobile-scroll-track">
-          {TREATMENTS.map((t) => (
+          {TREATMENTS.map((t, i) => (
             <div key={t.id} className="ts-mobile-panel">
 
               {/* Image top */}
               <div className="ts-mobile-panel-image">
-                <TreatmentImage treatment={t} scrollRef={mobileScrollRef} />
+                <TreatmentImage treatment={t} isActive={i === activeIndex} />
               </div>
 
               {/* Content below */}
               <div className="ts-mobile-panel-content">
-                <TreatmentContent treatment={t} scrollRef={mobileScrollRef} />
+                <TreatmentContent treatment={t} isActive={i === activeIndex} />
               </div>
 
             </div>

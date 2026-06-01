@@ -92,9 +92,9 @@
 .ep-img-main-wrap {
   position: absolute;
   left: 25%;
-  top: -4%;           /* slight bleed so parallax doesn't show gap */
+  top: 20%;           /* slight bleed so parallax doesn't show gap */
   width: 46%;
-  height: 108%;       /* extra height for parallax travel room */
+  height: 90%;       /* extra height for parallax travel room */
   z-index: 3;
   overflow: hidden;
   will-change: transform;

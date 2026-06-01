@@ -62,3 +62,18 @@
   color: var(--color-dark);
   opacity: 0.7;
 }
+
+/* ── Tablet ── */
+@media (max-width: 900px) {
+  .pillars { padding: 80px 0; }
+  .pillars__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Mobile ── */
+@media (max-width: 560px) {
+  .pillars { padding: 60px 0; }
+  .pillars__grid { grid-template-columns: 1fr; gap: 2px; }
+  .pillar-card { padding: 40px 28px; }
+  .pillar-card__title { font-size: 18px; }
+  .pillars__head { margin-bottom: 48px; }
+}

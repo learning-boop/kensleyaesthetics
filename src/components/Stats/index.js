@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import serviceImgTwo from '../../data/images/service_img_two.png';
+import serviceImg from '../../data/images/service_img.png';
 import './Stats.css';
 
 function Stats() {
@@ -9,14 +11,12 @@ function Stats() {
       <div className="si-left">
         <div className="si-left-img">
           <img
-            src="/assets/collagen_restore.png"
+            src={serviceImgTwo}
             alt="Treatment"
-            className="si-img"
+            className="si-img_left"
             onError={(e) => { e.currentTarget.style.display = 'none'; }}
           />
-          <div className="si-img-placeholder" />
         </div>
-        <div className="si-left-bg" />
       </div>
 
       {/* ── Gap is handled by CSS gap property ── */}
@@ -24,14 +24,11 @@ function Stats() {
       {/* ── Right half: full image cover ── */}
       <div className="si-right">
         <img
-          src="/assets/face_sculpt.png"
+          src={serviceImg}
           alt="Treatment"
           className="si-img"
           onError={(e) => { e.currentTarget.style.display = 'none'; }}
         />
-        <div className="si-img-placeholder" />
-        {/* Left-edge vignette so the center text stays legible */}
-        <div className="si-right-vignette" />
       </div>
 
       {/* ── Services text — absolutely centered over the full section ── */}

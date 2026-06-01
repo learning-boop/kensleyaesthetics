@@ -65,3 +65,26 @@
   color: var(--color-dark);
   opacity: 0.7;
 }
+
+/* ── Tablet ── */
+@media (max-width: 900px) {
+  .process { padding: 80px 0; }
+  .process__steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 24px;
+  }
+  .process__steps::before { display: none; }
+  .process__head { margin-bottom: 52px; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 560px) {
+  .process { padding: 60px 0; }
+  .process__steps {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .step { padding: 0 8px; }
+  .step__number { width: 48px; height: 48px; font-size: 17px; }
+  .step__title { font-size: 16px; }
+}

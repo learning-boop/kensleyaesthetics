@@ -71,3 +71,17 @@
   color: var(--color-rose);
   letter-spacing: 1px;
 }
+
+/* ── Tablet ── */
+@media (max-width: 900px) {
+  .testimonials { padding: 80px 0; }
+  .testimonials__grid { grid-template-columns: 1fr; gap: 16px; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 560px) {
+  .testimonials { padding: 60px 0; }
+  .testimonial-card { padding: 32px 24px; }
+  .testimonial-card__text { font-size: 14px; }
+  .testimonials__head { margin-bottom: 48px; }
+}

@@ -1,61 +1,51 @@
 /* ═══════════════════════════════════════════════════════════
    SPLIT-IMAGE SERVICES SECTION
-   Left half  — outer 50% image | inner 50% dark bg
-   Right half — full image cover
-   Center     — "Our Services" text spanning entire section
+   Left  — dark bg + floating inset card image (lower-center)
+   Right — full-bleed image covering right half
+   Center — text spanning full section width, on top
    ═══════════════════════════════════════════════════════════ */
 
 .si-root {
   position: relative;
-  display: flex;
-  height: 92vh;
-  min-height: 560px;
-  gap: 10px;          /* little gap between left and right halves */
-  background: #f5f0e8;
+  height: 110vh;
+  min-height: 620px;
+  background: #F5F0E8;
   overflow: hidden;
 }
 
-/* ── LEFT HALF ──────────────────────────────────────────── */
+/* ── LEFT HALF — dark bg, holds the inset card ────────── */
 .si-left {
-  flex: 1;            /* 50% of section */
-  display: flex;
-  overflow: hidden;
-}
-
-/* Outer 50% of left half = image */
-.si-left-img {
-  width: 50%;
-  flex-shrink: 0;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Inner 50% of left half = light background */
-.si-left-bg {
-  flex: 1;
-  background: #ede8dc;
-}
-
-/* ── RIGHT HALF ─────────────────────────────────────────── */
-.si-right {
-  flex: 1;            /* 50% of section */
-  position: relative;
-  overflow: hidden;
-}
-
-/* Left-edge gradient on right image so center text is legible */
-.si-right-vignette {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    to right,
-    rgba(245, 240, 232, 0.70) 0%,
-    transparent 38%
-  );
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 1;
 }
 
-/* ── SHARED IMAGE STYLES ────────────────────────────────── */
+/* Floating inset card — sits in the lower-center of the left area */
+.si-left-img {
+  position: absolute;
+  left: 40%;        /* 40% of left-half = ~20% of section from left */
+  top: 22%;
+  width: 58%;       /* 58% of left-half = ~29% of section */
+  bottom: 6%;       /* breathing space at the bottom */
+  overflow: hidden;
+}
+
+/* ── RIGHT HALF — full-bleed image ───────────────────── */
+.si-right {
+  position: absolute;
+  right: 0;
+  top: 5%;          /* breathing space at the top */
+  bottom: 5%;       /* breathing space at the bottom */
+  width: 48%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ── IMAGE STYLES ────────────────────────────────────── */
+/* Right image — full bleed */
 .si-img {
   position: absolute;
   inset: 0;
@@ -66,15 +56,18 @@
   display: block;
 }
 
-.si-img-placeholder {
+/* Left inset card image — fills its card container */
+.si-img_left {
   position: absolute;
   inset: 0;
-  background: #e8e2d6;
-  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
-/* ── CENTER TEXT ────────────────────────────────────────── */
-/* Sits at the exact horizontal + vertical center of the section */
+/* ── CENTER TEXT ─────────────────────────────────────── */
 .si-center {
   position: absolute;
   top: 50%;
@@ -85,7 +78,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
   white-space: nowrap;
 }
 
@@ -106,7 +98,7 @@
   line-height: 0.88;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #0c0f0d;
+  color: black;
   margin: 0 0 28px 0;
 }
 
@@ -114,7 +106,7 @@
   width: 40px;
   height: 1px;
   background: #c9aa71;
-  opacity: 0.45;
+  opacity: 0.5;
   margin-bottom: 28px;
 }
 
@@ -126,9 +118,9 @@
   font-size: 9px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #0c0f0d;
+  color: black;
   text-decoration: none;
-  border-bottom: 1px solid rgba(12, 15, 13, 0.25);
+  border-bottom: 1px solid rgba(245, 240, 232, 0.3);
   padding-bottom: 4px;
   transition: color 0.4s ease, border-color 0.4s ease;
 }
@@ -148,40 +140,56 @@
   transform: translateX(4px);
 }
 
-/* ── TABLET ─────────────────────────────────────────────── */
+/* ── TABLET ──────────────────────────────────────────── */
 @media (max-width: 1080px) {
   .si-root { height: 80vh; }
   .si-title { font-size: clamp(52px, 8vw, 96px); }
+  .si-left-img { left: 36%; top: 28%; width: 62%; }
 }
 
-/* ── MOBILE ─────────────────────────────────────────────── */
+/* ── MOBILE ──────────────────────────────────────────── */
 @media (max-width: 680px) {
   .si-root {
-    height: auto;
-    flex-direction: column;
-    gap: 6px;
+    height: 85vw;
+    min-height: 380px;
+    padding: 0;
   }
 
+  /* left half covers full width as background layer */
   .si-left {
-    height: 45vw;
+    left: 0; top: 0; bottom: 0;
+    width: 100%;
   }
 
+  /* inset card — lower-left quadrant */
+  .si-left-img {
+    left: 4%;
+    top: 22%;
+    width: 36%;
+    bottom: 10%;
+  }
+
+  /* right image — right 55%, inset from edges */
   .si-right {
-    height: 60vw;
+    right: 0;
+    top: 6%;
+    bottom: 6%;
+    width: 55%;
   }
 
+  /* text — allow wrapping, centered */
   .si-center {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    text-align: center;
-    padding: 48px 24px 52px;
-    background: #ede8dc;
     white-space: normal;
+    width: 100%;
+    padding: 0 12px;
+    text-align: center;
   }
 
   .si-title {
-    font-size: clamp(48px, 14vw, 72px);
+    font-size: clamp(38px, 11vw, 58px);
+    margin: 0 0 16px 0;
   }
+
+  .si-eyebrow { margin-bottom: 12px; }
+  .si-divider { margin-bottom: 16px; }
 }

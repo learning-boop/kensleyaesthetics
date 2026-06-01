@@ -117,10 +117,6 @@ function Header() {
               className={`nav-overlay__treatment-img${hovered === t.num ? ' nav-overlay__treatment-img--visible' : ''}`}
             >
               <img src={t.image} alt={t.label} className="nav-overlay__treatment-photo" />
-              <div className="nav-overlay__treatment-label">
-                <span className="nav-overlay__treatment-img-num">{t.num}</span>
-                <span className="nav-overlay__treatment-img-name">{t.label}</span>
-              </div>
             </div>
           ))}
 

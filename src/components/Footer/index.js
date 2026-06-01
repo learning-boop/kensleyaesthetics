@@ -9,8 +9,7 @@ function Footer() {
 
         {/* ── Brand display ── */}
         <div className="ft-brand-block">
-          <h2 className="ft-brand-name">
-            Creative <span>Touch</span> Renova
+          <h2 className="ft-brand-name"> Renova
           </h2>
           <p className="ft-brand-tagline">
             Artistry meets expertise &mdash; every treatment, a masterpiece crafted just for you

@@ -6,7 +6,7 @@ import imgThree from '../../data/images/three.jpg';
 import imgFour  from '../../data/images/four.png';
 import imgFive  from '../../data/images/five.png';
 import imgSix   from '../../data/images/six.webp';
-import imgEight from '../../data/images/eight.jpg';
+import imgEight from '../../data/images/eight.png';
 
 import './JourneySteps.css';
 

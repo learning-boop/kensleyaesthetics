@@ -23,7 +23,7 @@
 /* ── Background model image — sits behind all content ── */
 .hero__bg-img {
   position: absolute;
-  inset: 0;
+  bottom: -60px;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -111,6 +111,34 @@
   text-transform: uppercase;
   color: var(--color-dark);
   opacity: 0.55;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+    padding-top: 64px;
+    align-items: flex-end;
+    padding-bottom: 48px;
+  }
+
+  .hero__title {
+    font-size: clamp(52px, 16vw, 80px);
+    letter-spacing: -0.5px;
+  }
+
+  .hero__center {
+    gap: 32px;
+    padding: 0 20px;
+  }
+
+  .hero__bg-img {
+    bottom: 0;
+    height: 90%;
+    object-position: center bottom;
+  }
+
+  .hero__scroll-line { height: 60px; }
 }
 
 /* ── Animation ── */

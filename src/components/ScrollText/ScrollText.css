@@ -1,6 +1,6 @@
 /* ─── SCROLL TEXT ────────────────────────────────────────── */
 .scroll-text {
-  height: 250vh;
+  height: 300vh;
   background-color: var(--color-cream);
   position: relative;
 }
@@ -38,7 +38,7 @@
   text-transform: uppercase;
   letter-spacing: -0.01em;
   white-space: nowrap;
-  opacity: 0.15;
+  opacity: 0;
   will-change: opacity, transform;
 }
 
@@ -51,6 +51,8 @@
   justify-content: center;
   z-index: 2;
   pointer-events: none;
+  opacity: 0;
+  will-change: opacity, transform;
 }
 
 .scroll-text__doctor-img {
@@ -91,4 +93,32 @@
   text-align: right;
   line-height: 1.8;
   z-index: 3;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .scroll-text { height: 260vh; }
+
+  .scroll-text__word {
+    font-size: clamp(52px, 15vw, 110px);
+  }
+
+  .scroll-text__doctor-img {
+    height: 80vh;
+  }
+
+  .scroll-text__para {
+    left: 20px;
+    bottom: 28px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    max-width: 140px;
+  }
+
+  .scroll-text__label {
+    right: 20px;
+    top: 28px;
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
 }

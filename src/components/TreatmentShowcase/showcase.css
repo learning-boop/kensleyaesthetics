@@ -459,16 +459,38 @@
 }
 
 .ts-mobile-panel-content {
-  padding: 32px 24px 28px;
+  padding: 28px 20px 24px;
   flex: 1;
 }
 
 /* Mobile footer */
 .ts-mobile-footer {
   border-top: 1px solid var(--sc-border);
-  padding: 14px 24px 20px;
+  padding: 14px 20px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
+}
+
+/* ── Small-mobile typography overrides ─────────────── */
+@media (max-width: 480px) {
+  /* Treatment title inside the panel */
+  .ts-mobile-panel-content .ts-title-wrap {
+    font-size: clamp(40px, 12vw, 64px) !important;
+  }
+
+  .ts-number-tag    { font-size: 9px; margin-bottom: 16px; }
+  .ts-description   { font-size: 13px; line-height: 1.8; }
+  .ts-explore-link__text { font-size: 9px; }
+
+  /* Keep the image panel from being too cramped */
+  .ts-mobile-panel-image { height: 46svh; }
+
+  /* Appointment button in mobile header */
+  .ts-appt-btn {
+    padding: 9px 16px;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
 }
