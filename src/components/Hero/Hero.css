@@ -1,7 +1,7 @@
 /* ─── HERO ───────────────────────────────────────────────── */
 .hero {
   min-height: 100vh;
-  background-color: var(--color-cream);
+  background-color: #B8A898;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,8 +20,8 @@
   background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
 }
 
-/* ── Background model image — sits behind all content ── */
-.hero__bg-img {
+/* ── Background model video — sits behind all content ── */
+.hero__bg-video {
   position: absolute;
   bottom: -60px;
   width: 100%;
@@ -132,7 +132,7 @@
     padding: 0 20px;
   }
 
-  .hero__bg-img {
+  .hero__bg-video {
     bottom: 0;
     height: 90%;
     object-position: center bottom;

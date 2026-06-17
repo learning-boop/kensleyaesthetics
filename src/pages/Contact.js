@@ -118,7 +118,7 @@ function Contact() {
               <div className="contact-info__block">
                 <p className="section-label">Location</p>
                 <p className="contact-info__text">
-                  Creative Touch Renova<br />
+                  Creative Touch<br />
                   London, United Kingdom
                 </p>
               </div>

@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import img1 from '../../data/images/one.jpg';
 import img2 from '../../data/images/two.png';
-import img3 from '../../data/images/three.jpg';
+import img3 from '../../data/images/three.png';
 import img4 from '../../data/images/four.png';
 import img5 from '../../data/images/five.png';
 import './BeforeAfter.css';

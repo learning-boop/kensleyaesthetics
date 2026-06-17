@@ -1,31 +1,27 @@
 /* ═══════════════════════════════════════════════════════════════
-   TREATMENT SHOWCASE — Design tokens
-   Change these variables to retheme the entire section.
+   TREATMENT SHOWCASE — tokens
    ═══════════════════════════════════════════════════════════════ */
-.ts-root {
-  --sc-bg:      #f5f0e8;
-  --sc-surface: #ede8dc;
-  --sc-text:    #0c0f0d;
-  --sc-muted:   rgba(12, 15, 13, 0.55);
-  --sc-dim:     rgba(12, 15, 13, 0.22);
-  --sc-accent:  #c9aa71;
-  --sc-border:  rgba(12, 15, 13, 0.10);
-  --sc-ease:    cubic-bezier(0.76, 0, 0.24, 1);
-}
 
-/* ── Root ───────────────────────────────────── */
 .ts-root {
+  --sc-bg: #f5f0e8;
+  --sc-text: #0c0f0d;
+  --sc-dim: rgba(12, 15, 13, 0.22);
+  --sc-accent: #c9aa71;
+  --sc-border: rgba(12, 15, 13, 0.10);
+  --sc-ease: cubic-bezier(0.76, 0, 0.24, 1);
+
   background-color: var(--sc-bg);
   color: var(--sc-text);
-  overflow: clip; /* clip without creating a scroll container — keeps sticky working */
   position: relative;
   width: 100%;
+  height: var(--showcase-height);
+  overflow: visible;
 }
 
 /* ═══════════════════════════════════════════
-   DESKTOP — 3 rows:
-   [header 68px] [scroll panels flex-1] [footer 52px]
+   DESKTOP
    ═══════════════════════════════════════════ */
+
 .ts-desktop {
   position: sticky;
   top: 0;
@@ -33,11 +29,15 @@
   flex-direction: column;
   height: 100vh;
   min-height: 640px;
+  overflow: hidden;
 }
 
-.ts-mobile-layout { display: none; }
+.ts-mobile-layout {
+  display: none;
+}
 
-/* ── Header strip ───────────────────────────── */
+/* Header */
+
 .ts-header {
   display: flex;
   align-items: center;
@@ -46,10 +46,10 @@
   height: 68px;
   flex-shrink: 0;
   border-bottom: 1px solid var(--sc-border);
-  z-index: 2;
 }
 
-/* ── Brand ──────────────────────────────────── */
+/* Brand */
+
 .ts-brand {
   display: flex;
   flex-direction: column;
@@ -76,7 +76,8 @@
   font-weight: 300;
 }
 
-/* ── Appointment button ─────────────────────── */
+/* Book button */
+
 .ts-appt-btn {
   display: inline-flex;
   align-items: center;
@@ -107,14 +108,13 @@
   transform: translateX(4px);
 }
 
-/* ═══════════════════════════════════════════
-   HORIZONTAL SCROLL CONTAINER
-   Each treatment is a full-width snap panel
-   ═══════════════════════════════════════════ */
+/* Scroll track */
+
 .ts-scroll-track {
   flex: 1;
   display: flex;
-  overflow-x: scroll; /* scrollLeft is set programmatically; no user snap */
+  overflow-x: scroll;
+  overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -123,7 +123,8 @@
   display: none;
 }
 
-/* ── Single treatment panel ─────────────────── */
+/* Panel */
+
 .ts-panel {
   min-width: 100%;
   height: 100%;
@@ -131,44 +132,86 @@
   flex-shrink: 0;
 }
 
-/* Left — text content */
 .ts-panel-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 52px 60px 52px 52px;
   border-right: 1px solid var(--sc-border);
   overflow: hidden;
-  position: relative;
+  padding: 0 clamp(28px, 5vw, 80px);
 }
 
-/* Right — portrait image */
+.ts-desktop-content-inner {
+  width: 100%;
+  max-width: 760px;
+}
+
 .ts-panel-image {
   width: 42%;
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
+  background: var(--sc-bg);
+}
+
+/* Panel variants */
+
+.ts-panel--v1 .ts-panel-image {
+  width: 42%;
+}
+
+.ts-panel--v2 {
+  flex-direction: row-reverse;
+}
+
+.ts-panel--v2 .ts-panel-image {
+  width: 42%;
+}
+
+.ts-panel--v2 .ts-panel-content {
+  border-right: none;
+  border-left: 1px solid var(--sc-border);
+}
+
+.ts-panel--v3 .ts-panel-image {
+  width: 62%;
+}
+
+.ts-panel--v3 .ts-panel-content {
+  justify-content: flex-end;
+  padding: 0 clamp(28px, 5vw, 80px) 72px;
+}
+
+.ts-panel--v4 {
+  flex-direction: row-reverse;
+}
+
+.ts-panel--v4 .ts-panel-image {
+  width: 62%;
+}
+
+.ts-panel--v4 .ts-panel-content {
+  justify-content: flex-start;
+  padding: 72px clamp(28px, 5vw, 80px) 0;
+  border-right: none;
+  border-left: 1px solid var(--sc-border);
 }
 
 /* ═══════════════════════════════════════════
-   CONTENT TYPOGRAPHY
+   TYPOGRAPHY
    ═══════════════════════════════════════════ */
-.ts-number-tag {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 10px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--sc-accent);
-  display: block;
-  margin-bottom: 22px;
-}
 
 .ts-title-wrap {
-  margin-bottom: 22px;
+  margin-bottom: 14px;
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: clamp(40px, 4vw, 80px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--sc-text);
 }
 
-/* Overflow-hidden row per word — creates masked reveal effect */
 .ts-title-word-row {
   display: block;
   overflow: hidden;
@@ -178,8 +221,7 @@
 .ts-divider {
   width: 40px;
   height: 1px;
-  background: var(--sc-accent);
-  opacity: 0.4;
+  background: var(--sc-text);
   margin-bottom: 22px;
   transform-origin: left center;
   display: block;
@@ -187,11 +229,11 @@
 
 .ts-description {
   font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(18px, 1.37vw, 21px);
   line-height: 1.95;
   color: var(--sc-text);
-  max-width: 360px;
+  max-width: 680px;
   margin-bottom: 22px;
-  font-size: clamp(14px, 1.05vw, 16px);
 }
 
 .ts-bullets {
@@ -212,19 +254,17 @@
 .ts-bullet__dot {
   width: 16px;
   height: 1px;
-  background: var(--sc-accent);
-  opacity: 0.55;
+  background: var(--sc-text);
   flex-shrink: 0;
 }
 
 .ts-bullet__text {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: 0.1em;
   color: var(--sc-text);
 }
 
-/* Explore link */
 .ts-explore-link {
   display: inline-flex;
   align-items: center;
@@ -233,11 +273,13 @@
   transition: opacity 0.4s ease;
 }
 
-.ts-explore-link:hover { opacity: 0.65; }
+.ts-explore-link:hover {
+  opacity: 0.65;
+}
 
 .ts-explore-link__text {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 9.5px;
+  font-size: 12px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--sc-text);
@@ -248,76 +290,28 @@
   font-size: 14px;
 }
 
-/* ═══════════════════════════════════════════
-   IMAGE
-   ═══════════════════════════════════════════ */
+/* Image */
+
 .ts-img-inner {
   position: absolute;
   inset: 0;
-}
-
-.ts-img-inner img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+}
+
+.ts-treatment-img,
+.ts-img-inner img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   object-position: center center;
   display: block;
 }
 
-/* ═══════════════════════════════════════════
-   PANEL LAYOUT VARIANTS
-   v1: content left (58%), image right (42%)   — centred
-   v2: image left (42%), content right (58%)   — centred
-   v3: content left (38%), image right (62%)   — content bottom
-   v4: image left (62%), content right (38%)   — content top
-   ═══════════════════════════════════════════ */
+/* Progress dots */
 
-/* v1 — default, already defined above */
-.ts-panel--v1 .ts-panel-image { width: 42%; }
-
-/* v2 — flip order */
-.ts-panel--v2 {
-  flex-direction: row-reverse;
-}
-.ts-panel--v2 .ts-panel-image { width: 42%; }
-.ts-panel--v2 .ts-panel-content {
-  border-right: none;
-  border-left: 1px solid var(--sc-border);
-}
-
-/* v3 — image dominant right, content pinned to bottom */
-.ts-panel--v3 .ts-panel-image { width: 62%; }
-.ts-panel--v3 .ts-panel-content {
-  justify-content: flex-end;
-  padding-bottom: 72px;
-}
-
-/* v4 — image dominant left, content pinned to top */
-.ts-panel--v4 {
-  flex-direction: row-reverse;
-}
-.ts-panel--v4 .ts-panel-image { width: 62%; }
-.ts-panel--v4 .ts-panel-content {
-  justify-content: flex-start;
-  padding-top: 72px;
-  border-right: none;
-  border-left: 1px solid var(--sc-border);
-}
-
-/* ═══════════════════════════════════════════
-   FOOTER BAR — progress + counter
-   ═══════════════════════════════════════════ */
-.ts-footer-bar {
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 52px;
-  border-top: 1px solid var(--sc-border);
-  flex-shrink: 0;
-}
-
-/* Expanding-dot progress indicator */
 .ts-progress {
   display: flex;
   align-items: center;
@@ -328,10 +322,10 @@
   height: 3px;
   border-radius: 2px;
   cursor: pointer;
-  transition: width 0.45s var(--sc-ease), background 0.45s ease;
   border: none;
-  background: var(--sc-dim);
   padding: 0;
+  background: var(--sc-dim);
+  transition: width 0.4s var(--sc-ease), background 0.4s ease;
 }
 
 .ts-prog-dot--inactive {
@@ -339,7 +333,7 @@
 }
 
 .ts-prog-dot--inactive:hover {
-  background: var(--sc-muted);
+  background: rgba(12, 15, 13, 0.4);
 }
 
 .ts-prog-dot--active {
@@ -347,151 +341,247 @@
   background: var(--sc-accent);
 }
 
-/* Counter */
-.ts-counter {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.ts-counter__cur {
-  font-family: 'Cormorant', Georgia, serif;
-  font-size: 24px;
-  font-weight: 300;
-  color: var(--sc-accent);
-  line-height: 1;
-}
-
-.ts-counter__sep {
-  width: 28px;
-  height: 1px;
-  background: var(--sc-border);
-}
-
-.ts-counter__tot {
-  font-family: 'Cormorant', Georgia, serif;
-  font-size: 13px;
-  color: var(--sc-dim);
-  line-height: 1;
-}
-
-/* Scroll hint text */
-.ts-scroll-hint {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 9px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--sc-dim);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.ts-scroll-hint__line {
-  width: 20px;
-  height: 1px;
-  background: var(--sc-dim);
+.ts-desktop-dots {
+  position: absolute;
+  left: 52px;
+  bottom: 32px;
+  z-index: 10;
 }
 
 /* ═══════════════════════════════════════════
    TABLET
    ═══════════════════════════════════════════ */
+
 @media (max-width: 1080px) {
-  .ts-panel-image { width: 38%; }
-  .ts-panel-content { padding: 44px 40px 44px 40px; }
-  .ts-header, .ts-footer-bar { padding: 0 36px; }
+  .ts-panel-image,
+  .ts-panel--v1 .ts-panel-image,
+  .ts-panel--v2 .ts-panel-image {
+    width: 40%;
+  }
+
+  .ts-panel--v3 .ts-panel-image,
+  .ts-panel--v4 .ts-panel-image {
+    width: 56%;
+  }
+
+  .ts-header {
+    padding: 0 36px;
+  }
+
+  .ts-desktop-dots {
+    left: 36px;
+  }
+
+  .ts-panel-content {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .ts-panel--v3 .ts-panel-content {
+    padding: 0 40px 72px;
+  }
+
+  .ts-panel--v4 .ts-panel-content {
+    padding: 72px 40px 0;
+  }
 }
 
 /* ═══════════════════════════════════════════
    MOBILE ≤ 860px
-   Each panel stacks: image on top, content below
    ═══════════════════════════════════════════ */
+
 @media (max-width: 860px) {
-  /* Override the JS-set tall height — mobile uses swipe, not scroll-drive */
   .ts-root {
     height: auto !important;
+    min-height: 100svh;
     overflow: hidden;
   }
-  .ts-desktop { display: none; }
+
+  .ts-desktop {
+    display: none;
+  }
+
   .ts-mobile-layout {
     display: flex;
     flex-direction: column;
+    height: 100svh;
     min-height: 100svh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ts-mobile-scroll-track {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    flex: 1;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .ts-mobile-scroll-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ts-mobile-panel {
+    min-width: 100%;
+    width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    overflow: hidden;
+  }
+
+  .ts-mobile-panel-image {
+    width: 100%;
+    height: 42svh;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--sc-bg);
+  }
+
+  .ts-mobile-panel-content {
+    flex: 1;
+    padding: 18px 20px 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .ts-mobile-content {
+    padding-bottom: 16px;
+  }
+
+  .ts-mobile-title {
+    font-family: 'Cormorant', Georgia, serif;
+    font-size: clamp(26px, 7vw, 38px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--sc-text);
+    line-height: 1.05;
+    margin: 0 0 10px 0;
+  }
+
+  .ts-mobile-panel-content .ts-divider {
+    margin-bottom: 12px;
+  }
+
+  .ts-mobile-panel-content .ts-description {
+    font-size: 13px;
+    line-height: 1.75;
+    max-width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .ts-mobile-panel-content .ts-bullets {
+    margin-bottom: 14px;
+    gap: 6px;
+  }
+
+  .ts-mobile-panel-content .ts-bullet__text {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+
+  .ts-mobile-panel-content .ts-explore-link__text {
+    font-size: 10px;
+  }
+
+  /* Swipe hint */
+
+  .ts-swipe-hint {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 20;
+  }
+
+  .ts-swipe-hint--visible {
+    opacity: 1;
+  }
+
+  .ts-swipe-hint__track {
+    width: 48px;
+    height: 24px;
+    border: 1.5px solid var(--sc-accent);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ts-swipe-hint__dot {
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--sc-accent);
+    animation: ts-swipe-slide 1.1s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+  }
+
+  @keyframes ts-swipe-slide {
+    0%   { left: 6px;  opacity: 1; }
+    60%  { left: 30px; opacity: 1; }
+    80%  { left: 30px; opacity: 0; }
+    81%  { left: 6px;  opacity: 0; }
+    100% { left: 6px;  opacity: 1; }
+  }
+
+  .ts-swipe-hint__label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sc-accent);
+  }
+
+  .ts-mobile-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-top: 1px solid var(--sc-border);
+    flex-shrink: 0;
+    background: var(--sc-bg);
   }
 }
 
-/* Mobile header */
-.ts-mobile-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 24px;
-  border-bottom: 1px solid var(--sc-border);
-  flex-shrink: 0;
-}
+/* ═══════════════════════════════════════════
+   SMALL MOBILE
+   ═══════════════════════════════════════════ */
 
-/* Mobile scroll track — same horizontal snap */
-.ts-mobile-scroll-track {
-  display: flex;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  flex: 1;
-  scrollbar-width: none;
-}
-
-.ts-mobile-scroll-track::-webkit-scrollbar { display: none; }
-
-/* Each mobile panel stacks image + content vertically */
-.ts-mobile-panel {
-  min-width: 100%;
-  display: flex;
-  flex-direction: column;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  flex-shrink: 0;
-}
-
-.ts-mobile-panel-image {
-  height: 50svh;
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.ts-mobile-panel-content {
-  padding: 28px 20px 24px;
-  flex: 1;
-}
-
-/* Mobile footer */
-.ts-mobile-footer {
-  border-top: 1px solid var(--sc-border);
-  padding: 14px 20px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-}
-
-/* ── Small-mobile typography overrides ─────────────── */
-@media (max-width: 480px) {
-  /* Treatment title inside the panel */
-  .ts-mobile-panel-content .ts-title-wrap {
-    font-size: clamp(40px, 12vw, 64px) !important;
+@media (max-width: 420px) {
+  .ts-mobile-panel-image {
+    height: 39svh;
   }
 
-  .ts-number-tag    { font-size: 10px; margin-bottom: 16px; }
-  .ts-description   { font-size: 15px; line-height: 1.8; }
-  .ts-bullet__text  { font-size: 13px; }
-  .ts-explore-link__text { font-size: 10px; }
+  .ts-mobile-panel-content {
+    padding: 16px 18px 10px;
+  }
 
-  /* Keep the image panel from being too cramped */
-  .ts-mobile-panel-image { height: 46svh; }
+  .ts-mobile-panel-content .ts-description {
+    font-size: 12.5px;
+    line-height: 1.65;
+  }
 
-  /* Appointment button in mobile header */
-  .ts-appt-btn {
-    padding: 9px 16px;
-    font-size: 8px;
-    letter-spacing: 1.5px;
+  .ts-mobile-panel-content .ts-bullet__text {
+    font-size: 11px;
   }
 }

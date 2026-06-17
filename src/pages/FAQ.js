@@ -14,7 +14,7 @@ const faqs = [
       },
       {
         q: 'Are your practitioners medically qualified?',
-        a: 'Yes. All treatments at Creative Touch Renova are performed or overseen by medically qualified practitioners with specialist training in aesthetic medicine.',
+        a: 'Yes. All treatments at Creative Touch are performed or overseen by medically qualified practitioners with specialist training in aesthetic medicine.',
       },
       {
         q: 'How do I know which treatment is right for me?',

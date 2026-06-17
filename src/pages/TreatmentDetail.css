@@ -8,9 +8,9 @@
   background-color: #080808;
 }
 
-/* Light version: warm cream surrounds the image */
+/* Light version: warm ivory background */
 .td-hero--light {
-  background-color: #f0e8dc;
+  background-color: #f5ede3;
 }
 
 /* ── Background image ── */
@@ -30,7 +30,7 @@
   z-index: 1;
 }
 
-/* ── Light overlay for Smooth Lines — no extra tint needed ── */
+/* ── Light theme — no overlay needed ── */
 .td-hero--light .td-hero__overlay {
   background: transparent;
 }
@@ -50,13 +50,13 @@
   line-height: 1;
   white-space: nowrap;
   pointer-events: none;
-  /* default dark-theme colour — muted dusty rose like reference */
+  /* default dark-theme colour */
   color: rgba(196, 170, 148, 0.78);
 }
 
-/* Light theme — deep teal, soft opacity */
+/* Light theme — solid dark brown for readability */
 .td-hero--light .td-hero__title {
-  color: rgba(18, 60, 63, 0.62);
+  color: rgba(42, 28, 14, 0.72);
 }
 
 /* ── Centred tagline ── */
@@ -75,8 +75,9 @@
   white-space: nowrap;
 }
 
+/* Light theme — near-solid dark for small tracked text */
 .td-hero--light .td-hero__tagline {
-  color: rgba(18, 60, 63, 0.65);
+  color: #2a1c0e;
 }
 
 /* ── Bottom-right description text ── */
@@ -94,8 +95,9 @@
   color: rgba(232, 224, 210, 0.68);
 }
 
+/* Light theme — solid dark for small body text */
 .td-hero--light .td-hero__desc {
-  color: rgba(18, 60, 63, 0.65);
+  color: #3a2a1a;
 }
 
 /* ── Bottom-left scroll indicator ── */
@@ -114,7 +116,7 @@
 }
 
 .td-hero--light .td-hero__scroll {
-  border-color: rgba(18, 60, 63, 0.32);
+  border-color: rgba(42, 28, 14, 0.4);
 }
 
 .td-hero__scroll-arrow {
@@ -124,7 +126,7 @@
 }
 
 .td-hero--light .td-hero__scroll-arrow {
-  color: rgba(18, 60, 63, 0.6);
+  color: #2a1c0e;
 }
 
 /* ── Content image in the body section ── */

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTreatments } from '../../context/TreatmentsContext';
+import { useAppointment } from '../../context/AppointmentContext';
 import './Header.css';
 
 const MAIN_TREATMENTS = [
@@ -27,6 +28,7 @@ function Header() {
   const [activeMain, setActiveMain] = useState(null);
   const navigate                  = useNavigate();
   const { treatments }            = useTreatments();
+  const { openDrawer }            = useAppointment();
 
   const close = () => { setOpen(false); setActiveMain(null); };
   const go    = (href) => { close(); navigate(href); };
@@ -51,9 +53,9 @@ function Header() {
           <Link to="/" className="header__logo" onClick={close}>
             <img src="/assets/renova_logo_withoutbg.png" alt="Creative Touch Renova" className="header__logo-img" />
           </Link>
-          <Link to="/contact" className="header__book" onClick={close}>
+          <button className="header__book" onClick={() => { close(); openDrawer(); }}>
             Book an Appointment
-          </Link>
+          </button>
         </div>
       </header>
 
@@ -130,11 +132,11 @@ function Header() {
 
         </div>
 
-        {/* ── RIGHT: Image panel ── */}
-        <div className="nav-overlay__image-panel">
           <button className="nav-overlay__close" onClick={close} aria-label="Close menu">
             ✕
           </button>
+        {/* ── RIGHT: Image panel ── */}
+        <div className="nav-overlay__image-panel">
           <img
             src={panelImage}
             alt="Treatment"

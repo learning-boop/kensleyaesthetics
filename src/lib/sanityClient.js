@@ -7,10 +7,30 @@ export const client = createClient({
   useCdn: true,
 })
 
-export const TREATMENTS_QUERY = `*[_type == "treatment"] | order(num asc) {
+export const MAIN_TREATMENTS_QUERY = `*[_type == "mainTreatment"] | order(num asc) {
   num,
   "slug": slug.current,
   label,
+  tagline,
+  description,
+  "image": image.asset->url,
+  benefits
+}`
+
+export const BEFORE_AFTER_QUERY = `*[_type == "beforeAfter"] | order(rank asc) {
+  rank,
+  label,
+  category,
+  "beforeImage": beforeImage.asset->url,
+  "afterImage": afterImage.asset->url,
+  "treatmentSlug": treatment->slug.current,
+  "treatmentLabel": treatment->label,
+}`
+
+export const TREATMENTS_QUERY = `*[_type == "treatment"] | order(num asc) {
+  num,
+  "slug": slug.current,
+  label, 
   tagline,
   description,
   "image": image.asset->url,

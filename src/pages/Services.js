@@ -149,7 +149,7 @@ export default function Services() {
           <em>We teach it.</em>
         </h2>
         <p className="tr-intro__body">
-          Creative Touch Renova offers a curated suite of professional training programmes for
+          Creative Touch offers a curated suite of professional training programmes for
           doctors, nurses, and aesthetic practitioners. Our courses fuse cutting-edge clinical
           technique with deep anatomical knowledge — delivered by specialists who perform these
           treatments every single day. Whether you are stepping into aesthetics for the first time

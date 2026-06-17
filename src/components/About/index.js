@@ -23,7 +23,7 @@ function About() {
               Beauty Begins<br />with Expert Hands
             </h2>
             <p className="section-subtitle" style={{ marginBottom: 40 }}>
-              At Creative Touch Renova, we merge artistry with expertise to deliver
+              At Creative Touch, we merge artistry with expertise to deliver
               results that speak for themselves. Every project is a collaboration —
               your vision, our craftsmanship.
             </p>

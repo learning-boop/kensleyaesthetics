@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 
 import imgOne   from '../../data/images/one.jpg';
 import imgTwo   from '../../data/images/two.png';
-import imgThree from '../../data/images/three.jpg';
+import imgThree from '../../data/images/three.png';
 import imgFour  from '../../data/images/four.png';
 import imgFive  from '../../data/images/five.png';
 import imgSix   from '../../data/images/six.webp';

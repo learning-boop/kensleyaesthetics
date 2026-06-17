@@ -1,24 +1,28 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useTreatments } from '../context/TreatmentsContext';
+import { client, BEFORE_AFTER_QUERY } from '../lib/sanityClient';
 import PageHero from '../components/PageHero';
 import CtaSection from '../components/CtaSection';
 import './pages.css';
 
-const categories = ['All', 'Face Sculpt', 'Smooth Lines', 'Skin Glow', 'Clear Skin'];
-
-const items = [
-  { id: 1, category: 'Smooth Lines', label: 'Forehead Lines', treatment: 'Smooth Lines' },
-  { id: 2, category: 'Face Sculpt', label: 'Cheek Contouring', treatment: 'Face Sculpt' },
-  { id: 3, category: 'Skin Glow', label: 'Full Glow Protocol', treatment: 'Skin Glow' },
-  { id: 4, category: 'Clear Skin', label: 'Acne Clearance', treatment: 'Clear Skin' },
-  { id: 5, category: 'Face Sculpt', label: 'Jawline Definition', treatment: 'Face Sculpt' },
-  { id: 6, category: 'Smooth Lines', label: 'Crow\'s Feet', treatment: 'Smooth Lines' },
-  { id: 7, category: 'Skin Glow', label: 'Hydration Boost', treatment: 'Skin Glow' },
-  { id: 8, category: 'Face Sculpt', label: 'Lip Enhancement', treatment: 'Face Sculpt' },
-];
-
 function Gallery() {
-  const { treatments } = useTreatments();
+  const [items, setItems]         = useState([]);
+  const [loading, setLoading]     = useState(true);
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  useEffect(() => {
+    client.fetch(BEFORE_AFTER_QUERY)
+      .then((data) => { setItems(data); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, []);
+
+  // Build category list dynamically from data
+  const categories = ['All', ...Array.from(new Set(items.map((i) => i.category))).filter(Boolean)];
+
+  const filtered = activeCategory === 'All'
+    ? items
+    : items.filter((i) => i.category === activeCategory);
+
   return (
     <>
       <PageHero
@@ -29,34 +33,80 @@ function Gallery() {
 
       <section className="page-section">
         <div className="container">
+
+          {/* Category filter */}
           <div className="gallery-categories">
             {categories.map((cat) => (
-              <button key={cat} className="gallery-category-btn">{cat}</button>
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`gallery-category-btn ${activeCategory === cat ? 'gallery-category-btn--active' : ''}`}
+              >
+                {cat}
+              </button>
             ))}
           </div>
 
-          <div className="gallery-grid">
-            {items.map((item) => (
-              <div className="gallery-item" key={item.id}>
-                <div className="gallery-item__images">
-                  <div className="gallery-item__before">
-                    <div className="page-image-placeholder">Before</div>
-                    <span className="gallery-item__badge">Before</span>
+          {/* Loading */}
+          {loading && (
+            <div className="gallery-loading">
+              <span className="gallery-loading__text">Loading gallery…</span>
+            </div>
+          )}
+
+          {/* Empty state */}
+          {!loading && filtered.length === 0 && (
+            <div className="gallery-empty">
+              <p>No results yet for this category.</p>
+            </div>
+          )}
+
+          {/* Grid */}
+          {!loading && filtered.length > 0 && (
+            <div className="gallery-grid">
+              {filtered.map((item, i) => (
+                <div className="gallery-item" key={`${item.rank}-${i}`}>
+                  <div className="gallery-item__images">
+                    <div className="gallery-item__before">
+                      {item.beforeImage ? (
+                        <img
+                          src={item.beforeImage}
+                          alt={`${item.label} — before`}
+                          className="gallery-item__img"
+                        />
+                      ) : (
+                        <div className="page-image-placeholder">Before</div>
+                      )}
+                      <span className="gallery-item__badge">Before</span>
+                    </div>
+                    <div className="gallery-item__after">
+                      {item.afterImage ? (
+                        <img
+                          src={item.afterImage}
+                          alt={`${item.label} — after`}
+                          className="gallery-item__img"
+                        />
+                      ) : (
+                        <div className="page-image-placeholder">After</div>
+                      )}
+                      <span className="gallery-item__badge">After</span>
+                    </div>
                   </div>
-                  <div className="gallery-item__after">
-                    <div className="page-image-placeholder">After</div>
-                    <span className="gallery-item__badge">After</span>
+                  <div className="gallery-item__info">
+                    <span className="gallery-item__label">{item.label}</span>
+                    {item.treatmentSlug && (
+                      <Link
+                        to={`/main-treatments/${item.treatmentSlug}`}
+                        className="gallery-item__treatment"
+                      >
+                        {item.treatmentLabel || item.category} &rarr;
+                      </Link>
+                    )}
                   </div>
                 </div>
-                <div className="gallery-item__info">
-                  <span className="gallery-item__label">{item.label}</span>
-                  <Link to={`/treatments/${treatments.find(t => t.label === item.treatment)?.slug}`} className="gallery-item__treatment">
-                    {item.treatment} &rarr;
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

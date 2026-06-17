@@ -37,7 +37,25 @@
       "Bash(cd \"D:/creative_touch/renova\" && set CI=false && npx react-scripts build 2>&1 | grep -E \"warning|error|Error|Compiled|Failed\" | grep -v \"^Search\")",
       "Bash(cd \"D:/creative_touch/renova\" && set CI=false && npx react-scripts build 2>&1 | grep \"Line\\\\|no-unused\")",
       "Bash(cd \"D:/creative_touch/renova\" && node -e \"\nconst { createClient } = require\\('@sanity/client'\\);\nconst client = createClient\\({ projectId: 'puzajrus', dataset: 'production', apiVersion: '2024-01-01', useCdn: false }\\);\nclient.fetch\\('*[_type == \\\\\"treatment\\\\\" && _id == \\\\\"treatment-clear-skin\\\\\"][0] { _id, label }'\\)\n  .then\\(d => console.log\\(JSON.stringify\\(d\\)\\)\\)\n  .catch\\(e => console.error\\(e.message\\)\\);\n\")",
-      "Bash(cd \"D:/creative_touch/renova\" && node -e \"\nconst { createClient } = require\\('@sanity/client'\\);\nconst client = createClient\\({ projectId: 'puzajrus', dataset: 'production', apiVersion: '2024-01-01', useCdn: false, token: 'skECACuhN7I6sfL9RkYv7W2lanykaSiNMhfDFGnT9bu1m2eMifzzhobTVILcxWA3pUTxJ22qfLc2AVEicgzMXF0bh8is2oCzx0e14oPczyNW8TRexoAYBDNk0AH0roku8024CayM9UCSnD296tSV0ai0TOEOAFYSVjAEcljplwn9V4URycOJ' }\\);\nclient.patch\\('treatment-clear-skin'\\).set\\({ label: 'Clear Skin' }\\).commit\\(\\)\n  .then\\(\\(\\) => console.log\\('Fixed: Clear Skins → Clear Skin'\\)\\)\n  .catch\\(e => console.error\\(e.message\\)\\);\n\")"
+      "Bash(cd \"D:/creative_touch/renova\" && node -e \"\nconst { createClient } = require\\('@sanity/client'\\);\nconst client = createClient\\({ projectId: 'puzajrus', dataset: 'production', apiVersion: '2024-01-01', useCdn: false, token: 'skECACuhN7I6sfL9RkYv7W2lanykaSiNMhfDFGnT9bu1m2eMifzzhobTVILcxWA3pUTxJ22qfLc2AVEicgzMXF0bh8is2oCzx0e14oPczyNW8TRexoAYBDNk0AH0roku8024CayM9UCSnD296tSV0ai0TOEOAFYSVjAEcljplwn9V4URycOJ' }\\);\nclient.patch\\('treatment-clear-skin'\\).set\\({ label: 'Clear Skin' }\\).commit\\(\\)\n  .then\\(\\(\\) => console.log\\('Fixed: Clear Skins → Clear Skin'\\)\\)\n  .catch\\(e => console.error\\(e.message\\)\\);\n\")",
+      "Bash(cd \"D:/creative_touch/renova/studio-renova\" && npx sanity@latest mcp configure)",
+      "Read(//c/Users/Admin/.config/Claude/**)",
+      "Read(//c/Users/Admin/AppData/Roaming/Claude/**)",
+      "Bash(python -c \"import json; d=json.load\\(open\\('C:/Users/Admin/.claude/settings.json'\\)\\); print\\(json.dumps\\(d.get\\('mcpServers', {}\\), indent=2\\)\\)\")",
+      "Bash(python -c \"import json; d=json.load\\(open\\('C:/Users/Admin/.claude/settings.json'\\)\\); print\\(json.dumps\\(d, indent=2\\)\\)\" 2>&1 | head -50)",
+      "Read(//c/Users/Admin/.claude/plugins/marketplaces/**)",
+      "Read(//c/Users/Admin/.claude/plugins/**)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(k\\) for k in d]\")",
+      "Bash(cd \"D:/creative_touch/renova/studio-renova\" && npx sanity@latest mcp configure --print 2>&1)",
+      "Bash(cd \"D:/creative_touch/renova/studio-renova\" && npx sanity@latest mcp configure --help 2>&1)",
+      "Bash(cd \"D:/creative_touch/renova/studio-renova\" && npx sanity@latest mcp configure 2>&1)",
+      "Bash(python -c \"\nimport json\nd = json.load\\(open\\('C:/Users/Admin/.claude/settings.json'\\)\\)\nprint\\(json.dumps\\(d, indent=2\\)\\)\n\")",
+      "Bash(cd \"D:/creative_touch/renova\" && node -e \"\nconst { createClient } = require\\('@sanity/client'\\);\nconst client = createClient\\({ projectId: '0v42wukp', dataset: 'production', apiVersion: '2024-01-01', useCdn: false }\\);\nclient.fetch\\('*[_type == \\\\\"treatment\\\\\"] | order\\(num asc\\) { _id, label, \\\\\"slug\\\\\": slug.current }'\\)\n  .then\\(d => { console.log\\('Count:', d.length\\); d.forEach\\(t => console.log\\(t._id, '|', t.label, '|', t.slug\\)\\); }\\)\n  .catch\\(e => console.error\\('Error:', e.message\\)\\);\n\")",
+      "Bash(cd \"D:/creative_touch/renova\" && node -e \"\nconst { createClient } = require\\('@sanity/client'\\);\nconst client = createClient\\({ projectId: 'puzajrus', dataset: 'production', apiVersion: '2024-01-01', useCdn: false }\\);\nclient.fetch\\('*[_type == \\\\\"mainTreatment\\\\\"] | order\\(num asc\\) { _id, label, \\\\\"slug\\\\\": slug.current }'\\)\n  .then\\(d => { console.log\\('mainTreatment count:', d.length\\); d.forEach\\(t => console.log\\(t._id, '|', t.label\\)\\); }\\)\n  .catch\\(e => console.error\\('Error:', e.message\\)\\);\n\")",
+      "Bash(cd \"D:\\\\creative_touch\\\\renova\\\\studio-renova\" && SANITY_AUTH_TOKEN=\"sk0NR2pDES3dB67tWAKA84bEigeflvLAhbHtPfGqPRGOLuHDysP0ZlucpcYBIegjvknYbmBR5aC1r29krkS5NiskgwcV6mv1Xw7FTxqt67p2QOHaiXIryKneUC0NTRBdAfhVAOBJkhVA5xL8Wc2ervhKMOdE2lqapI0Diqkt2plSJrFkdkGP\" npx sanity deploy)",
+      "Bash(cd \"D:\\\\creative_touch\\\\renova\\\\studio-renova\" && npx sanity deploy --yes)",
+      "Bash(cd \"D:\\\\creative_touch\\\\renova\\\\studio-renova\" && npx sanity deploy --yes --url creative-touch-renova)",
+      "Bash(cd \"D:/creative_touch/renova/studio-renova\" && node scripts/push-before-after.mjs)"
     ]
   }
 }

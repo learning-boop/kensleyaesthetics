@@ -27,7 +27,7 @@ function TreatmentDetail() {
     setReviewIndex(i => (i + 1) % reviews.length);
   };
 
-  const isLight = treatment.slug === 'smooth-lines';
+  const isLight = true;
 
   return (
     <>

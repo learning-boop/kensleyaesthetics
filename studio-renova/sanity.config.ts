@@ -33,6 +33,15 @@ export default defineConfig({
                   .title('Signature Packages')
                   .defaultOrdering([{ field: 'num', direction: 'asc' }])
               ),
+            S.divider(),
+            S.listItem()
+              .title('Before & After')
+              .icon(() => '🖼️')
+              .child(
+                S.documentTypeList('beforeAfter')
+                  .title('Before & After')
+                  .defaultOrdering([{ field: 'rank', direction: 'asc' }])
+              ),
           ]),
     }),
     visionTool(),

@@ -3,7 +3,15 @@ import './Hero.css';
 function Hero() {
   return (
     <section className="hero">
-      <img src="/assets/model.png" alt="" className="hero__bg-img" aria-hidden="true" />
+      <video
+        className="hero__bg-video"
+        src="/assets/model.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+      />
       <div className="hero__center">
         <h1 className="hero__title">Timeless Glow</h1>
 

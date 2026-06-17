@@ -70,7 +70,7 @@ function Footer() {
           </div>
 
           <p className="ft-copy">
-            &copy; {new Date().getFullYear()} Creative Touch Renova
+            &copy; {new Date().getFullYear()} Creative Touch
           </p>
 
           <div className="ft-legal">

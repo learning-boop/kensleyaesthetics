@@ -49,6 +49,12 @@ export const mainTreatment = defineType({
       options: { hotspot: true },
     }),
     defineField({
+      name: 'reviews',
+      title: 'Before & After Images',
+      type: 'array',
+      of: [defineArrayMember({ type: 'image', options: { hotspot: true } })],
+    }),
+    defineField({
       name: 'benefits',
       title: 'Benefits',
       type: 'array',
@@ -87,6 +93,8 @@ export const mainTreatment = defineType({
           fields: [
             defineField({ name: 'name', title: 'Service Name', type: 'string', validation: Rule => Rule.required() }),
             defineField({ name: 'price', title: 'Price', type: 'string', validation: Rule => Rule.required() }),
+            defineField({ name: 'originalPrice', title: 'Original Price (if discounted)', type: 'string' }),
+            defineField({ name: 'discount', title: 'Discount Label (e.g. 20% OFF)', type: 'string' }),
           ],
           preview: { select: { title: 'name', subtitle: 'price' } },
         }),
