@@ -1,5 +1,6 @@
 import Hero                from '../components/Hero';
 import ScrollText          from '../components/ScrollText';
+import BookingPopup        from '../components/BookingPopup';
 import TreatmentShowcase   from '../components/TreatmentShowcase';
 import Stats               from '../components/Stats';
 import BeforeAfter         from '../components/BeforeAfter';
@@ -18,6 +19,7 @@ function Home() {
   return (
     <>
       <Hero />
+      <BookingPopup />
       <ScrollText />
       <TreatmentShowcase />
       <Stats />
