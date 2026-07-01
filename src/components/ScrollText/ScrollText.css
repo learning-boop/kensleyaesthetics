@@ -1,15 +1,13 @@
 /* ─── SCROLL TEXT ────────────────────────────────────────── */
 .scroll-text {
-  height: 300vh;
+  height: 100vh;
   background-color: var(--color-cream);
   position: relative;
 }
 
-/* Sticky container holds all three layers */
+/* Container holds all three layers */
 .scroll-text__sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -38,8 +36,6 @@
   text-transform: uppercase;
   letter-spacing: -0.01em;
   white-space: nowrap;
-  opacity: 0;
-  will-change: opacity, transform;
 }
 
 /* ── Layer 2: doctor image, sits on top of text ── */
@@ -51,8 +47,6 @@
   justify-content: center;
   z-index: 2;
   pointer-events: none;
-  opacity: 0;
-  will-change: opacity, transform;
 }
 
 .scroll-text__doctor-img {
@@ -97,7 +91,12 @@
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
-  .scroll-text { height: 260vh; }
+  .scroll-text { height: 100svh; }
+
+  .scroll-text__bg {
+    justify-content: flex-start;
+    padding-top: 18vh;
+  }
 
   .scroll-text__word {
     font-size: clamp(52px, 15vw, 110px);

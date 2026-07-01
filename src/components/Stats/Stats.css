@@ -13,32 +13,12 @@
   overflow: hidden;
 }
 
-/* ── LEFT HALF — dark bg, holds the inset card ────────── */
-.si-left {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  z-index: 1;
-}
-
-/* Floating inset card — sits in the lower-center of the left area */
-.si-left-img {
-  position: absolute;
-  left: 40%;        /* 40% of left-half = ~20% of section from left */
-  top: 22%;
-  width: 58%;       /* 58% of left-half = ~29% of section */
-  bottom: 6%;       /* breathing space at the bottom */
-  overflow: hidden;
-}
-
 /* ── RIGHT HALF — full-bleed image ───────────────────── */
 .si-right {
   position: absolute;
   right: 0;
-  top: 5%;          /* breathing space at the top */
-  bottom: 5%;       /* breathing space at the bottom */
+  top: 5%;
+  bottom: 5%;
   width: 48%;
   overflow: hidden;
   z-index: 1;
@@ -56,28 +36,20 @@
   display: block;
 }
 
-/* Left inset card image — fills its card container */
-.si-img_left {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
 
-/* ── CENTER TEXT ─────────────────────────────────────── */
+/* ── LEFT TEXT — beside the image ───────────────────── */
 .si-center {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  width: 52%;
+  transform: translateY(-50%);
   z-index: 20;
-  text-align: center;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  padding-left: 8%;
   white-space: nowrap;
 }
 
@@ -108,6 +80,17 @@
   background: #c9aa71;
   opacity: 0.5;
   margin-bottom: 28px;
+}
+
+.si-subtitle {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 11px;
+  line-height: 2;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  opacity: 0.6;
+  margin: 0;
 }
 
 .si-link {
@@ -144,7 +127,6 @@
 @media (max-width: 1080px) {
   .si-root { height: 80vh; }
   .si-title { font-size: clamp(52px, 8vw, 96px); }
-  .si-left-img { left: 36%; top: 28%; width: 62%; }
 }
 
 /* ── MOBILE ──────────────────────────────────────────── */
@@ -155,21 +137,6 @@
     padding: 0;
   }
 
-  /* left half covers full width as background layer */
-  .si-left {
-    left: 0; top: 0; bottom: 0;
-    width: 100%;
-  }
-
-  /* inset card — lower-left quadrant */
-  .si-left-img {
-    left: 4%;
-    top: 22%;
-    width: 36%;
-    bottom: 10%;
-  }
-
-  /* right image — right 55%, inset from edges */
   .si-right {
     right: 0;
     top: 6%;
@@ -177,16 +144,14 @@
     width: 55%;
   }
 
-  /* text — allow wrapping, centered */
   .si-center {
+    width: 45%;
+    padding-left: 5%;
     white-space: normal;
-    width: 100%;
-    padding: 0 12px;
-    text-align: center;
   }
 
   .si-title {
-    font-size: clamp(38px, 11vw, 58px);
+    font-size: clamp(32px, 9vw, 52px);
     margin: 0 0 16px 0;
   }
 

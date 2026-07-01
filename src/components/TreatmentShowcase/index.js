@@ -231,6 +231,12 @@ function TreatmentShowcase() {
   const currentLeftRef = useRef(0);
   const rafRef = useRef(null);
 
+  // Mobile auto-slide refs
+  const autoSlideRef = useRef(null);
+  const isProgrammaticRef = useRef(false);
+  const userPausedRef = useRef(false);
+  const resumeTimerRef = useRef(null);
+
   useEffect(() => {
     client.fetch(MAIN_TREATMENTS_QUERY).then((data) => {
       setTreatments(
@@ -341,6 +347,15 @@ function TreatmentShowcase() {
 
       const idx = Math.round(el.scrollLeft / el.clientWidth);
       setActiveIndex(Math.min(Math.max(idx, 0), treatments.length - 1));
+
+      // Pause auto-slide on manual swipe, resume after 5s
+      if (!isProgrammaticRef.current) {
+        userPausedRef.current = true;
+        clearTimeout(resumeTimerRef.current);
+        resumeTimerRef.current = setTimeout(() => {
+          userPausedRef.current = false;
+        }, 5000);
+      }
     };
 
     el.addEventListener('scroll', handler, { passive: true });
@@ -359,7 +374,6 @@ function TreatmentShowcase() {
 
       const scrollable = wrapper.offsetHeight - window.innerHeight;
 
-      // Fixed: prevent divide by zero when only one treatment exists
       const progress =
         treatments.length > 1 ? index / (treatments.length - 1) : 0;
 
@@ -380,6 +394,28 @@ function TreatmentShowcase() {
       behavior: 'smooth',
     });
   }, []);
+
+  // Mobile auto-slide (mobile only)
+  useEffect(() => {
+    if (window.innerWidth > 860 || treatments.length === 0) return;
+
+    autoSlideRef.current = setInterval(() => {
+      if (userPausedRef.current) return;
+
+      setActiveIndex((prev) => {
+        const next = (prev + 1) % treatments.length;
+        isProgrammaticRef.current = true;
+        scrollToMobilePanel(next);
+        setTimeout(() => { isProgrammaticRef.current = false; }, 700);
+        return next;
+      });
+    }, 3500);
+
+    return () => {
+      clearInterval(autoSlideRef.current);
+      clearTimeout(resumeTimerRef.current);
+    };
+  }, [treatments.length, scrollToMobilePanel]);
 
   return (
     <section
@@ -422,6 +458,10 @@ function TreatmentShowcase() {
 
       {/* MOBILE */}
       <div className="ts-mobile-layout">
+        <div className="ts-mobile-timer-bar">
+          <div key={activeIndex} className="ts-mobile-timer-fill" />
+        </div>
+
         <div ref={mobileScrollRef} className="ts-mobile-scroll-track">
           {treatments.map((t) => (
             <div key={t.id} className="ts-mobile-panel">

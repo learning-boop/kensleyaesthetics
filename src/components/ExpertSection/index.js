@@ -1,29 +1,22 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import imgMain  from '../../data/images/export_touch.png';   // large center — gloved hand + tweezers
-import imgSmall from '../../data/images/seven.png';  // bottom-left  — gold scissors
+import imgSmall from '../../data/images/seven.png';
 import './ExpertSection.css';
 
 function ExpertSection() {
-  const ref    = useRef(null);
+  const ref = useRef(null);
 
-  // Raw mouse offset from section centre (–0.5 → +0.5)
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
 
-  // Spring smoothing — gives the "floating" weighted feel
   const smoothX = useSpring(rawX, { stiffness: 60, damping: 18 });
   const smoothY = useSpring(rawY, { stiffness: 60, damping: 18 });
 
-  // Large image — closest layer, moves most
-  const mainX = useTransform(smoothX, v => v * 42);
-  const mainY = useTransform(smoothY, v => v * 32);
-
-  // Small image — further layer, opposite direction
+  // Small image — counter-parallax
   const smallX = useTransform(smoothX, v => v * -20);
   const smallY = useTransform(smoothY, v => v * -16);
 
-  // Heading — barely-there drift, same direction as main image
+  // Heading — barely-there drift
   const headX = useTransform(smoothX, v => v * 10);
   const headY = useTransform(smoothY, v => v * 8);
 
@@ -46,13 +39,9 @@ function ExpertSection() {
       onMouseLeave={onMouseLeave}
     >
 
-      {/* ── Top bar: eyebrow label + arrow buttons ── */}
+      {/* ── Top bar: eyebrow label ── */}
       <div className="ep-topbar">
         <span className="ep-eyebrow">The Elements of Excellence</span>
-        <div className="ep-arrows">
-          <button className="ep-arrow" aria-label="Previous">&#8592;</button>
-          <button className="ep-arrow" aria-label="Next">&#8594;</button>
-        </div>
       </div>
 
       {/* ── Large heading — drifts with cursor, sits behind center image ── */}
@@ -61,11 +50,6 @@ function ExpertSection() {
           The Finest Care<br />
           And Expert Touch
         </h2>
-      </motion.div>
-
-      {/* ── Center tall image — primary parallax layer ── */}
-      <motion.div className="ep-img-main-wrap" style={{ x: mainX, y: mainY }}>
-        <img src={imgMain} alt="Precision aesthetic instrument" className="ep-img-main" />
       </motion.div>
 
       {/* ── Bottom-left: small secondary image — counter-parallax ── */}

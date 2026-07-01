@@ -1,75 +1,79 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent, } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import './PinnedShowcase.css';
 
-const ease = [0.76, 0, 0.24, 1];
 const easeOut = [0.22, 1, 0.36, 1];
 
-export default function PinnedShowcase({ items, treatmentSlug, fallbackImage }) {
+export default function PinnedShowcase({ items, treatmentSlug }) {
   const wrapperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const n = items.length;
 
   const { scrollYProgress } = useScroll({ target: wrapperRef });
-
   const stepProgress = useTransform(scrollYProgress, (v) => (v * n) % 1);
 
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
-    const idx = Math.min(Math.floor(v * n), n - 1);
-    setActiveIndex(idx);
+    setActiveIndex(Math.min(Math.floor(v * n), n - 1));
   });
 
   const t = items[activeIndex];
+  const cur = String(activeIndex + 1).padStart(2, '0');
+  const total = String(n).padStart(2, '0');
 
   return (
-    <div
-      ref={wrapperRef}
-      className="ps-wrapper"
-      style={{ height: `${n * 100}vh` }}
-    >
+    <div ref={wrapperRef} className="ps-wrapper" style={{ height: `${n * 100}vh` }}>
       <div className="ps-sticky">
 
-        {/* ── left: sub-treatment content ── */}
+        {/* ── LEFT: content panel ── */}
         <div className="ps-left">
 
-          {/* sub-treatment title — gold label */}
+          {/* counter */}
+          <div className="ps-counter">
+            <span className="ps-counter__cur">{cur}</span>
+            <span className="ps-counter__sep" />
+            <span className="ps-counter__total">{total}</span>
+          </div>
+
+          {/* gold label */}
           <AnimatePresence mode="wait">
             <motion.span
-              key={`title-${activeIndex}`}
+              key={`tagline-${activeIndex}`}
               className="ps-tagline"
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.45, ease: easeOut }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.4, ease: easeOut }}
             >
               {t.title}
             </motion.span>
           </AnimatePresence>
 
-          {/* sub-treatment name — main heading */}
+          {/* main heading */}
           <AnimatePresence mode="wait">
             <motion.h2
               key={`name-${activeIndex}`}
               className="ps-title"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.6, ease: easeOut, delay: 0.04 }}
+              exit={{ opacity: 0, y: -24 }}
+              transition={{ duration: 0.55, ease: easeOut, delay: 0.04 }}
             >
               {t.name}
             </motion.h2>
           </AnimatePresence>
 
-          {/* sub-treatment description */}
+          <span className="ps-divider" />
+
+          {/* description */}
           <AnimatePresence mode="wait">
             <motion.p
               key={`desc-${activeIndex}`}
               className="ps-desc"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.45, ease: easeOut, delay: 0.1 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4, ease: easeOut, delay: 0.1 }}
             >
               {t.description}
             </motion.p>
@@ -79,10 +83,10 @@ export default function PinnedShowcase({ items, treatmentSlug, fallbackImage }) 
           <AnimatePresence mode="wait">
             <motion.div
               key={`cta-${activeIndex}`}
-              initial={{ opacity: 0, x: -16 }}
+              initial={{ opacity: 0, x: -12 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 10 }}
-              transition={{ duration: 0.4, ease: easeOut, delay: 0.14 }}
+              exit={{ opacity: 0, x: 8 }}
+              transition={{ duration: 0.35, ease: easeOut, delay: 0.14 }}
             >
               <Link to={`/treatments/${treatmentSlug}`} className="ps-cta">
                 Book Consultation
@@ -92,24 +96,44 @@ export default function PinnedShowcase({ items, treatmentSlug, fallbackImage }) 
           </AnimatePresence>
         </div>
 
-        {/* ── right: image per sub-treatment ── */}
+        {/* ── RIGHT: treatment index panel (no image) ── */}
         <div className="ps-right">
+
+          {/* large watermark number */}
           <AnimatePresence mode="wait">
-            <motion.div
-              key={`img-${activeIndex}`}
-              className="ps-img-frame"
-              initial={{ clipPath: 'inset(0 0 0 100%)' }}
-              animate={{ clipPath: 'inset(0 0 0 0%)' }}
-              exit={{ clipPath: 'inset(0 100% 0 0)' }}
-              transition={{ duration: 0.8, ease }}
+            <motion.span
+              key={`wm-${activeIndex}`}
+              className="ps-watermark"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: easeOut }}
             >
-              {(t.image || fallbackImage)
-                ? <img src={t.image || fallbackImage} alt={t.name} className="ps-img" />
-                : <div className="ps-img-placeholder" />
-              }
-            </motion.div>
+              {cur}
+            </motion.span>
           </AnimatePresence>
 
+          {/* index list of all sub-treatments */}
+          <ul className="ps-index">
+            {items.map((item, i) => (
+              <li
+                key={i}
+                className={`ps-index__item ${i === activeIndex ? 'ps-index__item--active' : ''}`}
+              >
+                <span className="ps-index__num">{String(i + 1).padStart(2, '0')}</span>
+                <span className="ps-index__name">{item.name}</span>
+                {i === activeIndex && (
+                  <motion.span
+                    className="ps-index__bar"
+                    layoutId="ps-active-bar"
+                    transition={{ duration: 0.4, ease: easeOut }}
+                  />
+                )}
+              </li>
+            ))}
+          </ul>
+
+          {/* step progress bar */}
           <div className="ps-progress-track">
             <motion.div
               className="ps-progress-fill"

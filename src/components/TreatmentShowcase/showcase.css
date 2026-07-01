@@ -410,6 +410,28 @@
     position: relative;
   }
 
+  .ts-mobile-timer-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.08);
+    z-index: 10;
+  }
+
+  .ts-mobile-timer-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--color-gold, #b8973a);
+    animation: ts-timer-fill 3.5s linear forwards;
+  }
+
+  @keyframes ts-timer-fill {
+    from { width: 0%; }
+    to   { width: 100%; }
+  }
+
   .ts-mobile-scroll-track {
     display: flex;
     overflow-x: scroll;

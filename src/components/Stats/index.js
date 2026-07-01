@@ -1,25 +1,9 @@
-import { Link } from 'react-router-dom';
-import serviceImgTwo from '../../data/images/service_img_two.png';
 import serviceImg from '../../data/images/service_img.png';
 import './Stats.css';
 
 function Stats() {
   return (
     <section className="si-root">
-
-      {/* ── Left half: image covers its outer 50%, dark bg on inner 50% ── */}
-      <div className="si-left">
-        <div className="si-left-img">
-          <img
-            src={serviceImgTwo}
-            alt="Treatment"
-            className="si-img_left"
-            onError={(e) => { e.currentTarget.style.display = 'none'; }}
-          />
-        </div>
-      </div>
-
-      {/* ── Gap is handled by CSS gap property ── */}
 
       {/* ── Right half: full image cover ── */}
       <div className="si-right">
@@ -31,11 +15,12 @@ function Stats() {
         />
       </div>
 
-      {/* ── Services text — absolutely centered over the full section ── */}
+      {/* ── Services text — left side, beside the image ── */}
       <div className="si-center">
-        <span className="si-eyebrow">What We Offer</span>
-        <h2 className="si-title">Our<br />Services</h2>
+        <span className="si-eyebrow">Trusted By Thousands</span>
+        <h2 className="si-title">Where<br />Excellence<br />Meets<br />Care</h2>
         <div className="si-divider" />
+        <p className="si-subtitle">We don't just treat skin —<br />we restore confidence.</p>
       </div>
 
     </section>

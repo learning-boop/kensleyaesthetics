@@ -157,7 +157,7 @@ function Contact() {
                 <p className="section-label">Contact</p>
                 <p className="contact-info__text">
                   hello@creativetouchrenova.com<br />
-                  +44 (0) 20 0000 0000
+                  07906 99154
                 </p>
               </div>
               <div className="contact-info__block">

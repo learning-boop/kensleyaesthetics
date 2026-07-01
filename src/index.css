@@ -7,6 +7,7 @@
 }
 
 :root {
+  color-scheme: light only;
   --color-primary: #123C3F;
   --color-sage:    #A8BFA3;
   --color-beige:   #E8D8C8;
@@ -21,19 +22,29 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #F8F4EF !important;
+  color: #1F2424 !important;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-cream);
-  color: var(--color-dark);
+  background-color: var(--color-cream) !important;
+  color: var(--color-dark) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent browser force-dark from inverting layout containers */
+#root,
+header, nav, main, section, footer,
+div[class], article, aside {
+  color-scheme: light only;
 }
 
 img {
   display: block;
   max-width: 100%;
+  forced-color-adjust: none;
 }
 
 a {

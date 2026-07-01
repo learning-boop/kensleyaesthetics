@@ -49,7 +49,7 @@ function Footer() {
             <h4 className="ft-col-heading">Contact</h4>
             <ul className="ft-col-links">
               <li><a href="mailto:hello@creativetouchrenova.com">hello@creativetouchrenova.com</a></li>
-              <li><a href="tel:+442000000000">+44 (0) 20 0000 0000</a></li>
+              <li><a href="tel:07906991540">07906 99154</a></li>
               <li>London, United Kingdom</li>
             </ul>
             <Link to="/contact" className="ft-book-btn">Book an Appointment</Link>
