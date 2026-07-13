@@ -63,7 +63,7 @@
 .td-hero__tagline {
   position: absolute;
   z-index: 3;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 10px;
@@ -251,6 +251,7 @@
 }
 
 .td-faq-answer-text {
+  padding-top: 20px;
   font-size: 13px;
   letter-spacing: 1.2px;
   line-height: 2.1;
@@ -600,10 +601,23 @@
 /* ─── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 768px) {
   .td-hero__title {
-    font-size: clamp(36px, 12vw, 80px);
+    font-size: clamp(32px, 10vw, 72px);
     left: 50%;
     transform: translate(-50%, -52%);
     text-align: center;
+    white-space: normal;
+    word-break: break-word;
+    width: 88%;
+  }
+
+  .td-hero__tagline {
+    top: 60%;
+    transform: translate(-50%, -50%);
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-align: center;
+    white-space: normal;
+    width: 80vw;
   }
 
   .td-hero__desc {
@@ -619,7 +633,7 @@
   }
 
   .td-editorial {
-    min-height: 300vw;
+    min-height: 340vw;
   }
 
   .td-editorial__img {
@@ -629,12 +643,23 @@
   }
 
   .td-editorial__hl {
-    font-size: clamp(32px, 10vw, 72px);
+    font-size: clamp(26px, 8vw, 52px);
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .td-editorial__hl--1 {
+    max-width: 55%;
+    right: 2%;
   }
 
   .td-editorial__hl--2 {
-    white-space: normal;
     max-width: 58%;
+  }
+
+  .td-editorial__hl--3 {
+    max-width: 52%;
+    right: 2%;
   }
 
   .td-editorial__quote {
@@ -695,5 +720,27 @@
   .td-prices__right {
     width: 100%;
     justify-content: flex-end;
+  }
+
+  /* FAQ accordion — fix padding and button layout */
+  .td-faq-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .td-faq-answer {
+    padding-left: 0;
+  }
+
+  .td-service-container {
+    padding: 20vh 24px;
   }
 }

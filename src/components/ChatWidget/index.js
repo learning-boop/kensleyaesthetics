@@ -16,7 +16,7 @@ const TREATMENTS = [
 ];
 
 const WHATSAPP_NUMBER = '447700000000'; // replace with real number
-const STORAGE_KEY     = 'renova_chat_session';
+const STORAGE_KEY     = 'kensley_chat_session';
 
 function formatTime(date) {
   return date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
@@ -33,7 +33,7 @@ function loadStoredSession() {
 function saveSession({ sessionKey, clientName = '' }) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ sessionKey, clientName }));
-    console.log('[Renova Chat] Session saved to localStorage:', { sessionKey, clientName });
+    console.log('[Kensley Chat] Session saved to localStorage:', { sessionKey, clientName });
   } catch {}
 }
 
@@ -316,8 +316,8 @@ function ChatScreen({ sessionKey: initialSessionKey, clientName, initialMessage,
 
   useEffect(() => {
     const greeting = clientName
-      ? `Hi ${clientName}! I'm Renova, your Creative Touch assistant. What can I help you with today?`
-      : "Hi! I'm Renova, your Creative Touch assistant. What can I help you with today?";
+      ? `Hi ${clientName}! I'm Kensley, your Kensley Aesthetics assistant. What can I help you with today?`
+      : "Hi! I'm Kensley, your Kensley Aesthetics assistant. What can I help you with today?";
 
     setMessages([{ role: 'assistant', content: greeting, time: new Date() }]);
 
@@ -529,7 +529,7 @@ function ChatWidget() {
       </button>
 
       {open && (
-        <div className="cw-panel" role="dialog" aria-label="Chat with Renova">
+        <div className="cw-panel" role="dialog" aria-label="Chat with Kensley Aesthetics">
 
           {showPreview && (
             <PreviewPanel sessionKey={sessionKey} onClose={() => setShowPreview(false)} />
@@ -541,8 +541,8 @@ function ChatWidget() {
               <div className="cw-header__info">
                 <div className="cw-header__avatar">✦</div>
                 <div>
-                  <div className="cw-header__name">Renova{clientName ? ` · ${clientName}` : ''}</div>
-                  <div className="cw-header__status">Creative Touch Assistant</div>
+                  <div className="cw-header__name">Kensley Aesthetics{clientName ? ` · ${clientName}` : ''}</div>
+                  <div className="cw-header__status">Kensley Aesthetics Assistant</div>
                 </div>
               </div>
               <div className="cw-header__actions">
@@ -566,7 +566,7 @@ function ChatWidget() {
             <div className="cw-panel-topbar">
               <div className="cw-panel-topbar__brand">
                 <span className="cw-panel-topbar__dot">✦</span>
-                <span className="cw-panel-topbar__name">Creative Touch Renova</span>
+                <span className="cw-panel-topbar__name">Kensley Aesthetics</span>
               </div>
               <button className="cw-header__btn" onClick={handleClose} aria-label="Close">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

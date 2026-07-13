@@ -143,7 +143,7 @@ export default function Services() {
 
       {/* ── EDITORIAL STATEMENT ─────────────────────────────── */}
       <section className="tr-intro">
-        <span className="tr-intro__label">Creative Touch Renova — Education</span>
+        <span className="tr-intro__label">Kensley Aesthetics — Education</span>
         <h2 className="tr-intro__statement">
           We don't just<br />practise aesthetics.<br />
           <em>We teach it.</em>

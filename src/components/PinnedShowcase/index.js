@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { useAppointment } from '../../context/AppointmentContext';
 import './PinnedShowcase.css';
 
 const easeOut = [0.22, 1, 0.36, 1];
@@ -9,6 +9,7 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
   const wrapperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const n = items.length;
+  const { openDrawer } = useAppointment();
 
   const { scrollYProgress } = useScroll({ target: wrapperRef });
   const stepProgress = useTransform(scrollYProgress, (v) => (v * n) % 1);
@@ -88,10 +89,10 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
               exit={{ opacity: 0, x: 8 }}
               transition={{ duration: 0.35, ease: easeOut, delay: 0.14 }}
             >
-              <Link to={`/treatments/${treatmentSlug}`} className="ps-cta">
+              <button className="ps-cta" onClick={openDrawer}>
                 Book Consultation
                 <span className="ps-cta__arrow">→</span>
-              </Link>
+              </button>
             </motion.div>
           </AnimatePresence>
         </div>

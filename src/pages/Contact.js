@@ -156,7 +156,7 @@ function Contact() {
               <div className="contact-info__block">
                 <p className="section-label">Contact</p>
                 <p className="contact-info__text">
-                  hello@creativetouchrenova.com<br />
+                  hello@kensleyaesthetics.co.uk<br />
                   07906 99154
                 </p>
               </div>

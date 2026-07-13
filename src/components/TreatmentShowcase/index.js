@@ -13,7 +13,7 @@ function BrandBlock() {
   return (
     <Link to="/" className="ts-brand">
       <span className="ts-brand__eyebrow">Creative Touch</span>
-      <span className="ts-brand__name">Renova</span>
+      <span className="ts-brand__name">Kensley Aesthetics</span>
     </Link>
   );
 }

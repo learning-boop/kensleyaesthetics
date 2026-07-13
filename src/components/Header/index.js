@@ -63,7 +63,7 @@ function Header() {
             </svg>
           </button>
           <Link to="/" className="header__logo" onClick={close}>
-            <img src="/assets/renova_logo_withoutbg.png" alt="Creative Touch Renova" className="header__logo-img" />
+            <img src="/assets/renova_logo_withoutbg.png" alt="Kensley Aesthetics" className="header__logo-img" />
           </Link>
           <button className="header__book" onClick={() => { close(); openDrawer(); }}>
             Book an Appointment
@@ -83,7 +83,7 @@ function Header() {
         <div className="nav-overlay__left">
 
           <div className="nav-overlay__logo">
-            <img src="/assets/renova_logo_withoutbg.png" alt="Creative Touch Renova" className="nav-overlay__logo-img" />
+            <img src="/assets/renova_logo_withoutbg.png" alt="Kensley Aesthetics" className="nav-overlay__logo-img" />
           </div>
 
           <div className="nav-overlay__section">
@@ -149,6 +149,12 @@ function Header() {
           <button className="nav-overlay__close" onClick={close} aria-label="Close menu">
             ✕
           </button>
+
+        {/* ── Mobile scroll hint ── */}
+        <div className="nav-scroll-hint" aria-hidden="true">
+          <span className="nav-scroll-hint__text">Scroll to see all options</span>
+          <span className="nav-scroll-hint__arrow">↓</span>
+        </div>
         {/* ── RIGHT: Image panel ── */}
         <div className="nav-overlay__image-panel">
           <img

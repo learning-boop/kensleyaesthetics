@@ -99,7 +99,7 @@ function About() {
           <div className="ab-hero__photo-wrap">
             <motion.img
               src={drOne}
-              alt="Dr. Sophia Renova"
+              alt="Kensley Aesthetics Practitioner"
               className="ab-hero__photo"
               style={{ y: heroPhotoY }}
             />
@@ -172,7 +172,7 @@ function About() {
           <div className="ab-experience__photo-wrap">
             <motion.img
               src={drTwo}
-              alt="Dr. Sophia Renova"
+              alt="Kensley Aesthetics Practitioner"
               className="ab-experience__photo"
               style={{ y: expImgY, opacity: expOpacity }}
             />
@@ -275,8 +275,8 @@ function About() {
         {/* accordion row */}
         <div className="ab-why__accordion-section">
           <div className="ab-why__accordion-inner">
-            <h2 className="ab-why__accordion-title" style={{ whiteSpace: "nowrap" }}>
-              Why Choose Renova
+            <h2 className="ab-why__accordion-title">
+              Why Choose Kensley Aesthetics
             </h2>
             <div className="ab-why__items">
               {whyItems.map((item, i) => (
@@ -303,7 +303,7 @@ function About() {
         <div className="ab-cta__img-wrap">
           <motion.img
             src={drThree}
-            alt="Dr. Sophia Renova"
+            alt="Kensley Aesthetics Practitioner"
             className="ab-cta__img"
             style={{ scale: ctaScale }}
           />

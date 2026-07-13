@@ -56,7 +56,8 @@
       "Bash(cd \"D:\\\\creative_touch\\\\renova\\\\studio-renova\" && npx sanity deploy --yes)",
       "Bash(cd \"D:\\\\creative_touch\\\\renova\\\\studio-renova\" && npx sanity deploy --yes --url creative-touch-renova)",
       "Bash(cd \"D:/creative_touch/renova/studio-renova\" && node scripts/push-before-after.mjs)",
-      "Bash(cd \"D:/creative_touch/renova-backend\" && npm install 2>&1)"
+      "Bash(cd \"D:/creative_touch/renova-backend\" && npm install 2>&1)",
+      "Skill(claude-in-chrome)"
     ]
   }
 }

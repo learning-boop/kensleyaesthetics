@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { client, MAIN_TREATMENTS_QUERY } from '../../lib/sanityClient';
 import { useAppointment } from '../../context/AppointmentContext';
+import { submitContact } from '../../services/api';
 import './drawer.css';
 
 function AppointmentDrawer() {
@@ -12,6 +13,8 @@ function AppointmentDrawer() {
     name: '', email: '', phone: '', treatment: '', date: '', time: '', message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   useEffect(() => {
     client.fetch(MAIN_TREATMENTS_QUERY).then((data) => {
@@ -29,14 +32,29 @@ function AppointmentDrawer() {
 
   const set = (field) => (e) => setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError('');
+    try {
+      await submitContact({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        service: form.treatment,
+        message: `Preferred date: ${form.date || 'Not specified'} | Preferred time: ${form.time || 'Any time'}${form.message ? ` | Notes: ${form.message}` : ''}`,
+      });
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleClose = () => {
     closeDrawer();
-    setTimeout(() => setSubmitted(false), 500);
+    setTimeout(() => { setSubmitted(false); setSubmitError(''); }, 500);
   };
 
   return (
@@ -53,7 +71,7 @@ function AppointmentDrawer() {
         {/* Header */}
         <div className="appt-drawer__head">
           <div className="appt-drawer__brand">
-            <span className="appt-drawer__eyebrow">Creative Touch</span>
+            <span className="appt-drawer__eyebrow">Kensley Aesthetics</span>
             <span className="appt-drawer__title">Book an Appointment</span>
           </div>
           <button className="appt-drawer__close" onClick={handleClose} aria-label="Close">
@@ -179,9 +197,14 @@ function AppointmentDrawer() {
 
               <div className="appt-drawer__footer">
                 <p className="appt-drawer__note">* Required fields</p>
-                <button className="appt-drawer__submit" type="submit">
-                  Confirm Appointment
-                  <span className="appt-drawer__submit-arrow">→</span>
+                {submitError && (
+                  <p style={{ color: '#e87f7f', fontSize: 13, fontFamily: 'Helvetica Neue, Arial, sans-serif', marginBottom: 8 }}>
+                    {submitError}
+                  </p>
+                )}
+                <button className="appt-drawer__submit" type="submit" disabled={submitting}>
+                  {submitting ? 'Sending…' : 'Confirm Appointment'}
+                  {!submitting && <span className="appt-drawer__submit-arrow">→</span>}
                 </button>
               </div>
 

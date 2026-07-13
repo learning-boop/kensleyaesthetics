@@ -5,15 +5,15 @@ import './legal.css';
 const sections = [
   {
     title: '1. About These Terms',
-    content: `These Terms and Conditions govern your use of the Creative Touch Renova website (creativetouchrenova.com) and the aesthetic treatments and services we provide.
+    content: `These Terms and Conditions govern your use of the Kensley Aesthetics website (kensleyaesthetics.co.uk) and the aesthetic treatments and services we provide.
 
 By using our website or booking a treatment, you agree to be bound by these terms. Please read them carefully. If you do not agree, please do not use our website or services.
 
-Creative Touch Renova is operated by [Company Name], registered in England and Wales. Registered address available upon request.`,
+Kensley Aesthetics is operated by [Company Name], registered in England and Wales. Registered address available upon request.`,
   },
   {
     title: '2. Our Services',
-    content: `Creative Touch Renova provides non-surgical aesthetic treatments including but not limited to: anti-wrinkle injections, dermal fillers, skin boosters, regenerative treatments, biostimulators, microneedling, RF microneedling and HIFU.
+    content: `Kensley Aesthetics provides non-surgical aesthetic treatments including but not limited to: anti-wrinkle injections, dermal fillers, skin boosters, regenerative treatments, biostimulators, microneedling, RF microneedling and HIFU.
 
 All treatments are performed by or under the supervision of qualified and insured aesthetic practitioners. We reserve the right to decline treatment at our clinical discretion — for example if we believe a treatment is not suitable, safe or in your best interest.`,
   },
@@ -21,7 +21,7 @@ All treatments are performed by or under the supervision of qualified and insure
     title: '3. Consultations & Suitability',
     content: `A consultation is required before certain treatments. During your consultation, we will assess your suitability for the requested procedure. It is your responsibility to disclose all relevant medical information, including medications, allergies, previous treatments and health conditions.
 
-Failure to disclose accurate medical information may affect the safety of your treatment and will release Creative Touch Renova from any associated liability.
+Failure to disclose accurate medical information may affect the safety of your treatment and will release Kensley Aesthetics from any associated liability.
 
 Consultations may be offered free of charge or at a fee, which will be communicated clearly at the time of booking.`,
   },
@@ -61,17 +61,17 @@ If you experience any unusual side effects or reactions following a treatment, y
 
 We offer a complimentary review appointment for concerns raised within this window. We will always aim to resolve complaints fairly and promptly.
 
-Formal complaints can be submitted in writing to hello@creativetouchrenova.com. We will acknowledge your complaint within 5 working days and provide a full response within 28 days.`,
+Formal complaints can be submitted in writing to hello@kensleyaesthetics.co.uk. We will acknowledge your complaint within 5 working days and provide a full response within 28 days.`,
   },
   {
     title: '9. Intellectual Property',
-    content: `All content on this website — including text, images, videos, graphics and branding — is the property of Creative Touch Renova and is protected by copyright.
+    content: `All content on this website — including text, images, videos, graphics and branding — is the property of Kensley Aesthetics and is protected by copyright.
 
 You may not reproduce, copy, distribute or use any content from this website without our prior written permission.`,
   },
   {
     title: '10. Limitation of Liability',
-    content: `To the maximum extent permitted by law, Creative Touch Renova shall not be liable for any indirect, incidental or consequential loss arising from:
+    content: `To the maximum extent permitted by law, Kensley Aesthetics shall not be liable for any indirect, incidental or consequential loss arising from:
 
 • Your use of our website or services
 • Reliance on any content or information on this website
@@ -126,7 +126,7 @@ function TermsConditions() {
           {/* Body */}
           <div className="legal-body">
             <p className="legal-intro">
-              These terms govern your relationship with Creative Touch Renova when you visit our website or receive any of our aesthetic treatments. By using our services, you agree to the following.
+              These terms govern your relationship with Kensley Aesthetics when you visit our website or receive any of our aesthetic treatments. By using our services, you agree to the following.
             </p>
 
             {sections.map((s) => (

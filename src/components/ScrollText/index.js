@@ -34,7 +34,7 @@ function ScrollText() {
         >
           <img
             src="/assets/doctor_renove.png"
-            alt="Dr. Sophia Renova"
+            alt="Kensley Aesthetics Practitioner"
             className="scroll-text__doctor-img"
           />
         </motion.div>
