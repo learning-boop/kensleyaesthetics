@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { createChatSession, sendChatMessage, generateTreatmentPreview } from '../../services/api';
+import { sendChatMessage } from '../../services/api';
 import { useAppointment } from '../../context/AppointmentContext';
 import './ChatWidget.css';
 
@@ -16,25 +16,36 @@ const TREATMENTS = [
 ];
 
 const WHATSAPP_NUMBER = '447700000000'; // replace with real number
-const STORAGE_KEY     = 'kensley_chat_session';
+const HISTORY_KEY     = 'kensley_chat';
+const NAME_KEY        = 'kensley_chat_name';
 
 function formatTime(date) {
   return date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 }
 
 // ── localStorage helpers ──────────────────────────────────
-function loadStoredSession() {
+function loadHistory() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : null;
-  } catch { return null; }
+    const raw = localStorage.getItem(HISTORY_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch { return []; }
 }
 
-function saveSession({ sessionKey, clientName = '' }) {
+function saveHistory(messages) {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ sessionKey, clientName }));
-    console.log('[Kensley Chat] Session saved to localStorage:', { sessionKey, clientName });
+    const toSave = messages
+      .filter(m => m.role === 'user' || m.role === 'assistant')
+      .map(({ role, content }) => ({ role, content }));
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(toSave));
   } catch {}
+}
+
+function loadClientName() {
+  return localStorage.getItem(NAME_KEY) || '';
+}
+
+function saveClientName(name) {
+  try { if (name) localStorage.setItem(NAME_KEY, name); } catch {}
 }
 
 // ── Icons ─────────────────────────────────────────────────
@@ -74,86 +85,8 @@ const IconArrow = () => (
   </svg>
 );
 
-// ── Image Preview Panel ───────────────────────────────────
-function PreviewPanel({ sessionKey, onClose }) {
-  const [file, setFile]           = useState(null);
-  const [treatment, setTreatment] = useState('');
-  const [loading, setLoading]     = useState(false);
-  const [result, setResult]       = useState(null);
-  const [error, setError]         = useState('');
-
-  async function handleGenerate() {
-    if (!file || !treatment) return;
-    setLoading(true);
-    setError('');
-    setResult(null);
-    try {
-      const data = await generateTreatmentPreview({ imageFile: file, treatment, sessionKey });
-      setResult(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  return (
-    <div className="cw-preview-modal">
-      <div className="cw-preview-modal__header">
-        <span className="cw-preview-modal__title">Treatment Preview</span>
-        <button className="cw-header__btn" onClick={onClose} aria-label="Close preview">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-      <div className="cw-preview-modal__body">
-        {!result ? (
-          <>
-            <div>
-              <p className="cw-preview-label">Upload your photo</p>
-              <div className="cw-preview-upload">
-                <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(e) => setFile(e.target.files[0] || null)} />
-                {file
-                  ? <p className="cw-preview-upload__selected">✦ {file.name}</p>
-                  : <p className="cw-preview-upload__text">Click to upload a clear, front-facing photo<br />(JPEG, PNG or WebP · max 8 MB)</p>
-                }
-              </div>
-            </div>
-            <div>
-              <p className="cw-preview-label">Select a treatment</p>
-              <select className="cw-preview-select" value={treatment} onChange={(e) => setTreatment(e.target.value)}>
-                <option value="">Choose a treatment</option>
-                {TREATMENTS.map((t) => (
-                  <option key={t.slug} value={t.slug}>{t.label}</option>
-                ))}
-              </select>
-            </div>
-            {error && <p className="cw-preview-error">{error}</p>}
-            <button className="cw-preview-generate" onClick={handleGenerate} disabled={!file || !treatment || loading}>
-              {loading ? 'Generating…' : 'Generate My Preview'}
-            </button>
-            <p className="cw-preview-disclaimer">
-              AI simulations are for visualisation purposes only. Actual results will vary based on your individual anatomy, skin condition, and treatment plan.
-            </p>
-          </>
-        ) : (
-          <div className="cw-preview-result">
-            <p className="cw-preview-label">Your AI preview — {TREATMENTS.find(t => t.slug === treatment)?.label}</p>
-            <img src={result.resultUrl} alt="AI treatment preview" />
-            <p className="cw-preview-disclaimer">{result.disclaimer}</p>
-            <button className="cw-preview-generate" onClick={() => { setResult(null); setFile(null); setTreatment(''); }}>
-              Try Another Treatment
-            </button>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
 // ── Home Screen ───────────────────────────────────────────
-function HomeScreen({ onOption, onClose, onBook, directLoading, directError, hasStoredSession }) {
+function HomeScreen({ onOption, onClose, onBook, hasHistory }) {
   const options = [
     {
       id: 'book',
@@ -174,7 +107,7 @@ function HomeScreen({ onOption, onClose, onBook, directLoading, directError, has
       icon: <IconChat />,
       label: 'Chat with Us',
       // If returning user, skip the form entirely
-      desc: hasStoredSession ? 'Continue your conversation' : 'Talk to our team via live chat',
+      desc: hasHistory ? 'Continue your conversation' : 'Talk to our team via live chat',
       action: () => onOption('contact-form'),
     },
     {
@@ -183,37 +116,30 @@ function HomeScreen({ onOption, onClose, onBook, directLoading, directError, has
       label: 'Learn About Treatments',
       desc: 'Ask us anything about our services',
       action: () => onOption('chat-direct'),
-      loading: directLoading,
     },
   ];
 
   return (
     <div className="cw-home">
       <div className="cw-home__greeting">
-        <p className="cw-home__hello">{hasStoredSession ? 'Welcome back 👋' : 'Hello there 👋'}</p>
+        <p className="cw-home__hello">{hasHistory ? 'Welcome back 👋' : 'Hello there 👋'}</p>
         <p className="cw-home__sub">How can we help you today?</p>
       </div>
       <div className="cw-home__options">
         {options.map((opt) => (
           <button
             key={opt.id}
-            className={`cw-option${opt.loading ? ' cw-option--loading' : ''}`}
+            className="cw-option"
             onClick={opt.action}
-            disabled={opt.loading}
           >
-            <span className="cw-option__icon">
-              {opt.loading ? <span className="cw-option__spinner" /> : opt.icon}
-            </span>
+            <span className="cw-option__icon">{opt.icon}</span>
             <span className="cw-option__text">
               <span className="cw-option__label">{opt.label}</span>
-              <span className="cw-option__desc">
-                {opt.loading ? 'Connecting…' : opt.desc}
-              </span>
+              <span className="cw-option__desc">{opt.desc}</span>
             </span>
-            {!opt.loading && <span className="cw-option__arrow"><IconArrow /></span>}
+            <span className="cw-option__arrow"><IconArrow /></span>
           </button>
         ))}
-        {directError && <p className="cw-home__error">{directError}</p>}
       </div>
     </div>
   );
@@ -221,25 +147,13 @@ function HomeScreen({ onOption, onClose, onBook, directLoading, directError, has
 
 // ── Contact Form Screen ───────────────────────────────────
 function ContactFormScreen({ onSubmit, onBack }) {
-  const [name, setName]     = useState('');
-  const [email, setEmail]   = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError]   = useState('');
+  const [name, setName] = useState('');
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    if (!name.trim() || !email.trim()) return;
-    setLoading(true);
-    setError('');
-    try {
-      const data = await createChatSession({ clientName: name.trim(), clientEmail: email.trim() });
-      saveSession({ sessionKey: data.sessionKey, clientName: name.trim() });
-      onSubmit({ sessionKey: data.sessionKey, clientName: name.trim() });
-    } catch {
-      setError('Could not start chat. Please try again.');
-    } finally {
-      setLoading(false);
-    }
+    if (!name.trim()) return;
+    saveClientName(name.trim());
+    onSubmit({ clientName: name.trim() });
   }
 
   return (
@@ -252,7 +166,7 @@ function ContactFormScreen({ onSubmit, onBack }) {
       </button>
 
       <p className="cw-home__hello" style={{ marginTop: 8 }}>Before we start</p>
-      <p className="cw-home__sub">Just a couple of details so we can personalise your experience.</p>
+      <p className="cw-home__sub">Just your name so we can personalise your experience.</p>
 
       <form className="cw-form" onSubmit={handleSubmit}>
         <div className="cw-form__field">
@@ -267,20 +181,8 @@ function ContactFormScreen({ onSubmit, onBack }) {
             autoFocus
           />
         </div>
-        <div className="cw-form__field">
-          <label className="cw-form__label">Email Address</label>
-          <input
-            className="cw-form__input"
-            type="email"
-            placeholder="your@email.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        {error && <p className="cw-form__error">{error}</p>}
-        <button className="cw-form__submit" type="submit" disabled={!name.trim() || !email.trim() || loading}>
-          {loading ? 'Starting chat…' : 'Start Chatting →'}
+        <button className="cw-form__submit" type="submit" disabled={!name.trim()}>
+          Start Chatting →
         </button>
       </form>
     </div>
@@ -288,48 +190,51 @@ function ContactFormScreen({ onSubmit, onBack }) {
 }
 
 // ── Chat Screen ───────────────────────────────────────────
-function ChatScreen({ sessionKey: initialSessionKey, clientName, initialMessage, showPreview, setShowPreview }) {
-  const [messages, setMessages]         = useState([]);
+function ChatScreen({ clientName, initialMessage }) {
+  const [messages, setMessages]         = useState(() => {
+    const history = loadHistory();
+    if (history.length > 0) {
+      return history.map(m => ({ ...m, time: new Date() }));
+    }
+    const name = clientName || loadClientName();
+    const greeting = name
+      ? `Hi ${name}! I'm Kensley, your Kensley Aesthetics assistant. What can I help you with today?`
+      : "Hi! I'm Kensley, your Kensley Aesthetics assistant. What can I help you with today?";
+    return [{ role: 'assistant', content: greeting, time: new Date() }];
+  });
   const [input, setInput]               = useState('');
   const [typing, setTyping]             = useState(false);
-  const [previewShown, setPreviewShown] = useState(false);
 
   const messagesEndRef = useRef(null);
   const inputRef       = useRef(null);
-  const sessionKeyRef  = useRef(initialSessionKey);
-  const didAutoSend    = useRef(false); // prevent double auto-send
+  const didAutoSend    = useRef(false);
 
-  // Safety net: create session on first message if somehow missing
-  async function ensureSession() {
-    if (sessionKeyRef.current) return sessionKeyRef.current;
-    const data = await createChatSession();
-    saveSession({ sessionKey: data.sessionKey });
-    sessionKeyRef.current = data.sessionKey;
-    return data.sessionKey;
-  }
-
-  async function sendMessage(text) {
-    const key  = await ensureSession();
-    const data = await sendChatMessage({ sessionKey: key, message: text });
+  async function callApi(text, historyMessages) {
+    const history = historyMessages
+      .filter(m => m.role === 'user' || m.role === 'assistant')
+      .map(({ role, content }) => ({ role, content }));
+    const data = await sendChatMessage({ messages: history, message: text });
     return data.reply;
   }
 
   useEffect(() => {
-    const greeting = clientName
-      ? `Hi ${clientName}! I'm Kensley, your Kensley Aesthetics assistant. What can I help you with today?`
-      : "Hi! I'm Kensley, your Kensley Aesthetics assistant. What can I help you with today?";
-
-    setMessages([{ role: 'assistant', content: greeting, time: new Date() }]);
-
     // Auto-send the initial message (e.g. from "Learn About Treatments")
     if (initialMessage && !didAutoSend.current) {
       didAutoSend.current = true;
       setTimeout(async () => {
-        setMessages((prev) => [...prev, { role: 'user', content: initialMessage, time: new Date() }]);
+        setMessages((prev) => {
+          const withUser = [...prev, { role: 'user', content: initialMessage, time: new Date() }];
+          return withUser;
+        });
         setTyping(true);
         try {
-          const reply = await sendMessage(initialMessage);
-          setMessages((prev) => [...prev, { role: 'assistant', content: reply, time: new Date() }]);
+          // messages at this point is still the pre-user-msg snapshot from the closure
+          const reply = await callApi(initialMessage, messages);
+          setMessages((prev) => {
+            const updated = [...prev, { role: 'assistant', content: reply, time: new Date() }];
+            saveHistory(updated);
+            return updated;
+          });
         } catch {
           setMessages((prev) => [...prev, { role: 'assistant', content: "I'm having trouble connecting right now. Please try again.", time: new Date() }]);
         } finally {
@@ -350,20 +255,18 @@ function ChatScreen({ sessionKey: initialSessionKey, clientName, initialMessage,
     const text = input.trim();
     if (!text || typing) return;
 
+    const prevMessages = messages; // history snapshot before new user message
     setMessages((prev) => [...prev, { role: 'user', content: text, time: new Date() }]);
     setInput('');
     setTyping(true);
 
     try {
-      const reply = await sendMessage(text);
-      setMessages((prev) => [...prev, { role: 'assistant', content: reply, time: new Date() }]);
-
-      if (!previewShown) {
-        setPreviewShown(true);
-        setTimeout(() => {
-          setMessages((prev) => [...prev, { role: '__preview_prompt', time: new Date() }]);
-        }, 700);
-      }
+      const reply = await callApi(text, prevMessages);
+      setMessages((prev) => {
+        const updated = [...prev, { role: 'assistant', content: reply, time: new Date() }];
+        saveHistory(updated);
+        return updated;
+      });
     } catch {
       setMessages((prev) => [
         ...prev,
@@ -382,14 +285,6 @@ function ChatScreen({ sessionKey: initialSessionKey, clientName, initialMessage,
     <>
       <div className="cw-messages">
         {messages.map((msg, i) => {
-          if (msg.role === '__preview_prompt') {
-            return (
-              <div key={i} className="cw-preview-prompt" onClick={() => setShowPreview(true)} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && setShowPreview(true)}>
-                <span className="cw-preview-prompt__text">Want to see how you'd look after treatment? Try our AI preview →</span>
-                <span className="cw-preview-prompt__arrow">✦</span>
-              </div>
-            );
-          }
           return (
             <div key={i} className={`cw-msg cw-msg--${msg.role}`}>
               <div className="cw-msg__bubble">
@@ -434,31 +329,18 @@ function ChatWidget() {
   const { openDrawer } = useAppointment();
   const [open, setOpen]               = useState(false);
   const [view, setView]               = useState('home');
-  const [sessionKey, setSessionKey]   = useState(null);
-  const [clientName, setClientName]   = useState('');
+  const [clientName, setClientName]   = useState(() => loadClientName());
   const [initialMessage, setInitialMessage] = useState('');
   const [unread, setUnread]           = useState(0);
-  const [showPreview, setShowPreview] = useState(false);
-  const [directLoading, setDirectLoading] = useState(false);
-  const [directError, setDirectError]     = useState('');
 
-  // Restore session from localStorage on mount
-  useEffect(() => {
-    const stored = loadStoredSession();
-    if (stored?.sessionKey) {
-      setSessionKey(stored.sessionKey);
-      setClientName(stored.clientName || '');
-    }
-  }, []);
-
-  const hasStoredSession = Boolean(sessionKey);
+  const hasHistory = loadHistory().length > 0;
 
   function handleClose() { setOpen(false); }
 
-  async function handleOption(option) {
+  function handleOption(option) {
     if (option === 'contact-form') {
-      // If returning user — skip form, go straight to chat
-      if (hasStoredSession) {
+      // Returning user (has history) — skip name form, go straight to chat
+      if (hasHistory) {
         setInitialMessage('');
         setView('chat');
       } else {
@@ -466,33 +348,12 @@ function ChatWidget() {
       }
     } else if (option === 'chat-direct') {
       const TREATMENT_QUESTION = "Can you tell me about the treatments you offer? I'd like to know what's available and what might suit me.";
-
-      if (hasStoredSession) {
-        // Already have a session — go straight to chat with the question
-        setInitialMessage(TREATMENT_QUESTION);
-        setView('chat');
-        return;
-      }
-
-      // No session — create one anonymously then go to chat with the question
-      setDirectLoading(true);
-      setDirectError('');
-      try {
-        const data = await createChatSession();
-        saveSession({ sessionKey: data.sessionKey });
-        setSessionKey(data.sessionKey);
-        setInitialMessage(TREATMENT_QUESTION);
-        setView('chat');
-      } catch {
-        setDirectError('Could not connect. Please try again.');
-      } finally {
-        setDirectLoading(false);
-      }
+      setInitialMessage(TREATMENT_QUESTION);
+      setView('chat');
     }
   }
 
-  function handleContactSubmit({ sessionKey: key, clientName: name }) {
-    setSessionKey(key);
+  function handleContactSubmit({ clientName: name }) {
     setClientName(name);
     setInitialMessage('');
     setView('chat');
@@ -530,10 +391,6 @@ function ChatWidget() {
 
       {open && (
         <div className="cw-panel" role="dialog" aria-label="Chat with Kensley Aesthetics">
-
-          {showPreview && (
-            <PreviewPanel sessionKey={sessionKey} onClose={() => setShowPreview(false)} />
-          )}
 
           {/* Header — chat view */}
           {showHeader && (
@@ -581,9 +438,7 @@ function ChatWidget() {
               onOption={handleOption}
               onClose={handleClose}
               onBook={openDrawer}
-              directLoading={directLoading}
-              directError={directError}
-              hasStoredSession={hasStoredSession}
+              hasHistory={hasHistory}
             />
           )}
 
@@ -594,14 +449,10 @@ function ChatWidget() {
             />
           )}
 
-          {view === 'chat' && sessionKey && (
+          {view === 'chat' && (
             <ChatScreen
-              key={sessionKey}
-              sessionKey={sessionKey}
               clientName={clientName}
               initialMessage={initialMessage}
-              showPreview={showPreview}
-              setShowPreview={setShowPreview}
             />
           )}
         </div>

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { client, MAIN_TREATMENTS_QUERY } from '../../lib/sanityClient';
 import { useAppointment } from '../../context/AppointmentContext';
-import { submitContact } from '../../services/api';
+import { bookAppointment } from '../../services/api';
 import './drawer.css';
 
 function AppointmentDrawer() {
@@ -37,12 +37,14 @@ function AppointmentDrawer() {
     setSubmitting(true);
     setSubmitError('');
     try {
-      await submitContact({
-        name: form.name,
-        email: form.email,
-        phone: form.phone,
-        service: form.treatment,
-        message: `Preferred date: ${form.date || 'Not specified'} | Preferred time: ${form.time || 'Any time'}${form.message ? ` | Notes: ${form.message}` : ''}`,
+      await bookAppointment({
+        name:             form.name,
+        email:            form.email,
+        phone:            form.phone,
+        service:          form.treatment,
+        preferred_date:   form.date,
+        preferred_time:   form.time || 'Any time',
+        notes:            form.message,
       });
       setSubmitted(true);
     } catch (err) {
@@ -158,6 +160,7 @@ function AppointmentDrawer() {
                     type="date"
                     value={form.date}
                     onChange={set('date')}
+                    min={new Date().toISOString().split('T')[0]}
                     required
                   />
                 </div>

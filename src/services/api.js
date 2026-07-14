@@ -18,31 +18,27 @@ export async function submitContact({ name, email, phone, service, message }) {
   });
 }
 
-// ── Chat ─────────────────────────────────────────────────
-export async function createChatSession({ clientName, clientEmail } = {}) {
-  return request('/api/chat/session', {
+// ── Appointments ─────────────────────────────────────────
+export async function bookAppointment({ name, email, phone, service, preferred_date, preferred_time, notes }) {
+  return request('/api/appointments', {
     method: 'POST',
-    body: JSON.stringify({ clientName, clientEmail }),
+    body: JSON.stringify({ name, email, phone, service, preferred_date, preferred_time, notes }),
   });
 }
 
-export async function sendChatMessage({ sessionKey, message }) {
+// ── Chat ─────────────────────────────────────────────────
+export async function sendChatMessage({ messages, message }) {
   return request('/api/chat/message', {
     method: 'POST',
-    body: JSON.stringify({ sessionKey, message }),
+    body: JSON.stringify({ messages, message }),
   });
-}
-
-export async function getChatHistory(sessionKey) {
-  return request(`/api/chat/history/${sessionKey}`);
 }
 
 // ── Image Generation ─────────────────────────────────────
-export async function generateTreatmentPreview({ imageFile, treatment, sessionKey }) {
+export async function generateTreatmentPreview({ imageFile, treatment }) {
   const form = new FormData();
   form.append('image', imageFile);
   form.append('treatment', treatment);
-  if (sessionKey) form.append('sessionKey', sessionKey);
 
   const res = await fetch(`${BASE}/api/imagegen/preview`, {
     method: 'POST',

@@ -5,7 +5,7 @@ import { schemaTypes } from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'Creative Touch Renova',
+  title: 'Kensley Aesthetics',
 
   projectId: 'puzajrus',
   dataset: 'production',
@@ -41,6 +41,15 @@ export default defineConfig({
                 S.documentTypeList('beforeAfter')
                   .title('Before & After')
                   .defaultOrdering([{ field: 'rank', direction: 'asc' }])
+              ),
+            S.divider(),
+            S.listItem()
+              .title('Blog Posts')
+              .icon(() => '✍️')
+              .child(
+                S.documentTypeList('blogPost')
+                  .title('Blog Posts')
+                  .defaultOrdering([{ field: 'publishedAt', direction: 'desc' }])
               ),
           ]),
     }),

@@ -20,6 +20,9 @@ import PrivacyPolicy    from './pages/PrivacyPolicy';
 import TermsConditions  from './pages/TermsConditions';
 import ChatWidget       from './components/ChatWidget';
 import AIPreview        from './pages/AIPreview';
+import Blog             from './pages/Blog';
+import BlogPost         from './pages/BlogPost';
+import AdminAppointments from './pages/AdminAppointments';
 
 function App() {
   return (
@@ -40,9 +43,12 @@ function App() {
         <Route path="/testimonials"         element={<Testimonials />} />
         <Route path="/faq"                  element={<FAQ />} />
         <Route path="/contact"              element={<Contact />} />
-        <Route path="/ai-preview"           element={<AIPreview />} />
+
+        <Route path="/blog"                 element={<Blog />} />
+        <Route path="/blog/:slug"           element={<BlogPost />} />
         <Route path="/privacy-policy"       element={<PrivacyPolicy />} />
         <Route path="/terms"                element={<TermsConditions />} />
+        <Route path="/admin/appointments"   element={<AdminAppointments />} />
         <Route path="*"                     element={<Home />} />
       </Routes>
       <Footer />

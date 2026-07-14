@@ -115,7 +115,7 @@ function Contact() {
                     </div>
                   </div>
                   <div className="contact-form__field">
-                    <label className="contact-form__label">Your Message</label>
+                    <label className="contact-form__label">Your Message *</label>
                     <textarea
                       className="contact-form__input contact-form__textarea"
                       name="message"
@@ -123,6 +123,7 @@ function Contact() {
                       onChange={handleChange}
                       placeholder="Tell us about your goals or any questions you have..."
                       rows={5}
+                      required
                     />
                   </div>
                   {error && (
@@ -141,8 +142,8 @@ function Contact() {
               <div className="contact-info__block">
                 <p className="section-label">Location</p>
                 <p className="contact-info__text">
-                  Creative Touch<br />
-                  London, United Kingdom
+                  Kensley Aesthetics<br />
+                  Newcastle, United Kingdom
                 </p>
               </div>
               <div className="contact-info__block">
