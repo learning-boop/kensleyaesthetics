@@ -24,20 +24,21 @@ function setCanonical(href) {
 }
 
 /**
- * SeoHead — sets document title, meta description, Open Graph, Twitter Card,
- * canonical URL, and optional JSON-LD structured data.
+ * SeoHead — sets document title, meta description, keywords, Open Graph,
+ * Twitter Card, canonical URL, and optional JSON-LD structured data.
  *
  * Usage:
  *   <SeoHead
  *     title="Post title"
  *     description="Short summary"
+ *     keywords="keyword one, keyword two"
  *     image="https://cdn.sanity.io/..."
  *     path="/blog/my-post"
  *     type="article"
  *     jsonLd={{ "@type": "BlogPosting", ... }}
  *   />
  */
-function SeoHead({ title, description, image, path, type = 'website', jsonLd }) {
+function SeoHead({ title, description, keywords, image, path, type = 'website', jsonLd }) {
   useEffect(() => {
     const pageTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
     const canonical = path ? `${SITE_URL}${path}` : SITE_URL;
@@ -47,6 +48,7 @@ function SeoHead({ title, description, image, path, type = 'website', jsonLd }) 
 
     // ── Standard meta ─────────────────────────────────────
     setMeta('name', 'description', description);
+    if (keywords) setMeta('name', 'keywords', keywords);
 
     // ── Open Graph ────────────────────────────────────────
     setMeta('property', 'og:site_name',   SITE_NAME);
@@ -81,7 +83,7 @@ function SeoHead({ title, description, image, path, type = 'website', jsonLd }) 
       const script = document.getElementById('seo-jsonld');
       if (script) script.remove();
     };
-  }, [title, description, image, path, type, jsonLd]);
+  }, [title, description, keywords, image, path, type, jsonLd]);
 
   return null;
 }

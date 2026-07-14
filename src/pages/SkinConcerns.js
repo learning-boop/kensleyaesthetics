@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import CtaSection from '../components/CtaSection';
+import SeoHead from '../components/SeoHead';
 import './pages.css';
 
 const concerns = [
@@ -49,6 +50,11 @@ const concerns = [
 function SkinConcerns() {
   return (
     <>
+      <SeoHead
+        title="Skin Concerns | Find Your Ideal Treatment"
+        description="Not sure which treatment is right for you? Explore our skin concerns guide — from fine lines and wrinkles to loss of volume, sagging skin, under eye bags and more at Kensley Aesthetics."
+        path="/skin-concerns"
+      />
       <PageHero
         label="Find Your Treatment"
         title={<>Your Skin Concern,<br />Our Solution</>}

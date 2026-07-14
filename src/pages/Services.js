@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import QuickContact from '../components/QuickContact';
+import SeoHead from '../components/SeoHead';
 import './pages.css';
 import './Training.css';
 
@@ -135,6 +136,11 @@ export default function Services() {
 
   return (
     <>
+      <SeoHead
+        title="Aesthetics Training Courses Newcastle | Professional Education"
+        description="Professional aesthetics training courses for medical practitioners. Foundation injectables, dermal fillers, advanced techniques and more — delivered by Kensley Aesthetics experts in Newcastle."
+        path="/training"
+      />
       <PageHero
         label="Professional Education"
         title={<>Advanced Aesthetic<br />Training Programmes</>}

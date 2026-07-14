@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { client } from '../lib/sanityClient';
 import PinnedShowcase from '../components/PinnedShowcase';
 import QuickContact from '../components/QuickContact';
+import SeoHead from '../components/SeoHead';
+import { TREATMENT_KEYWORDS } from '../data/keywords';
 import './pages.css';
 import './TreatmentDetail.css';
 
@@ -57,8 +59,30 @@ function MainTreatmentDetail() {
   const prevReview = () => { setSlideDir('left');  setReviewIndex(i => (i - 1 + reviews.length) % reviews.length); };
   const nextReview = () => { setSlideDir('right'); setReviewIndex(i => (i + 1) % reviews.length); };
 
+  const seoDescription = treatment.tagline
+    ? `${treatment.tagline} — ${TREATMENT_KEYWORDS[slug] || 'non-surgical aesthetic treatment'} at Kensley Aesthetics in Newcastle and London.`
+    : `Expert ${treatment.label} at Kensley Aesthetics. ${TREATMENT_KEYWORDS[slug] || 'Non-surgical aesthetic treatments'} in Newcastle and London.`;
+
   return (
     <>
+      <SeoHead
+        title={`${treatment.label} Newcastle &amp; London | Kensley Aesthetics`}
+        description={seoDescription.slice(0, 160)}
+        image={treatment.image}
+        path={`/main-treatments/${slug}`}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'MedicalProcedure',
+          name: treatment.label,
+          description: treatment.tagline || treatment.description,
+          url: `https://kensleyaesthetics.co.uk/main-treatments/${slug}`,
+          provider: {
+            '@type': 'MedicalBusiness',
+            name: 'Kensley Aesthetics',
+            url: 'https://kensleyaesthetics.co.uk',
+          },
+        }}
+      />
       {/* ── CINEMATIC HERO ───────────────────────────────── */}
       <section className="td-hero td-hero--light">
         <div className="td-hero__bg" style={{ backgroundImage: treatment.image ? `url(${treatment.image})` : 'none' }} />

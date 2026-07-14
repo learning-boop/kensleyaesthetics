@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import CtaSection from '../components/CtaSection';
+import SeoHead from '../components/SeoHead';
 import './pages.css';
 
 const faqs = [
@@ -82,6 +83,11 @@ function FAQItem({ q, a }) {
 function FAQ() {
   return (
     <>
+      <SeoHead
+        title="FAQs | Non-Surgical Aesthetic Treatments Newcastle"
+        description="Answers to your most common questions about non-surgical aesthetic treatments at Kensley Aesthetics — dermal fillers, anti-wrinkle injections, Profhilo, microneedling, HIFU and more."
+        path="/faq"
+      />
       <PageHero
         label="FAQ"
         title={<>Frequently Asked<br />Questions</>}

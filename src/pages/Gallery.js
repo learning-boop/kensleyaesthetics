@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { client, BEFORE_AFTER_QUERY } from '../lib/sanityClient';
 import PageHero from '../components/PageHero';
 import CtaSection from '../components/CtaSection';
+import SeoHead from '../components/SeoHead';
 import './pages.css';
 
 function Gallery() {
@@ -25,6 +26,11 @@ function Gallery() {
 
   return (
     <>
+      <SeoHead
+        title="Before &amp; After Gallery | Real Patient Results"
+        description="View real before and after results from Kensley Aesthetics — dermal fillers, lip fillers, Profhilo, RF microneedling, HIFU, jawline filler, tear trough filler and more."
+        path="/gallery"
+      />
       <PageHero
         label="Before & After"
         title={<>Real Results,<br />Real Clients</>}

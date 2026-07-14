@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './About.css';
+import SeoHead from '../components/SeoHead';
 
 import drOne   from '../data/images/about/drmatla_one.png';
 import drTwo   from '../data/images/about/drmatla_two.png';
@@ -91,6 +92,11 @@ function About() {
 
   return (
     <>
+      <SeoHead
+        title="About Us | Expert Aesthetic Practitioners"
+        description="Meet the team behind Kensley Aesthetics — medically qualified aesthetic practitioners with 9+ years of expertise delivering exceptional non-surgical results in Newcastle and London."
+        path="/about"
+      />
       {/* ── HERO ─────────────────────────────────────────── */}
       <div className="ab-hero-wrap">
         <section className="ab-hero">

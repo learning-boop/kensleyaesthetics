@@ -2,6 +2,7 @@ import { useState } from 'react';
 import PageHero from '../components/PageHero';
 import { useTreatments } from '../context/TreatmentsContext';
 import { submitContact } from '../services/api';
+import SeoHead from '../components/SeoHead';
 import './pages.css';
 
 function Contact() {
@@ -39,6 +40,11 @@ function Contact() {
 
   return (
     <>
+      <SeoHead
+        title="Contact Us | Book a Consultation"
+        description="Book a consultation at Kensley Aesthetics. Get in touch to discuss dermal fillers, anti-wrinkle injections, Profhilo, RF microneedling, HIFU and more in Newcastle and London."
+        path="/contact"
+      />
       <PageHero
         label="Get in Touch"
         title={<>Book an Appointment<br />or Say Hello</>}

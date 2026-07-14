@@ -3,6 +3,8 @@ import { useParams, Navigate } from 'react-router-dom';
 import { useTreatments } from '../context/TreatmentsContext';
 import PinnedShowcase from '../components/PinnedShowcase';
 import QuickContact from '../components/QuickContact';
+import SeoHead from '../components/SeoHead';
+import { TREATMENT_KEYWORDS } from '../data/keywords';
 import './pages.css';
 import './TreatmentDetail.css';
 
@@ -29,8 +31,30 @@ function TreatmentDetail() {
 
   const isLight = true;
 
+  const seoDescription = treatment.tagline
+    ? `${treatment.tagline} — Kensley Aesthetics signature programme in Newcastle and London. ${TREATMENT_KEYWORDS[slug] || ''}.`
+    : `Discover the ${treatment.label} programme at Kensley Aesthetics. Expert non-surgical aesthetic treatment in Newcastle and London.`;
+
   return (
     <>
+      <SeoHead
+        title={`${treatment.label} | Signature Programme`}
+        description={seoDescription.slice(0, 160)}
+        image={treatment.image}
+        path={`/treatments/${slug}`}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'MedicalProcedure',
+          name: treatment.label,
+          description: treatment.tagline || treatment.description,
+          url: `https://kensleyaesthetics.co.uk/treatments/${slug}`,
+          provider: {
+            '@type': 'MedicalBusiness',
+            name: 'Kensley Aesthetics',
+            url: 'https://kensleyaesthetics.co.uk',
+          },
+        }}
+      />
       {/* ── CINEMATIC HERO ───────────────────────────────── */}
       <section className={`td-hero${isLight ? ' td-hero--light' : ''}`}>
         {/* background image */}

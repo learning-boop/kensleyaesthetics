@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import CtaSection from '../components/CtaSection';
+import SeoHead from '../components/SeoHead';
 import './pages.css';
 
 const testimonials = [
@@ -61,6 +62,11 @@ function StarRating({ count }) {
 function Testimonials() {
   return (
     <>
+      <SeoHead
+        title="Client Testimonials | Real Stories from Kensley Aesthetics"
+        description="Read real client stories and reviews from Kensley Aesthetics. Discover what our patients say about their dermal filler, anti-wrinkle, Profhilo and skin rejuvenation results."
+        path="/testimonials"
+      />
       <PageHero
         label="Client Stories"
         title={<>Words from<br />Our Clients</>}
