@@ -53,9 +53,9 @@ function ExpertSection() {
       </motion.div>
 
       {/* ── Bottom-left: small secondary image — counter-parallax ── */}
-      <motion.div className="ep-img-small-wrap" style={{ x: smallX, y: smallY }}>
+      {/* <motion.div className="ep-img-small-wrap" style={{ x: smallX, y: smallY }}>
         <img src={imgSmall} alt="Premium surgical instruments" className="ep-img-small" />
-      </motion.div>
+      </motion.div> */}
 
       {/* ── Bottom-right: body text ── */}
       <div className="ep-body-wrap">
