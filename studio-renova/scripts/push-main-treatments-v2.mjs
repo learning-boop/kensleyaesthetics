@@ -16,7 +16,7 @@ const treatments = [
     label: 'Anti-Wrinkle Treatments',
     slug: { _type: 'slug', current: 'anti-wrinkle-treatments' },
     tagline: 'Soften expression lines while preserving natural facial movement.',
-    description: 'Anti-wrinkle treatments use muscle-relaxing injections to smooth dynamic wrinkles caused by repeated facial expressions. At Creative Touch, every treatment is tailored to preserve your natural look — relaxing overactive muscles without freezing the face. Common areas include the forehead, frown lines, crow\'s feet, bunny lines, brow lift, lip flip, gummy smile, jaw slimming and neck bands.',
+    description: 'Anti-wrinkle treatments use muscle-relaxing injections to smooth dynamic wrinkles caused by repeated facial expressions. At Kensley Aesthetics, every treatment is tailored to preserve your natural look — relaxing overactive muscles without freezing the face. Common areas include the forehead, frown lines, crow\'s feet, bunny lines, brow lift, lip flip, gummy smile, jaw slimming and neck bands.',
     benefits: [
       'Softens forehead lines, frown lines and crow\'s feet',
       'Prevents deeper lines from forming over time',
@@ -27,7 +27,7 @@ const treatments = [
     ideal: 'Ideal for clients who notice expression-related wrinkles, jaw tension, excessive sweating, gummy smile, neck bands or anyone wanting subtle, natural-looking prevention.',
     faqs: [
       { _key: 'faq-1', q: 'How long do anti-wrinkle treatments last?', a: 'Results typically last 3 to 4 months for most areas. With regular maintenance, some clients find results last longer over time.' },
-      { _key: 'faq-2', q: 'Will I look frozen?', a: 'No. At Creative Touch we use precise, conservative amounts to relax targeted muscles while keeping natural facial movement and expression.' },
+      { _key: 'faq-2', q: 'Will I look frozen?', a: 'No. At Kensley Aesthetics we use precise, conservative amounts to relax targeted muscles while keeping natural facial movement and expression.' },
       { _key: 'faq-3', q: 'Is it painful?', a: 'Discomfort is minimal. A very fine needle is used and most clients describe it as a small pinch. No anaesthetic is needed for most areas.' },
       { _key: 'faq-4', q: 'When will I see results?', a: 'Results begin to appear within 3 to 5 days and reach their full effect at around 2 weeks.' },
     ],
@@ -46,7 +46,7 @@ const treatments = [
     label: 'Dermal Fillers',
     slug: { _type: 'slug', current: 'dermal-fillers' },
     tagline: 'Restore volume, define structure and enhance natural contours.',
-    description: 'Dermal fillers use hyaluronic acid to restore lost volume, add definition and enhance facial proportions. At Creative Touch, fillers are placed with precision to achieve results that are natural, balanced and anatomy-led. Treatment areas include cheeks, chin, jawline, lips, tear troughs, nose, temples and nasolabial folds.',
+    description: 'Dermal fillers use hyaluronic acid to restore lost volume, add definition and enhance facial proportions. At Kensley Aesthetics, fillers are placed with precision to achieve results that are natural, balanced and anatomy-led. Treatment areas include cheeks, chin, jawline, lips, tear troughs, nose, temples and nasolabial folds.',
     benefits: [
       'Restores volume to cheeks, temples and under-eyes',
       'Defines the jawline, chin and lip border',

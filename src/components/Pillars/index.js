@@ -16,7 +16,7 @@ function Pillars() {
       <div className="container">
         <div className="pillars__head">
           <p className="section-label">Why Choose Us</p>
-          <h2 className="section-title">The Creative Touch<br />Difference</h2>
+          <h2 className="section-title">The Kensley Aesthetics<br />Difference</h2>
           <p className="section-subtitle">
             Six reasons our clients return — and recommend us to everyone they know.
           </p>

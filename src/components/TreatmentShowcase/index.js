@@ -10,7 +10,7 @@ const VARIANTS = ['v1', 'v2', 'v3', 'v4'];
 function BrandBlock() {
   return (
     <Link to="/" className="ts-brand">
-      <span className="ts-brand__eyebrow">Creative Touch</span>
+      <span className="ts-brand__eyebrow">Kensley Aesthetics</span>
       <span className="ts-brand__name">Kensley Aesthetics</span>
     </Link>
   );
