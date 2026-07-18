@@ -74,7 +74,8 @@
       "Bash(git push:*)",
       "Bash(cd \"D:\\\\creative_touch\\\\renova\" && npm run build 2>&1 | tail -20)",
       "Bash(cd \"D:\\\\creative_touch\\\\renova\" && npm install --save-dev cross-env)",
-      "Bash(grep -l \"SeoHead\" D:/creative_touch/renova/src/pages/*.js)"
+      "Bash(grep -l \"SeoHead\" D:/creative_touch/renova/src/pages/*.js)",
+      "Bash(cd \"D:\\\\creative_touch\\\\renova\" && node studio-renova/scripts/push-packages-v2.mjs 2>&1)"
     ]
   }
 }

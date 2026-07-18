@@ -78,16 +78,25 @@ export const RECENT_POSTS_QUERY = `*[_type == "blogPost"] | order(publishedAt de
 export const TREATMENTS_QUERY = `*[_type == "treatment"] | order(num asc) {
   num,
   "slug": slug.current,
-  label, 
+  label,
   tagline,
   description,
+  concern,
   "image": image.asset->url,
   "image_second": image_second.asset->url,
   "reviews": reviews[].asset->url,
   benefits,
   ideal,
+  steps[] {
+    stepTitle,
+    stepDescription,
+    treatments[] { name, mainTreatmentSlug }
+  },
+  caveatLine,
+  ctaLabel,
+  seoTitle,
+  seoDescription,
   faqs[] { q, a },
-  prices[] { name, price },
   subTreatments[] {
     title,
     name,

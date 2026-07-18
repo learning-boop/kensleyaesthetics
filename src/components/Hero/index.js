@@ -1,32 +1,52 @@
+import { useNavigate } from 'react-router-dom';
+import { useAppointment } from '../../context/AppointmentContext';
 import './Hero.css';
 
 function Hero() {
+  const navigate = useNavigate();
+  const { openDrawer } = useAppointment();
+
   return (
     <section className="hero">
-      <video
-        className="hero__bg-video"
-        src="/assets/model.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden="true"
-      />
-      <div className="hero__center">
-        <h1 className="hero__title">Timeless Glow</h1>
+      {/* Left — content */}
+      <div className="hero__content">
+        <span className="hero__eyebrow">Kensley Aesthetics</span>
+        <h1 className="hero__title">
+          Timeless<br />
+          <em>Glow</em>
+        </h1>
+        <p className="hero__sub">
+          Expert non-surgical treatments crafted to restore,
+          refine and reveal your most radiant self.
+        </p>
+        <div className="hero__actions">
+          <button className="hero__btn hero__btn--primary" onClick={openDrawer}>
+            Book Appointment
+          </button>
+          <button className="hero__btn hero__btn--ghost" onClick={() => navigate('/treatments')}>
+            Explore Treatments
+          </button>
+        </div>
 
+        {/* Scroll indicator */}
         <div className="hero__scroll">
           <div className="hero__scroll-line">
             <span className="hero__scroll-dot" />
           </div>
-          <svg className="hero__scroll-arrow" viewBox="0 0 24 24" fill="none">
-            <path d="M12 5v14M5 12l7 7 7-7" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
           <div className="hero__scroll-tag">
             <span className="hero__scroll-tag-num">9+ Years</span>
             <span className="hero__scroll-tag-text">Trusted Expertise</span>
           </div>
         </div>
+      </div>
+
+      {/* Right — image */}
+      <div className="hero__image-wrap">
+        <img
+          src="/assets/stay_youthful.png"
+          alt="Stay Youthful — Kensley Aesthetics"
+          className="hero__image"
+        />
       </div>
     </section>
   );

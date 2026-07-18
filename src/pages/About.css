@@ -739,20 +739,18 @@
     position: relative;
     bottom: auto;
     width: 100%;
-    padding: 48px 0 56px;
+    padding: 20px 0 32px;
   }
 
   .ab-quote__inner {
     flex-direction: column;
-    gap: 28px;
+    gap: 16px;
     padding: 0 24px;
   }
-  /* Fix: was only 20vw (~75px) on mobile */
+
+  /* Remove bottom image on mobile — show content only */
   .ab-quote__img {
-    width: 100%;
-    height: 52vw;
-    object-fit: cover;
-    object-position: top center;
+    display: none;
   }
 
   .ab-stat-hero__photo-wrap { width: 75%; margin-top: -80px; }

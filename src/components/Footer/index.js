@@ -59,13 +59,14 @@ function Footer() {
             <h4 className="ft-col-heading">Pages</h4>
             <ul className="ft-col-links">
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/training">Training</Link></li>
+              <li><Link to="/treatments">Treatment</Link></li>
+              <li><Link to="/treatment-plan">Treatment Plan</Link></li>
               <li><Link to="/gallery">Before &amp; After</Link></li>
-              <li><Link to="/testimonials">Testimonials</Link></li>
-              <li><Link to="/blog">Journal</Link></li>
-              <li><Link to="/faq">FAQ</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/blog">Blogs</Link></li>
+              <li><Link to="/faq">FAQs</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
+              <li><Link to="/training">Training</Link></li>
             </ul>
           </div>
 

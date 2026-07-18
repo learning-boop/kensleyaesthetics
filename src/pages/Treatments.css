@@ -1,0 +1,107 @@
+.tr-root {
+  background: var(--color-cream);
+  padding: 72px 60px 100px;
+}
+
+.tr-grid {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.tr-card {
+  background: #f5f0e8;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1px solid rgba(200, 169, 106, 0.18);
+  transition: border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.tr-card:hover {
+  border-color: var(--color-gold);
+}
+
+.tr-card__img-wrap {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.tr-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.tr-card:hover .tr-card__img {
+  transform: scale(1.04);
+}
+
+.tr-card__body {
+  padding: 24px 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.tr-card__num {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.tr-card__title {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-dark);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.tr-card__sub {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: rgba(12, 15, 13, 0.6);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.tr-card__cta {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+/* Tablet */
+@media (max-width: 1080px) {
+  .tr-grid { grid-template-columns: repeat(3, 1fr); }
+  .tr-root { padding: 56px 40px 80px; }
+}
+
+/* Mobile */
+@media (max-width: 680px) {
+  .tr-root { padding: 40px 20px 64px; }
+  .tr-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+
+@media (max-width: 400px) {
+  .tr-grid { grid-template-columns: 1fr; }
+}

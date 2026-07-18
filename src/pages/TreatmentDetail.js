@@ -1,16 +1,18 @@
 import { useState } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { useTreatments } from '../context/TreatmentsContext';
-import PinnedShowcase from '../components/PinnedShowcase';
+import { useAppointment } from '../context/AppointmentContext';
 import QuickContact from '../components/QuickContact';
 import SeoHead from '../components/SeoHead';
-import { TREATMENT_KEYWORDS } from '../data/keywords';
 import './pages.css';
 import './TreatmentDetail.css';
+import './PackageDetail.css';
 
 function TreatmentDetail() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const { treatments, loading } = useTreatments();
+  const { openDrawer } = useAppointment();
   const treatment = treatments.find((t) => t.slug === slug);
   const [openFaq, setOpenFaq] = useState(null);
   const [reviewIndex, setReviewIndex] = useState(0);
@@ -20,182 +22,185 @@ function TreatmentDetail() {
   if (!treatment) return <Navigate to="/" replace />;
 
   const reviews = treatment.reviews || [];
-  const prevReview = () => {
-    setSlideDir('left');
-    setReviewIndex(i => (i - 1 + reviews.length) % reviews.length);
-  };
-  const nextReview = () => {
-    setSlideDir('right');
-    setReviewIndex(i => (i + 1) % reviews.length);
-  };
+  const steps = treatment.steps || [];
+  const faqs = treatment.faqs || [];
+  const ctaLabel = treatment.ctaLabel || 'Book a Consultation';
 
-  const isLight = true;
+  const prevReview = () => { setSlideDir('left');  setReviewIndex(i => (i - 1 + reviews.length) % reviews.length); };
+  const nextReview = () => { setSlideDir('right'); setReviewIndex(i => (i + 1) % reviews.length); };
 
-  const seoDescription = treatment.tagline
-    ? `${treatment.tagline} — Kensley Aesthetics signature programme in Newcastle. ${TREATMENT_KEYWORDS[slug] || ''}.`
-    : `Discover the ${treatment.label} programme at Kensley Aesthetics. Expert non-surgical aesthetic treatment in Newcastle.`;
+  const seoTitle = treatment.seoTitle || `${treatment.label} Newcastle | Kensley Aesthetics`;
+  const seoDesc  = treatment.seoDescription ||
+    (treatment.concern
+      ? `${treatment.label} — ${treatment.concern} Expert non-surgical plan at Kensley Aesthetics, Newcastle.`
+      : `${treatment.tagline || ''} — Kensley Aesthetics treatment programme in Newcastle.`
+    );
 
   return (
     <>
       <SeoHead
-        title={`${treatment.label} | Signature Programme`}
-        description={seoDescription.slice(0, 160)}
+        title={seoTitle}
+        description={seoDesc.slice(0, 160)}
         image={treatment.image}
         path={`/treatments/${slug}`}
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'MedicalProcedure',
           name: treatment.label,
-          description: treatment.tagline || treatment.description,
+          description: treatment.concern || treatment.tagline || treatment.description,
           url: `https://kensleyaesthetics.co.uk/treatments/${slug}`,
-          provider: {
-            '@type': 'MedicalBusiness',
-            name: 'Kensley Aesthetics',
-            url: 'https://kensleyaesthetics.co.uk',
-          },
+          provider: { '@type': 'MedicalBusiness', name: 'Kensley Aesthetics', url: 'https://kensleyaesthetics.co.uk' },
         }}
       />
-      {/* ── CINEMATIC HERO ───────────────────────────────── */}
-      <section className={`td-hero${isLight ? ' td-hero--light' : ''}`}>
-        {/* background image */}
-        <div
-          className="td-hero__bg"
-          style={{ backgroundImage: `url(${treatment.image})` }}
-        />
-        {/* overlay */}
-        <div className="td-hero__overlay" />
 
-        {/* large treatment name */}
-        <h1 className="td-hero__title">{treatment.label}</h1>
-
-        {/* centred tagline */}
-        <span className="td-hero__tagline">{treatment.tagline}</span>
-
-        {/* bottom-right description */}
-        <p className="td-hero__desc">{treatment.description}</p>
-
-        {/* bottom-left scroll indicator */}
-        <div className="td-hero__scroll">
-          <span className="td-hero__scroll-arrow">↓</span>
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section className="pkg-hero">
+        <div className="pkg-hero__content">
+          <span className="pkg-hero__eyebrow">Signature Programme</span>
+          <h1 className="pkg-hero__title">{treatment.label}</h1>
+          {treatment.concern && (
+            <p className="pkg-hero__concern">{treatment.concern}</p>
+          )}
+          {treatment.description && (
+            <p className="pkg-hero__desc">{treatment.description}</p>
+          )}
+          <button className="pkg-btn pkg-btn--dark" onClick={openDrawer}>
+            {ctaLabel}
+          </button>
+        </div>
+        <div className="pkg-hero__image-wrap">
+          {treatment.image && (
+            <img src={treatment.image} alt={treatment.label} className="pkg-hero__image" />
+          )}
         </div>
       </section>
 
-      {/* ── EXPLORE ALL TREATMENTS (pinned showcase) ─────── */}
-      <PinnedShowcase items={treatment.subTreatments} treatmentSlug={treatment.slug} fallbackImage={treatment.image} />
-
-      {/* Services section */}
-      <section>
-        <div className="td-service-container">
-          <h1 className='td-service'>Services</h1>
-          <div className="td-service-links">
-            {treatment.faqs.map((faq, i) => (
-              <div className="td-faq-item" key={i}>
-                <button
-                  className="td-faq-btn"
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                >
-                  {/* <span className="td-faq-num">{String(i + 1).padStart(2, '0')}</span> */}
-                  <span className="td-faq-q">{faq.q}</span>
-                  <span className="td-faq-toggle">
-                    {openFaq === i ? '−' : '+'}
-                  </span>
-                </button>
-                <div className={`td-faq-answer${openFaq === i ? ' td-faq-answer--open' : ''}`}>
-                  <p className="td-faq-answer-text">{faq.a}</p>
+      {/* ── TREATMENT STEPS ──────────────────────────────────── */}
+      {steps.length > 0 && (
+        <section className="pkg-steps">
+          <div className="pkg-steps__inner">
+            <div className="pkg-steps__header">
+              <span className="pkg-steps__eyebrow">How It Works</span>
+              <h2 className="pkg-steps__title">Your Treatment Journey</h2>
+              <p className="pkg-steps__disclaimer">
+                This is a typical treatment pathway. Your exact plan is personalised at a face-to-face consultation — not every treatment is suitable for every person.
+              </p>
+            </div>
+            <div className="pkg-steps__list">
+              {steps.map((step, i) => (
+                <div className="pkg-step" key={i}>
+                  <div className="pkg-step__num">{String(i + 1).padStart(2, '0')}</div>
+                  <div className="pkg-step__body">
+                    <h3 className="pkg-step__title">{step.stepTitle}</h3>
+                    {step.stepDescription && (
+                      <p className="pkg-step__desc">{step.stepDescription}</p>
+                    )}
+                    {step.treatments && step.treatments.length > 0 && (
+                      <ul className="pkg-step__treatments">
+                        {step.treatments.map((t, j) => (
+                          <li key={j} className="pkg-step__treatment">
+                            {t.mainTreatmentSlug ? (
+                              <button
+                                className="pkg-step__treatment-link"
+                                onClick={() => navigate(`/main-treatments/${t.mainTreatmentSlug}`)}
+                              >
+                                {t.name} →
+                              </button>
+                            ) : (
+                              <span className="pkg-step__treatment-name">{t.name}</span>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Compliance caveat */}
+            {treatment.caveatLine && (
+              <p className="pkg-steps__caveat">{treatment.caveatLine}</p>
+            )}
+
+            <button className="pkg-btn pkg-btn--dark pkg-steps__cta" onClick={openDrawer}>
+              {ctaLabel}
+            </button>
           </div>
-        </div>
-      </section>
-      {/* ── EDITORIAL: WHAT SHOULD PERFECT [TREATMENT] LOOK LIKE? ── */}
-      <section className="td-editorial">
-        {/* "WHAT SHOULD" — behind image */}
-        <h2 className="td-editorial__hl td-editorial__hl--1">WHAT SHOULD</h2>
-
-        {/* "PERFECT [treatment]" — behind image */}
-        <h2 className="td-editorial__hl td-editorial__hl--2">
-          PERFECT {treatment.label}
-        </h2>
-
-        {/* Centre image placeholder */}
-        <div className="td-editorial__img" style={{ backgroundImage: `url(${treatment.image_second})` }} />
-
-        {/* "LOOK LIKE?" — in front of image */}
-        <h2 className="td-editorial__hl td-editorial__hl--3">LOOK LIKE?</h2>
-
-        {/* Read more CTA */}
-        <div className="td-editorial__cta">
-          <span className="td-editorial__cta-text">READ MORE</span>
-          <div className="td-editorial__cta-circle" />
-        </div>
-
-        {/* Quote block — lower left */}
-        <div className="td-editorial__quote">
-          <span className="td-editorial__quote-mark">"</span>
-          <p className="td-editorial__quote-text">{treatment.description}</p>
-        </div>
-      </section>
-
-      {/* ── BEFORE / AFTER ─────────────────────────────────────── */}
-      {treatment.reviews && treatment.reviews.length > 0 && (
-      <section className="td-ba">
-        <h2 className="td-ba__heading">BEFORE/AFTER</h2>
-
-        {/* Main image — single before/after photo, slides on nav */}
-        <div className="td-ba__main-pair">
-          <div
-            key={reviewIndex}
-            className={`td-ba__img-lg td-ba__img-lg--slide-${slideDir}`}
-            style={{ backgroundImage: `url(${reviews[reviewIndex]})` }}
-          />
-        </div>
-
-        {/* Secondary — preview of next image */}
-        {reviews.length > 1 && (
-          <div className="td-ba__secondary-pair">
-            <div
-              className="td-ba__img-sm"
-              style={{ backgroundImage: `url(${reviews[(reviewIndex + 1) % reviews.length]})` }}
-            />
-          </div>
-        )}
-
-        {/* Navigation arrows */}
-        <div className="td-ba__nav">
-          <button className="td-ba__nav-btn" onClick={prevReview} aria-label="Previous">←</button>
-          <button className="td-ba__nav-btn" onClick={nextReview} aria-label="Next">→</button>
-        </div>
-
-        {/* More photos circle CTA */}
-        <div className="td-ba__more">
-          <span className="td-ba__more-text">MORE PHOTOS</span>
-        </div>
-      </section>
+        </section>
       )}
 
-      {/* ── PRICES ─────────────────────────────────────────────── */}
-      <section className="td-prices">
-        <h2 className="td-prices__heading">PRICES</h2>
-        <div className="td-prices__list">
-          {treatment.prices.map((item, i) => (
-            <div className="td-prices__row" key={i}>
-              <span className="td-prices__name">{item.name}</span>
-              <div className="td-prices__right">
-                {item.originalPrice && (
-                  <span className="td-prices__original">{item.originalPrice}</span>
-                )}
-                {item.discount && (
-                  <span className="td-prices__badge">{item.discount}</span>
-                )}
-                <span className="td-prices__amount">{item.price}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* ── SECOND IMAGE + DESCRIPTION ───────────────────────── */}
+      {treatment.image_second && (
+        <section className="pkg-split">
+          <div className="pkg-split__img-wrap">
+            <img src={treatment.image_second} alt={treatment.label} className="pkg-split__img" />
+          </div>
+          <div className="pkg-split__content">
+            <span className="pkg-split__eyebrow">About This Programme</span>
+            <h2 className="pkg-split__title">{treatment.label}</h2>
+            <p className="pkg-split__body">{treatment.description}</p>
+            <button className="pkg-btn pkg-btn--ghost" onClick={openDrawer}>
+              {ctaLabel}
+            </button>
+          </div>
+        </section>
+      )}
 
-      {/* ── DOCTOR / QUICK CONTACT ─────────────────────────────── */}
+      {/* ── BEFORE / AFTER ───────────────────────────────────── */}
+      {reviews.length > 0 && (
+        <section className="pkg-ba">
+          <div className="pkg-ba__header">
+            <span className="pkg-ba__eyebrow">Results</span>
+            <h2 className="pkg-ba__title">Before &amp; After</h2>
+          </div>
+          <div className="pkg-ba__viewer">
+            <div
+              key={reviewIndex}
+              className={`pkg-ba__img td-ba__img-lg--slide-${slideDir}`}
+              style={{ backgroundImage: `url(${reviews[reviewIndex]})` }}
+            />
+            {reviews.length > 1 && (
+              <div className="pkg-ba__nav">
+                <button className="pkg-ba__nav-btn" onClick={prevReview} aria-label="Previous">←</button>
+                <span className="pkg-ba__count">{reviewIndex + 1} / {reviews.length}</span>
+                <button className="pkg-ba__nav-btn" onClick={nextReview} aria-label="Next">→</button>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* ── FAQ ──────────────────────────────────────────────── */}
+      {faqs.length > 0 && (
+        <section className="pkg-faq">
+          <div className="pkg-faq__inner">
+            <div className="pkg-faq__header">
+              <span className="pkg-faq__eyebrow">Common Questions</span>
+              <h2 className="pkg-faq__title">Frequently Asked</h2>
+            </div>
+            <div className="pkg-faq__list">
+              {faqs.map((faq, i) => (
+                <div className="pkg-faq__item" key={i}>
+                  <button
+                    className="pkg-faq__btn"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="pkg-faq__q">{faq.q}</span>
+                    <span className={`pkg-faq__toggle ${openFaq === i ? 'pkg-faq__toggle--open' : ''}`}>
+                      {openFaq === i ? '−' : '+'}
+                    </span>
+                  </button>
+                  <div className={`pkg-faq__answer ${openFaq === i ? 'pkg-faq__answer--open' : ''}`}>
+                    <p className="pkg-faq__answer-text">{faq.a}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <QuickContact />
     </>
   );

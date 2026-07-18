@@ -23,6 +23,8 @@ import AIPreview        from './pages/AIPreview';
 import Blog             from './pages/Blog';
 import BlogPost         from './pages/BlogPost';
 import AdminAppointments from './pages/AdminAppointments';
+import Treatments       from './pages/Treatments';
+import TreatmentPlan    from './pages/TreatmentPlan';
 
 function App() {
   return (
@@ -40,10 +42,12 @@ function App() {
         <Route path="/main-treatments/:slug" element={<MainTreatmentDetail />} />
         <Route path="/gallery"              element={<Gallery />} />
         <Route path="/skin-concerns"        element={<SkinConcerns />} />
-        <Route path="/testimonials"         element={<Testimonials />} />
+        <Route path="/testimonials`"         element={<Testimonials />} />
         <Route path="/faq"                  element={<FAQ />} />
         <Route path="/contact"              element={<Contact />} />
 
+        <Route path="/treatments"            element={<Treatments />} />
+        <Route path="/treatment-plan"        element={<TreatmentPlan />} />
         <Route path="/blog"                 element={<Blog />} />
         <Route path="/blog/:slug"           element={<BlogPost />} />
         <Route path="/privacy-policy"       element={<PrivacyPolicy />} />
