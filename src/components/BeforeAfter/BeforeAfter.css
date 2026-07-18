@@ -5,7 +5,7 @@
 
 .ba-root {
   position: relative;
-  min-height: 130vh;
+  min-height: 150vh;
   background: #f5f0e8;
   overflow: hidden;
 }
@@ -45,23 +45,22 @@
   -webkit-text-stroke: 1px rgba(201, 170, 113, 0.22);
 }
 
-/* ── Readable label block — top center ─────────────────── */
+/* ── Readable label block — dedicated top strip ─────────── */
 .ba-label-block {
-  position: absolute;
-  top: 7%;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   z-index: 6;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  padding: 72px 20px 48px;
 }
 
 .ba-eyebrow {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 9px;
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 5px;
   text-transform: uppercase;
   color: #c9aa71;
@@ -69,10 +68,12 @@
 
 .ba-sub {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 12px;
+  font-size: 15px;
+  font-weight: 700;
   letter-spacing: 0.06em;
-  color: rgba(12, 15, 13, 0.78);
+  color: #0c0f0d;
   margin: 0;
+  opacity: 1;
 }
 
 /* ── Image cards — base styles ──────────────────────────── */
@@ -95,7 +96,7 @@
 
 /* Image 1 (one.jpg — neck/profile) — top-left, partially off-edge */
 .ba-card--1 {
-  top: 8%;
+  top: 18%;
   left: -1%;
   width: 22%;
   aspect-ratio: 3 / 4;
@@ -105,7 +106,7 @@
 
 /* Image 2 (two.png — lower body) — top-right, slight lean */
 .ba-card--2 {
-  top: 4%;
+  top: 15%;
   right: 2%;
   width: 20%;
   aspect-ratio: 3 / 4;
@@ -165,10 +166,11 @@
 
 .ba-cta {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 11px;
+  font-size: 13px;
+  font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(12, 15, 13, 0.82);
+  color: #0c0f0d;
   text-decoration: none;
   transition: color 0.4s ease;
 }
@@ -186,7 +188,7 @@
   .ba-card--5 { width: 25%; }
 }
 
-/* Desktop cards container — transparent passthrough */
+/* Desktop cards container */
 .ba-cards {
   position: absolute;
   inset: 0;
@@ -210,9 +212,7 @@
   .ba-headline { display: none; }
 
   .ba-label-block {
-    position: relative;
-    top: auto; left: auto;
-    transform: none;
+    padding: 0;
     margin-bottom: 32px;
   }
 
@@ -232,6 +232,7 @@
     top: auto !important; left: auto !important; right: auto !important;
     width: calc(50% - 5px) !important;
     rotate: none !important;
+    transform: none !important;
     outline: 1px solid rgba(201, 170, 113, 0.35);
   }
 

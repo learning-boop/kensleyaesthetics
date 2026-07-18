@@ -267,6 +267,7 @@
   background: #f5f0eb;
   min-height: 190vh;
   overflow: hidden;
+  display: block;
 }
 
 /* Center image — spans roughly top 15% → 90% of the section */
@@ -598,131 +599,62 @@
   text-align: right;
 }
 
-/* ─── RESPONSIVE ─────────────────────────────────────────── */
-@media (max-width: 768px) {
+/* ─── TABLET ──────────────────────────────────────────────── */
+@media (max-width: 1080px) {
   .td-hero__title {
-    font-size: clamp(32px, 10vw, 72px);
-    left: 50%;
-    transform: translate(-50%, -52%);
-    text-align: center;
     white-space: normal;
     word-break: break-word;
+    width: 80%;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -52%);
+  }
+
+  .td-hero__tagline {
+    white-space: normal;
+    text-align: center;
+    width: 70vw;
+  }
+}
+
+/* ─── MOBILE ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* ── Hero ── */
+  .td-hero__title {
+    font-size: clamp(28px, 9vw, 56px);
+    top: 38%;
     width: 88%;
   }
 
   .td-hero__tagline {
-    top: 60%;
-    transform: translate(-50%, -50%);
+    top: 68%;
     font-size: 9px;
-    letter-spacing: 2.5px;
-    text-align: center;
-    white-space: normal;
+    letter-spacing: 2px;
     width: 80vw;
   }
 
   .td-hero__desc {
-    right: 24px;
-    bottom: 80px;
-    width: calc(100% - 48px);
+    right: 20px;
+    bottom: 72px;
+    width: calc(100% - 40px);
     text-align: center;
   }
 
   .td-hero__scroll {
-    left: 24px;
-    bottom: 24px;
+    left: 20px;
+    bottom: 20px;
   }
 
-  .td-editorial {
-    min-height: 340vw;
+  /* ── Services / FAQ ── */
+  .td-service-container {
+    padding: 60px 24px 60px;
   }
 
-  .td-editorial__img {
-    width: 74%;
-    top: 16%;
-    height: 56%;
+  .td-service {
+    font-size: clamp(36px, 14vw, 72px);
+    text-align: center;
   }
 
-  .td-editorial__hl {
-    font-size: clamp(26px, 8vw, 52px);
-    white-space: normal;
-    word-break: break-word;
-  }
-
-  .td-editorial__hl--1 {
-    max-width: 55%;
-    right: 2%;
-  }
-
-  .td-editorial__hl--2 {
-    max-width: 58%;
-  }
-
-  .td-editorial__hl--3 {
-    max-width: 52%;
-    right: 2%;
-  }
-
-  .td-editorial__quote {
-    max-width: 62%;
-    top: 74%;
-  }
-
-  .td-editorial__cta {
-    right: 6%;
-    top: 52%;
-  }
-
-  .td-ba__heading {
-    font-size: clamp(44px, 13vw, 100px);
-    white-space: normal;
-  }
-
-  .td-ba__main-pair {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    top: 18%;
-    height: 58%;
-  }
-
-  .td-ba__secondary-pair {
-    display: none;
-  }
-
-  .td-ba__more {
-    width: 130px;
-    height: 130px;
-    right: 5%;
-    bottom: 5%;
-  }
-
-  .td-ba__nav {
-    bottom: 16%;
-    left: 3%;
-  }
-
-  .td-prices {
-    padding: 60px 5% 80px;
-  }
-
-  .td-prices__heading {
-    font-size: clamp(48px, 14vw, 96px);
-    margin-bottom: 40px;
-  }
-
-  .td-prices__row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 20px 0;
-  }
-
-  .td-prices__right {
-    width: 100%;
-    justify-content: flex-end;
-  }
-
-  /* FAQ accordion — fix padding and button layout */
   .td-faq-btn {
     display: flex;
     justify-content: space-between;
@@ -740,7 +672,88 @@
     padding-left: 0;
   }
 
-  .td-service-container {
-    padding: 20vh 24px;
+  /* ── Editorial ── */
+  .td-editorial {
+    min-height: unset;
+    height: 60vw;
+    position: relative;
+  }
+
+  .td-editorial__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .td-editorial__hl,
+  .td-editorial__cta,
+  .td-editorial__quote {
+    display: none;
+  }
+
+  /* ── Before / After ── */
+  .td-ba {
+    min-height: unset;
+    padding-bottom: 48px;
+    overflow: visible;
+  }
+
+  .td-ba__heading {
+    position: relative;
+    font-size: clamp(32px, 11vw, 60px);
+    white-space: normal;
+    text-align: center;
+    padding: 32px 5% 20px;
+  }
+
+  .td-ba__main-pair {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 90%;
+    height: 72vw;
+    margin: 0 auto 24px;
+  }
+
+  .td-ba__secondary-pair {
+    display: none;
+  }
+
+  .td-ba__nav {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  .td-ba__more {
+    display: none;
+  }
+
+  /* ── Prices ── */
+  .td-prices {
+    padding: 60px 5% 80px;
+  }
+
+  .td-prices__heading {
+    font-size: clamp(40px, 13vw, 80px);
+    margin-bottom: 40px;
+  }
+
+  .td-prices__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px 0;
+  }
+
+  .td-prices__right {
+    width: 100%;
+    justify-content: flex-end;
   }
 }

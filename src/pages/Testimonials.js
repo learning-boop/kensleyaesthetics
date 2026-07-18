@@ -7,7 +7,7 @@ import './pages.css';
 const testimonials = [
   {
     name: 'Isabella M.',
-    location: 'London',
+    location: 'Newcastle',
     treatment: 'Face Sculpt',
     rating: 5,
     quote: 'I was nervous about fillers, but the team made me feel completely at ease. The result is so natural — I look like the best version of myself, not like someone who\'s had work done.',
@@ -21,7 +21,7 @@ const testimonials = [
   },
   {
     name: 'Amelia K.',
-    location: 'London',
+    location: 'Newcastle',
     treatment: 'Skin Glow',
     rating: 5,
     quote: 'Three days after my Skin Glow treatment, people started asking what I\'d changed. My skin has never looked this luminous. I\'m completely converted.',
@@ -35,7 +35,7 @@ const testimonials = [
   },
   {
     name: 'Natasha B.',
-    location: 'London',
+    location: 'Newcastle',
     treatment: 'Full Face Refresh',
     rating: 5,
     quote: 'The Full Face Refresh was exactly what I needed. The team created a cohesive plan that addressed everything I was concerned about. The results exceeded my expectations.',

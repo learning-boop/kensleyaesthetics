@@ -559,8 +559,8 @@
   }
 
   .blog-card--featured .blog-card__image-wrap {
-    min-height: 300px;
-    aspect-ratio: 16 / 9;
+    min-height: 100%;
+    /* aspect-ratio: 16 / 9;/ */
   }
 
   .blog-card--featured .blog-card__body {

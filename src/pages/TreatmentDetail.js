@@ -32,8 +32,8 @@ function TreatmentDetail() {
   const isLight = true;
 
   const seoDescription = treatment.tagline
-    ? `${treatment.tagline} — Kensley Aesthetics signature programme in Newcastle and London. ${TREATMENT_KEYWORDS[slug] || ''}.`
-    : `Discover the ${treatment.label} programme at Kensley Aesthetics. Expert non-surgical aesthetic treatment in Newcastle and London.`;
+    ? `${treatment.tagline} — Kensley Aesthetics signature programme in Newcastle. ${TREATMENT_KEYWORDS[slug] || ''}.`
+    : `Discover the ${treatment.label} programme at Kensley Aesthetics. Expert non-surgical aesthetic treatment in Newcastle.`;
 
   return (
     <>

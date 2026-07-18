@@ -1,7 +1,7 @@
 /**
  * Kensley Aesthetics — SEO Keywords
  * Source: High Search Volume Keyword List (102 keywords, 5 groups)
- * Target Markets: Newcastle | London | United States
+ * Target Markets: Newcastle | Newcastle | United States
  */
 
 export const PRIMARY_KEYWORDS = [
@@ -52,23 +52,23 @@ export const NEWCASTLE_KEYWORDS = [
 ];
 
 export const LONDON_KEYWORDS = [
-  'aesthetic clinic London',
-  'aesthetics clinic London',
-  'skin clinic London',
-  'dermal fillers London',
-  'lip fillers London',
-  'skin boosters London',
-  'Profhilo London',
-  'polynucleotides London',
-  'microneedling London',
-  'RF microneedling London',
-  'HIFU London',
-  'Sculptra London',
-  'tear trough filler London',
-  'jawline filler London',
-  'non-surgical facelift London',
-  'facial rejuvenation London',
-  'anti-wrinkle injections London',
+  'aesthetic clinic Newcastle',
+  'aesthetics clinic Newcastle',
+  'skin clinic Newcastle',
+  'dermal fillers Newcastle',
+  'lip fillers Newcastle',
+  'skin boosters Newcastle',
+  'Profhilo Newcastle',
+  'polynucleotides Newcastle',
+  'microneedling Newcastle',
+  'RF microneedling Newcastle',
+  'HIFU Newcastle',
+  'Sculptra Newcastle',
+  'tear trough filler Newcastle',
+  'jawline filler Newcastle',
+  'non-surgical facelift Newcastle',
+  'facial rejuvenation Newcastle',
+  'anti-wrinkle injections Newcastle',
 ];
 
 export const NEAR_ME_KEYWORDS = [

@@ -21,6 +21,8 @@ const BOTTOM_NAV = [
   { label: 'About',          href: '/about' },
   { label: 'Training',       href: '/training' },
   { label: 'Before & After', href: '/gallery' },
+  { label: 'Blogs',          href: '/blog' },
+  { label: 'FAQ',            href: '/faq' },
   { label: 'Contact',        href: '/contact' },
 ]
 

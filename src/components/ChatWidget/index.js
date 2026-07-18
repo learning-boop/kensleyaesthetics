@@ -15,7 +15,7 @@ const TREATMENTS = [
   { slug: 'stay-youthful',     label: 'Stay Youthful' },
 ];
 
-const WHATSAPP_NUMBER = '447700000000'; // replace with real number
+const WHATSAPP_NUMBER = '447920699154';
 const HISTORY_KEY     = 'kensley_chat';
 const NAME_KEY        = 'kensley_chat_name';
 

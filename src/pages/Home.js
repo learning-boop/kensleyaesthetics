@@ -22,7 +22,7 @@ const LOCAL_BUSINESS_LD = {
   name: 'Kensley Aesthetics',
   url: 'https://kensleyaesthetics.co.uk',
   email: 'hello@kensleyaesthetics.co.uk',
-  description: 'Premium aesthetic clinic offering expert non-surgical treatments including dermal fillers, anti-wrinkle injections, Profhilo, skin boosters, RF microneedling and HIFU in Newcastle and London.',
+  description: 'Premium aesthetic clinic offering expert non-surgical treatments including dermal fillers, anti-wrinkle injections, Profhilo, skin boosters, RF microneedling and HIFU in Newcastle.',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Newcastle upon Tyne',
@@ -30,7 +30,7 @@ const LOCAL_BUSINESS_LD = {
   },
   sameAs: [
     'https://www.instagram.com/kensleyaesthetics',
-    'https://www.facebook.com/kensleyaesthetics',
+    'https://www.facebook.com/profile.php?id=61591977870031',
     'https://www.tiktok.com/@kensleyaesthetics',
   ],
   hasMap: 'https://kensleyaesthetics.co.uk/contact',
@@ -40,8 +40,8 @@ function Home() {
   return (
     <>
       <SeoHead
-        title="Aesthetic Clinic Newcastle &amp; London | Non-Surgical Treatments"
-        description="Kensley Aesthetics — expert non-surgical aesthetic treatments including dermal fillers, anti-wrinkle injections, Profhilo, skin boosters, RF microneedling and HIFU in Newcastle and London."
+        title="Aesthetic Clinic Newcastle | Non-Surgical Treatments"
+        description="Kensley Aesthetics — expert non-surgical aesthetic treatments including dermal fillers, anti-wrinkle injections, Profhilo, skin boosters, RF microneedling and HIFU in Newcastle."
         path="/"
         jsonLd={LOCAL_BUSINESS_LD}
       />

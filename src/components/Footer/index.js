@@ -2,6 +2,17 @@ import { Link } from 'react-router-dom';
 import { useTreatments } from '../../context/TreatmentsContext';
 import './Footer.css';
 
+const MAIN_TREATMENTS = [
+  { label: 'Anti-Wrinkle Treatments', href: '/main-treatments/anti-wrinkle-treatments' },
+  { label: 'Dermal Fillers',           href: '/main-treatments/dermal-fillers' },
+  { label: 'Skin Boosters',            href: '/main-treatments/skin-boosters' },
+  { label: 'Regenerative Treatments',  href: '/main-treatments/regenerative-treatments' },
+  { label: 'Biostimulators',           href: '/main-treatments/biostimulators' },
+  { label: 'Microneedling',            href: '/main-treatments/microneedling' },
+  { label: 'RF Microneedling',         href: '/main-treatments/rf-microneedling' },
+  { label: 'HIFU',                     href: '/main-treatments/hifu' },
+];
+
 function Footer() {
   const { treatments } = useTreatments();
   return (
@@ -19,13 +30,24 @@ function Footer() {
         {/* ── Divider ── */}
         <div className="ft-divider" />
 
-        {/* ── Three columns ── */}
+        {/* ── Four columns ── */}
         <div className="ft-cols">
 
           <div className="ft-col">
-            <h4 className="ft-col-heading">Treatments</h4>
+            <h4 className="ft-col-heading">Main Treatments</h4>
             <ul className="ft-col-links">
-              {treatments.slice(0, 4).map((t) => (
+              {MAIN_TREATMENTS.map((t) => (
+                <li key={t.href}>
+                  <Link to={t.href}>{t.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="ft-col">
+            <h4 className="ft-col-heading">Signature Programmes</h4>
+            <ul className="ft-col-links">
+              {treatments.map((t) => (
                 <li key={t.slug}>
                   <Link to={`/treatments/${t.slug}`}>{t.label}</Link>
                 </li>
@@ -34,14 +56,16 @@ function Footer() {
           </div>
 
           <div className="ft-col">
-            <h4 className="ft-col-heading">Company</h4>
+            <h4 className="ft-col-heading">Pages</h4>
             <ul className="ft-col-links">
-              <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/training">All Treatments</Link></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/training">Training</Link></li>
               <li><Link to="/gallery">Before &amp; After</Link></li>
               <li><Link to="/testimonials">Testimonials</Link></li>
-              <li><Link to="/faq">FAQ</Link></li>
               <li><Link to="/blog">Journal</Link></li>
+              <li><Link to="/faq">FAQ</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
 
@@ -50,7 +74,7 @@ function Footer() {
             <ul className="ft-col-links">
               <li><a href="mailto:hello@kensleyaesthetics.co.uk">hello@kensleyaesthetics.co.uk</a></li>
               <li><a href="tel:07906991540">07906 99154</a></li>
-              <li>London, United Kingdom</li>
+              <li>Newcastle upon Tyne, United Kingdom</li>
             </ul>
             <Link to="/contact" className="ft-book-btn">Book an Appointment</Link>
           </div>
@@ -71,7 +95,7 @@ function Footer() {
                 <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
               </svg>
             </a>
-            <a href="https://facebook.com/kensleyaesthetics" target="_blank" rel="noopener noreferrer" className="ft-social-icon" aria-label="Facebook">
+            <a href="https://www.facebook.com/profile.php?id=61591977870031" target="_blank" rel="noopener noreferrer" className="ft-social-icon" aria-label="Facebook">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
               </svg>
@@ -95,9 +119,17 @@ function Footer() {
             </a>
           </div>
 
-          <p className="ft-copy">
-            &copy; {new Date().getFullYear()} Kensley Aesthetics
-          </p>
+          <div className="ft-copy-block">
+            <p className="ft-copy">
+              &copy; {new Date().getFullYear()} Kensley Aesthetics
+            </p>
+            <p className="ft-credit">
+              Design &amp; Development &amp; SEO by{' '}
+              <a href="https://creatorstouchglobal.com" target="_blank" rel="noopener noreferrer">
+                Creator Touch
+              </a>
+            </p>
+          </div>
 
           <div className="ft-legal">
             <Link to="/privacy-policy">Privacy Policy</Link>

@@ -1,7 +1,7 @@
 /* ─── Section shell ─────────────────────────────────────────────── */
 .js-section {
   background: var(--color-dark);
-  padding: 80px 0 100px;
+  padding: 56px 0 72px;
   position: relative;
   overflow: hidden;
   user-select: none;
@@ -11,12 +11,13 @@
 .js-eyebrow {
   text-align: center;
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: 0.85rem;
+  font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(248, 244, 239, 0.88);
+  color: #f8f4ef;
   line-height: 1.9;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 /* ─── Steps list ────────────────────────────────────────────────── */
@@ -41,7 +42,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 20px 60px;
+  padding: 14px 60px;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -52,7 +53,7 @@
 /* ─── Giant title ───────────────────────────────────────────────── */
 .js-step-title {
   font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
-  font-weight: 300;
+  font-weight: 700;
   font-size: clamp(36px, 6.5vw, 96px);
   text-transform: uppercase;
   letter-spacing: 0.01em;
@@ -116,37 +117,19 @@
   max-height: 700px;
 }
 
-/* Image thumbnail — centered */
-.js-step-img-wrap {
-  display: flex;
-  justify-content: center;
-  padding-top: 8px;
-  animation: jsImgIn 0.55s cubic-bezier(0.4, 0, 0.2, 1) both;
-}
-
-@keyframes jsImgIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0);    }
-}
-
-.js-step-img-wrap img {
-  width:  clamp(160px, 14vw, 210px);
-  height: clamp(180px, 16vw, 250px);
-  object-fit: cover;
-  display: block;
-}
 
 /* Description text */
 .js-step-desc {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: 0.85rem;
+  font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(248, 244, 239, 0.92);
+  color: #f8f4ef;
   line-height: 2;
   text-align: center;
   max-width: 640px;
-  margin: 32px auto 56px;
+  margin: 24px auto 40px;
   padding: 0 32px;
   animation: jsDescIn 0.55s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
@@ -158,8 +141,8 @@
 
 /* ─── Mobile ────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .js-section { padding: 56px 0 72px; }
-  .js-eyebrow { margin-bottom: 36px; padding: 0 24px; }
-  .js-step-header { padding: 16px 24px; }
-.js-step-desc   { margin: 24px auto 40px; }
+  .js-section { padding: 40px 0 52px; }
+  .js-eyebrow { margin-bottom: 28px; padding: 0 24px; }
+  .js-step-header { padding: 12px 24px; }
+  .js-step-desc { margin: 20px auto 32px; }
 }

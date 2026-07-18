@@ -6,29 +6,34 @@
    ═══════════════════════════════════════════════════════════ */
 
 .si-root {
-  position: relative;
+  display: flex;
+  align-items: stretch;
   height: 110vh;
   min-height: 620px;
   background: #F5F0E8;
   overflow: hidden;
 }
 
+/* ── LEFT TEXT ───────────────────────────────────────── */
+.si-center {
+  flex: 0 0 52%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 8%;
+  padding-right: 4%;
+}
+
 /* ── RIGHT HALF — full-bleed image ───────────────────── */
 .si-right {
-  position: absolute;
-  right: 0;
-  top: 5%;
-  bottom: 5%;
-  width: 48%;
+  flex: 0 0 48%;
   overflow: hidden;
-  z-index: 1;
+  margin: 5% 0;
 }
 
 /* ── IMAGE STYLES ────────────────────────────────────── */
-/* Right image — full bleed */
 .si-img {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -36,26 +41,10 @@
   display: block;
 }
 
-
-/* ── LEFT TEXT — beside the image ───────────────────── */
-.si-center {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 52%;
-  transform: translateY(-50%);
-  z-index: 20;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 8%;
-  white-space: nowrap;
-}
-
 .si-eyebrow {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 9px;
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 5px;
   text-transform: uppercase;
   color: #c9aa71;
@@ -66,11 +55,11 @@
 .si-title {
   font-family: 'Cormorant', Georgia, serif;
   font-size: clamp(64px, 9vw, 128px);
-  font-weight: 300;
+  font-weight: 700;
   line-height: 0.88;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: black;
+  color: #0c0f0d;
   margin: 0 0 28px 0;
 }
 
@@ -78,18 +67,19 @@
   width: 40px;
   height: 1px;
   background: #c9aa71;
-  opacity: 0.5;
+  opacity: 0.8;
   margin-bottom: 28px;
 }
 
 .si-subtitle {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 11px;
+  font-size: 14px;
+  font-weight: 700;
   line-height: 2;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--color-primary);
-  opacity: 0.6;
+  color: #0c0f0d;
+  opacity: 1;
   margin: 0;
 }
 
@@ -132,22 +122,19 @@
 /* ── MOBILE ──────────────────────────────────────────── */
 @media (max-width: 680px) {
   .si-root {
-    height: 85vw;
     min-height: 380px;
-    padding: 0;
-  }
-
-  .si-right {
-    right: 0;
-    top: 6%;
-    bottom: 6%;
-    width: 55%;
+    height: auto;
   }
 
   .si-center {
-    width: 45%;
+    flex: 0 0 45%;
     padding-left: 5%;
-    white-space: normal;
+    padding-right: 2%;
+  }
+
+  .si-right {
+    flex: 0 0 55%;
+    margin: 6% 0;
   }
 
   .si-title {

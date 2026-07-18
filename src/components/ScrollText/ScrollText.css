@@ -5,22 +5,31 @@
   position: relative;
 }
 
-/* Container holds all three layers */
+/* ── Two-column container ── */
 .scroll-text__sticky {
   height: 100%;
+  display: flex;
+  flex-direction: row;
   overflow: hidden;
 }
 
-/* ── Layer 1: giant background text ── */
-.scroll-text__bg {
-  position: absolute;
-  inset: 0;
+/* ── Left: content column ── */
+.scroll-text__content {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  padding: 52px 60px 52px 72px;
+  position: relative;
+  overflow: visible;
+}
+
+/* ── Words ── */
+.scroll-text__bg {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  z-index: 1;
-  pointer-events: none;
+  flex: 1;
   line-height: 0.88;
   gap: 0;
 }
@@ -28,95 +37,102 @@
 .scroll-text__word {
   display: block;
   font-family: 'Cormorant', Georgia, serif;
-  font-size: clamp(110px, 18vw, 260px);
-  font-weight: 300;
+  font-size: clamp(64px, 8.5vw, 148px);
+  font-weight: 700;
   font-style: italic;
-  color: var(--color-dark);
-  line-height: 0.88;
+  color: #0c0f0d;
+  line-height: 0.92;
   text-transform: uppercase;
   letter-spacing: -0.01em;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
 }
 
-/* ── Layer 2: doctor image, sits on top of text ── */
+/* ── Small description — bottom of left column ── */
+.scroll-text__para {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.9;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #0c0f0d;
+  opacity: 1;
+  max-width: 260px;
+}
+
+/* ── Label — top of left column ── */
+.scroll-text__label {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #0c0f0d;
+  opacity: 1;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* ── Right: image column ── */
 .scroll-text__img-wrap {
-  position: absolute;
-  inset: 0;
+  width: 46%;
+  flex-shrink: 0;
+  overflow: hidden;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  z-index: 2;
-  pointer-events: none;
+  background: var(--color-cream);
 }
 
 .scroll-text__doctor-img {
-  height: 97vh;
-  width: auto;
+  height: 100%;
+  width: 100%;
   display: block;
   object-fit: contain;
   object-position: center bottom;
 }
 
-/* ── Layer 3: small description — bottom-left ── */
-.scroll-text__para {
-  position: absolute;
-  bottom: 52px;
-  left: 52px;
-  max-width: 200px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 10px;
-  line-height: 1.9;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  opacity: 0.55;
-  z-index: 3;
-}
-
-/* ── Layer 3: label — top-right ── */
-.scroll-text__label {
-  position: absolute;
-  top: 44px;
-  right: 52px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  opacity: 0.5;
-  text-align: right;
-  line-height: 1.8;
-  z-index: 3;
-}
-
 /* ── Mobile ── */
 @media (max-width: 768px) {
-  .scroll-text { height: 100svh; }
+  .scroll-text { height: 85svh; }
+
+  .scroll-text__sticky {
+    flex-direction: column;
+  }
+
+  .scroll-text__content {
+    flex: none;
+    padding: 28px 20px 16px;
+    justify-content: flex-start;
+    gap: 12px;
+  }
 
   .scroll-text__bg {
-    justify-content: flex-start;
-    padding-top: 18vh;
+    flex: none;
   }
 
   .scroll-text__word {
     font-size: clamp(52px, 15vw, 110px);
   }
 
+  .scroll-text__img-wrap {
+    width: 100%;
+    flex: 1;
+    align-items: flex-end;
+  }
+
   .scroll-text__doctor-img {
-    height: 80vh;
+    height: 50vh;
+    width: auto;
   }
 
   .scroll-text__para {
-    left: 20px;
-    bottom: 28px;
     font-size: 9px;
     letter-spacing: 1px;
-    max-width: 140px;
   }
 
   .scroll-text__label {
-    right: 20px;
-    top: 28px;
     font-size: 9px;
     letter-spacing: 2px;
   }

@@ -42,7 +42,7 @@ function Contact() {
     <>
       <SeoHead
         title="Contact Us | Book a Consultation"
-        description="Book a consultation at Kensley Aesthetics. Get in touch to discuss dermal fillers, anti-wrinkle injections, Profhilo, RF microneedling, HIFU and more in Newcastle and London."
+        description="Book a consultation at Kensley Aesthetics. Get in touch to discuss dermal fillers, anti-wrinkle injections, Profhilo, RF microneedling, HIFU and more in Newcastle."
         path="/contact"
       />
       <PageHero

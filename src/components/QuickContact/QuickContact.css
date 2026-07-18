@@ -128,13 +128,31 @@
     padding: 56px 32px 100px;
   }
 
+  /* Darker input text & placeholder on mobile */
+  .qc-input {
+    color: var(--color-dark);
+  }
+
+  .qc-input::placeholder {
+    opacity: 0.85;
+  }
+
+  /* More visible disclaimer on mobile */
+  .qc-disclaimer {
+    font-size: 0.72rem;
+    opacity: 0.8;
+  }
+
   .qc-send-wrap {
     bottom: 32px;
     right: 32px;
   }
 
+  /* Same circle size, bigger text inside */
   .qc-send-btn {
     width: 90px;
     height: 90px;
+    font-size: 0.95rem;
+    letter-spacing: 0.15em;
   }
 }

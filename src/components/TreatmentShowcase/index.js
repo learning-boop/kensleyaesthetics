@@ -1,11 +1,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { client, MAIN_TREATMENTS_QUERY } from '../../lib/sanityClient';
 import { useAppointment } from '../../context/AppointmentContext';
 import './showcase.css';
 
-const E = [0.76, 0, 0.24, 1];
 const VARIANTS = ['v1', 'v2', 'v3', 'v4'];
 
 // ─── Desktop: Brand + Book ─────────────────────────────────────────
@@ -47,16 +45,13 @@ function ProgressDots({ activeIndex, onDotClick, count }) {
 }
 
 // ─── Image ─────────────────────────────────────────────────────────
-function TreatmentImage({ treatment, isActive }) {
+function TreatmentImage({ treatment }) {
   return (
     <div className="ts-img-inner">
-      <motion.img
+      <img
         src={treatment.image}
         alt={treatment.title}
         className="ts-treatment-img"
-        initial={{ opacity: 0, scale: 1.06 }}
-        animate={isActive ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.06 }}
-        transition={{ duration: 1.0, ease: E }}
         onError={(e) => {
           e.currentTarget.style.display = 'none';
         }}
@@ -65,115 +60,28 @@ function TreatmentImage({ treatment, isActive }) {
   );
 }
 
-// ─── Desktop animated content ──────────────────────────────────────
-const fadeUp = {
-  hidden: () => ({
-    opacity: 0,
-    y: 18,
-    transition: { duration: 0.2, ease: E },
-  }),
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: E, delay },
-  }),
-};
 
-const wordReveal = {
-  hidden: () => ({
-    y: '108%',
-    transition: { duration: 0.2, ease: E },
-  }),
-  visible: (delay = 0) => ({
-    y: '0%',
-    transition: { duration: 1.0, ease: E, delay },
-  }),
-};
-
-const scaleIn = {
-  hidden: {
-    scaleX: 0,
-    transition: { duration: 0.2 },
-  },
-  visible: {
-    scaleX: 1,
-    transition: { duration: 0.9, ease: E, delay: 0.18 },
-  },
-};
-
-function DesktopContent({ treatment, isActive }) {
+function DesktopContent({ treatment }) {
   const words = treatment.title.split(' ');
-  const state = isActive ? 'visible' : 'hidden';
 
   return (
     <div className="ts-desktop-content-inner">
       <div className="ts-title-wrap">
         {words.map((word, i) => (
           <span key={word + i} className="ts-title-word-row">
-            <motion.span
-              style={{ display: 'block' }}
-              custom={0.06 + i * 0.08}
-              variants={wordReveal}
-              initial="hidden"
-              animate={state}
-            >
-              {word}
-            </motion.span>
+            <span style={{ display: 'block' }}>{word}</span>
           </span>
         ))}
       </div>
 
-      <motion.span
-        className="ts-divider"
-        variants={scaleIn}
-        initial="hidden"
-        animate={state}
-      />
+      <span className="ts-divider" />
 
-      <motion.p
-        className="ts-description"
-        custom={0.22}
-        variants={fadeUp}
-        initial="hidden"
-        animate={state}
-      >
-        {treatment.description}
-      </motion.p>
+      <p className="ts-description">{treatment.description}</p>
 
-      {/* {treatment.bullets.length > 0 && (
-        <motion.ul
-          className="ts-bullets"
-          custom={0.3}
-          variants={fadeUp}
-          initial="hidden"
-          animate={state}
-        >
-          {treatment.bullets.map((b) => (
-            <li key={b} className="ts-bullet">
-              <span className="ts-bullet__dot" />
-              <span className="ts-bullet__text">{b}</span>
-            </li>
-          ))}
-        </motion.ul>
-      )} */}
-
-      <motion.div
-        custom={0.38}
-        variants={fadeUp}
-        initial="hidden"
-        animate={state}
-      >
-        <Link to={`/main-treatments/${treatment.slug}`} className="ts-explore-link">
-          <span className="ts-explore-link__text">Explore Treatment</span>
-          <motion.span
-            className="ts-explore-link__arrow"
-            animate={{ x: [0, 5, 0] }}
-            transition={{ repeat: Infinity, duration: 2.6, ease: 'easeInOut' }}
-          >
-            →
-          </motion.span>
-        </Link>
-      </motion.div>
+      <Link to={`/main-treatments/${treatment.slug}`} className="ts-explore-link">
+        <span className="ts-explore-link__text">Explore Treatment</span>
+        <span className="ts-explore-link__arrow">→</span>
+      </Link>
     </div>
   );
 }
@@ -423,7 +331,7 @@ function TreatmentShowcase() {
       className="ts-root"
       style={{
         '--showcase-height':
-          treatments.length > 0 ? `${treatments.length * 100}vh` : '100vh',
+          treatments.length > 0 ? `${treatments.length * 80}vh` : '80vh',
       }}
     >
       {/* DESKTOP */}
@@ -437,11 +345,11 @@ function TreatmentShowcase() {
           {treatments.map((t, i) => (
             <div key={t.id} className={`ts-panel ts-panel--${t.variant}`}>
               <div className="ts-panel-content">
-                <DesktopContent treatment={t} isActive={i === activeIndex} />
+                <DesktopContent treatment={t} />
               </div>
 
               <div className="ts-panel-image">
-                <TreatmentImage treatment={t} isActive={i === activeIndex} />
+                <TreatmentImage treatment={t} />
               </div>
             </div>
           ))}
@@ -493,6 +401,7 @@ function TreatmentShowcase() {
             onDotClick={scrollToMobilePanel}
             count={treatments.length}
           />
+          <AppointmentButton />
         </div>
       </div>
     </section>

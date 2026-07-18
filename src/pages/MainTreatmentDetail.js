@@ -60,13 +60,13 @@ function MainTreatmentDetail() {
   const nextReview = () => { setSlideDir('right'); setReviewIndex(i => (i + 1) % reviews.length); };
 
   const seoDescription = treatment.tagline
-    ? `${treatment.tagline} — ${TREATMENT_KEYWORDS[slug] || 'non-surgical aesthetic treatment'} at Kensley Aesthetics in Newcastle and London.`
-    : `Expert ${treatment.label} at Kensley Aesthetics. ${TREATMENT_KEYWORDS[slug] || 'Non-surgical aesthetic treatments'} in Newcastle and London.`;
+    ? `${treatment.tagline} — ${TREATMENT_KEYWORDS[slug] || 'non-surgical aesthetic treatment'} at Kensley Aesthetics in Newcastle.`
+    : `Expert ${treatment.label} at Kensley Aesthetics. ${TREATMENT_KEYWORDS[slug] || 'Non-surgical aesthetic treatments'} in Newcastle.`;
 
   return (
     <>
       <SeoHead
-        title={`${treatment.label} Newcastle &amp; London | Kensley Aesthetics`}
+        title={`${treatment.label} Newcastle | Kensley Aesthetics`}
         description={seoDescription.slice(0, 160)}
         image={treatment.image}
         path={`/main-treatments/${slug}`}

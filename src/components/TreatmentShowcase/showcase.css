@@ -27,8 +27,8 @@
   top: 0;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  min-height: 640px;
+  height: 80vh;
+  min-height: 540px;
   overflow: hidden;
 }
 
@@ -392,7 +392,7 @@
 @media (max-width: 860px) {
   .ts-root {
     height: auto !important;
-    min-height: 100svh;
+    min-height: unset;
     overflow: hidden;
     padding-top: 50px;
   }
@@ -404,10 +404,20 @@
   .ts-mobile-layout {
     display: flex;
     flex-direction: column;
-    height: 100svh;
-    min-height: 100svh;
-    overflow: hidden;
+    height: auto;
+    overflow: visible;
     position: relative;
+  }
+
+  /* Keep mobile images fully visible, no animations */
+  .ts-mobile-panel-image .ts-treatment-img,
+  .ts-mobile-panel-image img {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    object-fit: contain;
+    object-position: center center;
   }
 
   .ts-mobile-timer-bar {
@@ -435,9 +445,9 @@
   .ts-mobile-scroll-track {
     display: flex;
     overflow-x: scroll;
-    overflow-y: hidden;
+    overflow-y: visible;
     scroll-snap-type: x mandatory;
-    flex: 1;
+    flex: none;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -454,12 +464,13 @@
     flex-direction: column;
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    overflow: hidden;
+    overflow: visible;
+    height: auto;
   }
 
   .ts-mobile-panel-image {
     width: 100%;
-    height: 47svh;
+    height: 52svh;
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
@@ -467,10 +478,10 @@
   }
 
   .ts-mobile-panel-content {
-    flex: 1;
-    padding: 18px 20px 12px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    flex: none;
+    height: auto;
+    padding: 18px 20px 20px;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -576,11 +587,17 @@
   .ts-mobile-dots {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     padding: 12px 20px;
     border-top: 1px solid var(--sc-border);
     flex-shrink: 0;
     background: var(--sc-bg);
+  }
+
+  .ts-mobile-dots .ts-appt-btn {
+    padding: 9px 18px;
+    font-size: 8px;
+    letter-spacing: 2px;
   }
 }
 
@@ -590,7 +607,7 @@
 
 @media (max-width: 420px) {
   .ts-mobile-panel-image {
-    height: 39svh;
+    height: 46svh;
   }
 
   .ts-mobile-panel-content {

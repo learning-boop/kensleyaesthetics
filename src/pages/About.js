@@ -94,7 +94,7 @@ function About() {
     <>
       <SeoHead
         title="About Us | Expert Aesthetic Practitioners"
-        description="Meet the team behind Kensley Aesthetics — medically qualified aesthetic practitioners with 9+ years of expertise delivering exceptional non-surgical results in Newcastle and London."
+        description="Meet the team behind Kensley Aesthetics — medically qualified aesthetic practitioners with 9+ years of expertise delivering exceptional non-surgical results in Newcastle."
         path="/about"
       />
       {/* ── HERO ─────────────────────────────────────────── */}

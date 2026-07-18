@@ -11,8 +11,8 @@
 
 .ep-root {
   position: relative;
-  height: 100vh;
-  min-height: 640px;
+  height: 80vh;
+  min-height: 540px;
   overflow: hidden;
   background: #f5f0e8;
 }
@@ -20,7 +20,7 @@
 /* ── Top bar ─────────────────────────────────────────────── */
 .ep-topbar {
   position: absolute;
-  top: 48px;
+  top: 32px;
   left: 52px;
   right: 52px;
   display: flex;
@@ -31,10 +31,11 @@
 
 .ep-eyebrow {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 10px;
+  font-size: 13px;
+  font-weight: 700;
   letter-spacing: 4.5px;
   text-transform: uppercase;
-  color: rgba(12, 15, 13, 0.78);
+  color: #0c0f0d;
 }
 
 
@@ -42,7 +43,7 @@
 /* Sits behind the center image (z-index 2 < 3) */
 .ep-heading-wrap {
   position: absolute;
-  top: 96px;
+  top: 72px;
   left: 52px;
   width: 68%;
   z-index: 2;
@@ -53,7 +54,7 @@
 .ep-heading {
   font-family: 'Cormorant', Georgia, serif;
   font-size: clamp(52px, 7.2vw, 110px);
-  font-weight: 300;
+  font-weight: 700;
   line-height: 0.90;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -87,19 +88,20 @@
 /* ── Body text — bottom-right ────────────────────────────── */
 .ep-body-wrap {
   position: absolute;
-  bottom: 52px;
+  bottom: 36px;
   right: 52px;
-  width: 22%;
+  width: 26%;
   z-index: 5;
 }
 
 .ep-body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 700;
   line-height: 1.9;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(12, 15, 13, 0.82);
+  color: #0c0f0d;
   margin: 0;
 }
 
@@ -116,7 +118,7 @@
 @media (max-width: 768px) {
   .ep-root {
     height: auto;
-    padding: 56px 24px 48px;
+    padding: 36px 24px 32px;
     display: flex;
     flex-direction: column;
     gap: 0;

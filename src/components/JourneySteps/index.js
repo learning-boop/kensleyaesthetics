@@ -1,12 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 
-import imgOne   from '../../data/images/one.jpg';
-import imgTwo   from '../../data/images/two.png';
-import imgThree from '../../data/images/three.png';
-import imgFour  from '../../data/images/four.png';
-import imgFive  from '../../data/images/five.png';
-import imgSix   from '../../data/images/six.webp';
-import imgEight from '../../data/images/eight.png';
 
 import './JourneySteps.css';
 
@@ -14,37 +7,30 @@ import './JourneySteps.css';
 const STEPS = [
   {
     title: 'Consultation',
-    image: imgOne,
     desc: 'Our specialist carefully listens to your goals and discusses any contraindications. Together you arrive at personalised solutions that enhance your natural beauty — every stage is thoroughly explained, from preparation to aftercare.',
   },
   {
     title: 'Preparation for Treatment',
-    image: imgTwo,
     desc: 'A tailored treatment plan is designed specifically for you, selecting the optimal products, protocols, and techniques to achieve your aesthetic goals safely and with precision.',
   },
   {
     title: 'Arrival at the Clinic',
-    image: imgThree,
     desc: 'Upon arrival you are warmly welcomed and prepared for your treatment. Our team ensures your complete comfort and addresses any final questions before your session begins.',
   },
   {
     title: 'Marking',
-    image: imgFour,
     desc: 'Precise preparation and marking are completed to guide the treatment. Every detail is carefully mapped before the procedure begins, ensuring a balanced and harmonious outcome.',
   },
   {
     title: 'Treatment',
-    image: imgFive,
     desc: 'Your specialist performs the treatment with precision and artistry, using only premium clinically approved products and techniques selected for your individual needs.',
   },
   {
     title: 'Immediately After',
-    image: imgSix,
     desc: 'You receive detailed aftercare instructions and are monitored until fully comfortable. Our team remains available for any questions or concerns in the hours following your treatment.',
   },
   {
     title: 'Recovery',
-    image: imgEight,
     desc: 'Most treatments require minimal to no downtime. We schedule a follow-up to review your results, answer any questions, and ensure your complete satisfaction with the outcome.',
   },
 ];
@@ -94,12 +80,7 @@ function StepItem({ step, isOpen, onToggle }) {
       {/* Expanded content */}
       <div className="js-step-body" aria-hidden={!isOpen}>
         {isOpen && (
-          <>
-            <div className="js-step-img-wrap">
-              <img src={step.image} alt={step.title} />
-            </div>
-            <p className="js-step-desc">{step.desc}</p>
-          </>
+          <p className="js-step-desc">{step.desc}</p>
         )}
       </div>
     </div>
