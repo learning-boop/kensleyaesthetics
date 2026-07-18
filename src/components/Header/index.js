@@ -6,7 +6,6 @@ import './Header.css';
 const NAV_LINKS = [
   { label: 'Home',           href: '/' },
   { label: 'Treatment',      href: '/treatments' },
-  { label: 'Treatment Plan', href: '/treatment-plan' },
   { label: 'Before & After', href: '/gallery' },
   { label: 'About',          href: '/about' },
   { label: 'Blogs',          href: '/blog' },

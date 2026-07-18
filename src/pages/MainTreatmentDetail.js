@@ -227,40 +227,12 @@ function MainTreatmentDetail() {
         </section>
       )}
 
-      {/* ── RELATED PACKAGES ────────────────────────────── */}
-      {relatedPackages.length > 0 && (
+      {/* ── RELATED PACKAGES — hidden until client confirms ── */}
+      {/* {relatedPackages.length > 0 && (
         <section className="mtd-related">
-          <div className="mtd-related__header">
-            <span className="mtd-related__eyebrow">Connected Packages</span>
-            <h2 className="mtd-related__title">Signature Programmes</h2>
-            <p className="mtd-related__sub">
-              {treatment.label} is included in the following curated programmes — designed to deliver deeper, longer-lasting results.
-            </p>
-          </div>
-          <div className="mtd-related__grid">
-            {relatedPackages.map((pkg) => (
-              <div key={pkg.slug} className="mtd-related__card">
-                {pkg.image && (
-                  <div className="mtd-related__card-img-wrap">
-                    <img src={pkg.image} alt={pkg.label} className="mtd-related__card-img" />
-                  </div>
-                )}
-                <div className="mtd-related__card-body">
-                  <span className="mtd-related__card-eyebrow">Signature Programme</span>
-                  <h3 className="mtd-related__card-title">{pkg.label}</h3>
-                  {pkg.tagline && <p className="mtd-related__card-sub">{pkg.tagline}</p>}
-                  <button
-                    className="mtd-related__card-cta"
-                    onClick={() => navigate(`/treatments/${pkg.slug}`)}
-                  >
-                    View Programme →
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
+          ...
         </section>
-      )}
+      )} */}
 
       {/* ── QUICK CONTACT ───────────────────────────────── */}
       <QuickContact />
