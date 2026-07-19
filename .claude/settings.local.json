@@ -81,7 +81,13 @@
       "Bash(cd \"D:\\\\creative_touch\\\\renova\" && node studio-renova/scripts/push-extra-treatments.mjs 2>&1)",
       "Bash(cd \"D:\\\\creative_touch\\\\renova\" && npx cross-env CI=false react-scripts build 2>&1 | tail -12)",
       "Bash(grep -rn \"London\" \"D:\\\\creative_touch\\\\renova\\\\src\" --include=\"*.js\" 2>/dev/null | grep -v \"keywords.js\")",
-      "Bash(cd \"D:\\\\creative_touch\\\\renova\" && npx cross-env CI=false react-scripts build 2>&1 | tail -20)"
+      "Bash(cd \"D:\\\\creative_touch\\\\renova\" && npx cross-env CI=false react-scripts build 2>&1 | tail -20)",
+      "Bash(cd D:/creative_touch/renova && npm install --package-lock-only 2>&1 | tail -5)",
+      "Bash(cd D:/creative_touch/renova && npm install 2>&1 | tail -8)",
+      "Bash(cd D:/creative_touch/renova && grep -A2 '\"node_modules/yaml\"' package-lock.json)",
+      "Bash(cd D:/creative_touch/renova && rm package-lock.json && npm install 2>&1 | tail -8)",
+      "Bash(cd D:/creative_touch/renova && grep -A2 '\"node_modules/yaml\"' package-lock.json && grep '\"node_modules/tailwindcss/node_modules/yaml\"' package-lock.json)",
+      "Bash(npm --version && node --version)"
     ]
   }
 }
