@@ -34,22 +34,8 @@ function ScrollText() {
           </p>
         </div>
 
-        {/* Right — doctor image */}
-        <motion.div
-          className="scroll-text__img-wrap"
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <img
-            src="/assets/doctor_renove.png"
-            alt="Kensley Aesthetics Practitioner"
-            className="scroll-text__doctor-img"
-          />
-        </motion.div>
 
-      </div>
+</div>
     </section>
   );
 }

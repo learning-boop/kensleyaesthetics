@@ -1,26 +1,11 @@
 .qc-section {
   display: flex;
-  min-height: 100vh;
+  min-height: 60vh;
 }
 
-/* ── Left: image panel ── */
-.qc-image {
-  flex: 0 0 50%;
-  position: relative;
-  overflow: hidden;
-}
-
-.qc-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-
-/* ── Right: form panel ── */
+/* ── Form panel — full width ── */
 .qc-form-panel {
-  flex: 0 0 50%;
+  flex: 1;
   background: var(--color-cream);
   display: flex;
   flex-direction: column;
@@ -114,14 +99,7 @@
 /* ── Mobile ── */
 @media (max-width: 768px) {
   .qc-section {
-    flex-direction: column;
     min-height: auto;
-  }
-
-  .qc-image {
-    flex: none;
-    height: 60vw;
-    min-height: 260px;
   }
 
   .qc-form-panel {

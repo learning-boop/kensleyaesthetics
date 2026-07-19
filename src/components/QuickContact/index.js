@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { submitContact } from '../../services/api';
 import './QuickContact.css';
 
-const portraitImg = '/assets/doctor_renove.png';
-
 export default function QuickContact() {
   const [name, setName]       = useState('');
   const [phone, setPhone]     = useState('');
@@ -29,12 +27,6 @@ export default function QuickContact() {
 
   return (
     <section className="qc-section">
-      {/* Left — portrait image */}
-      <div className="qc-image">
-        <img src={portraitImg} alt="Kensley Aesthetics practitioner" />
-      </div>
-
-      {/* Right — form */}
       {sent ? (
         <div className="qc-form-panel qc-form-panel--sent">
           <p className="qc-sent-msg">Thank you, we'll be in touch shortly.</p>

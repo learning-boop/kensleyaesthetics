@@ -38,7 +38,7 @@ function BeforeAfter() {
         <p className="ba-sub">Visible transformations. Every treatment, every client.</p>
       </div>
 
-      {/* ── Scattered images (absolute on desktop, grid on mobile) ── */}
+      {/* ── Desktop: scattered parallax cards ── */}
       <div className="ba-cards">
         <motion.div className="ba-card ba-card--1" style={{ y: y1 }}>
           <img src={img1} alt="Before and after result" />
@@ -55,6 +55,15 @@ function BeforeAfter() {
         <motion.div className="ba-card ba-card--5" style={{ y: y5 }}>
           <img src={img5} alt="Before and after result" />
         </motion.div>
+      </div>
+
+      {/* ── Mobile: plain carousel — no Framer Motion so no transform conflicts ── */}
+      <div className="ba-mobile-track">
+        {[img1, img2, img3, img4, img5].map((img, i) => (
+          <div key={i} className="ba-mobile-card">
+            <img src={img} alt="Before and after result" />
+          </div>
+        ))}
       </div>
 
       {/* ── Bottom CTA strip ── */}
