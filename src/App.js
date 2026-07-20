@@ -25,6 +25,7 @@ import BlogPost         from './pages/BlogPost';
 import AdminAppointments from './pages/AdminAppointments';
 import Treatments       from './pages/Treatments';
 import TreatmentPlan    from './pages/TreatmentPlan';
+import BookAppointment  from './pages/BookAppointment';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path="/testimonials"          element={<Testimonials />} />
         <Route path="/faq"                  element={<FAQ />} />
         <Route path="/contact"              element={<Contact />} />
+        <Route path="/book"                 element={<BookAppointment />} />
 
         <Route path="/treatments"            element={<Treatments />} />
         <Route path="/treatment-plan"        element={<TreatmentPlan />} />
