@@ -1,0 +1,62 @@
+/* ── Compact header ───────────────────────────────────────── */
+.ba-header {
+  background-color: var(--color-dark);
+  padding: 110px 40px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ba-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(200, 169, 106, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ba-header__eyebrow {
+  display: block;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+}
+
+.ba-header__title {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400;
+  color: var(--color-cream);
+  line-height: 1.1;
+  margin: 0 0 10px 0;
+}
+
+.ba-header__sub {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--color-gold);
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* ── Iframe section ───────────────────────────────────────── */
+.ba-body {
+  background: #f5f2ed;
+  padding: 0;
+  width: 100%;
+}
+
+/* ── Mobile ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .ba-header {
+    padding: 90px 24px 32px;
+  }
+
+  .ba-header__title {
+    font-size: clamp(24px, 7vw, 36px);
+  }
+}
