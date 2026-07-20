@@ -23,11 +23,10 @@ const EXTRA_TREATMENTS = [
   { num: '10', label: '3D HydrO2 Facial',           slug: 'hydro2-facial',            sub: 'Advanced facial combining oxygen, hydration and ultrasound technology.' },
   { num: '11', label: 'Mesotherapy',                slug: 'mesotherapy',              sub: 'Microinjections delivering vitamins and actives directly into the skin.' },
   { num: '12', label: 'LED Light Therapy',          slug: 'led-light-therapy',        sub: 'Clinically proven light wavelengths to calm, heal and rejuvenate.' },
-  { num: '13', label: 'Thread Lift',                slug: 'thread-lift',              sub: 'PDO or Aptos threads to physically lift sagging skin without surgery.' },
-  { num: '14', label: 'Profhilo',                   slug: 'profhilo',                 sub: 'High-concentration hyaluronic acid that bio-remodels skin from within.' },
-  { num: '15', label: 'PRP (Platelet-Rich Plasma)', slug: 'prp',                      sub: 'Your own growth factors used to regenerate and repair skin tissue.' },
-  { num: '16', label: 'Polynucleotides',            slug: 'polynucleotides',          sub: 'DNA-repair molecules that deeply restore skin health and elasticity.' },
-  { num: '17', label: 'Medical-Grade Skincare',     slug: 'medical-grade-skincare',   sub: 'Clinician-prescribed homecare plans that support and extend results.' },
+  { num: '13', label: 'Profhilo',                   slug: 'profhilo',                 sub: 'High-concentration hyaluronic acid that bio-remodels skin from within.' },
+  { num: '14', label: 'PRP (Platelet-Rich Plasma)', slug: 'prp',                      sub: 'Your own growth factors used to regenerate and repair skin tissue.' },
+  { num: '15', label: 'Polynucleotides',            slug: 'polynucleotides',          sub: 'DNA-repair molecules that deeply restore skin health and elasticity.' },
+  { num: '16', label: 'Medical-Grade Skincare',     slug: 'medical-grade-skincare',   sub: 'Clinician-prescribed homecare plans that support and extend results.' },
 ];
 
 export default function Treatments() {

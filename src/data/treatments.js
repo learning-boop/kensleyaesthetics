@@ -660,7 +660,7 @@ const TREATMENTS = [
     image: '/assets/neck_renewal.png',
     tagline: 'Smooth, tighten and refresh the neck and décolletage.',
     description:
-      'Neck Renewal focuses on the neck, jawline-to-neck transition and décolletage. It can include neck Botox, Nefertiti lift, neck lines treatment, neck bands, HIFU neck, Profhilo neck, PRP neck, microneedling, RF microneedling, PDO neck thread lift and Aptos neck thread lift. This category is important because the neck often shows ageing earlier than the face.',
+      'Neck Renewal focuses on the neck, jawline-to-neck transition and décolletage. It can include neck Botox, Nefertiti lift, neck lines treatment, neck bands, HIFU neck, Profhilo neck, PRP neck, microneedling and RF microneedling. This category is important because the neck often shows ageing earlier than the face.',
     benefits: [
       'Softens neck bands and horizontal lines',
       'Improves crepey texture and hydration',
@@ -677,7 +677,7 @@ const TREATMENTS = [
       },
       {
         q: 'Can the neck be treated without surgery?',
-        a: 'Yes. Options may include injectables, skin boosters, HIFU, microneedling, RF microneedling and thread lift treatments.',
+        a: 'Yes. Options may include injectables, skin boosters, HIFU, microneedling and RF microneedling.',
       },
       {
         q: 'Can the décolletage be treated?',
@@ -699,8 +699,6 @@ const TREATMENTS = [
       { name: 'Profhilo neck', price: 'From clinic pricing' },
       { name: 'PRP neck', price: 'From clinic pricing' },
       { name: 'HIFU neck', price: 'From clinic pricing' },
-      { name: 'PDO neck thread lift', price: 'From clinic pricing' },
-      { name: 'Aptos neck thread lift', price: 'From clinic pricing' },
     ],
     subTreatments: [
       {
@@ -753,13 +751,6 @@ const TREATMENTS = [
         image: '/images/sub-treatments/neck-renewal/rf-microneedling-neck.jpg',
       },
       {
-        title: 'PDO / Aptos Neck Threads',
-        name: 'Lift and Support',
-        description:
-          'Thread lift options designed to support non-surgical lifting and tightening around the neck.',
-        image: '/images/sub-treatments/neck-renewal/pdo-aptos-threads.jpg',
-      },
-      {
         title: 'Décolletage Refresh',
         name: 'Chest Skin Rejuvenation',
         description:
@@ -776,7 +767,7 @@ const TREATMENTS = [
     image: '/assets/full_face_refresh.png',
     tagline: 'A complete facial rejuvenation plan tailored to your features.',
     description:
-      'Full Face Refresh is a complete rejuvenation category for clients who need more than one treatment area addressed. It can combine anti-wrinkle injections, dermal fillers, facial balancing, non-surgical facelift, thread lift, HIFU, skin boosters, Profhilo, PRP, microneedling, RF microneedling and HydrO2 facial. The goal is a cohesive, natural-looking result across the whole face.',
+      'Full Face Refresh is a complete rejuvenation category for clients who need more than one treatment area addressed. It can combine anti-wrinkle injections, dermal fillers, facial balancing, non-surgical facelift, HIFU, skin boosters, Profhilo, PRP, microneedling, RF microneedling and HydrO2 facial. The goal is a cohesive, natural-looking result across the whole face.',
     benefits: [
       'Addresses multiple concerns in one plan',
       'Combines structure, skin quality and lifting',
@@ -789,7 +780,7 @@ const TREATMENTS = [
     faqs: [
       {
         q: 'What is included in Full Face Refresh?',
-        a: 'It can include a combination of anti-wrinkle injections, dermal fillers, skin boosters, PRP, HIFU, thread lift, microneedling, RF microneedling and facial treatments depending on the client.',
+        a: 'It can include a combination of anti-wrinkle injections, dermal fillers, skin boosters, PRP, HIFU, microneedling, RF microneedling and facial treatments depending on the client.',
       },
       {
         q: 'Is this done in one appointment?',
@@ -814,7 +805,6 @@ const TREATMENTS = [
       { name: 'Signature full face refresh', price: 'Bespoke quote' },
       { name: 'Premium rejuvenation plan', price: 'Bespoke quote' },
       { name: 'Non-surgical facelift plan', price: 'Bespoke quote' },
-      { name: 'Thread lift plan', price: 'From clinic pricing' },
       { name: 'HIFU face and neck plan', price: 'From clinic pricing' },
       { name: 'Add-on neck and décolletage', price: 'From clinic pricing' },
     ],
@@ -839,20 +829,6 @@ const TREATMENTS = [
         description:
           'Looks at the whole face rather than one isolated area to create a balanced result.',
         image: '/images/sub-treatments/full-face-refresh/facial-balancing.jpg',
-      },
-      {
-        title: 'PDO Thread Lift',
-        name: 'Lift and Support',
-        description:
-          'Uses threads to support sagging areas and create a subtle lifted effect.',
-        image: '/images/sub-treatments/full-face-refresh/pdo-thread-lift.jpg',
-      },
-      {
-        title: 'Aptos Thread Lift',
-        name: 'Advanced Thread Support',
-        description:
-          'A specialist thread lift option for clients suitable for non-surgical lifting.',
-        image: '/images/sub-treatments/full-face-refresh/aptos-thread-lift.jpg',
       },
       {
         title: 'HIFU Facelift',

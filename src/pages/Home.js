@@ -5,12 +5,12 @@ import TreatmentShowcase   from '../components/TreatmentShowcase';
 import Stats               from '../components/Stats';
 import BeforeAfter         from '../components/BeforeAfter';
 import ExpertSection       from '../components/ExpertSection';
-// import About               from '../components/About';
-// import Services            from '../components/Services';
-// import Process             from '../components/Process';
-// import Pillars             from '../components/Pillars';
-// import Testimonials        from '../components/Testimonials';
-// import CtaSection          from '../components/CtaSection';
+import About               from '../components/About';
+import Services            from '../components/Services';
+import Process             from '../components/Process';
+import Pillars             from '../components/Pillars';
+import Testimonials        from '../components/Testimonials';
+import CtaSection          from '../components/CtaSection';
 import QuickContact        from '../components/QuickContact';
 import HomeFaqSection      from '../components/HomeFaqSection';
 import JourneySteps        from '../components/JourneySteps';
@@ -41,7 +41,7 @@ function Home() {
     <>
       <SeoHead
         title="Aesthetic Clinic Newcastle | Non-Surgical Treatments"
-        description="Kensley Aesthetics — expert non-surgical aesthetic treatments including dermal fillers, anti-wrinkle injections, Profhilo, skin boosters, RF microneedling and HIFU in Newcastle."
+        description="Beauty Refined, Confidence Restored — Kensley Aesthetics offers expert non-surgical aesthetic treatments including dermal fillers, anti-wrinkle injections, Profhilo, skin boosters, RF microneedling and HIFU in Newcastle."
         path="/"
         jsonLd={LOCAL_BUSINESS_LD}
       />

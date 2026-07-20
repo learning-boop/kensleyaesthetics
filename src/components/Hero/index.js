@@ -15,6 +15,7 @@ function Hero() {
           Timeless<br />
           <em>Glow</em>
         </h1>
+        <p className="hero__tagline">Beauty Refined &nbsp;·&nbsp; Confidence Restored</p>
         <p className="hero__sub">
           Expert non-surgical treatments crafted to restore,
           refine and reveal your most radiant self.

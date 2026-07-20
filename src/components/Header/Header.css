@@ -29,7 +29,7 @@
 }
 
 .header__logo-img {
-  height: 30px;
+  height: 50px;
   width: auto;
   display: block;
 }
@@ -208,6 +208,10 @@
   .header__bar {
     padding: 0 20px;
     justify-content: space-between;
+  }
+
+  .header__logo-img {
+    height: 44px;
   }
 
   /* Compact Book button on mobile */
