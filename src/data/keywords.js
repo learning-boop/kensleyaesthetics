@@ -139,7 +139,7 @@ export const TREATMENT_KEYWORDS = {
   'even-and-bright':    'pigmentation treatment Newcastle, dark spots treatment, skin tone Newcastle',
   'firm-and-lift':      'skin tightening Newcastle, collagen stimulator, RF microneedling Newcastle',
   'sculpt-and-define':  'dermal fillers Newcastle, jawline filler, cheek filler, facial contouring Newcastle',
-  'non-surgical-lift':  'non-surgical facelift Newcastle, HIFU Newcastle, thread lift Newcastle',
+  'non-surgical-lift':  'non-surgical facelift Newcastle, HIFU Newcastle',
   'under-eye-refresh':  'tear trough filler Newcastle, dark circles treatment, under eye treatment Newcastle',
   'neck-renewal':       'neck rejuvenation Newcastle, décolletage treatment, HIFU neck Newcastle',
 };

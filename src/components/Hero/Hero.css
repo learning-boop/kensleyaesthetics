@@ -57,6 +57,16 @@
   color: var(--color-gold);
 }
 
+.hero__tagline {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--color-gold);
+  margin: 0 0 20px 0;
+}
+
 .hero__sub {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 13px;

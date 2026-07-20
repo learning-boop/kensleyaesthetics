@@ -4,53 +4,47 @@ import PageHero from '../components/PageHero';
 import SeoHead from '../components/SeoHead';
 import './About.css';
 
-import drOne   from '../data/images/about/drmatla_one.png';
-import drTwo   from '../data/images/about/drmatla_two.png';
-import drThree from '../data/images/about/drmatla_three.png';
-
 const stats = [
   { num: '20+',     label: 'Years of Medical\nExperience' },
   { num: '10+',     label: 'Years in Aesthetic\nMedicine' },
   { num: '10,000+', label: 'Aesthetic Procedures\nPerformed' },
-  { num: 'CQC',     label: 'Rated Good\nDoctor-Led Clinic' },
-  { num: 'APTOS',   label: 'Official Thread Lift\nTrainer UK' },
+  { num: 'GMC',     label: 'Registered\nDoctor-Led Clinic' },
 ];
 
 const credentials = [
-  'GMC Registered Doctor',
+  'GMC Registered Doctor-Led Clinic',
   'MBBS, MRCGP, DFSRH',
   'PGCert Aesthetics & Cosmetic Medicine',
-  'Official APTOS Thread Lift Trainer — United Kingdom',
   'Hyacorp Body Filler Trainer',
   'Genefill DX Trainer',
+  'Advanced Aesthetic Medicine Practice',
   'Founder & Clinical Director — Kensley Aesthetics',
-  'CQC-Registered Clinic · Rated Good',
 ];
 
 const whyItems = [
   {
     q: 'GMC Registered Doctor-Led Care',
-    a: 'Every treatment at Kensley Aesthetics is performed personally by Dr. Tirumala Matla — a fully GMC-registered doctor with over 20 years of clinical experience. You are never treated by a non-medical practitioner.',
-  },
-  {
-    q: 'Official APTOS Thread Lift Trainer UK',
-    a: "Dr. Matla is the Official APTOS Thread Lift Trainer for the United Kingdom — recognised as one of the UK's leading specialists in advanced thread lifting techniques, educating medical professionals across the country.",
-  },
-  {
-    q: 'CQC-Registered & Rated Good',
-    a: 'Our clinic is registered with and rated Good by the Care Quality Commission — the independent body responsible for patient safety and clinical governance standards across healthcare in England.',
+    a: 'Every treatment at Kensley Aesthetics is performed personally by a fully GMC-registered doctor with over 20 years of clinical experience. You are never treated by a non-medical practitioner.',
   },
   {
     q: '10,000+ Aesthetic Procedures Performed',
-    a: 'With over 10,000 aesthetic procedures carried out throughout his career, Dr. Matla brings a depth and breadth of clinical experience that is exceptional in aesthetic medicine.',
+    a: 'With over 10,000 aesthetic procedures carried out, we bring a depth and breadth of clinical experience that is exceptional in aesthetic medicine.',
   },
   {
     q: 'Bespoke Plans, Not Templates',
-    a: 'Dr. Matla takes time at every consultation to understand your individual goals, anatomy and skin concerns before recommending any treatment. Your plan is built around you — never a standard protocol.',
+    a: 'We take time at every consultation to understand your individual goals, anatomy and skin concerns before recommending any treatment. Your plan is built around you — never a standard protocol.',
   },
   {
     q: 'Honest Counsel & Meticulous Detail',
-    a: 'Dr. Matla is known for his meticulous attention to detail and honest counsel. If a treatment is not right for you or will not achieve what you hope, he will tell you clearly and recommend an alternative.',
+    a: 'We are known for meticulous attention to detail and honest counsel. If a treatment is not right for you or will not achieve what you hope, we will tell you clearly and recommend an alternative.',
+  },
+  {
+    q: 'Advanced Training & Expertise',
+    a: 'Our clinical team hold advanced qualifications in aesthetic medicine, including recognised trainer status in dermal fillers and regenerative treatments — ensuring you receive the highest standard of care.',
+  },
+  {
+    q: 'A Practice Built on Trust',
+    a: 'Kensley Aesthetics was built on the principle that patients deserve complete transparency, safety and expertise. We operate to the highest clinical governance standards in everything we do.',
   },
 ];
 
@@ -60,39 +54,29 @@ function About() {
   return (
     <>
       <SeoHead
-        title="About Dr. Matla | GMC Registered Aesthetic Doctor Newcastle"
-        description="Meet Dr. Tirumala Matla — GMC Registered Doctor, Official APTOS Thread Lift Trainer UK, and Founder of Kensley Aesthetics. 20+ years of medical experience, 10,000+ procedures performed. CQC-registered clinic in Jesmond, Newcastle."
+        title="About Us | Kensley Aesthetics Newcastle"
+        description="Kensley Aesthetics is a GMC-registered, doctor-led aesthetic clinic in Jesmond, Newcastle. Over 20 years of medical experience and 10,000+ procedures performed."
         path="/about"
       />
 
       <PageHero
-        label="About the Doctor"
-        title={<>Dr. Tirumala<br />Matla</>}
-        subtitle="GMC Registered Doctor · Founder & Clinical Director · Kensley Aesthetics"
+        label="About the Clinic"
+        title={<>Kensley<br />Aesthetics</>}
+        subtitle="GMC Registered · Doctor-Led · Jesmond, Newcastle"
       />
 
       {/* ── PROFILE ──────────────────────────────────────────── */}
       <section className="ab-profile">
-        <div className="ab-profile__img-col">
-          <img
-            src={drOne}
-            alt="Dr. Tirumala Matla — Kensley Aesthetics"
-            className="ab-profile__img"
-          />
-        </div>
         <div className="ab-profile__content-col">
-          <span className="ab-eyebrow">GMC Registered Doctor</span>
-          <h2 className="ab-profile__name">Dr. Tirumala<br />Matla</h2>
+          <span className="ab-eyebrow">GMC Registered Clinic</span>
+          <h2 className="ab-profile__name">Kensley<br />Aesthetics</h2>
           <p className="ab-profile__role">
-            Founder &amp; Clinical Director<br />
-            Kensley Aesthetics · Jesmond, Newcastle
+            Doctor-Led Aesthetic Clinic<br />
+            Jesmond, Newcastle upon Tyne
           </p>
           <div className="ab-divider" />
-          <p className="ab-profile__credentials-line">
-            MBBS &nbsp;·&nbsp; MRCGP &nbsp;·&nbsp; DFSRH &nbsp;·&nbsp; PGCert Aesthetics
-          </p>
           <blockquote className="ab-profile__quote">
-            "My aim is to deliver natural, safe and effective treatments that help
+            "Our aim is to deliver natural, safe and effective treatments that help
             patients look refreshed, feel confident and achieve their aesthetic
             goals with complete trust and peace of mind."
           </blockquote>
@@ -120,8 +104,8 @@ function About() {
             <span className="ab-eyebrow ab-eyebrow--dark">Qualifications</span>
             <h2 className="ab-credentials__title">Credentials<br />&amp; Training</h2>
             <p className="ab-credentials__desc">
-              Dr. Matla holds extensive clinical qualifications and is recognised
-              as a leading trainer and educator in advanced aesthetic medicine
+              Our clinic is led by a doctor with extensive clinical qualifications, recognised
+              as an advanced trainer and educator in aesthetic medicine
               across the United Kingdom.
             </p>
           </div>
@@ -142,35 +126,24 @@ function About() {
       <section className="ab-bio">
         <div className="ab-bio__inner">
           <div className="ab-bio__content-col">
-            <span className="ab-eyebrow">Biography</span>
-            <h2 className="ab-bio__title">About the<br />Doctor</h2>
+            <span className="ab-eyebrow">About Us</span>
+            <h2 className="ab-bio__title">About the<br />Clinic</h2>
             <div className="ab-divider" />
             <p className="ab-bio__text">
-              Dr. Tirumala Matla is a highly experienced medical professional with over
-              20 years of clinical experience and more than 10 years dedicated exclusively
-              to advanced aesthetic medicine. Throughout his career, he has performed over
-              10,000 aesthetic procedures, helping patients achieve natural,
-              confidence-enhancing results.
+              Kensley Aesthetics is a doctor-led aesthetic clinic based in Jesmond, Newcastle upon Tyne.
+              Our clinical director brings over 20 years of medical experience and more than 10 years
+              dedicated exclusively to advanced aesthetic medicine, with over 10,000 aesthetic procedures
+              performed.
             </p>
             <p className="ab-bio__text">
-              Recognised as one of the UK's leading Thread Lift Specialists, Dr. Matla is
-              the Official APTOS Thread Lift Trainer for the United Kingdom. He is also a
-              Hyacorp Body Filler Trainer and Genefill DX Trainer — reflecting his
-              commitment to innovation, education and excellence in aesthetic medicine.
+              We are a Hyacorp Body Filler Trainer clinic and Genefill DX Trainer clinic — reflecting
+              our commitment to innovation, education and excellence in advanced aesthetic medicine.
             </p>
             <p className="ab-bio__text">
-              As Founder and Clinical Director, he leads a CQC-registered, doctor-led
-              clinic in Jesmond, Newcastle upon Tyne — rated Good by the Care Quality
-              Commission and operating to the highest standards of patient safety and
-              clinical governance.
+              Kensley Aesthetics operates to the highest standards of patient safety and
+              clinical governance, providing bespoke, doctor-led care tailored to each individual
+              client's goals and anatomy.
             </p>
-          </div>
-          <div className="ab-bio__img-col">
-            <img
-              src={drTwo}
-              alt="Dr. Matla in clinic — Kensley Aesthetics"
-              className="ab-bio__img"
-            />
           </div>
         </div>
       </section>
@@ -180,7 +153,7 @@ function About() {
         <div className="ab-why__inner">
           <div className="ab-why__header">
             <span className="ab-eyebrow ab-eyebrow--gold">Why Choose Us</span>
-            <h2 className="ab-why__title">Why Choose<br />Dr. Matla</h2>
+            <h2 className="ab-why__title">Why Choose<br />Kensley Aesthetics</h2>
           </div>
           <div className="ab-why__accordion">
             {whyItems.map((item, i) => (
@@ -204,18 +177,11 @@ function About() {
 
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section className="ab-cta">
-        <div className="ab-cta__img-col">
-          <img
-            src={drThree}
-            alt="Dr. Matla — Kensley Aesthetics"
-            className="ab-cta__img"
-          />
-        </div>
         <div className="ab-cta__content-col">
           <span className="ab-eyebrow ab-eyebrow--gold">Ready to Begin</span>
           <h2 className="ab-cta__title">Book a<br />Consultation</h2>
           <p className="ab-cta__text">
-            Begin your journey with a personalised consultation with Dr. Matla.
+            Begin your journey with a personalised consultation at Kensley Aesthetics.
             Discuss your goals, understand your options, and receive an honest,
             expert recommendation.
           </p>

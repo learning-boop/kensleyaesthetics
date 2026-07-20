@@ -30,7 +30,7 @@ function ScrollText() {
           </div>
 
           <p className="scroll-text__para">
-            Precision meets artistry<br />in every treatment<br />we deliver.
+            Beauty Refined.<br />Confidence Restored.<br />Every treatment, every time.
           </p>
         </div>
 

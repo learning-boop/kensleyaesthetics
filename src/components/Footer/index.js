@@ -21,7 +21,7 @@ function Footer() {
         <div className="ft-brand-block">
           <h2 className="ft-brand-name">Kensley Aesthetics</h2>
           <p className="ft-brand-tagline">
-            Artistry meets expertise &mdash; every treatment, a masterpiece crafted just for you
+            Beauty Refined &nbsp;&middot;&nbsp; Confidence Restored
           </p>
         </div>
 

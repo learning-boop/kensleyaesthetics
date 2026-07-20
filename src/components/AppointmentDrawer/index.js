@@ -1,28 +1,9 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { client, MAIN_TREATMENTS_QUERY } from '../../lib/sanityClient';
+import { useEffect } from 'react';
 import { useAppointment } from '../../context/AppointmentContext';
-import { bookAppointment } from '../../services/api';
 import './drawer.css';
 
 function AppointmentDrawer() {
   const { open, closeDrawer } = useAppointment();
-
-  const [treatments, setTreatments] = useState([]);
-  const [form, setForm] = useState({
-    name: '', email: '', phone: '', treatment: '', date: '', time: '', message: '',
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState('');
-
-  useEffect(() => {
-    client.fetch(MAIN_TREATMENTS_QUERY).then((data) => {
-      setTreatments(
-        data.map((t) => ({ title: t.label, slug: t.slug }))
-      );
-    });
-  }, []);
 
   // Lock body scroll while open
   useEffect(() => {
@@ -30,41 +11,12 @@ function AppointmentDrawer() {
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
-  const set = (field) => (e) => setForm((prev) => ({ ...prev, [field]: e.target.value }));
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setSubmitError('');
-    try {
-      await bookAppointment({
-        name:             form.name,
-        email:            form.email,
-        phone:            form.phone,
-        service:          form.treatment,
-        preferred_date:   form.date,
-        preferred_time:   form.time || 'Any time',
-        notes:            form.message,
-      });
-      setSubmitted(true);
-    } catch (err) {
-      setSubmitError(err.message || 'Something went wrong. Please try again.');
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  const handleClose = () => {
-    closeDrawer();
-    setTimeout(() => { setSubmitted(false); setSubmitError(''); }, 500);
-  };
-
   return (
     <>
       {/* Overlay */}
       <div
         className={`appt-overlay ${open ? 'appt-overlay--open' : ''}`}
-        onClick={handleClose}
+        onClick={closeDrawer}
       />
 
       {/* Drawer panel */}
@@ -76,144 +28,23 @@ function AppointmentDrawer() {
             <span className="appt-drawer__eyebrow">Kensley Aesthetics</span>
             <span className="appt-drawer__title">Book an Appointment</span>
           </div>
-          <button className="appt-drawer__close" onClick={handleClose} aria-label="Close">
+          <button className="appt-drawer__close" onClick={closeDrawer} aria-label="Close">
             <span />
             <span />
           </button>
         </div>
 
         <div className="appt-drawer__body">
-          {submitted ? (
-            <div className="appt-drawer__success">
-              <div className="appt-drawer__success-icon">✓</div>
-              <h3 className="appt-drawer__success-title">Request Received</h3>
-              <p className="appt-drawer__success-text">
-                Thank you, {form.name.split(' ')[0]}. We'll confirm your appointment within 24 hours.
-              </p>
-              <button className="appt-drawer__submit" onClick={handleClose}>
-                Done
-              </button>
-            </div>
-          ) : (
-            <form className="appt-drawer__form" onSubmit={handleSubmit}>
-
-              <div className="appt-drawer__row">
-                <div className="appt-drawer__field">
-                  <label className="appt-drawer__label">Full Name *</label>
-                  <input
-                    className="appt-drawer__input"
-                    type="text"
-                    placeholder="Your name"
-                    value={form.name}
-                    onChange={set('name')}
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="appt-drawer__row appt-drawer__row--split">
-                <div className="appt-drawer__field">
-                  <label className="appt-drawer__label">Email *</label>
-                  <input
-                    className="appt-drawer__input"
-                    type="email"
-                    placeholder="you@email.com"
-                    value={form.email}
-                    onChange={set('email')}
-                    required
-                  />
-                </div>
-                <div className="appt-drawer__field">
-                  <label className="appt-drawer__label">Phone</label>
-                  <input
-                    className="appt-drawer__input"
-                    type="tel"
-                    placeholder="+44 7..."
-                    value={form.phone}
-                    onChange={set('phone')}
-                  />
-                </div>
-              </div>
-
-              <div className="appt-drawer__row">
-                <div className="appt-drawer__field">
-                  <label className="appt-drawer__label">Treatment *</label>
-                  <select
-                    className="appt-drawer__input appt-drawer__select"
-                    value={form.treatment}
-                    onChange={set('treatment')}
-                    required
-                  >
-                    <option value="">Select a treatment</option>
-                    {treatments.map((t) => (
-                      <option key={t.slug} value={t.slug}>{t.title}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className="appt-drawer__row appt-drawer__row--split">
-                <div className="appt-drawer__field">
-                  <label className="appt-drawer__label">Preferred Date *</label>
-                  <input
-                    className="appt-drawer__input"
-                    type="date"
-                    value={form.date}
-                    onChange={set('date')}
-                    min={new Date().toISOString().split('T')[0]}
-                    required
-                  />
-                </div>
-                <div className="appt-drawer__field">
-                  <label className="appt-drawer__label">Preferred Time</label>
-                  <select
-                    className="appt-drawer__input appt-drawer__select"
-                    value={form.time}
-                    onChange={set('time')}
-                  >
-                    <option value="">Any time</option>
-                    <option>09:00 AM</option>
-                    <option>10:00 AM</option>
-                    <option>11:00 AM</option>
-                    <option>12:00 PM</option>
-                    <option>01:00 PM</option>
-                    <option>02:00 PM</option>
-                    <option>03:00 PM</option>
-                    <option>04:00 PM</option>
-                    <option>05:00 PM</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="appt-drawer__row">
-                <div className="appt-drawer__field">
-                  <label className="appt-drawer__label">Message</label>
-                  <textarea
-                    className="appt-drawer__input appt-drawer__textarea"
-                    placeholder="Any additional notes or concerns..."
-                    value={form.message}
-                    onChange={set('message')}
-                    rows={3}
-                  />
-                </div>
-              </div>
-
-              <div className="appt-drawer__footer">
-                <p className="appt-drawer__note">* Required fields</p>
-                {submitError && (
-                  <p style={{ color: '#e87f7f', fontSize: 13, fontFamily: 'Helvetica Neue, Arial, sans-serif', marginBottom: 8 }}>
-                    {submitError}
-                  </p>
-                )}
-                <button className="appt-drawer__submit" type="submit" disabled={submitting}>
-                  {submitting ? 'Sending…' : 'Confirm Appointment'}
-                  {!submitting && <span className="appt-drawer__submit-arrow">→</span>}
-                </button>
-              </div>
-
-            </form>
-          )}
+          <iframe
+            src="https://portal.aestheticnursesoftware.com/book-online-iframe/31976?is_iframe=1&auto_adjust_height=1"
+            frameBorder="0"
+            scrolling="no"
+            style={{ width: '100%', border: 'none', display: 'block' }}
+            id="ansOlbIframe"
+            title="Book an Appointment"
+          />
         </div>
+
       </div>
     </>
   );

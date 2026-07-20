@@ -41,7 +41,7 @@ function Home() {
     <>
       <SeoHead
         title="Aesthetic Clinic Newcastle | Non-Surgical Treatments"
-        description="Kensley Aesthetics — expert non-surgical aesthetic treatments including dermal fillers, anti-wrinkle injections, Profhilo, skin boosters, RF microneedling and HIFU in Newcastle."
+        description="Beauty Refined, Confidence Restored — Kensley Aesthetics offers expert non-surgical aesthetic treatments including dermal fillers, anti-wrinkle injections, Profhilo, skin boosters, RF microneedling and HIFU in Newcastle."
         path="/"
         jsonLd={LOCAL_BUSINESS_LD}
       />
