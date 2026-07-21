@@ -33,7 +33,7 @@ const LOCAL_BUSINESS_LD = {
     'https://www.facebook.com/profile.php?id=61591977870031',
     'https://www.tiktok.com/@kensleyaesthetics',
   ],
-  hasMap: 'https://kensleyaesthetics.co.uk/contact',
+  hasMap: 'https://kensleyaesthetics.co.uk/book',
 };
 
 function Home() {

@@ -97,7 +97,7 @@ function Testimonials() {
           <p className="page-body-text" style={{ maxWidth: 480, margin: '24px auto 40px' }}>
             Book a consultation and take the first step towards your best skin.
           </p>
-          <Link to="/contact" className="btn-primary">Book an Appointment</Link>
+          <Link to="/book" className="btn-primary">Book an Appointment</Link>
         </div>
       </section>
 

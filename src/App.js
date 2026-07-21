@@ -15,14 +15,11 @@ import Gallery      from './pages/Gallery';
 import SkinConcerns from './pages/SkinConcerns';
 import Testimonials from './pages/Testimonials';
 import FAQ          from './pages/FAQ';
-import Contact      from './pages/Contact';
 import PrivacyPolicy    from './pages/PrivacyPolicy';
 import TermsConditions  from './pages/TermsConditions';
 import ChatWidget       from './components/ChatWidget';
-import AIPreview        from './pages/AIPreview';
 import Blog             from './pages/Blog';
 import BlogPost         from './pages/BlogPost';
-import AdminAppointments from './pages/AdminAppointments';
 import Treatments       from './pages/Treatments';
 import TreatmentPlan    from './pages/TreatmentPlan';
 import BookAppointment  from './pages/BookAppointment';
@@ -45,16 +42,13 @@ function App() {
         <Route path="/skin-concerns"        element={<SkinConcerns />} />
         <Route path="/testimonials"          element={<Testimonials />} />
         <Route path="/faq"                  element={<FAQ />} />
-        <Route path="/contact"              element={<Contact />} />
         <Route path="/book"                 element={<BookAppointment />} />
-
         <Route path="/treatments"            element={<Treatments />} />
         <Route path="/treatment-plan"        element={<TreatmentPlan />} />
         <Route path="/blog"                 element={<Blog />} />
         <Route path="/blog/:slug"           element={<BlogPost />} />
         <Route path="/privacy-policy"       element={<PrivacyPolicy />} />
         <Route path="/terms"                element={<TermsConditions />} />
-        <Route path="/admin/appointments"   element={<AdminAppointments />} />
         <Route path="*"                     element={<Home />} />
       </Routes>
       <Footer />

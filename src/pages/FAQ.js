@@ -117,7 +117,7 @@ function FAQ() {
                 <p className="faq-sidebar__text">
                   Our friendly team is happy to answer any questions before you book.
                 </p>
-                <Link to="/contact" className="btn-primary" style={{ marginTop: 24 }}>
+                <Link to="/book" className="btn-primary" style={{ marginTop: 24 }}>
                   Get in Touch
                 </Link>
               </div>

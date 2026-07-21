@@ -198,7 +198,7 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/contact" className="tr-course__cta">
+                <Link to="/book" className="tr-course__cta">
                   Enquire About This Course →
                 </Link>
               </div>

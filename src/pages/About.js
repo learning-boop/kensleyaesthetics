@@ -185,7 +185,7 @@ function About() {
             Discuss your goals, understand your options, and receive an honest,
             expert recommendation.
           </p>
-          <Link to="/contact" className="btn-primary">Book a Consultation</Link>
+          <Link to="/book" className="btn-primary">Book a Consultation</Link>
         </div>
       </section>
     </>

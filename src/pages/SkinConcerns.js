@@ -98,7 +98,7 @@ function SkinConcerns() {
           <p className="page-body-text" style={{ maxWidth: 480, margin: '24px auto 40px' }}>
             Book a complimentary consultation and let us assess your skin and recommend the right path forward.
           </p>
-          <Link to="/contact" className="btn-primary">Book a Consultation</Link>
+          <Link to="/book" className="btn-primary">Book a Consultation</Link>
         </div>
       </section>
 

@@ -10,5 +10,5 @@ export const SECONDARY_LINKS = [
   { label: 'Testimonials',   href: '/testimonials' },
   { label: 'Gallery',        href: '/gallery' },
   { label: 'FAQ',            href: '/faq' },
-  { label: 'Contacts',       href: '/contact' },
+  { label: 'Book',           href: '/book' },
 ];

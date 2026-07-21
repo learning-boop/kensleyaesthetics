@@ -213,7 +213,7 @@ function BlogPost() {
                 <p className="bp-sidebar__text">
                   Talk to our team about the treatments that are right for you.
                 </p>
-                <Link to="/contact" className="btn-primary" style={{ display: 'block', textAlign: 'center', marginTop: 24 }}>
+                <Link to="/book" className="btn-primary" style={{ display: 'block', textAlign: 'center', marginTop: 24 }}>
                   Book Now
                 </Link>
               </div>

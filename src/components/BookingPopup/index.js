@@ -27,7 +27,7 @@ function BookingPopup() {
 
   const handleTryNow = () => {
     dismiss();
-    navigate('/ai-preview');
+    navigate('/book');
   };
 
   if (!visible) return null;
