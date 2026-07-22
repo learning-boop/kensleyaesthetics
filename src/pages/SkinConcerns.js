@@ -61,8 +61,9 @@ function SkinConcerns() {
   return (
     <>
       <SeoHead
-        title="Skin Concerns | Find Your Ideal Treatment"
-        description="Not sure which treatment is right for you? Explore our skin concerns guide — from fine lines and wrinkles to loss of volume, sagging skin, under eye bags and more at Kensley Aesthetics."
+        title="Skin Concerns | Find Your Ideal Treatment Newcastle"
+        description="Not sure which treatment is right for you? Explore our skin concerns guide — wrinkles, fine lines, volume loss, sagging skin, under eye bags, dull skin and more. Kensley Aesthetics, Newcastle."
+        keywords="skin concerns aesthetic treatment Newcastle, wrinkle treatment Newcastle, volume loss filler Newcastle, skin tightening Newcastle, tear trough filler Newcastle, dull skin treatment, sagging skin treatment Newcastle, aesthetic treatment guide"
         path="/skin-concerns"
       />
       <PageHero

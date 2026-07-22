@@ -27,8 +27,9 @@ function Gallery() {
   return (
     <>
       <SeoHead
-        title="Before &amp; After Gallery | Real Patient Results"
-        description="View real before and after results from Kensley Aesthetics — dermal fillers, lip fillers, Profhilo, RF microneedling, HIFU, jawline filler, tear trough filler and more."
+        title="Before & After Gallery | Real Patient Results Newcastle"
+        description="View real before and after results from Kensley Aesthetics Newcastle — dermal fillers, lip fillers, Profhilo, RF microneedling, HIFU, jawline filler, cheek filler and tear trough filler. Genuine patient photos."
+        keywords="before and after dermal fillers Newcastle, lip filler before after Newcastle, Profhilo results Newcastle, jawline filler results, cheek filler before after, RF microneedling results Newcastle, HIFU results Newcastle, aesthetic treatment results"
         path="/gallery"
       />
       <PageHero

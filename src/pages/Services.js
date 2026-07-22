@@ -137,8 +137,9 @@ export default function Services() {
   return (
     <>
       <SeoHead
-        title="Aesthetics Training Courses Newcastle | Professional Education"
-        description="Professional aesthetics training courses for medical practitioners. Foundation injectables, dermal fillers, advanced techniques and more — delivered by Kensley Aesthetics experts in Newcastle."
+        title="Aesthetics Training Courses Newcastle | Doctor-Led Education"
+        description="Professional aesthetics training courses for medical practitioners in Newcastle. Foundation injectables, dermal fillers, advanced techniques and combination therapies — doctor-led training by Kensley Aesthetics."
+        keywords="aesthetics training courses Newcastle, injectable training Newcastle, dermal filler training course, botulinum toxin training Newcastle, aesthetic medicine training, medical aesthetics course Newcastle, CPD aesthetics training"
         path="/training"
       />
       <PageHero

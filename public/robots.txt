@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /ai-preview
 
-Sitemap: https://kensleyaesthetics.co.uk/sitemap.xml
+Sitemap: https://kensleyaesthetics.com/sitemap.xml

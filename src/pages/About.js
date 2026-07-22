@@ -54,8 +54,9 @@ function About() {
   return (
     <>
       <SeoHead
-        title="About Us | Kensley Aesthetics Newcastle"
-        description="Kensley Aesthetics is a GMC-registered, doctor-led aesthetic clinic in Jesmond, Newcastle. Over 20 years of medical experience and 10,000+ procedures performed."
+        title="About Us | GMC Registered Doctor-Led Aesthetic Clinic Newcastle"
+        description="Kensley Aesthetics is a GMC-registered, doctor-led aesthetic clinic in Newcastle. Over 20 years of medical experience, 10,000+ procedures performed. MBBS, MRCGP qualified. Honest counsel, natural results."
+        keywords="doctor-led aesthetic clinic Newcastle, GMC registered aesthetics Newcastle, Kensley Aesthetics about, medical aesthetic doctor Newcastle, aesthetic clinic Jesmond Newcastle, MRCGP aesthetics"
         path="/about"
       />
 

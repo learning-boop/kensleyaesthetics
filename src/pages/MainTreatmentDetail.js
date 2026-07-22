@@ -96,11 +96,11 @@ function MainTreatmentDetail() {
           '@type': 'MedicalProcedure',
           name: treatment.label,
           description: treatment.tagline || treatment.description,
-          url: `https://kensleyaesthetics.co.uk/main-treatments/${slug}`,
+          url: `https://kensleyaesthetics.com/main-treatments/${slug}`,
           provider: {
             '@type': 'MedicalBusiness',
             name: 'Kensley Aesthetics',
-            url: 'https://kensleyaesthetics.co.uk',
+            url: 'https://kensleyaesthetics.com',
           },
         }}
       />

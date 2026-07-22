@@ -85,7 +85,8 @@ function FAQ() {
     <>
       <SeoHead
         title="FAQs | Non-Surgical Aesthetic Treatments Newcastle"
-        description="Answers to your most common questions about non-surgical aesthetic treatments at Kensley Aesthetics — dermal fillers, anti-wrinkle injections, Profhilo, microneedling, HIFU and more."
+        description="Answers to your most common questions about non-surgical aesthetic treatments at Kensley Aesthetics — dermal fillers, anti-wrinkle injections, Profhilo, microneedling, HIFU and more. Doctor-led clinic in Newcastle."
+        keywords="aesthetic treatment FAQ Newcastle, dermal filler questions, anti-wrinkle injection FAQ, Profhilo questions Newcastle, HIFU FAQ, RF microneedling questions, aesthetic clinic FAQ Newcastle"
         path="/faq"
       />
       <PageHero

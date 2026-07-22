@@ -80,8 +80,9 @@ function Blog() {
   return (
     <>
       <SeoHead
-        title="Journal"
-        description="Expert skin and aesthetic advice, treatment guides, and aftercare tips from the Kensley Aesthetics team."
+        title="Aesthetics & Skincare Journal | Expert Advice Newcastle"
+        description="Expert guides on non-surgical aesthetic treatments, skincare tips, aftercare advice and real results from Kensley Aesthetics — Newcastle's leading doctor-led aesthetic clinic."
+        keywords="aesthetics blog Newcastle, skincare tips Newcastle, dermal filler guide, anti-wrinkle treatment advice, lip filler guide Newcastle, jawline filler guide, non-surgical facelift guide, aesthetic aftercare tips"
         path="/blog"
         jsonLd={jsonLd}
       />

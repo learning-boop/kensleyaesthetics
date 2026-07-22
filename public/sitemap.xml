@@ -2,144 +2,240 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Core pages -->
+  <!-- Core pages -->
   <url>
-    <loc>https://kensleyaesthetics.co.uk/</loc>
+    <loc>https://kensleyaesthetics.com/</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/about</loc>
+    <loc>https://kensleyaesthetics.com/about</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/contact</loc>
+    <loc>https://kensleyaesthetics.com/contact</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/gallery</loc>
+    <loc>https://kensleyaesthetics.com/gallery</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/skin-concerns</loc>
+    <loc>https://kensleyaesthetics.com/skin-concerns</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/testimonials</loc>
+    <loc>https://kensleyaesthetics.com/testimonials</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/faq</loc>
+    <loc>https://kensleyaesthetics.com/faq</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/training</loc>
+    <loc>https://kensleyaesthetics.com/training</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/blog</loc>
+    <loc>https://kensleyaesthetics.com/blog</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Main treatment pages -->
   <url>
-    <loc>https://kensleyaesthetics.co.uk/main-treatments/anti-wrinkle-treatments</loc>
+    <loc>https://kensleyaesthetics.com/main-treatments/anti-wrinkle-treatments</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/main-treatments/dermal-fillers</loc>
+    <loc>https://kensleyaesthetics.com/main-treatments/dermal-fillers</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/main-treatments/skin-boosters</loc>
+    <loc>https://kensleyaesthetics.com/main-treatments/skin-boosters</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/main-treatments/regenerative-treatments</loc>
+    <loc>https://kensleyaesthetics.com/main-treatments/regenerative-treatments</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/main-treatments/biostimulators</loc>
+    <loc>https://kensleyaesthetics.com/main-treatments/biostimulators</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/main-treatments/microneedling</loc>
+    <loc>https://kensleyaesthetics.com/main-treatments/microneedling</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/main-treatments/rf-microneedling</loc>
+    <loc>https://kensleyaesthetics.com/main-treatments/rf-microneedling</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/main-treatments/hifu</loc>
+    <loc>https://kensleyaesthetics.com/main-treatments/hifu</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Signature programme pages -->
   <url>
-    <loc>https://kensleyaesthetics.co.uk/treatments/smooth-lines</loc>
+    <loc>https://kensleyaesthetics.com/treatments/smooth-lines</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/treatments/face-sculpt</loc>
+    <loc>https://kensleyaesthetics.com/treatments/face-sculpt</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/treatments/skin-glow</loc>
+    <loc>https://kensleyaesthetics.com/treatments/skin-glow</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/treatments/collagen-restore</loc>
+    <loc>https://kensleyaesthetics.com/treatments/collagen-restore</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/treatments/clear-skin</loc>
+    <loc>https://kensleyaesthetics.com/treatments/clear-skin</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/treatments/neck-renewal</loc>
+    <loc>https://kensleyaesthetics.com/treatments/neck-renewal</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/treatments/full-face-refresh</loc>
+    <loc>https://kensleyaesthetics.com/treatments/full-face-refresh</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/treatments/stay-youthful</loc>
+    <loc>https://kensleyaesthetics.com/treatments/stay-youthful</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- Blog posts -->
+  <url>
+    <loc>https://kensleyaesthetics.com/blog/Cheek-Filler-Newcastle</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kensleyaesthetics.com/blog/Non-Surgical-Nose-Filler-Newcastle</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kensleyaesthetics.com/blog/Skin-Tightening-Newcastle</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kensleyaesthetics.com/blog/Best-Treatment-for-Fine-Lines-and-Wrinkles</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kensleyaesthetics.com/blog/Jawline-Filler-Before-and-After</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kensleyaesthetics.com/blog/non-surgical-facelift-newcastle</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kensleyaesthetics.com/blog/lip-filler-newcastle</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kensleyaesthetics.com/blog/jawline-filler-newcastle</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kensleyaesthetics.com/blog/best-non-surgical-aesthetic-clinic-newcastle</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kensleyaesthetics.com/blog/non-surgical-aesthetic-treatments-newcastle</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kensleyaesthetics.com/blog/aesthetic-clinic-newcastle</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Legal -->
   <url>
-    <loc>https://kensleyaesthetics.co.uk/privacy-policy</loc>
+    <loc>https://kensleyaesthetics.com/privacy-policy</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://kensleyaesthetics.co.uk/terms</loc>
+    <loc>https://kensleyaesthetics.com/terms</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 const SITE_NAME = 'Kensley Aesthetics';
-const SITE_URL  = 'https://kensleyaesthetics.co.uk';
+const SITE_URL  = 'https://kensleyaesthetics.com';
 
 function setMeta(attr, name, content) {
   let el = document.querySelector(`meta[${attr}="${name}"]`);

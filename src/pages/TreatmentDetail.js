@@ -48,8 +48,8 @@ function TreatmentDetail() {
           '@type': 'MedicalProcedure',
           name: treatment.label,
           description: treatment.concern || treatment.tagline || treatment.description,
-          url: `https://kensleyaesthetics.co.uk/treatments/${slug}`,
-          provider: { '@type': 'MedicalBusiness', name: 'Kensley Aesthetics', url: 'https://kensleyaesthetics.co.uk' },
+          url: `https://kensleyaesthetics.com/treatments/${slug}`,
+          provider: { '@type': 'MedicalBusiness', name: 'Kensley Aesthetics', url: 'https://kensleyaesthetics.com' },
         }}
       />
 
