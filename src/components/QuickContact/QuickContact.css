@@ -106,9 +106,12 @@
     padding: 56px 32px 100px;
   }
 
-  /* Darker input text & placeholder on mobile */
+  /* Smaller inputs on mobile */
   .qc-input {
     color: var(--color-dark);
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    text-transform: none;
   }
 
   .qc-input::placeholder {
