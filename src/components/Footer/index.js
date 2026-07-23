@@ -60,7 +60,7 @@ function Footer() {
           <div className="ft-col">
             <h4 className="ft-col-heading">Contact</h4>
             <ul className="ft-col-links">
-              <li><a href="mailto:hello@kensleyaesthetics.co.uk">hello@kensleyaesthetics.co.uk</a></li>
+              <li><a href="mailto:kensleyaesthetics@gmail.com">kensleyaesthetics@gmail.com</a></li>
               <li><a href="tel:+447920699154">07920 699154</a></li>
               <li>Newcastle upon Tyne, United Kingdom</li>
             </ul>

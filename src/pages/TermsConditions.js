@@ -61,7 +61,7 @@ If you experience any unusual side effects or reactions following a treatment, y
 
 We offer a complimentary review appointment for concerns raised within this window. We will always aim to resolve complaints fairly and promptly.
 
-Formal complaints can be submitted in writing to hello@kensleyaesthetics.co.uk. We will acknowledge your complaint within 5 working days and provide a full response within 28 days.`,
+Formal complaints can be submitted in writing to kensleyaesthetics@gmail.com. We will acknowledge your complaint within 5 working days and provide a full response within 28 days.`,
   },
   {
     title: '9. Intellectual Property',

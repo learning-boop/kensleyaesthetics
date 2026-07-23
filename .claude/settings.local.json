@@ -91,7 +91,8 @@
       "Bash(npm install:*)",
       "Bash(node -v && npm -v && head -5 package-lock.json)",
       "Bash(cat > amplify.yml << 'EOF'\nversion: 1\nfrontend:\n  phases:\n    preBuild:\n      commands:\n        - nvm use 22\n        - node -v\n        - npm -v\n        - npm ci --cache .npm --prefer-offline\n    build:\n      commands:\n        - npm run build\n  artifacts:\n    baseDirectory: build\n    files:\n      - '**/*'\n  cache:\n    paths:\n      - .npm/**/*\nEOF)",
-      "Bash(cat > amplify.yml << 'EOF'\nversion: 1\nfrontend:\n  phases:\n    preBuild:\n      commands:\n        - nvm use 22\n        - npm install\n    build:\n      commands:\n        - npm run build\n  artifacts:\n    baseDirectory: build\n    files:\n      - '**/*'\n  cache:\n    paths:\n      - .npm/**/*\n      - node_modules/**/*\nEOF)"
+      "Bash(cat > amplify.yml << 'EOF'\nversion: 1\nfrontend:\n  phases:\n    preBuild:\n      commands:\n        - nvm use 22\n        - npm install\n    build:\n      commands:\n        - npm run build\n  artifacts:\n    baseDirectory: build\n    files:\n      - '**/*'\n  cache:\n    paths:\n      - .npm/**/*\n      - node_modules/**/*\nEOF)",
+      "WebFetch(domain:kensleyaesthetics.com)"
     ]
   }
 }
