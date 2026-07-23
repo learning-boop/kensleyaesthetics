@@ -32,9 +32,6 @@ function BookAppointment() {
         <span className="ba-header__eyebrow">Get Started</span>
         <h1 className="ba-header__title">Book an Appointment</h1>
         <p className="ba-header__sub">Beauty Refined · Confidence Restored</p>
-        <div className="ba-header__logo-wrap">
-          <img src="/assets/bookinglogo.png" alt="Kensley Aesthetics" className="ba-header__logo" />
-        </div>
       </div>
 
       {/* ── Booking iframe ── */}
