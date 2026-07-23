@@ -134,3 +134,20 @@
     letter-spacing: 0.15em;
   }
 }
+
+
+.qc-success {
+  color: #4a7c59;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.qc-error {
+  color: #9b3535;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+  padding: 0.5rem 0;
+}

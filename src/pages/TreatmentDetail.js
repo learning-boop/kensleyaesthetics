@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { useTreatments } from '../context/TreatmentsContext';
 import { useAppointment } from '../context/AppointmentContext';
-// import QuickContact from '../components/QuickContact';
+import QuickContact from '../components/QuickContact';
 import SeoHead from '../components/SeoHead';
 import './pages.css';
 import './TreatmentDetail.css';
@@ -201,7 +201,7 @@ function TreatmentDetail() {
         </section>
       )}
 
-      {/* <QuickContact /> */}
+      <QuickContact />
     </>
   );
 }

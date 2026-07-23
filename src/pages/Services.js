@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
-// import QuickContact from '../components/QuickContact';
+import QuickContact from '../components/QuickContact';
 import SeoHead from '../components/SeoHead';
 import './pages.css';
 import './Training.css';
@@ -240,7 +240,7 @@ export default function Services() {
       </section>
 
       {/* ── DOCTOR / QUICK CONTACT ───────────────────────────── */}
-      {/* <QuickContact /> */}
+      <QuickContact />
     </>
   );
 }
