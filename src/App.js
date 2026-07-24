@@ -23,6 +23,7 @@ import BlogPost         from './pages/BlogPost';
 import Treatments       from './pages/Treatments';
 import TreatmentPlan    from './pages/TreatmentPlan';
 import BookAppointment  from './pages/BookAppointment';
+import Prices           from './pages/Prices';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
         <Route path="/treatment-plan"        element={<TreatmentPlan />} />
         <Route path="/blog"                 element={<Blog />} />
         <Route path="/blog/:slug"           element={<BlogPost />} />
+        <Route path="/prices"               element={<Prices />} />
         <Route path="/privacy-policy"       element={<PrivacyPolicy />} />
         <Route path="/terms"                element={<TermsConditions />} />
         <Route path="*"                     element={<Home />} />

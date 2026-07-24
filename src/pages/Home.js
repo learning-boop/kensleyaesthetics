@@ -48,7 +48,7 @@ function Home() {
       />
       <Hero />
       {/* <BookingPopup /> */}
-      {/* <ScrollText /> */}
+      <ScrollText />
       <TreatmentShowcase />
       <Stats />
       <BeforeAfter />

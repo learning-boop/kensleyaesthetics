@@ -1,125 +1,288 @@
-/* ─── SCROLL TEXT ────────────────────────────────────────── */
-.scroll-text {
-  height: 100vh;
+/* ─── BRAND STORY SECTION ────────────────────────────────── */
+.brand-story {
   background-color: var(--color-cream);
-  position: relative;
-}
-
-/* ── Container ── */
-.scroll-text__sticky {
-  height: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: stretch;
-  overflow: hidden;
-}
-
-/* ── Content column ── */
-.scroll-text__content {
-  width: 100%;
-  max-width: 900px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 52px 72px;
+  min-height: 80vh;
   position: relative;
-  overflow: visible;
 }
 
-/* ── Words ── */
-.scroll-text__bg {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1;
-  line-height: 0.88;
-  gap: 0;
+.brand-story::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
 }
 
-.scroll-text__word {
-  display: block;
-  font-family: 'Cormorant', Georgia, serif;
-  font-size: clamp(64px, 8.5vw, 148px);
-  font-weight: 700;
-  font-style: italic;
-  color: #0c0f0d;
-  line-height: 0.92;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  white-space: normal;
-  word-break: break-word;
-}
-
-/* ── Small description — bottom of left column ── */
-.scroll-text__para {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.9;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #0c0f0d;
-  opacity: 1;
-  max-width: 260px;
-}
-
-/* ── Label — top of left column ── */
-.scroll-text__label {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #0c0f0d;
-  opacity: 1;
-  line-height: 1.8;
-  text-align: left;
-}
-
-/* ── Right: image column ── */
-.scroll-text__img-wrap {
-  width: 46%;
+/* ── Left: image column ── */
+.brand-story__image-col {
+  width: 44%;
   flex-shrink: 0;
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  background: var(--color-cream);
+  position: relative;
+  background: #e8e0d6;
 }
 
-.scroll-text__doctor-img {
-  height: 100%;
+.brand-story__image {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
   display: block;
-  object-fit: contain;
-  object-position: center bottom;
+}
+
+/* ── Right: content column ── */
+.brand-story__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 72px 80px 64px;
+}
+
+/* ── Label ── */
+.brand-story__label {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 24px;
+}
+
+/* ── Heading ── */
+.brand-story__heading {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: clamp(36px, 4vw, 60px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: var(--color-dark);
+  margin: 0 0 28px 0;
+}
+
+.brand-story__heading em {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+/* ── Body text ── */
+.brand-story__body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.03em;
+  color: rgba(12, 15, 13, 0.65);
+  max-width: 500px;
+  margin: 0 0 16px 0;
+}
+
+.brand-story__body:last-of-type {
+  margin-bottom: 40px;
+}
+
+/* ── Trust cards ── */
+.brand-story__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 40px;
+}
+
+.brand-story__card {
+  padding: 20px 0;
+  border-top: 1px solid rgba(12, 15, 13, 0.1);
+}
+
+.brand-story__card:last-child {
+  border-bottom: 1px solid rgba(12, 15, 13, 0.1);
+}
+
+.brand-story__card-title {
+  display: block;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+}
+
+.brand-story__card-body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+  color: rgba(12, 15, 13, 0.6);
+  margin: 0;
+}
+
+/* ── Buttons ── */
+.brand-story__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand-story__btn {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  padding: 14px 28px;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  white-space: nowrap;
+}
+
+.brand-story__btn--primary {
+  background: var(--color-dark);
+  color: var(--color-cream);
+}
+
+.brand-story__btn--primary:hover {
+  background: var(--color-gold);
+}
+
+.brand-story__btn--ghost {
+  background: transparent;
+  color: var(--color-dark);
+  border: 1px solid rgba(12, 15, 13, 0.3);
+}
+
+.brand-story__btn--ghost:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
 }
 
 /* ── Mobile ── */
-@media (max-width: 768px) {
-  .scroll-text { height: 85svh; }
+@media (max-width: 860px) {
+  .brand-story {
+    flex-direction: column;
+    min-height: auto;
+    background-color: var(--color-cream);
+  }
 
-  .scroll-text__content {
-    padding: 28px 24px;
+  /* Tall cinematic image */
+  .brand-story__image-col {
+    width: 100%;
+    height: 72vw;
+    min-height: 320px;
+    max-height: none;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  /* Gradient fade at the bottom of the image into the content card */
+  .brand-story__image-col::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, transparent, var(--color-cream));
+    pointer-events: none;
+  }
+
+  /* Content card overlaps the image */
+  .brand-story__content {
+    padding: 0 20px 48px;
+    margin-top: -48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Gold accent bar above label */
+  .brand-story__label {
+    padding-top: 0;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .brand-story__label::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background-color: var(--color-gold);
+    flex-shrink: 0;
+  }
+
+  .brand-story__heading {
+    font-size: clamp(34px, 10vw, 56px);
+    margin-bottom: 20px;
+    line-height: 1.05;
+  }
+
+  .brand-story__body {
+    font-size: 12.5px;
     max-width: 100%;
+    line-height: 1.7;
   }
 
-  .scroll-text__bg {
-    flex: none;
+  .brand-story__body:last-of-type {
+    margin-bottom: 28px;
   }
 
-  .scroll-text__word {
-    font-size: clamp(52px, 15vw, 110px);
+  /* Trust cards — 2-column grid */
+  .brand-story__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-bottom: 32px;
+    border-top: 1px solid rgba(12, 15, 13, 0.1);
+    border-left: 1px solid rgba(12, 15, 13, 0.1);
   }
 
-  .scroll-text__para {
+  .brand-story__card {
+    padding: 18px 16px;
+    border-top: none;
+    border-right: 1px solid rgba(12, 15, 13, 0.1);
+    border-bottom: 1px solid rgba(12, 15, 13, 0.1);
+    background: rgba(255,255,255,0.45);
+  }
+
+  .brand-story__card:last-child {
+    border-bottom: 1px solid rgba(12, 15, 13, 0.1);
+    grid-column: 1 / -1; /* third card spans full width */
+  }
+
+  .brand-story__card-title {
     font-size: 9px;
-    letter-spacing: 1px;
+    letter-spacing: 0.14em;
+    margin-bottom: 6px;
+    color: var(--color-gold);
   }
 
-  .scroll-text__label {
-    font-size: 16px;
-    letter-spacing: 2px;
+  .brand-story__card-body {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  /* Buttons — stacked full width */
+  .brand-story__actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .brand-story__btn {
+    width: 100%;
+    text-align: center;
+    padding: 16px 20px;
+    font-size: 9px;
   }
 }

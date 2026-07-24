@@ -1,3 +1,37 @@
+/* ─── FOUNDER ENDORSEMENT BAR ───────────────────────────── */
+.header__endorsement {
+  background-color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 36px;
+  gap: 16px;
+}
+
+.header__endorsement-left,
+.header__endorsement-right {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: rgba(248, 244, 239, 0.75);
+  white-space: nowrap;
+}
+
+.header__endorsement-left {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header__endorsement-right {
+  flex-shrink: 0;
+  color: var(--color-gold);
+  opacity: 0.9;
+}
+
 /* ─── HEADER BAR ───────────────────────────────────────── */
 .header {
   position: fixed;
@@ -25,13 +59,26 @@
   flex-shrink: 0;
   text-decoration: none;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
 }
 
 .header__logo-img {
-  height: 50px;
+  height: 44px;
   width: auto;
   display: block;
+}
+
+.header__logo-sub {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  opacity: 0.85;
+  white-space: nowrap;
 }
 
 /* ─── Desktop nav ──────────────────────────────────────── */
@@ -203,6 +250,7 @@
 
 /* ─── Mobile breakpoint ────────────────────────────────── */
 @media (max-width: 900px) {
+  .header__endorsement { display: none; }
   .header__nav { display: none; }
   .header__mobile-toggle { display: flex; }
   .header__bar {
@@ -211,7 +259,11 @@
   }
 
   .header__logo-img {
-    height: 44px;
+    height: 40px;
+  }
+
+  .header__logo-sub {
+    display: none;
   }
 
   /* Compact Book button on mobile */

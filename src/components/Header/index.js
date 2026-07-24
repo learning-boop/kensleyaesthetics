@@ -4,12 +4,11 @@ import { useAppointment } from '../../context/AppointmentContext';
 import './Header.css';
 
 const NAV_LINKS = [
-  { label: 'Home',           href: '/' },
   { label: 'Treatments',     href: '/treatments' },
-  { label: 'Before & After', href: '/gallery' },
-  { label: 'About',          href: '/about' },
-  { label: 'Blog',           href: '/blog' },
-  { label: 'FAQs',           href: '/faq' },
+  { label: 'About Kensley',  href: '/about' },
+  { label: 'Meet the Team',  href: '/about' },
+  { label: 'Prices',         href: '/prices' },
+  { label: 'Results',        href: '/gallery' },
 ];
 
 function Header() {
@@ -22,19 +21,31 @@ function Header() {
   return (
     <>
       <header className="header">
+        {/* Founder endorsement bar */}
+        <div className="header__endorsement">
+          <span className="header__endorsement-left">
+            A new face-focused aesthetics clinic, founded and clinically led by Dr. Tiru Matla
+          </span>
+          <span className="header__endorsement-right">
+            20+ Years Medical Experience&nbsp;&nbsp;·&nbsp;&nbsp;Doctor-Led Care&nbsp;&nbsp;·&nbsp;&nbsp;Newcastle
+          </span>
+        </div>
+
         <div className="header__accent-line" />
+
         <div className="header__bar">
 
           {/* Logo — left corner */}
           <Link to="/" className="header__logo" onClick={() => setMobileOpen(false)}>
             <img src="/assets/renova_logo_withoutbg.png" alt="Kensley Aesthetics" className="header__logo-img" />
+            <span className="header__logo-sub">Founded by Dr. Tiru Matla</span>
           </Link>
 
           {/* Desktop nav links */}
           <nav className="header__nav">
             {NAV_LINKS.map((link) => (
               <button
-                key={link.href}
+                key={link.label}
                 className="header__nav-link"
                 onClick={() => navigate(link.href)}
               >
@@ -65,7 +76,7 @@ function Header() {
       <div className={`header__mobile-menu ${mobileOpen ? 'header__mobile-menu--open' : ''}`}>
         <nav className="header__mobile-nav">
           {NAV_LINKS.map((link) => (
-            <button key={link.href} className="header__mobile-link" onClick={() => go(link.href)}>
+            <button key={link.label} className="header__mobile-link" onClick={() => go(link.href)}>
               {link.label}
             </button>
           ))}
