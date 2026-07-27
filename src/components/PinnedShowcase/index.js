@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
-import { useAppointment } from '../../context/AppointmentContext';
 import './PinnedShowcase.css';
 
 const easeOut = [0.22, 1, 0.36, 1];
@@ -9,7 +9,19 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
   const wrapperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const n = items.length;
-  const { openDrawer } = useAppointment();
+  const navigate = useNavigate();
+
+  const scrollToItem = (i) => {
+    const el = wrapperRef.current;
+    if (!el) return;
+    window.scrollTo({ top: el.offsetTop + (i / n) * el.offsetHeight, behavior: 'smooth' });
+  };
+
+  const exitSection = () => {
+    const el = wrapperRef.current;
+    if (!el) return;
+    window.scrollTo({ top: el.offsetTop + el.offsetHeight, behavior: 'smooth' });
+  };
 
   const { scrollYProgress } = useScroll({ target: wrapperRef });
   const stepProgress = useTransform(scrollYProgress, (v) => (v * n) % 1);
@@ -81,20 +93,31 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
           </AnimatePresence>
 
           {/* CTA */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`cta-${activeIndex}`}
-              initial={{ opacity: 0, x: -12 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 8 }}
-              transition={{ duration: 0.35, ease: easeOut, delay: 0.14 }}
-            >
-              <button className="ps-cta" onClick={openDrawer}>
-                Book Consultation
-                <span className="ps-cta__arrow">→</span>
-              </button>
-            </motion.div>
-          </AnimatePresence>
+          {t.slug && treatmentSlug && (
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`cta-${activeIndex}`}
+                initial={{ opacity: 0, x: -12 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 8 }}
+                transition={{ duration: 0.35, ease: easeOut, delay: 0.14 }}
+              >
+                <button
+                  className="ps-cta"
+                  onClick={() => navigate(`/main-treatments/${treatmentSlug}/${t.slug}`)}
+                >
+                  Learn More
+                  <span className="ps-cta__arrow">→</span>
+                </button>
+              </motion.div>
+            </AnimatePresence>
+          )}
+
+          {/* Exit section button */}
+          <button className="ps-exit" onClick={exitSection}>
+            <span className="ps-exit__icon">↓</span>
+            Continue
+          </button>
         </div>
 
         {/* ── RIGHT: treatment index panel (no image) ── */}
@@ -120,6 +143,7 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
               <li
                 key={i}
                 className={`ps-index__item ${i === activeIndex ? 'ps-index__item--active' : ''}`}
+                onClick={() => scrollToItem(i)}
               >
                 <span className="ps-index__num">{String(i + 1).padStart(2, '0')}</span>
                 <span className="ps-index__name">{item.name}</span>

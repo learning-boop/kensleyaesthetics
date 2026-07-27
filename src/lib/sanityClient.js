@@ -75,6 +75,69 @@ export const RECENT_POSTS_QUERY = `*[_type == "blogPost"] | order(publishedAt de
   "coverImageAlt": coverImage.alt,
 }`
 
+// ── Sub-Treatment ─────────────────────────────────────────
+// Single sub-treatment detail page — matched by its own slug + parent slug
+export const SUB_TREATMENT_QUERY = `*[_type == "subTreatment" && slug.current == $subSlug && parentTreatment->slug.current == $slug][0] {
+  label,
+  "slug": slug.current,
+  group,
+  num,
+  tagline,
+  description,
+  whatItTreats,
+  howItWorks,
+  whatToExpect,
+  ideal,
+  benefits,
+  duration,
+  downtime,
+  resultsTimeline,
+  numSessions,
+  priceStandard,
+  priceIntro,
+  "image": image.asset->url,
+  "image_second": image_second.asset->url,
+  "reviews": reviews[].asset->url,
+  introduction,
+  anaesthetic,
+  longevity,
+  whatItHelps,
+  preparation,
+  durationAndSessions,
+  resultsAndTimeline,
+  recoveryAndDowntime,
+  aftercare,
+  suitability,
+  sideEffectsAndRisks,
+  whyKensley,
+  "relatedTreatments": relatedTreatments[]-> {
+    "slug": slug.current,
+    "name": label,
+    "title": group,
+    "parentSlug": parentTreatment->slug.current,
+  },
+  faqs[] { q, a },
+  seoTitle,
+  seoDescription,
+  "parentLabel": parentTreatment->label,
+  "parentSlug": parentTreatment->slug.current,
+  "parentNum": parentTreatment->num,
+}`
+
+// All sub-treatments for a given parent — used to build navigation/listing
+export const SUB_TREATMENTS_BY_PARENT_QUERY = `*[_type == "subTreatment" && parentTreatment->slug.current == $slug] | order(num asc) {
+  label,
+  "slug": slug.current,
+  group,
+  num,
+  tagline,
+  "image": image.asset->url,
+  priceStandard,
+  priceIntro,
+  duration,
+  downtime,
+}`
+
 export const TREATMENTS_QUERY = `*[_type == "treatment"] | order(num asc) {
   num,
   "slug": slug.current,

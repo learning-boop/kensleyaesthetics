@@ -24,6 +24,7 @@ import Treatments       from './pages/Treatments';
 import TreatmentPlan    from './pages/TreatmentPlan';
 import BookAppointment  from './pages/BookAppointment';
 import Prices           from './pages/Prices';
+import SubTreatmentDetail from './pages/SubTreatmentDetail';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/about"                element={<About />} />
         <Route path="/training"             element={<Services />} />
         <Route path="/treatments/:slug"      element={<TreatmentDetail />} />
+        <Route path="/main-treatments/:slug/:subSlug" element={<SubTreatmentDetail />} />
         <Route path="/main-treatments/:slug" element={<MainTreatmentDetail />} />
         <Route path="/gallery"              element={<Gallery />} />
         <Route path="/skin-concerns"        element={<SkinConcerns />} />

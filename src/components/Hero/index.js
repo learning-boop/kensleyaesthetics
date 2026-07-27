@@ -34,7 +34,7 @@ function Hero() {
             Book a Consultation
           </button>
           <button className="hero__btn hero__btn--ghost" onClick={() => navigate('/about')}>
-            Meet Dr. Matla &amp; the Kensley Team
+            About Kensley Aesthetics
           </button>
         </div>
 

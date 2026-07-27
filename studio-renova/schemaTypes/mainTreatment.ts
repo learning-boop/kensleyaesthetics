@@ -104,17 +104,11 @@ export const mainTreatment = defineType({
       name: 'subTreatments',
       title: 'Sub-Treatments',
       type: 'array',
+      description: 'Reference individual sub-treatment documents. Create them in the Sub-Treatments section first.',
       of: [
         defineArrayMember({
-          type: 'object',
-          name: 'subTreatment',
-          fields: [
-            defineField({ name: 'title', title: 'Title', type: 'string', validation: Rule => Rule.required() }),
-            defineField({ name: 'name', title: 'Sub-name', type: 'string' }),
-            defineField({ name: 'description', title: 'Description', type: 'text', rows: 3 }),
-            defineField({ name: 'image', title: 'Image', type: 'image', options: { hotspot: true } }),
-          ],
-          preview: { select: { title: 'title', subtitle: 'name', media: 'image' } },
+          type: 'reference',
+          to: [{ type: 'subTreatment' }],
         }),
       ],
     }),

@@ -7,6 +7,8 @@ import PinnedShowcase from '../components/PinnedShowcase';
 import QuickContact from '../components/QuickContact';
 import SeoHead from '../components/SeoHead';
 import { TREATMENT_KEYWORDS } from '../data/keywords';
+import { STATIC_SUB_TREATMENTS } from '../data/subTreatments';
+import { STATIC_MAIN_TREATMENTS } from '../data/mainTreatments';
 import './pages.css';
 import './TreatmentDetail.css';
 import './MainTreatmentDetail.css';
@@ -23,11 +25,17 @@ const QUERY = `*[_type == "mainTreatment" && slug.current == $slug][0] {
   benefits,
   ideal,
   faqs[] { q, a },
-  subTreatments[] {
-    title,
-    name,
+  subTreatments[]-> {
+    "slug": slug.current,
+    "title": group,
+    "name": label,
     description,
-    "image": image.asset->url
+    tagline,
+    "image": image.asset->url,
+    duration,
+    downtime,
+    priceStandard,
+    priceIntro,
   }
 }`;
 
@@ -57,7 +65,30 @@ function MainTreatmentDetail() {
 
   useEffect(() => {
     client.fetch(QUERY, { slug })
-      .then(data => { setTreatment(data); setLoading(false); })
+      .then(data => {
+        if (data) {
+          // Sanity document exists — fill in sub-treatments from static if empty
+          if (!data.subTreatments || data.subTreatments.length === 0) {
+            data.subTreatments = STATIC_SUB_TREATMENTS[slug] || [];
+          }
+        } else {
+          // No Sanity document yet — use fully static fallback
+          const staticMain = STATIC_MAIN_TREATMENTS[slug];
+          if (staticMain) {
+            data = {
+              ...staticMain,
+              image: null,
+              image_second: null,
+              reviews: [],
+              faqs: [],
+              ideal: null,
+              subTreatments: STATIC_SUB_TREATMENTS[slug] || [],
+            };
+          }
+        }
+        setTreatment(data);
+        setLoading(false);
+      })
       .catch(() => setLoading(false));
   }, [slug]);
 

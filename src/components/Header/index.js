@@ -6,7 +6,6 @@ import './Header.css';
 const NAV_LINKS = [
   { label: 'Treatments',     href: '/treatments' },
   { label: 'About Kensley',  href: '/about' },
-  { label: 'Meet the Team',  href: '/about' },
   { label: 'Prices',         href: '/prices' },
   { label: 'Results',        href: '/gallery' },
 ];

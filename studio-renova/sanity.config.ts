@@ -26,6 +26,18 @@ export default defineConfig({
               ),
             S.divider(),
             S.listItem()
+              .title('Sub-Treatments')
+              .icon(() => '🔬')
+              .child(
+                S.documentTypeList('subTreatment')
+                  .title('Sub-Treatments')
+                  .defaultOrdering([
+                    { field: 'parentTreatment.num', direction: 'asc' },
+                    { field: 'num', direction: 'asc' },
+                  ])
+              ),
+            S.divider(),
+            S.listItem()
               .title('Signature Packages')
               .icon(() => '✦')
               .child(

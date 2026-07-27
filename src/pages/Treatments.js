@@ -20,7 +20,7 @@ const MAIN_TREATMENTS = [
 /* Additional individual treatments — now have Sanity pages */
 const EXTRA_TREATMENTS = [
   { num: '09', label: 'Chemical Peel',              slug: 'chemical-peel',            sub: 'Resurface and refresh the skin surface, targeting texture and tone.' },
-  { num: '10', label: '3D HydrO2 Facial',           slug: 'hydro2-facial',            sub: 'Advanced facial combining oxygen, hydration and ultrasound technology.' },
+  { num: '10', label: '3D HydrO2 Facial',           slug: '3d-hydro2-facial',         sub: 'Advanced facial combining oxygen, hydration and ultrasound technology.' },
   { num: '11', label: 'Mesotherapy',                slug: 'mesotherapy',              sub: 'Microinjections delivering vitamins and actives directly into the skin.' },
   { num: '12', label: 'LED Light Therapy',          slug: 'led-light-therapy',        sub: 'Clinically proven light wavelengths to calm, heal and rejuvenate.' },
   { num: '13', label: 'Profhilo',                   slug: 'profhilo',                 sub: 'High-concentration hyaluronic acid that bio-remodels skin from within.' },

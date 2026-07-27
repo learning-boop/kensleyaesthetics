@@ -79,9 +79,6 @@ function ScrollText() {
           <button className="brand-story__btn brand-story__btn--primary" onClick={() => navigate('/about')}>
             Meet Our Founder
           </button>
-          <button className="brand-story__btn brand-story__btn--ghost" onClick={() => navigate('/about')}>
-            Meet the Kensley Team
-          </button>
         </div>
       </div>
     </section>

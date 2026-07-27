@@ -121,6 +121,14 @@
 
 .ps-cta:hover { color: var(--color-gold); gap: 16px; }
 
+.ps-cta--ghost {
+  margin-top: 10px;
+  color: var(--color-primary);
+  border-bottom-color: rgba(200, 169, 106, 0.35);
+  opacity: 0.7;
+}
+.ps-cta--ghost:hover { opacity: 1; }
+
 .ps-cta__arrow {
   font-size: 13px;
   transition: transform 0.25s;
@@ -173,6 +181,15 @@
   padding: 13px 0 13px 16px;
   border-bottom: 1px solid rgba(200, 169, 106, 0.12);
   transition: padding-left 0.35s ease;
+  cursor: pointer;
+}
+
+.ps-index__item:not(.ps-index__item--active):hover .ps-index__name {
+  color: var(--color-dark);
+}
+
+.ps-index__item:not(.ps-index__item--active):hover .ps-index__num {
+  color: rgba(18, 60, 63, 0.5);
 }
 
 .ps-index__item:first-child {
@@ -241,37 +258,166 @@
   will-change: transform;
 }
 
-/* ─── RESPONSIVE ─────────────────────────────────────────── */
+/* ─── EXIT BUTTON ────────────────────────────────────────── */
+.ps-exit {
+  position: absolute;
+  bottom: 36px;
+  left: 64px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(18, 60, 63, 0.35);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+  transition: color 0.25s;
+}
+.ps-exit:hover { color: var(--color-gold); }
+
+.ps-exit__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 11px;
+  transition: transform 0.25s;
+}
+.ps-exit:hover .ps-exit__icon { transform: translateY(2px); }
+
+/* ─── RESPONSIVE — tablet ────────────────────────────────── */
 @media (max-width: 1024px) {
-  .ps-left { padding: 60px 40px 60px 40px; }
+  .ps-left { padding: 60px 40px; }
   .ps-right { padding: 60px 36px; }
+  .ps-exit { left: 40px; }
 }
 
+/* ─── RESPONSIVE — mobile ────────────────────────────────── */
 @media (max-width: 768px) {
+
+  /* Lock sticky to exactly 100vh so pinning actually works */
   .ps-sticky {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
-    height: auto;
-    min-height: 100vh;
+    grid-template-rows: 58vh 42vh;
+    height: 100vh;
   }
 
+  /* ── Left panel — top 58% ── */
   .ps-left {
-    padding: 56px 28px 36px;
+    padding: 28px 24px 16px;
     border-right: none;
     border-bottom: 1px solid rgba(200, 169, 106, 0.15);
     order: 1;
+    justify-content: flex-start;   /* stack from top */
+    overflow: hidden;
   }
 
-  .ps-title { font-size: clamp(36px, 10vw, 60px); }
+  .ps-counter {
+    margin-bottom: 14px;
+  }
 
+  .ps-tagline {
+    font-size: 8px;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+  }
+
+  .ps-title {
+    font-size: clamp(26px, 7.5vw, 42px);
+    margin-bottom: 10px;
+    line-height: 1.0;
+  }
+
+  .ps-divider {
+    margin-bottom: 12px;
+  }
+
+  .ps-desc {
+    font-size: 12px;
+    line-height: 1.65;
+    margin-bottom: 16px;
+    max-width: 100%;
+    /* clamp to 3 lines so it doesn't overflow small screens */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* CTA wrapper — tight on mobile */
+  .ps-cta {
+    font-size: 8px;
+    letter-spacing: 2px;
+    padding-bottom: 4px;
+  }
+
+  /* Exit button: pulled out of absolute, pushed to bottom via margin-top auto */
+  .ps-exit {
+    position: static;
+    left: unset;
+    bottom: unset;
+    margin-top: auto;
+    padding-top: 12px;
+    color: rgba(18, 60, 63, 0.4);
+  }
+
+  .ps-exit__icon {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  /* ── Right panel — bottom 42% ── */
   .ps-right {
     order: 2;
-    padding: 36px 28px 48px;
+    padding: 14px 24px 0;
     justify-content: flex-start;
-    background: #faf8f4;
+    align-items: flex-start;
+    background: #f0ece4;
+    overflow: hidden;
   }
 
-  .ps-index { max-width: 100%; }
+  /* Index list scrolls internally within the right panel */
+  .ps-index {
+    max-width: 100%;
+    overflow-y: auto;
+    max-height: calc(42vh - 44px); /* leave room for progress bar */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+  }
+  .ps-index::-webkit-scrollbar { display: none; }
+
+  .ps-index__item {
+    padding: 10px 0 10px 14px;
+  }
+
+  .ps-index__item--active {
+    padding-left: 20px;
+  }
+
+  .ps-index__num {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .ps-index__name {
+    font-size: 10px;
+    letter-spacing: 1.4px;
+  }
 
   .ps-watermark { display: none; }
+
+  /* Progress bar stays at very bottom of ps-sticky */
+  .ps-progress-track {
+    bottom: 0;
+  }
 }

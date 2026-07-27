@@ -9,21 +9,26 @@ const EMAILJS_PUBLIC_KEY  = '9BJmaeXydGuyEUSff';
 export default function QuickContact() {
   const [name, setName]       = useState('');
   const [email, setEmail]     = useState('');
+  const [phone, setPhone]     = useState('');
   const [status, setStatus]   = useState('idle'); // idle | sending | success | error
+
+  const isDisabled = !name.trim() || !email.trim() || !phone.trim() || status === 'sending';
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (isDisabled) return;
     setStatus('sending');
     try {
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        { from_name: name, from_email: email },
+        { from_name: name, from_email: email, phone_number: phone },
         EMAILJS_PUBLIC_KEY
       );
       setStatus('success');
       setName('');
       setEmail('');
+      setPhone('');
     } catch {
       setStatus('error');
     }
@@ -39,7 +44,6 @@ export default function QuickContact() {
             placeholder="Your Name"
             value={name}
             onChange={e => setName(e.target.value)}
-            required
           />
         </div>
 
@@ -50,7 +54,16 @@ export default function QuickContact() {
             placeholder="Email Address"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            required
+          />
+        </div>
+
+        <div className="qc-field">
+          <input
+            className="qc-input"
+            type="tel"
+            placeholder="Phone Number"
+            value={phone}
+            onChange={e => setPhone(e.target.value)}
           />
         </div>
 
@@ -67,7 +80,7 @@ export default function QuickContact() {
         )}
 
         <div className="qc-send-wrap">
-          <button className="qc-send-btn" type="submit" disabled={status === 'sending'}>
+          <button className="qc-send-btn" type="submit" disabled={isDisabled}>
             {status === 'sending' ? 'Sending…' : 'Send'}
           </button>
         </div>

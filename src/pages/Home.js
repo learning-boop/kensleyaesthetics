@@ -1,6 +1,6 @@
 import Hero                from '../components/Hero';
 import ScrollText          from '../components/ScrollText';
-import BookingPopup        from '../components/BookingPopup';
+// import BookingPopup        from '../components/BookingPopup';
 import TreatmentShowcase   from '../components/TreatmentShowcase';
 import Stats               from '../components/Stats';
 import BeforeAfter         from '../components/BeforeAfter';
@@ -21,7 +21,6 @@ const LOCAL_BUSINESS_LD = {
   '@type': 'MedicalBusiness',
   name: 'Kensley Aesthetics',
   url: 'https://kensleyaesthetics.com',
-  email: 'hello@kensleyaesthetics.com',
   description: 'Premium aesthetic clinic offering expert non-surgical treatments including dermal fillers, anti-wrinkle injections, Profhilo, skin boosters, RF microneedling and HIFU in Newcastle.',
   address: {
     '@type': 'PostalAddress',
