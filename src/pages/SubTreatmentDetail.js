@@ -357,27 +357,6 @@ function SubTreatmentDetail() {
         </section>
       )}
 
-      {/* ── PRICING ──────────────────────────────────────── */}
-      {(treatment.priceStandard || treatment.priceIntro) && (
-        <section className="std-pricing">
-          <div className="std-pricing__inner">
-            <span className="std-pricing__eyebrow">Transparent Pricing</span>
-            <h2 className="std-pricing__title">Treatment Prices</h2>
-            <div className="std-pricing__table">
-              <div className="std-pricing__row std-pricing__row--head">
-                <span>Treatment</span><span>Standard</span><span>Introductory</span>
-              </div>
-              <div className="std-pricing__row">
-                <span>{treatment.label}</span>
-                <span className="std-pricing__price--standard">{treatment.priceStandard || '—'}</span>
-                <span className="std-pricing__price--intro">{treatment.priceIntro || '—'}</span>
-              </div>
-            </div>
-            <p className="std-pricing__note">All prices include a complimentary consultation. A patch test may be required 48 hours prior to treatment.</p>
-            <button className="std-btn std-btn--dark" onClick={openDrawer}>Book a Consultation</button>
-          </div>
-        </section>
-      )}
 
       {/* ── RELATED TREATMENTS ───────────────────────────── */}
       {treatment.relatedTreatments && treatment.relatedTreatments.length > 0 && (

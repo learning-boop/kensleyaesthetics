@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400&family=Cormorant+Garamond:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
 
 * {
   margin: 0;
@@ -8,30 +8,38 @@
 
 :root {
   color-scheme: light only;
-  --color-primary: #123C3F;
-  --color-sage:    #A8BFA3;
-  --color-beige:   #E8D8C8;
-  --color-gold:    #C8A96A;
-  --color-cream:   #F8F4EF;
-  --color-dark:    #1F2424;
-  --color-rose:    #D8A6A0;
 
-  --font-serif: 'Georgia', 'Times New Roman', serif;
-  --font-sans:  'Helvetica Neue', 'Arial', sans-serif;
+  /* ── Colours ──────────────────────────────────── */
+  --color-navy:     #0B2A4A;   /* Deep Navy — dark backgrounds, headings */
+  --color-primary:  #0B2A4A;   /* alias → navy */
+  --color-dark:     #0B2A4A;   /* alias → navy */
+  --color-charcoal: #2C2C2C;   /* body text */
+  --color-gold:     #C8A96A;   /* Soft Gold — accents */
+  --color-cream:    #FAF8F5;   /* Light Beige — page background */
+  --color-beige:    #F0EBE3;   /* slightly deeper beige for cards/panels */
+  --color-sage:     #A8BFA3;
+  --color-rose:     #D8A6A0;
+  --color-white:    #FFFFFF;
+
+  /* ── Typography ───────────────────────────────── */
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Inter', 'Helvetica Neue', Arial, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #F8F4EF !important;
-  color: #1F2424 !important;
+  background-color: var(--color-cream) !important;
+  color: var(--color-charcoal) !important;
 }
 
 body {
   font-family: var(--font-sans);
   background-color: var(--color-cream) !important;
-  color: var(--color-dark) !important;
+  color: var(--color-charcoal) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 /* Prevent browser force-dark from inverting layout containers */
@@ -57,4 +65,11 @@ button {
   border: none;
   background: none;
   font-family: inherit;
+}
+
+/* ── Global mobile padding for sticky bottom CTA ── */
+@media (max-width: 900px) {
+  body > #root {
+    padding-bottom: 72px;
+  }
 }

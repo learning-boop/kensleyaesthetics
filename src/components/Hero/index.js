@@ -18,16 +18,16 @@ function Hero() {
     <section className="hero">
       {/* Left — content */}
       <div className="hero__content">
-        <span className="hero__eyebrow">The New Face of Dr. Matla's Aesthetic Expertise</span>
+        <span className="hero__eyebrow">Founded by Dr. Tiru Matla — Over 20 Years of Medical Experience</span>
         <h1 className="hero__title">
-          Doctor-Led Facial<br />
-          Aesthetics, <em>Refined</em><br />
-          <em>Around You</em>
+          Natural-Looking Results<br />
+          by Experienced <em>Medical</em><br />
+          <em>Professionals</em>
         </h1>
         <p className="hero__sub">
-          Founded by Dr. Tiru Matla, Kensley Aesthetics brings established medical expertise,
-          personalised facial treatment planning and natural-looking results together under a
-          dedicated new brand.
+          At Kensley Aesthetics, every treatment is consultation-led and personalised to your
+          anatomy, goals and suitability — so you leave looking like the best version of yourself,
+          not someone else.
         </p>
         <div className="hero__actions">
           <button className="hero__btn hero__btn--primary" onClick={openDrawer}>

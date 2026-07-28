@@ -1,6 +1,6 @@
 /* ─── FOUNDER ENDORSEMENT BAR ───────────────────────────── */
 .header__endorsement {
-  background-color: var(--color-dark);
+  background-color: var(--color-navy);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,11 +11,11 @@
 
 .header__endorsement-left,
 .header__endorsement-right {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.12em;
-  color: rgba(248, 244, 239, 0.75);
+  color: rgba(250, 248, 245, 0.7);
   white-space: nowrap;
 }
 
@@ -37,13 +37,14 @@
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 200;
-  background-color: var(--color-cream);
+  background-color: var(--color-white);
+  box-shadow: 0 1px 0 rgba(11, 42, 74, 0.08);
 }
 
 .header__accent-line {
   height: 2px;
-  background-color: var(--color-gold);
-  opacity: 0.6;
+  background: linear-gradient(90deg, var(--color-navy) 0%, var(--color-gold) 50%, var(--color-navy) 100%);
+  opacity: 0.7;
 }
 
 .header__bar {
@@ -71,7 +72,7 @@
 }
 
 .header__logo-sub {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 8.5px;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -91,12 +92,12 @@
 }
 
 .header__nav-link {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(12, 15, 13, 0.7);
+  color: rgba(11, 42, 74, 0.6);
   background: none;
   border: none;
   cursor: pointer;
@@ -106,7 +107,7 @@
 }
 
 .header__nav-link:hover {
-  color: var(--color-dark);
+  color: var(--color-navy);
 }
 
 /* ─── Right actions ────────────────────────────────────── */
@@ -118,13 +119,13 @@
 }
 
 .header__book {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.2em;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-cream);
-  background: var(--color-dark);
+  color: var(--color-white);
+  background: var(--color-navy);
   border: none;
   cursor: pointer;
   padding: 11px 26px;
@@ -154,7 +155,7 @@
   position: relative;
   width: 22px;
   height: 2px;
-  background: var(--color-dark);
+  background: var(--color-navy);
   transition: background 0.3s ease;
 }
 
@@ -165,7 +166,7 @@
   left: 0;
   width: 22px;
   height: 2px;
-  background: var(--color-dark);
+  background: var(--color-navy);
   transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
 }
 
@@ -183,12 +184,12 @@
   top: 60px;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: var(--color-dark);
+  bottom: 72px; /* leave room for sticky CTA */
+  background: var(--color-navy);
   z-index: 199;
   display: flex;
   flex-direction: column;
-  padding: 40px 32px 48px;
+  padding: 32px 28px 40px;
   overflow-y: auto;
   transform: translateY(-8px);
   opacity: 0;
@@ -209,17 +210,17 @@
 }
 
 .header__mobile-link {
-  font-family: 'Cormorant', Georgia, serif;
-  font-size: clamp(28px, 8vw, 48px);
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--color-cream);
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 7.5vw, 44px);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: rgba(250, 248, 245, 0.85);
   background: none;
   border: none;
-  border-bottom: 1px solid rgba(200, 169, 106, 0.13);
+  border-bottom: 1px solid rgba(200, 169, 106, 0.15);
   cursor: pointer;
-  padding: 14px 0;
+  padding: 12px 0;
   text-align: left;
   transition: color 0.2s ease;
 }
@@ -229,23 +230,29 @@
 }
 
 .header__mobile-book {
-  margin-top: 32px;
+  margin-top: 28px;
   align-self: flex-start;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-dark);
+  color: var(--color-navy);
   background: var(--color-cream);
   border: none;
   cursor: pointer;
-  padding: 16px 36px;
-  transition: background 0.25s ease;
+  padding: 14px 32px;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 .header__mobile-book:hover {
   background: var(--color-gold);
+  color: var(--color-white);
+}
+
+/* ─── Sticky mobile CTA — hidden on desktop ────────────── */
+.header__sticky-cta {
+  display: none;
 }
 
 /* ─── Mobile breakpoint ────────────────────────────────── */
@@ -258,27 +265,50 @@
     justify-content: space-between;
   }
 
-  .header__logo-img {
-    height: 40px;
+  .header__logo-img { height: 40px; }
+  .header__logo-sub { display: none; }
+
+  /* Hide the header-bar "Book" button on mobile — sticky CTA handles it */
+  .header__book { display: none; }
+
+  /* Sticky bottom CTA */
+  .header__sticky-cta {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 201;
+    padding: 12px 20px;
+    background: var(--color-white);
+    box-shadow: 0 -1px 0 rgba(11, 42, 74, 0.08), 0 -4px 16px rgba(11, 42, 74, 0.06);
   }
 
-  .header__logo-sub {
-    display: none;
+  .header__sticky-cta-btn {
+    display: block;
+    width: 100%;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-white);
+    background: var(--color-navy);
+    border: none;
+    cursor: pointer;
+    padding: 15px 20px;
+    transition: background 0.25s ease;
   }
 
-  /* Compact Book button on mobile */
-  .header__book {
-    font-size: 8.5px;
-    padding: 9px 14px;
-    letter-spacing: 0.14em;
+  .header__sticky-cta-btn:hover,
+  .header__sticky-cta-btn:active {
+    background: var(--color-gold);
   }
 }
 
 @media (max-width: 500px) {
-  .header__book {
-    display: flex;
-    font-size: 8px;
-    padding: 8px 12px;
-    letter-spacing: 0.12em;
+  .header__sticky-cta-btn {
+    font-size: 12px;
+    padding: 14px 20px;
   }
 }

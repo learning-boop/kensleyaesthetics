@@ -1,7 +1,7 @@
 /* ─── HERO ───────────────────────────────────────────────── */
 .hero {
   min-height: 100vh;
-  background-color: #F8F4EF;
+  background-color: var(--color-cream);
   display: flex;
   align-items: stretch;
   padding-top: 96px; /* endorsement bar (36) + accent line (2) + header bar (58) */
@@ -31,10 +31,10 @@
 }
 
 .hero__eyebrow {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-gold);
   display: block;
@@ -43,27 +43,29 @@
 
 /* ── Title ── */
 .hero__title {
-  font-family: 'Cormorant', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: clamp(48px, 6vw, 96px);
-  font-weight: 300;
+  font-weight: 600;
   line-height: 1.0;
-  letter-spacing: -1px;
-  color: var(--color-dark);
+  letter-spacing: -0.5px;
+  color: var(--color-navy);
   margin: 0 0 28px 0;
 }
 
 .hero__title em {
   font-style: italic;
+  font-weight: 300;
   color: var(--color-gold);
 }
 
 .hero__sub {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 13px;
+  font-family: var(--font-sans);
+  font-size: 15px;
   font-weight: 400;
-  line-height: 1.75;
-  letter-spacing: 0.03em;
-  color: rgba(12, 15, 13, 0.65);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  color: var(--color-charcoal);
+  opacity: 0.8;
   max-width: 420px;
   margin: 0 0 40px 0;
 }
@@ -78,10 +80,10 @@
 }
 
 .hero__btn {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.22em;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
@@ -91,8 +93,8 @@
 }
 
 .hero__btn--primary {
-  background: var(--color-dark);
-  color: var(--color-cream);
+  background: var(--color-navy);
+  color: var(--color-white);
 }
 
 .hero__btn--primary:hover {
@@ -101,8 +103,8 @@
 
 .hero__btn--ghost {
   background: transparent;
-  color: var(--color-dark);
-  border: 1px solid rgba(12, 15, 13, 0.3);
+  color: var(--color-navy);
+  border: 1px solid rgba(11, 42, 74, 0.3);
 }
 
 .hero__btn--ghost:hover {
@@ -124,11 +126,11 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 11px;
+  font-family: var(--font-sans);
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.06em;
-  color: rgba(12, 15, 13, 0.7);
+  letter-spacing: 0.04em;
+  color: rgba(11, 42, 74, 0.65);
 }
 
 .hero__trust-dot {
@@ -172,11 +174,11 @@
 }
 
 .hero__scroll-tag-num {
-  font-family: 'Cormorant', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 2px;
-  color: var(--color-dark);
+  color: var(--color-navy);
   text-transform: uppercase;
 }
 
@@ -212,6 +214,7 @@
     flex-direction: column;
     min-height: 100svh;
     padding-top: 60px; /* endorsement bar hidden on mobile */
+    padding-bottom: 72px; /* room for sticky CTA bar */
   }
 
   .hero__image-wrap {

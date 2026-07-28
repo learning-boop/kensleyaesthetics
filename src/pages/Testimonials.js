@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
-import CtaSection from '../components/CtaSection';
 import SeoHead from '../components/SeoHead';
 import './pages.css';
 
@@ -101,8 +100,6 @@ function Testimonials() {
           <Link to="/book" className="btn-primary">Book an Appointment</Link>
         </div>
       </section>
-
-      <CtaSection />
     </>
   );
 }

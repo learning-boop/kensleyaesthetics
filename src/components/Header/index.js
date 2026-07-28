@@ -4,10 +4,13 @@ import { useAppointment } from '../../context/AppointmentContext';
 import './Header.css';
 
 const NAV_LINKS = [
-  { label: 'Treatments',     href: '/treatments' },
-  { label: 'About Kensley',  href: '/about' },
-  { label: 'Prices',         href: '/prices' },
-  { label: 'Results',        href: '/gallery' },
+  { label: 'Home',       href: '/' },
+  { label: 'Treatments', href: '/treatments' },
+  { label: 'Prices',     href: '/prices' },
+  { label: 'Results',    href: '/gallery' },
+  { label: 'Reviews',    href: '/testimonials' },
+  { label: 'About',      href: '/about' },
+  { label: 'Contact',    href: '/contact' },
 ];
 
 function Header() {
@@ -81,7 +84,14 @@ function Header() {
           ))}
         </nav>
         <button className="header__mobile-book" onClick={() => { setMobileOpen(false); openDrawer(); }}>
-          Book an Appointment
+          Book a Consultation
+        </button>
+      </div>
+
+      {/* Sticky mobile bottom CTA — always visible on mobile */}
+      <div className="header__sticky-cta">
+        <button className="header__sticky-cta-btn" onClick={openDrawer}>
+          Book a Consultation
         </button>
       </div>
     </>
