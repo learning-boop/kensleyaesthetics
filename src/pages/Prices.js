@@ -201,8 +201,8 @@ function PriceTreatmentCard({ treatment }) {
       <div className="price-card__table">
         <div className="price-card__row price-card__row--head">
           <span className="price-card__item-name">Treatment</span>
-          <span className="price-card__price-col">Standard</span>
-          <span className="price-card__price-col">Introductory</span>
+          <span className="price-card__price-col">Dr. Matla</span>
+          <span className="price-card__price-col">Medical Aesthetic Expert</span>
         </div>
         {group.items.map((item, i) => (
           <div key={i} className="price-card__row">
@@ -251,8 +251,8 @@ function Prices() {
       {/* Notice */}
       <div className="prices-notice">
         <span className="prices-notice__text">
-          Prices shown as <strong>Standard</strong> and <strong>Introductory</strong>.
-          All treatments are carried out by qualified medical professionals.
+          <strong>Dr. Matla</strong> — treatment performed by Dr. Tiru Matla personally.&nbsp;·&nbsp;
+          <strong>Medical Aesthetic Expert</strong> — treatment by a qualified medical aesthetic clinician.
           &nbsp;·&nbsp; <strong>Free consultations available.</strong>
         </span>
       </div>

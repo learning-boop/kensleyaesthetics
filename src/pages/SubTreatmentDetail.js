@@ -62,6 +62,7 @@ function SubTreatmentDetail() {
               relatedTreatments: staticItem.relatedTreatments || [],
               priceStandard: staticItem.priceStandard || null,
               priceIntro: staticItem.priceIntro || null,
+              heroImage: staticItem.heroImage || null,
               parentLabel: null,
               parentSlug: slug,
             });
@@ -124,7 +125,7 @@ function SubTreatmentDetail() {
       <SeoHead
         title={seoTitle}
         description={seoDesc.slice(0, 160)}
-        image={treatment.image}
+        image={treatment.image || treatment.heroImage}
         path={`/main-treatments/${slug}/${subSlug}`}
         jsonLd={{
           '@context': 'https://schema.org',
@@ -163,9 +164,9 @@ function SubTreatmentDetail() {
             </button>
           </div>
         </div>
-        {treatment.image && (
+        {(treatment.image || treatment.heroImage) && (
           <div className="std-hero__image-wrap">
-            <img src={treatment.image} alt={treatment.label} className="std-hero__image" />
+            <img src={treatment.image || treatment.heroImage} alt={treatment.label} className="std-hero__image" />
           </div>
         )}
       </section>

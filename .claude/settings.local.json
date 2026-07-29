@@ -97,7 +97,10 @@
       "Bash(cd \"D:\\\\creative_touch\\\\renova\" && npx react-scripts build 2>&1 | tail -20)",
       "Bash(python -c \"\nimport zipfile, re\npath = r'c:\\\\Users\\\\Admin\\\\Downloads\\\\Kensley Sub-Treatment Page Blueprint.docx'\nwith zipfile.ZipFile\\(path, 'r'\\) as z:\n    with z.open\\('word/document.xml'\\) as f:\n        content = f.read\\(\\).decode\\('utf-8'\\)\n        text = re.sub\\(r'<[^>]+>', ' ', content\\)\n        text = re.sub\\(r'\\\\s+', ' ', text\\).strip\\(\\)\n        print\\(text[:60000]\\)\n\" 2>nul)",
       "Bash(dir \"c:\\\\Users\\\\Admin\\\\Downloads\\\\Kensley*\")",
-      "Bash(cd \"D:\\\\creative_touch\\\\renova\" && npx react-scripts build 2>&1 | tail -15)"
+      "Bash(cd \"D:\\\\creative_touch\\\\renova\" && npx react-scripts build 2>&1 | tail -15)",
+      "Bash(ls /d/creative_touch/renova/.env* 2>/dev/null; ls /d/creative_touch/renova/studio-renova/.env* 2>/dev/null)",
+      "Bash(node -e \"const {createClient} = require\\('@sanity/client'\\); const c = createClient\\({projectId:'puzajrus',dataset:'production',apiVersion:'2024-01-01',useCdn:false}\\); c.fetch\\('*[_type==\\\\\"mainTreatment\\\\\"] | order\\(num asc\\) { _id, num, label, \\\\\"slug\\\\\": slug.current }'\\).then\\(r=>console.log\\(JSON.stringify\\(r,null,2\\)\\)\\).catch\\(e=>console.error\\(e.message\\)\\)\" 2>&1)",
+      "Bash(cd /d/creative_touch/renova/studio-renova && npx sanity deploy 2>&1)"
     ]
   }
 }

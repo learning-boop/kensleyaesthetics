@@ -129,6 +129,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Women', name: 'One Area', slug: 'women-one-area',
       priceStandard: '£150', priceIntro: '£130',
+      heroImage: '/assets/kensley-treatment-images/01-anti-wrinkle-treatments/women-one-area/kensley-anti-wrinkle-treatments-women-one-area-01.webp',
       seoTitle: 'One Area Anti-Wrinkle Consultation Newcastle | Kensley Aesthetics',
       tagline: 'Targeted smoothing for a single concern.',
       description: 'A doctor-led consultation and anti-wrinkle treatment targeting one area of concern, delivering natural-looking results with no downtime.',
@@ -153,6 +154,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Women', name: 'Two Areas', slug: 'women-two-areas',
       priceStandard: '£250', priceIntro: '£220',
+      heroImage: '/assets/kensley-treatment-images/01-anti-wrinkle-treatments/women-two-areas/kensley-anti-wrinkle-treatments-women-two-areas-01.webp',
       seoTitle: 'Two Areas Anti-Wrinkle Consultation Newcastle | Kensley Aesthetics',
       tagline: 'Double the results, one appointment.',
       description: 'A combined anti-wrinkle consultation and treatment targeting two facial areas for a refreshed, well-rested appearance.',
@@ -177,6 +179,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Women', name: 'Three Areas', slug: 'women-three-areas',
       priceStandard: '£300', priceIntro: '£270',
+      heroImage: '/assets/kensley-treatment-images/01-anti-wrinkle-treatments/women-three-areas/kensley-anti-wrinkle-treatments-women-three-areas-01.webp',
       seoTitle: 'Three Areas Anti-Wrinkle Consultation Newcastle | Kensley Aesthetics',
       tagline: 'Our most popular full-face refresh.',
       description: 'A comprehensive anti-wrinkle consultation covering three areas — the most popular combination for full facial rejuvenation.',
@@ -201,6 +204,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Men', name: 'One Area', slug: 'men-one-area',
       priceStandard: '£199', priceIntro: '£170',
+      heroImage: '/assets/kensley-treatment-images/01-anti-wrinkle-treatments/men-one-area/kensley-anti-wrinkle-treatments-men-one-area-01.webp',
       seoTitle: "Men's One Area Anti-Wrinkle Consultation Newcastle | Kensley Aesthetics",
       tagline: 'Natural results tailored to male anatomy.',
       description: 'A doctor-led anti-wrinkle consultation tailored to male facial anatomy, softening lines in a single area while preserving a strong, natural appearance.',
@@ -225,6 +229,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Men', name: 'Two Areas', slug: 'men-two-areas',
       priceStandard: '£299', priceIntro: '£260',
+      heroImage: '/assets/kensley-treatment-images/01-anti-wrinkle-treatments/men-two-areas/kensley-anti-wrinkle-treatments-men-two-areas-01.webp',
       seoTitle: "Men's Two Areas Anti-Wrinkle Consultation Newcastle | Kensley Aesthetics",
       tagline: 'Subtle confidence, two areas at once.',
       description: 'A targeted anti-wrinkle consultation for men addressing two areas of concern for a more refreshed and confident look.',
@@ -249,6 +254,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Men', name: 'Three Areas', slug: 'men-three-areas',
       priceStandard: '£349', priceIntro: '£310',
+      heroImage: '/assets/kensley-treatment-images/01-anti-wrinkle-treatments/men-three-areas/kensley-anti-wrinkle-treatments-men-three-areas-01.webp',
       seoTitle: "Men's Three Areas Anti-Wrinkle Consultation Newcastle | Kensley Aesthetics",
       tagline: 'Complete rejuvenation for the modern man.',
       description: 'A full anti-wrinkle consultation for men covering three areas, tailored to male musculature and aesthetic goals.',
@@ -434,6 +440,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Advanced', name: 'Nefertiti Lift', slug: 'nefertiti-lift',
       priceStandard: '£350', priceIntro: '£300',
+      heroImage: '/assets/kensley-treatment-images/01-anti-wrinkle-treatments/nefertiti-lift/kensley-anti-wrinkle-treatments-nefertiti-lift-01.webp',
       seoTitle: 'Nefertiti Lift Consultation Newcastle | Kensley Aesthetics',
       tagline: 'Redefine your jawline without surgery.',
       description: 'An advanced neck and jawline treatment to redefine the lower face and create a lifted, contoured appearance without surgery.',
@@ -458,6 +465,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Advanced', name: 'Jawline Slimming', slug: 'jawline-slimming',
       priceStandard: '£350', priceIntro: '£300',
+      heroImage: '/assets/kensley-treatment-images/01-anti-wrinkle-treatments/jawline-slimming/kensley-anti-wrinkle-treatments-jawline-slimming-01.webp',
       seoTitle: 'Jawline Slimming Consultation Newcastle | Kensley Aesthetics',
       tagline: 'Sculpt a softer, more oval face.',
       description: 'Treatment targeting the masseter muscle to slim a wide or square jaw, creating a softer, more sculpted facial shape.',
@@ -482,6 +490,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Advanced', name: 'Teeth Grinding', slug: 'teeth-grinding',
       priceStandard: '£350', priceIntro: '£300',
+      heroImage: '/assets/kensley-treatment-images/01-anti-wrinkle-treatments/teeth-grinding/kensley-anti-wrinkle-treatments-teeth-grinding-01.webp',
       seoTitle: 'Teeth Grinding Consultation Newcastle | Kensley Aesthetics',
       tagline: 'Relief from grinding and jaw pain.',
       description: 'Targeted treatment to reduce teeth grinding and clenching, relieving associated jaw pain and morning headaches.',
@@ -506,6 +515,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Advanced', name: 'TrapTox', slug: 'traptox',
       priceStandard: '£500', priceIntro: '£450',
+      heroImage: '/assets/kensley-treatment-images/01-anti-wrinkle-treatments/traptox/kensley-anti-wrinkle-treatments-traptox-01.webp',
       seoTitle: 'TrapTox Consultation Newcastle | Kensley Aesthetics',
       tagline: 'Lengthen your neck. Relax your shoulders.',
       description: 'Treatment injected into the trapezius muscles to slim the shoulder and neck, relieve tension, and improve posture.',
@@ -530,6 +540,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Advanced', name: 'Migraine Treatment', slug: 'migraine-treatment',
       priceStandard: '£600', priceIntro: '£550',
+      heroImage: '/assets/kensley-treatment-images/01-anti-wrinkle-treatments/migraine-treatment/kensley-anti-wrinkle-treatments-migraine-treatment-01.webp',
       seoTitle: 'Migraine Consultation Newcastle | Kensley Aesthetics',
       tagline: 'Doctor-led consultation for chronic migraine.',
       description: 'A doctor-led consultation for adults with chronic migraine exploring muscle-relaxing injection as a therapeutic option.',
@@ -558,6 +569,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Lip Enhancement', name: 'Lips 1 ml', slug: 'lips-1ml',
       priceStandard: '£349', priceIntro: '£299',
+      heroImage: '/assets/kensley-treatment-images/02-dermal-fillers/lips-1ml/kensley-dermal-fillers-lips-1ml-01.webp',
       seoTitle: 'Lip Fillers Newcastle | Natural Lip Enhancement | Kensley Aesthetics',
       tagline: 'Natural volume and definition.',
       description: 'Hyaluronic acid filler to add volume, shape, and definition to the lips for beautiful, natural-looking lip enhancement.',
@@ -582,6 +594,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Facial Contouring', name: 'Cheeks', slug: 'cheeks',
       priceStandard: 'From £349', priceIntro: 'From £299',
+      heroImage: '/assets/kensley-treatment-images/02-dermal-fillers/cheeks/kensley-dermal-fillers-cheeks-01.webp',
       seoTitle: 'Cheek Fillers Newcastle | Cheek Contouring | Kensley Aesthetics',
       tagline: 'Restore lift and cheekbone definition.',
       description: 'Cheek filler to restore lost volume, lift the midface, and create elegant cheekbone definition for a sculpted appearance.',
@@ -606,6 +619,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Facial Contouring', name: 'Chin', slug: 'chin',
       priceStandard: 'From £349', priceIntro: 'From £299',
+      heroImage: '/assets/kensley-treatment-images/02-dermal-fillers/chin/kensley-dermal-fillers-chin-01.webp',
       seoTitle: 'Chin Filler Newcastle | Non-Surgical Chin Contouring | Kensley Aesthetics',
       tagline: 'Balance and project your profile.',
       description: 'Chin filler to improve projection, strengthen the chin, and balance overall facial proportions for a harmonious profile.',
@@ -630,6 +644,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Facial Contouring', name: 'Jawline', slug: 'jawline',
       priceStandard: 'From £349', priceIntro: 'From £299',
+      heroImage: '/assets/kensley-treatment-images/02-dermal-fillers/jawline/kensley-dermal-fillers-jawline-01.webp',
       seoTitle: 'Jawline Filler Newcastle | Jawline Definition | Kensley Aesthetics',
       tagline: 'Define and sharpen your jawline.',
       description: 'Jawline filler to define, contour, and sharpen the jaw for a more sculpted, structured facial shape.',
@@ -654,6 +669,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Line Softening', name: 'Nasolabial Folds', slug: 'nasolabial-folds',
       priceStandard: '£349', priceIntro: '£299',
+      heroImage: '/assets/kensley-treatment-images/02-dermal-fillers/nasolabial-folds/kensley-dermal-fillers-nasolabial-folds-01.webp',
       seoTitle: 'Nasolabial Fold Filler Newcastle | Kensley Aesthetics',
       tagline: 'Soften smile lines naturally.',
       description: 'Softens the lines that run from the nose to the corners of the mouth for a fresher, younger-looking appearance.',
@@ -678,6 +694,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Line Softening', name: 'Marionette Lines', slug: 'marionette-lines',
       priceStandard: '£349', priceIntro: '£299',
+      heroImage: '/assets/kensley-treatment-images/02-dermal-fillers/marionette-lines/kensley-dermal-fillers-marionette-lines-01.webp',
       seoTitle: 'Marionette Line Filler Newcastle | Kensley Aesthetics',
       tagline: 'Lift a sad or tired expression.',
       description: 'Filler to address lines running from the corners of the mouth downward, reducing a downturned or tired appearance.',
@@ -702,6 +719,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Line Softening', name: 'Upper Lip Lines', slug: 'upper-lip-lines',
       priceStandard: '£349', priceIntro: '£299',
+      heroImage: '/assets/kensley-treatment-images/02-dermal-fillers/upper-lip-lines/kensley-dermal-fillers-upper-lip-lines-01.webp',
       seoTitle: 'Upper Lip Lines Treatment Newcastle | Kensley Aesthetics',
       tagline: 'Smooth vertical lip lines.',
       description: 'Fine filler to smooth vertical lip lines and prevent lipstick bleed, for a cleaner and more youthful lip area.',
@@ -726,6 +744,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Volume Restoration', name: 'Temples', slug: 'temples',
       priceStandard: '£349', priceIntro: '£299',
+      heroImage: '/assets/kensley-treatment-images/02-dermal-fillers/temples/kensley-dermal-fillers-temples-01.webp',
       seoTitle: 'Temple Filler Newcastle | Temple Hollowing Treatment | Kensley Aesthetics',
       tagline: 'Refresh the upper face.',
       description: 'Temple filler to restore volume to hollowed temples, refreshing the upper face and softening a gaunt or aged appearance.',
@@ -750,6 +769,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Under-Eye Rejuvenation', name: 'Tear Trough', slug: 'tear-trough',
       priceStandard: '£399', priceIntro: '£349',
+      heroImage: '/assets/kensley-treatment-images/02-dermal-fillers/tear-trough/kensley-dermal-fillers-tear-trough-01.webp',
       seoTitle: 'Tear Trough Filler Newcastle | Under-Eye Filler Consultation | Kensley Aesthetics',
       tagline: 'Banish under-eye hollows.',
       description: 'Delicate filler beneath the eyes to reduce dark hollows and under-eye shadows for a well-rested, refreshed look.',
@@ -774,6 +794,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Under-Eye Rejuvenation', name: 'Tear Trough + PRP', slug: 'tear-trough-prp',
       priceStandard: '£599', priceIntro: '£549',
+      heroImage: '/assets/kensley-treatment-images/02-dermal-fillers/tear-trough-and-prp/kensley-dermal-fillers-tear-trough-and-prp-01.webp',
       seoTitle: 'Tear Trough Filler and PRP Newcastle | Kensley Aesthetics',
       tagline: 'Enhanced results with your own plasma.',
       description: 'Combined tear trough filler and PRP treatment for enhanced skin quality, reduced dark circles, and improved under-eye shadows.',
@@ -798,6 +819,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Non-Surgical', name: 'Non-Surgical Rhinoplasty', slug: 'non-surgical-rhinoplasty',
       priceStandard: 'From £399', priceIntro: 'From £349',
+      heroImage: '/assets/kensley-treatment-images/02-dermal-fillers/non-surgical-rhinoplasty/kensley-dermal-fillers-non-surgical-rhinoplasty-01.webp',
       seoTitle: 'Non-Surgical Rhinoplasty Newcastle | Liquid Nose Contouring | Kensley Aesthetics',
       tagline: 'Reshape your nose without surgery.',
       description: 'Filler used to reshape and refine the nose without surgery — correcting bumps, asymmetries, and lifting the nasal tip.',
@@ -822,6 +844,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Non-Surgical', name: 'Non-Surgical Facelift', slug: 'non-surgical-facelift',
       priceStandard: 'From £949', priceIntro: 'From £849',
+      heroImage: '/assets/kensley-treatment-images/02-dermal-fillers/non-surgical-facelift/kensley-dermal-fillers-non-surgical-facelift-01.webp',
       seoTitle: 'Non-Surgical Facelift Newcastle | Doctor-Led Facial Rejuvenation | Kensley Aesthetics',
       tagline: 'A full-face lift with no downtime.',
       description: 'A combination filler treatment targeting multiple areas to lift and rejuvenate the face without the need for surgical intervention.',
@@ -846,6 +869,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Correction', name: 'Dissolving Filler', slug: 'dissolving-filler',
       priceStandard: 'From £249', priceIntro: 'From £220',
+      heroImage: '/assets/kensley-treatment-images/02-dermal-fillers/dissolving-filler/kensley-dermal-fillers-dissolving-filler-01.webp',
       seoTitle: 'Filler Dissolving Newcastle | Hyaluronidase Consultation | Kensley Aesthetics',
       tagline: 'Safe and effective filler removal.',
       description: 'Hyaluronidase enzyme treatment to safely and effectively dissolve unwanted or incorrectly placed hyaluronic acid filler.',
@@ -897,6 +921,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Hydration', name: 'Klardie', slug: 'klardie',
+      heroImage: '/assets/kensley-treatment-images/03-skin-boosters/klardie/kensley-skin-boosters-klardie-01.webp',
       seoTitle: 'Klardie Skin Booster Newcastle | Kensley Aesthetics',
       tagline: 'Premium deep hydration and glow.',
       description: 'A premium skin booster delivering lasting deep hydration and measurable skin quality improvement.',
@@ -920,6 +945,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Regenerative', name: 'Neofound', slug: 'neofound',
+      heroImage: '/assets/kensley-treatment-images/03-skin-boosters/neofound/kensley-skin-boosters-neofound-01.webp',
       seoTitle: 'Neofound Skin Booster Newcastle | Kensley Aesthetics',
       tagline: 'Stimulate collagen. Improve texture.',
       description: 'An innovative skin booster that stimulates collagen production and improves skin texture, tone, and elasticity.',
@@ -966,6 +992,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Bio-Remodelling', name: 'Profhilo', slug: 'profhilo-skin-booster',
+      heroImage: '/assets/kensley-treatment-images/03-skin-boosters/profhilo-skin-booster/kensley-skin-boosters-profhilo-skin-booster-01.webp',
       seoTitle: 'Profhilo Skin Treatment Newcastle | Kensley Aesthetics',
       tagline: 'The ultimate skin hydration treatment.',
       description: 'A highly biocompatible hyaluronic acid treatment that hydrates and bio-remodels the skin for a natural, radiant glow.',
@@ -1016,6 +1043,7 @@ export const STATIC_SUB_TREATMENTS = {
   'regenerative-treatments': [
     {
       title: 'Platelet-Rich Plasma', name: 'PRP Facials', slug: 'prp-facials',
+      heroImage: '/assets/kensley-treatment-images/04-regenerative-treatments/prp-skin-rejuvenation/kensley-regenerative-treatments-prp-skin-rejuvenation-01.webp',
       seoTitle: 'PRP Facial Newcastle | Kensley Aesthetics',
       tagline: "Harness your body's healing power.",
       description: 'Your own platelet-rich plasma used to stimulate natural collagen production, improving texture, tone, and overall skin quality.',
@@ -1039,6 +1067,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Polynucleotides', name: 'Polynucleotides', slug: 'polynucleotides',
+      heroImage: '/assets/kensley-treatment-images/04-regenerative-treatments/polynucleotide-skin-rejuvenation/kensley-regenerative-treatments-polynucleotide-skin-rejuvenation-01.webp',
       seoTitle: 'Polynucleotides Newcastle | PDRN Skin Treatment | Kensley Aesthetics',
       tagline: 'Cellular repair at its finest.',
       description: 'Biocompatible polynucleotide injections to repair, regenerate, and rejuvenate the skin at a deep cellular level.',
@@ -1062,6 +1091,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Exosome Therapy', name: 'Exosomes', slug: 'exosomes',
+      heroImage: '/assets/kensley-treatment-images/04-regenerative-treatments/exosome-skin-treatment/kensley-regenerative-treatments-exosome-skin-treatment-01.webp',
       seoTitle: 'Exosome Skin Treatment Newcastle | Kensley Aesthetics',
       tagline: 'Cutting-edge cellular regeneration.',
       description: 'Cutting-edge exosome therapy to accelerate skin regeneration, reduce inflammation, and restore a youthful, healthy glow.',
@@ -1085,6 +1115,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Bio-Filler', name: 'Plasma Gel / Bio-Filler', slug: 'plasma-gel-bio-filler',
+      heroImage: '/assets/kensley-treatment-images/04-regenerative-treatments/plasma-gel/kensley-regenerative-treatments-plasma-gel-01.webp',
       seoTitle: 'Plasma Gel Bio-Filler Newcastle | Natural Volume Restoration | Kensley Aesthetics',
       tagline: 'Natural volume from your own plasma.',
       description: 'A natural filler derived from your own plasma, used to restore volume and improve skin quality simultaneously with no synthetic filler.',
@@ -1112,6 +1143,7 @@ export const STATIC_SUB_TREATMENTS = {
   'biostimulators': [
     {
       title: 'Collagen Stimulator', name: 'Radiesse', slug: 'radiesse',
+      heroImage: '/assets/kensley-treatment-images/05-biostimulators/radiesse/kensley-biostimulators-radiesse-01.webp',
       seoTitle: 'Radiesse Newcastle | Collagen-Stimulating Filler | Kensley Aesthetics',
       tagline: 'Immediate volume. Long-term collagen.',
       description: 'A collagen-stimulating injectable that provides immediate volume while triggering long-term collagen production for lasting results.',
@@ -1163,6 +1195,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Standard Microneedling', name: 'Face', slug: 'standard-face',
       priceStandard: '£199', priceIntro: '£170',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/standard-face/kensley-microneedling-standard-face-01.webp',
       seoTitle: 'Microneedling Face Newcastle | Collagen Induction | Kensley Aesthetics',
       tagline: 'Classic collagen induction for the face.',
       description: 'Microneedling to stimulate collagen and elastin production, improving skin texture, tone, pore size, and fine lines.',
@@ -1187,6 +1220,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Standard Microneedling', name: 'Face – 3 Sessions', slug: 'standard-face-3-sessions',
       priceStandard: '£500', priceIntro: '£425',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/standard-face-3-sessions/kensley-microneedling-standard-face-3-sessions-01.webp',
       seoTitle: 'Microneedling Course Newcastle | 3 Face Sessions | Kensley Aesthetics',
       tagline: 'A full course for progressive results.',
       description: 'A course of three standard microneedling sessions for progressive, cumulative improvement in skin quality and rejuvenation.',
@@ -1211,6 +1245,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Standard Microneedling', name: 'Face & Neck', slug: 'standard-face-neck',
       priceStandard: '£300', priceIntro: '£260',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/standard-face-and-neck/kensley-microneedling-standard-face-and-neck-01.webp',
       seoTitle: 'Microneedling Face and Neck Newcastle | Kensley Aesthetics',
       tagline: 'Full rejuvenation — face and neck.',
       description: 'Microneedling across the face and neck to rejuvenate skin and achieve consistent improvement in texture and tone.',
@@ -1235,6 +1270,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'Standard Microneedling', name: 'Face & Neck – 3 Sessions', slug: 'standard-face-neck-3-sessions',
       priceStandard: '£750', priceIntro: '£650',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/standard-face-and-neck-3-sessions/kensley-microneedling-standard-face-and-neck-3-sessions-01.webp',
       seoTitle: 'Microneedling Face and Neck Course Newcastle | Kensley Aesthetics',
       tagline: 'A course for comprehensive renewal.',
       description: 'A three-session course of face and neck microneedling for optimal collagen stimulation and complete skin renewal.',
@@ -1259,6 +1295,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'With Calecim®', name: 'Face', slug: 'calecim-face',
       priceStandard: '£350', priceIntro: '£300',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/with-calecim-face/kensley-microneedling-with-calecim-face-01.webp',
       seoTitle: 'Microneedling with Calecim Newcastle | Face Treatment | Kensley Aesthetics',
       tagline: 'Calecim-enhanced microneedling.',
       description: 'Microneedling enhanced with Calecim Professional — a conditioned-media-derived topical product containing selected signalling proteins and growth factors — for potentially enhanced healing and skin regeneration.',
@@ -1283,6 +1320,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'With Calecim®', name: 'Face – 3 Sessions', slug: 'calecim-face-3-sessions',
       priceStandard: '£900', priceIntro: '£775',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/with-calecim-face-3-sessions/kensley-microneedling-with-calecim-face-3-sessions-01.webp',
       seoTitle: 'Microneedling with Calecim Course Newcastle | Kensley Aesthetics',
       tagline: 'Transformative results over three visits.',
       description: 'A course of three Calecim-enhanced microneedling sessions for transformative, cumulative skin rejuvenation results.',
@@ -1307,6 +1345,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'With Calecim®', name: 'Face & Neck', slug: 'calecim-face-neck',
       priceStandard: '£500', priceIntro: '£425',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/with-calecim-face-and-neck/kensley-microneedling-with-calecim-face-and-neck-01.webp',
       seoTitle: 'Microneedling with Calecim Face and Neck Newcastle | Kensley Aesthetics',
       tagline: 'Stem cell renewal for face and neck.',
       description: 'Calecim microneedling across face and neck for comprehensive skin renewal, improved texture, and enhanced regeneration.',
@@ -1331,6 +1370,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'With Calecim®', name: 'Face & Neck – 3 Sessions', slug: 'calecim-face-neck-3-sessions',
       priceStandard: '£1,350', priceIntro: '£1,150',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/with-calecim-face-and-neck-3-sessions/kensley-microneedling-with-calecim-face-and-neck-3-sessions-01.webp',
       seoTitle: 'Microneedling with Calecim Face and Neck Course Newcastle | Kensley Aesthetics',
       tagline: 'The full Calecim course — face and neck.',
       description: 'Three sessions of Calecim microneedling for face and neck, delivering progressive rejuvenation and sustained collagen stimulation.',
@@ -1355,6 +1395,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'With PRP', name: 'Face', slug: 'prp-face',
       priceStandard: '£500', priceIntro: '£425',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/with-prp-face/kensley-microneedling-with-prp-face-01.webp',
       seoTitle: 'Microneedling with PRP Newcastle | Face Treatment | Kensley Aesthetics',
       tagline: 'Growth factors meet collagen induction.',
       description: 'PRP microneedling combining collagen induction with your own growth factors for dramatically enhanced skin regeneration.',
@@ -1379,6 +1420,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'With PRP', name: 'Face – 3 Sessions', slug: 'prp-face-3-sessions',
       priceStandard: '£1,250', priceIntro: '£1,075',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/with-prp-face-3-sessions/kensley-microneedling-with-prp-face-3-sessions-01.webp',
       seoTitle: 'Microneedling with PRP Course Newcastle | Kensley Aesthetics',
       tagline: 'Maximum renewal with your own plasma.',
       description: "A course of three PRP microneedling sessions for optimal skin renewal using the body's own powerful healing factors.",
@@ -1403,6 +1445,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'With PRP', name: 'Face & Neck', slug: 'prp-face-neck',
       priceStandard: '£650', priceIntro: '£550',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/with-prp-face-and-neck/kensley-microneedling-with-prp-face-and-neck-01.webp',
       seoTitle: 'Microneedling with PRP Face and Neck Newcastle | Kensley Aesthetics',
       tagline: 'PRP renewal for face and neck.',
       description: 'PRP-enhanced microneedling across face and neck to stimulate collagen and improve overall skin quality in both areas.',
@@ -1427,6 +1470,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'With PRP', name: 'Face & Neck – 3 Sessions', slug: 'prp-face-neck-3-sessions',
       priceStandard: '£1,500', priceIntro: '£1,275',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/with-prp-face-and-neck-3-sessions/kensley-microneedling-with-prp-face-and-neck-3-sessions-01.webp',
       seoTitle: 'Microneedling with PRP Face and Neck Course Newcastle | Kensley Aesthetics',
       tagline: 'The full PRP course — face and neck.',
       description: 'Three-session PRP microneedling course covering face and neck for maximum rejuvenation and skin improvement.',
@@ -1451,6 +1495,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'With Exosomes', name: 'Face', slug: 'exosomes-face',
       priceStandard: '£500', priceIntro: '£425',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/with-exosomes-face/kensley-microneedling-with-exosomes-face-01.webp',
       seoTitle: 'Microneedling with Exosomes Newcastle | Face Treatment | Kensley Aesthetics',
       tagline: 'Next-generation skin regeneration.',
       description: 'Microneedling with exosome serum for advanced skin regeneration, reducing fine lines, improving luminosity and radiance.',
@@ -1475,6 +1520,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'With Exosomes', name: 'Face – 3 Sessions', slug: 'exosomes-face-3-sessions',
       priceStandard: '£1,250', priceIntro: '£1,075',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/with-exosomes-face-3-sessions/kensley-microneedling-with-exosomes-face-3-sessions-01.webp',
       seoTitle: 'Microneedling with Exosomes Course Newcastle | Kensley Aesthetics',
       tagline: 'Cellular renewal over three sessions.',
       description: 'A course of three exosome microneedling sessions for progressive skin rejuvenation at a cellular level.',
@@ -1499,6 +1545,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'With Exosomes', name: 'Face & Neck', slug: 'exosomes-face-neck',
       priceStandard: '£650', priceIntro: '£550',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/with-exosomes-face-and-neck/kensley-microneedling-with-exosomes-face-and-neck-01.webp',
       seoTitle: 'Microneedling with Exosomes Face and Neck Newcastle | Kensley Aesthetics',
       tagline: 'Exosome renewal for face and neck.',
       description: 'Exosome microneedling across face and neck, stimulating deep cellular repair for healthier, more youthful skin.',
@@ -1523,6 +1570,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'With Exosomes', name: 'Face & Neck – 3 Sessions', slug: 'exosomes-face-neck-3-sessions',
       priceStandard: '£1,500', priceIntro: '£1,275',
+      heroImage: '/assets/kensley-treatment-images/06-microneedling/with-exosomes-face-and-neck-3-sessions/kensley-microneedling-with-exosomes-face-and-neck-3-sessions-01.webp',
       seoTitle: 'Microneedling with Exosomes Face and Neck Course Newcastle | Kensley Aesthetics',
       tagline: 'The complete exosome course.',
       description: 'Three sessions of exosome microneedling for face and neck, delivering comprehensive skin renewal and cellular regeneration.',
@@ -1550,6 +1598,7 @@ export const STATIC_SUB_TREATMENTS = {
   'rf-microneedling': [
     {
       title: 'RF Microneedling', name: 'Face', slug: 'face',
+      heroImage: '/assets/kensley-treatment-images/07-rf-microneedling/face/kensley-rf-microneedling-face-01.webp',
       seoTitle: 'RF Microneedling Face Newcastle | Kensley Aesthetics',
       tagline: 'Tighten, firm, and rejuvenate.',
       description: 'Radiofrequency microneedling to tighten skin, stimulate collagen, and achieve significant improvement in overall facial skin quality.',
@@ -1619,6 +1668,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'RF Microneedling', name: 'Neck & Décolletage', slug: 'neck-decolletage',
+      heroImage: '/assets/kensley-treatment-images/07-rf-microneedling/neck-and-decolletage/kensley-rf-microneedling-neck-and-decolletage-01.webp',
       seoTitle: 'RF Microneedling Neck and Décolletage Newcastle | Kensley Aesthetics',
       tagline: 'Firm and rejuvenate your neck.',
       description: 'RF microneedling to tighten lax skin and improve texture across the neck and décolletage for a smoother, more youthful appearance.',
@@ -1688,6 +1738,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'RF Microneedling', name: 'Abdomen', slug: 'abdomen',
+      heroImage: '/assets/kensley-treatment-images/07-rf-microneedling/abdomen/kensley-rf-microneedling-abdomen-01.webp',
       seoTitle: 'RF Microneedling Abdomen Newcastle | Kensley Aesthetics',
       tagline: 'Non-surgical body skin tightening.',
       description: 'RF microneedling to tighten lax abdominal skin and improve skin texture and firmness without surgery.',
@@ -1711,6 +1762,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'RF Microneedling', name: 'Above the Knees', slug: 'above-knees',
+      heroImage: '/assets/kensley-treatment-images/07-rf-microneedling/above-the-knees/kensley-rf-microneedling-above-the-knees-01.webp',
       seoTitle: 'RF Microneedling Above the Knees Newcastle | Kensley Aesthetics',
       tagline: 'Firm and smooth above the knee.',
       description: 'RF microneedling to firm and smooth the skin above the knees, improving laxity and overall skin quality.',
@@ -1761,6 +1813,7 @@ export const STATIC_SUB_TREATMENTS = {
   'hifu': [
     {
       title: 'Body', name: 'Body – Small Area', slug: 'body-small-area',
+      heroImage: '/assets/kensley-treatment-images/08-hifu/body-small-area/kensley-hifu-body-small-area-01.webp',
       seoTitle: 'HIFU Small Area Newcastle | Body Tightening Consultation | Kensley Aesthetics',
       tagline: 'Lift and tighten — no surgery needed.',
       description: 'High-intensity focused ultrasound to lift and tighten a small body area without surgery, anaesthesia, or significant downtime.',
@@ -1784,6 +1837,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Body', name: 'Body – Large Area', slug: 'body-large-area',
+      heroImage: '/assets/kensley-treatment-images/08-hifu/body-large-area/kensley-hifu-body-large-area-01.webp',
       seoTitle: 'HIFU Large Area Newcastle | Body Tightening Consultation | Kensley Aesthetics',
       tagline: 'HIFU for larger body areas.',
       description: 'HIFU treatment for a larger body area to tighten lax skin, improve tone, and achieve a more contoured appearance.',
@@ -1807,6 +1861,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Face & Neck', name: 'Face & Neck', slug: 'face-neck',
+      heroImage: '/assets/kensley-treatment-images/08-hifu/face-and-neck/kensley-hifu-face-and-neck-01.webp',
       seoTitle: 'HIFU Face and Neck Newcastle | Non-Surgical Lift Consultation | Kensley Aesthetics',
       tagline: 'The non-surgical face and neck lift.',
       description: 'Non-surgical HIFU face and neck lift to firm sagging skin, stimulate deep collagen, and redefine facial contours.',
@@ -1830,6 +1885,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Neck', name: 'Neck', slug: 'neck',
+      heroImage: '/assets/kensley-treatment-images/08-hifu/neck/kensley-hifu-neck-01.webp',
       seoTitle: 'HIFU Neck Newcastle | Lower Face and Neck Consultation | Kensley Aesthetics',
       tagline: 'Targeted neck tightening with HIFU.',
       description: 'HIFU treatment targeting the neck to tighten loose skin and improve the appearance of the neck and jawline definition.',
@@ -1857,6 +1913,7 @@ export const STATIC_SUB_TREATMENTS = {
   'chemical-peel': [
     {
       title: 'Chemical Peel', name: 'Single Chemical Peel', slug: 'single-chemical-peel',
+      heroImage: '/assets/kensley-treatment-images/09-chemical-peel/single-treatment/kensley-chemical-peel-single-treatment-01.webp',
       seoTitle: 'Chemical Peel Newcastle | Single Treatment | Kensley Aesthetics',
       tagline: 'Instant skin resurfacing and glow.',
       description: 'A professionally applied chemical peel to resurface the skin, improve tone and texture, and reveal a brighter, more even complexion.',
@@ -1880,6 +1937,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Chemical Peel', name: 'Course of 4 Chemical Peels', slug: 'course-4-chemical-peels',
+      heroImage: '/assets/kensley-treatment-images/09-chemical-peel/course-of-four/kensley-chemical-peel-course-of-four-01.webp',
       seoTitle: 'Chemical Peel Course Newcastle | 4 Treatments | Kensley Aesthetics',
       tagline: 'Progressive results with a full course.',
       description: 'A series of four chemical peels for progressive, sustained skin resurfacing and significant improvement in skin quality.',
@@ -1980,6 +2038,7 @@ export const STATIC_SUB_TREATMENTS = {
   'mesotherapy': [
     {
       title: 'Mesotherapy', name: 'Face – Single Session', slug: 'face-single-session',
+      heroImage: '/assets/kensley-treatment-images/11-mesotherapy/single-session/kensley-mesotherapy-single-session-01.webp',
       seoTitle: 'Mesotherapy Face Newcastle | Single Session | Kensley Aesthetics',
       tagline: 'Targeted vitamins delivered to the skin.',
       description: 'A single mesotherapy session delivering a bespoke cocktail of vitamins, minerals, and hyaluronic acid directly into the skin.',
@@ -2003,6 +2062,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Mesotherapy', name: 'Face – Course of 3 Sessions', slug: 'face-course-3-sessions',
+      heroImage: '/assets/kensley-treatment-images/11-mesotherapy/treatment-course/kensley-mesotherapy-treatment-course-01.webp',
       seoTitle: 'Mesotherapy Face Course Newcastle | 3 Sessions | Kensley Aesthetics',
       tagline: 'Progressive skin hydration and glow.',
       description: 'A three-session mesotherapy course for progressive improvement in skin hydration, radiance, texture, and overall quality.',
@@ -2080,6 +2140,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Profhilo', name: 'Profhilo Face', slug: 'profhilo-face',
+      heroImage: '/assets/kensley-treatment-images/13-profhilo/face/kensley-profhilo-face-01.webp',
       seoTitle: 'Profhilo Face Newcastle | Kensley Aesthetics',
       tagline: 'Radiant skin from within.',
       description: 'Profhilo injected into the face to deeply hydrate and improve skin laxity for a natural, glowing, healthy result.',
@@ -2103,6 +2164,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Profhilo', name: 'Profhilo Hands', slug: 'profhilo-hands',
+      heroImage: '/assets/kensley-treatment-images/13-profhilo/hands/kensley-profhilo-hands-01.webp',
       seoTitle: 'Profhilo Hands Newcastle | Kensley Aesthetics',
       tagline: 'Rejuvenate your hands naturally.',
       description: 'Profhilo for the hands to restore hydration and improve the appearance of thinning, crepey, or ageing skin.',
@@ -2126,6 +2188,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Profhilo', name: 'Profhilo Neck', slug: 'profhilo-neck',
+      heroImage: '/assets/kensley-treatment-images/13-profhilo/neck/kensley-profhilo-neck-01.webp',
       seoTitle: 'Profhilo Neck Newcastle | Kensley Aesthetics',
       tagline: 'Tighten and hydrate the neck.',
       description: 'Profhilo injected into the neck to tighten, hydrate, and improve the appearance of loose or crepey neck skin.',
@@ -2149,6 +2212,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Profhilo', name: 'Profhilo Décolletage', slug: 'profhilo-decolletage',
+      heroImage: '/assets/kensley-treatment-images/13-profhilo/decolletage/kensley-profhilo-decolletage-01.webp',
       seoTitle: 'Profhilo Décolletage Newcastle | Kensley Aesthetics',
       tagline: 'Restore the décolletage with Profhilo.',
       description: 'Profhilo treatment for the décolletage to deeply hydrate and improve skin laxity and texture in this delicate area.',
@@ -2172,6 +2236,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Profhilo', name: 'Course of 3 Treatments (3 × 2 ml)', slug: 'course-3-treatments',
+      heroImage: '/assets/kensley-treatment-images/13-profhilo/course-of-3-treatments/kensley-profhilo-course-of-3-treatments-01.webp',
       seoTitle: 'Profhilo Course Newcastle | 3 Treatments | Kensley Aesthetics',
       tagline: 'Sustained bio-remodelling results.',
       description: 'A three-treatment Profhilo course for sustained bio-remodelling, long-lasting hydration, and progressive skin quality improvement.',
@@ -2195,6 +2260,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Profhilo', name: 'Face + Hands + Neck + Décolletage (4 × 2 ml)', slug: 'face-hands-neck-decolletage',
+      heroImage: '/assets/kensley-treatment-images/13-profhilo/face-hands-neck-and-decolletage/kensley-profhilo-face-hands-neck-and-decolletage-01.webp',
       seoTitle: 'Profhilo Full Rejuvenation Newcastle | Kensley Aesthetics',
       tagline: 'Total body Profhilo in one session.',
       description: 'A comprehensive Profhilo package treating four areas in one session for full-body hydration, firming, and skin renewal.',
@@ -2223,6 +2289,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'PRP', name: 'PRP Face', slug: 'prp-face',
       priceStandard: '£350', priceIntro: '£300',
+      heroImage: '/assets/kensley-treatment-images/14-prp/face/kensley-prp-face-01.webp',
       seoTitle: 'PRP Face Newcastle | Platelet-Rich Plasma | Kensley Aesthetics',
       tagline: 'Natural collagen. Glowing skin.',
       description: 'Facial PRP injections using your own growth factors to stimulate collagen, improve skin quality, and restore natural radiance.',
@@ -2247,6 +2314,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'PRP', name: 'PRP Neck', slug: 'prp-neck',
       priceStandard: '£350', priceIntro: '£300',
+      heroImage: '/assets/kensley-treatment-images/14-prp/neck/kensley-prp-neck-01.webp',
       seoTitle: 'PRP Neck Newcastle | Platelet-Rich Plasma | Kensley Aesthetics',
       tagline: 'Regenerate and tighten the neck.',
       description: 'PRP treatment for the neck to improve skin quality, texture, and reduce the appearance of laxity and skin ageing.',
@@ -2271,6 +2339,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'PRP', name: 'PRP Hands', slug: 'prp-hands',
       priceStandard: '£350', priceIntro: '£300',
+      heroImage: '/assets/kensley-treatment-images/14-prp/hands/kensley-prp-hands-01.webp',
       seoTitle: 'PRP Hands Newcastle | Platelet-Rich Plasma | Kensley Aesthetics',
       tagline: 'Turn back the clock on your hands.',
       description: 'Platelet-rich plasma injections to rejuvenate the hands, restoring volume and improving the appearance of ageing skin.',
@@ -2295,6 +2364,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'PRP', name: 'PRP Décolletage', slug: 'prp-decolletage',
       priceStandard: '£350', priceIntro: '£300',
+      heroImage: '/assets/kensley-treatment-images/14-prp/decolletage/kensley-prp-decolletage-01.webp',
       seoTitle: 'PRP Décolletage Newcastle | Platelet-Rich Plasma | Kensley Aesthetics',
       tagline: 'Revive your décolletage naturally.',
       description: 'PRP treatment for the décolletage to improve skin quality, tone, and reduce signs of sun damage and ageing.',
@@ -2319,6 +2389,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'PRP', name: 'PRP Face & Neck', slug: 'prp-face-neck',
       priceStandard: '£500', priceIntro: '£425',
+      heroImage: '/assets/kensley-treatment-images/14-prp/face-and-neck/kensley-prp-face-and-neck-01.webp',
       seoTitle: 'PRP Face and Neck Newcastle | Platelet-Rich Plasma | Kensley Aesthetics',
       tagline: 'Regeneration for face and neck.',
       description: 'Combined PRP treatment for both face and neck for comprehensive skin regeneration and sustained quality improvement.',
@@ -2343,6 +2414,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'PRP', name: 'PRP Tear Trough', slug: 'prp-tear-trough',
       priceStandard: '£399', priceIntro: '£350',
+      heroImage: '/assets/kensley-treatment-images/14-prp/tear-trough/kensley-prp-tear-trough-01.webp',
       seoTitle: 'PRP Tear Trough Newcastle | Under-Eye PRP | Kensley Aesthetics',
       tagline: 'Refresh your under-eye area.',
       description: 'PRP injected beneath the eyes to improve skin quality, reduce dark circles, and refresh the under-eye area naturally.',
@@ -2367,6 +2439,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'PRP', name: 'PRP + Microneedling', slug: 'prp-microneedling',
       priceStandard: '£500', priceIntro: '£425',
+      heroImage: '/assets/kensley-treatment-images/14-prp/prp-and-microneedling/kensley-prp-prp-and-microneedling-01.webp',
       seoTitle: 'PRP with Microneedling Newcastle | Kensley Aesthetics',
       tagline: 'Double the power. Superior results.',
       description: 'A powerful combination of PRP and microneedling for enhanced collagen stimulation and superior skin regeneration results.',
@@ -2393,6 +2466,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'PRP', name: 'PRP Hair Loss', slug: 'prp-hair-loss',
       priceStandard: '£350', priceIntro: '£300',
+      heroImage: '/assets/kensley-treatment-images/14-prp/hair-loss/kensley-prp-hair-loss-01.webp',
       seoTitle: 'PRP Hair Loss Newcastle | Hair Restoration Consultation | Kensley Aesthetics',
       tagline: 'Stimulate natural hair regrowth.',
       description: 'Platelet-rich plasma injected into the scalp to stimulate dormant hair follicles and promote natural, healthy hair regrowth.',
@@ -2420,6 +2494,7 @@ export const STATIC_SUB_TREATMENTS = {
     {
       title: 'PRP', name: 'PRP 3-Session Package', slug: 'prp-3-session-package',
       priceStandard: '£900', priceIntro: '£775',
+      heroImage: '/assets/kensley-treatment-images/14-prp/3-session-package/kensley-prp-3-session-package-01.webp',
       seoTitle: 'PRP Course Newcastle | 3 Sessions | Kensley Aesthetics',
       tagline: 'The full PRP transformation course.',
       description: 'A course of three PRP sessions for progressive regeneration and sustained improvement in skin quality or hair growth.',
@@ -2447,6 +2522,7 @@ export const STATIC_SUB_TREATMENTS = {
   'polynucleotides': [
     {
       title: 'Polynucleotides', name: 'Face', slug: 'face',
+      heroImage: '/assets/kensley-treatment-images/15-polynucleotides/face/kensley-polynucleotides-face-01.webp',
       seoTitle: 'Polynucleotides Face Newcastle | Kensley Aesthetics',
       tagline: 'Cellular repair and regeneration for the face.',
       description: 'Polynucleotide injections into the face to deeply repair, hydrate, and regenerate the skin, improving tone, texture, and elasticity.',
@@ -2470,6 +2546,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Polynucleotides', name: 'Eyes', slug: 'eyes',
+      heroImage: '/assets/kensley-treatment-images/15-polynucleotides/eyes/kensley-polynucleotides-eyes-01.webp',
       seoTitle: 'Polynucleotides Eyes Newcastle | Kensley Aesthetics',
       tagline: 'The gold standard for delicate under-eye skin.',
       description: 'Polynucleotides targeted at the delicate periorbital area to reduce fine lines, dark circles, and crepey skin around the eyes.',
@@ -2493,6 +2570,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Polynucleotides', name: 'Neck', slug: 'neck',
+      heroImage: '/assets/kensley-treatment-images/15-polynucleotides/neck/kensley-polynucleotides-neck-01.webp',
       seoTitle: 'Polynucleotides Neck Newcastle | Kensley Aesthetics',
       tagline: 'Restore and firm the neck naturally.',
       description: 'Polynucleotide treatment for the neck to improve skin laxity, hydration, and overall skin quality in this commonly overlooked area.',
@@ -2516,6 +2594,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Polynucleotides', name: 'Décolletage', slug: 'decolletage',
+      heroImage: '/assets/kensley-treatment-images/15-polynucleotides/decolletage/kensley-polynucleotides-decolletage-01.webp',
       seoTitle: 'Polynucleotides Décolletage Newcastle | Kensley Aesthetics',
       tagline: 'Revive and restore your décolletage.',
       description: 'Polynucleotide treatment for the décolletage to improve skin quality, hydration, and reduce the appearance of sun damage and ageing.',
@@ -2539,6 +2618,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Polynucleotides', name: 'Course of 3 Treatments', slug: 'course-3-treatments',
+      heroImage: '/assets/kensley-treatment-images/15-polynucleotides/course-of-3-treatments/kensley-polynucleotides-course-of-3-treatments-01.webp',
       seoTitle: 'Polynucleotides Course Newcastle | 3 Treatments | Kensley Aesthetics',
       tagline: 'Progressive results with a full course.',
       description: 'A three-treatment polynucleotide course for optimal, cumulative skin regeneration and long-lasting improvement in skin quality.',
@@ -2562,6 +2642,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Polynucleotides', name: 'Face + Hands + Neck + Décolletage', slug: 'face-hands-neck-decolletage',
+      heroImage: '/assets/kensley-treatment-images/15-polynucleotides/face-hands-neck-and-decolletage/kensley-polynucleotides-face-hands-neck-and-decolletage-01.webp',
       seoTitle: 'Polynucleotides Full Rejuvenation Newcastle | Kensley Aesthetics',
       tagline: 'Comprehensive multi-area regeneration.',
       description: 'A comprehensive polynucleotide package treating the face, hands, neck, and décolletage for full-body cellular regeneration and skin renewal.',
@@ -2589,6 +2670,7 @@ export const STATIC_SUB_TREATMENTS = {
   'medical-grade-skincare': [
     {
       title: 'Medical-Grade Skincare', name: 'Obagi Medical®', slug: 'obagi-medical',
+      heroImage: '/assets/kensley-treatment-images/16-medical-grade-skincare/obagi-skincare/kensley-medical-grade-skincare-obagi-skincare-01.webp',
       seoTitle: 'Obagi Medical Skincare Newcastle | Kensley Aesthetics',
       tagline: 'Clinician-recommended skincare for your skin.',
       description: 'Obagi Medical is a clinician-recommended skincare range prescribed and tailored by our clinical team to target pigmentation, ageing, acne, and skin texture at a deeper level than over-the-counter products.',
@@ -2613,6 +2695,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Medical-Grade Skincare', name: 'ZO® Skin Health', slug: 'zo-skin-health',
+      heroImage: '/assets/kensley-treatment-images/16-medical-grade-skincare/zo-skincare/kensley-medical-grade-skincare-zo-skincare-01.webp',
       seoTitle: 'ZO Skin Health Newcastle | Kensley Aesthetics',
       tagline: 'Science-driven skincare for lasting results.',
       description: 'ZO Skin Health is a clinician-prescribed skincare system developed by Dr. Zein Obagi, combining potent active ingredients with personalised protocols to optimise skin health and support your in-clinic treatment outcomes.',

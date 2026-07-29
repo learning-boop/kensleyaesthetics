@@ -429,7 +429,7 @@
 
   /* Small label above each price */
   .price-card__price-col--standard::before {
-    content: 'Standard';
+    content: 'Dr. Matla';
     display: block;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 8px;
@@ -440,7 +440,7 @@
   }
 
   .price-card__price-col--intro::before {
-    content: 'Introductory';
+    content: 'Medical Aesthetic Expert';
     display: block;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 8px;
