@@ -10,7 +10,6 @@ const NAV_LINKS = [
   { label: 'Results',    href: '/gallery' },
   { label: 'Reviews',    href: '/testimonials' },
   { label: 'About',      href: '/about' },
-  { label: 'Contact',    href: '/contact' },
 ];
 
 function Header() {
