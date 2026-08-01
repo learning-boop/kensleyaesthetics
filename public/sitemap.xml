@@ -5,7 +5,7 @@
   <url>
     <loc>https://kensleyaesthetics.com/</loc>
     <lastmod>2026-08-01</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>yearly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
@@ -23,7 +23,7 @@
   <url>
     <loc>https://kensleyaesthetics.com/gallery</loc>
     <lastmod>2026-07-22</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
@@ -53,7 +53,7 @@
   <url>
     <loc>https://kensleyaesthetics.com/blog</loc>
     <lastmod>2026-07-22</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
 
