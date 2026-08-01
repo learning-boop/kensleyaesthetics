@@ -273,42 +273,76 @@
 
   /* Sticky bottom CTA */
   .header__sticky-cta {
-    display: block;
+    display: flex;
+    gap: 8px;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 201;
-    padding: 12px 20px;
+    padding: 10px 16px;
     background: var(--color-white);
     box-shadow: 0 -1px 0 rgba(11, 42, 74, 0.08), 0 -4px 16px rgba(11, 42, 74, 0.06);
   }
 
+  /* Call Us Today — gold, left button */
+  .header__sticky-call-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    flex: 0 0 auto;
+    width: 44%;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #0c0f0d;
+    background: var(--color-gold);
+    padding: 14px 12px;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+
+  .header__sticky-call-btn:hover,
+  .header__sticky-call-btn:active {
+    background: #b89660;
+    color: #0c0f0d;
+  }
+
+  .header__sticky-call-icon {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
+  /* Book a Consultation — navy, right button */
   .header__sticky-cta-btn {
     display: block;
-    width: 100%;
+    flex: 1;
     font-family: var(--font-sans);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.10em;
     text-transform: uppercase;
     color: var(--color-white);
     background: var(--color-navy);
     border: none;
     cursor: pointer;
-    padding: 15px 20px;
+    padding: 14px 12px;
     transition: background 0.25s ease;
   }
 
   .header__sticky-cta-btn:hover,
   .header__sticky-cta-btn:active {
     background: var(--color-gold);
+    color: #0c0f0d;
   }
 }
 
 @media (max-width: 500px) {
-  .header__sticky-cta-btn {
-    font-size: 12px;
-    padding: 14px 20px;
-  }
+  .header__sticky-cta { padding: 10px 12px; gap: 6px; }
+  .header__sticky-call-btn { font-size: 11px; padding: 13px 10px; }
+  .header__sticky-cta-btn  { font-size: 11px; padding: 13px 10px; }
 }

@@ -1,4 +1,11 @@
 Options -MultiViews
+
+# ── MIME types ───────────────────────────────────────────────
+# Ensure XML is served with the correct type for Google Search Console
+AddType application/xml .xml
+AddType text/plain      .txt
+
+# ── React SPA routing ────────────────────────────────────────
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

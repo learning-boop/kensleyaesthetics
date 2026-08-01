@@ -1,51 +1,31 @@
 /* ═══════════════════════════════════════════════════════════
-   SPLIT-IMAGE SERVICES SECTION
-   Left  — dark bg + floating inset card image (lower-center)
-   Right — full-bleed image covering right half
-   Center — text spanning full section width, on top
+   STATS / CREDENTIALS SECTION  —  mobile-first
+   Mobile : column stack — cream headline on top, dark stats below
+   Desktop: side-by-side — cream left, cream right with dividers
    ═══════════════════════════════════════════════════════════ */
 
+/* ── Section shell ────────────────────────────────────────── */
 .si-root {
   display: flex;
-  align-items: stretch;
-  height: 110vh;
-  min-height: 620px;
+  flex-direction: column;
   background: #F5F0E8;
-  overflow: hidden;
 }
 
-/* ── LEFT TEXT ───────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════
+   LEFT / TOP — headline copy
+   ══════════════════════════════════════════════════════════ */
 .si-center {
-  flex: 0 0 52%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
-  padding-left: 8%;
-  padding-right: 4%;
-}
-
-/* ── RIGHT HALF — full-bleed image ───────────────────── */
-.si-right {
-  flex: 0 0 48%;
-  overflow: hidden;
-  margin: 5% 0;
-}
-
-/* ── IMAGE STYLES ────────────────────────────────────── */
-.si-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
+  padding: 64px 28px 56px;
 }
 
 .si-eyebrow {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: #c9aa71;
   display: block;
@@ -54,92 +34,181 @@
 
 .si-title {
   font-family: 'Cormorant', Georgia, serif;
-  font-size: clamp(64px, 9vw, 128px);
+  font-size: clamp(48px, 13vw, 80px);
   font-weight: 700;
-  line-height: 0.88;
-  letter-spacing: 0.04em;
+  line-height: 0.92;
+  letter-spacing: 0.03em;
   color: #0c0f0d;
   margin: 0 0 28px 0;
 }
 
 .si-divider {
-  width: 40px;
+  width: 36px;
   height: 1px;
   background: #c9aa71;
-  opacity: 0.8;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
+  flex-shrink: 0;
 }
 
 .si-subtitle {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 2;
-  letter-spacing: 0.3px;
-  color: #0c0f0d;
-  opacity: 1;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.95;
+  letter-spacing: 0.01em;
+  color: #555;
   margin: 0;
 }
 
-.si-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+.si-subtitle strong {
+  color: #0c0f0d;
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RIGHT / BOTTOM — credentials grid  (MOBILE: dark bg)
+   ══════════════════════════════════════════════════════════ */
+.si-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #0c0f0d;
+}
+
+/* ── Single card ───────────────────────────────────────── */
+.si-cred {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 36px 24px 32px;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  min-height: 200px;
+}
+
+.si-cred:nth-child(even)  { border-right: none; }
+.si-cred:nth-child(3),
+.si-cred:nth-child(4)     { border-bottom: none; }
+
+/* Gold top accent — visible on dark bg */
+.si-cred::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #c9aa71;
+  margin-bottom: 4px;
+  flex-shrink: 0;
+}
+
+.si-cred-number {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: clamp(52px, 14vw, 72px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #f8f4ef;        /* cream on dark */
+}
+
+.si-cred-label {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 9px;
-  letter-spacing: 3px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
   text-transform: uppercase;
-  color: black;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(245, 240, 232, 0.3);
-  padding-bottom: 4px;
-  transition: color 0.4s ease, border-color 0.4s ease;
+  color: #c9aa71;        /* gold on dark */
+  line-height: 1.55;
 }
 
-.si-link:hover {
-  color: #c9aa71;
-  border-color: #c9aa71;
+/* Detail text hidden on mobile — too cramped in 2-col narrow cards */
+.si-cred-detail {
+  display: none;
 }
 
-.si-link-arrow {
-  color: #c9aa71;
-  font-size: 13px;
-  transition: transform 0.4s ease;
-}
 
-.si-link:hover .si-link-arrow {
-  transform: translateX(4px);
-}
+/* ══════════════════════════════════════════════════════════
+   DESKTOP  ≥ 769px
+   ══════════════════════════════════════════════════════════ */
+@media (min-width: 769px) {
 
-/* ── TABLET ──────────────────────────────────────────── */
-@media (max-width: 1080px) {
-  .si-root { height: 80vh; }
-  .si-title { font-size: clamp(52px, 8vw, 96px); }
-}
-
-/* ── MOBILE ──────────────────────────────────────────── */
-@media (max-width: 680px) {
   .si-root {
-    min-height: 380px;
-    height: auto;
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 80vh;
+    overflow: hidden;
   }
 
+  /* ── Left text column ── */
   .si-center {
-    flex: 0 0 45%;
-    padding-left: 5%;
-    padding-right: 2%;
-  }
-
-  .si-right {
-    flex: 0 0 55%;
-    margin: 6% 0;
+    flex: 0 0 52%;
+    justify-content: center;
+    padding: 80px 5% 80px 8%;
   }
 
   .si-title {
-    font-size: clamp(32px, 9vw, 52px);
-    margin: 0 0 16px 0;
+    font-size: clamp(52px, 6vw, 96px);
+    margin: 0 0 32px 0;
   }
 
-  .si-eyebrow { margin-bottom: 12px; }
-  .si-divider { margin-bottom: 16px; }
+  .si-subtitle {
+    font-size: 14px;
+    max-width: 400px;
+  }
+
+  .si-divider { margin-bottom: 28px; }
+
+  /* ── Right credentials grid — cream on desktop ── */
+  .si-right {
+    flex: 0 0 48%;
+    background: #F5F0E8;
+    border-left: 1px solid rgba(201, 170, 113, 0.2);
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .si-cred {
+    justify-content: flex-start;
+    padding: 48px 32px 40px;
+    min-height: auto;
+    border-bottom: 1px solid rgba(201, 170, 113, 0.15);
+    border-right: 1px solid rgba(201, 170, 113, 0.15);
+    gap: 10px;
+  }
+
+  .si-cred:nth-child(even)  { border-right: none; }
+  .si-cred:nth-child(3),
+  .si-cred:nth-child(4)     { border-bottom: none; }
+
+  /* Accent bar colour flips to gold on cream */
+  .si-cred::before {
+    background: #c9aa71;
+    margin-bottom: 8px;
+  }
+
+  .si-cred-number {
+    font-size: clamp(44px, 4.5vw, 72px);
+    color: #0c0f0d;      /* dark on cream */
+  }
+
+  .si-cred-label {
+    color: #c9aa71;
+  }
+
+  /* Show detail text on desktop — enough room */
+  .si-cred-detail {
+    display: block;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #777;
+    margin: 2px 0 0;
+    max-width: 190px;
+  }
+}
+
+/* ── Wide tablet tweak ─────────────────────────────────── */
+@media (min-width: 769px) and (max-width: 1080px) {
+  .si-center { padding: 64px 4% 64px 6%; }
+  .si-cred   { padding: 36px 20px 30px; }
+  .si-cred-detail { max-width: 150px; }
 }

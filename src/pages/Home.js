@@ -53,7 +53,7 @@ function Home() {
       <BeforeAfter />
       <ExpertSection />
       <JourneySteps />
-      <QuickContact />
+<QuickContact />
     </>
   );
 }

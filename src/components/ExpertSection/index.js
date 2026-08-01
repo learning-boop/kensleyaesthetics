@@ -41,29 +41,26 @@ function ExpertSection() {
 
       {/* ── Top bar: eyebrow label ── */}
       <div className="ep-topbar">
-        <span className="ep-eyebrow">The Elements of Excellence</span>
+        <span className="ep-eyebrow">Founded by Dr. Tiru Matla</span>
       </div>
 
-      {/* ── Large heading — drifts with cursor, sits behind center image ── */}
+      {/* ── Large heading — drifts with cursor ── */}
       <motion.div className="ep-heading-wrap" style={{ x: headX, y: headY }}>
         <h2 className="ep-heading">
-          the finest care<br />
-          and expert touch
+          20 years<br />
+          of clinical<br />
+          excellence
         </h2>
       </motion.div>
-
-      {/* ── Bottom-left: small secondary image — counter-parallax ── */}
-      {/* <motion.div className="ep-img-small-wrap" style={{ x: smallX, y: smallY }}>
-        <img src={imgSmall} alt="Premium surgical instruments" className="ep-img-small" />
-      </motion.div> */}
 
       {/* ── Bottom-right: body text ── */}
       <div className="ep-body-wrap">
         <p className="ep-body">
-          Our specialists personally curate the most advanced aesthetic
-          protocols available. Every technique is selected for precision,
-          safety, and seamless results — care that leaves no trace, only
-          a more confident, radiant you.
+          Kensley Aesthetics was founded by Dr. Tiru Matla — a medical doctor
+          with over 20 years of clinical experience and more than a decade
+          specialising in aesthetic medicine. Dr. Matla personally oversees
+          clinical standards at Kensley Aesthetics, ensuring every treatment
+          meets the highest level of care.
         </p>
       </div>
 
