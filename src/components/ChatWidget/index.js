@@ -1,7 +1,8 @@
 function ChatWidget() {
   return (
     <div
-      className="elfsight-app-d01791c2-8407-4051-8386-f6c30a2d95e8"
+      // elfsight-app-594756f0-00a0-4242-b173-f98419c2b44d
+      className="elfsight-app-594756f0-00a0-4242-b173-f98419c2b44d"
       data-elfsight-app-lazy
     />
   );
