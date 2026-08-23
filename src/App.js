@@ -17,6 +17,7 @@ import Testimonials from './pages/Testimonials';
 import FAQ          from './pages/FAQ';
 import PrivacyPolicy    from './pages/PrivacyPolicy';
 import TermsConditions  from './pages/TermsConditions';
+import NotFound         from './pages/NotFound';
 import ChatWidget       from './components/ChatWidget';
 import Blog             from './pages/Blog';
 import BlogPost         from './pages/BlogPost';
@@ -53,7 +54,7 @@ function App() {
         <Route path="/prices"               element={<Prices />} />
         <Route path="/privacy-policy"       element={<PrivacyPolicy />} />
         <Route path="/terms"                element={<TermsConditions />} />
-        <Route path="*"                     element={<Home />} />
+        <Route path="*"                     element={<NotFound />} />
       </Routes>
       <Footer />
       <ChatWidget />

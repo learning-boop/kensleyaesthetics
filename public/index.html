@@ -2,94 +2,168 @@
 <html lang="en-GB">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light only" />
     <meta name="theme-color" content="#F8F4EF" />
 
-    <!-- Primary SEO -->
-    <title>Kensley Aesthetics | Aesthetic Clinic Newcastle &amp; London</title>
-    <meta name="description" content="Kensley Aesthetics — expert non-surgical aesthetic treatments including dermal fillers, anti-wrinkle injections, Profhilo, skin boosters, RF microneedling and HIFU in Newcastle and London." />
-    <meta name="keywords" content="aesthetic clinic, aesthetic clinic Newcastle, dermal fillers Newcastle, anti-wrinkle injections Newcastle, Profhilo Newcastle, RF microneedling Newcastle, HIFU Newcastle, non-surgical facelift, skin boosters, medical aesthetics clinic" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="author" content="Kensley Aesthetics" />
-
-    <!-- Geo -->
-    <meta name="geo.region" content="GB-NE" />
-    <meta name="geo.placename" content="Newcastle upon Tyne" />
-
-    <!-- Open Graph -->
-    <meta property="og:site_name" content="Kensley Aesthetics" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Kensley Aesthetics | Aesthetic Clinic Newcastle &amp; London" />
-    <meta property="og:description" content="Expert non-surgical aesthetic treatments — dermal fillers, anti-wrinkle injections, Profhilo, RF microneedling and HIFU in Newcastle and London." />
-    <meta property="og:url" content="https://kensleyaesthetics.com" />
-    <meta property="og:locale" content="en_GB" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kensley Aesthetics | Aesthetic Clinic Newcastle &amp; London" />
-    <meta name="twitter:description" content="Expert non-surgical aesthetic treatments — dermal fillers, anti-wrinkle injections, Profhilo, RF microneedling and HIFU in Newcastle and London." />
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://kensleyaesthetics.com" />
-
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://cdn.sanity.io" />
-
-    <!-- Elfsight AI Chatbot | Untitled AI Chatbot -->
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-594756f0-00a0-4242-b173-f98419c2b44d" data-elfsight-app-lazy></div>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <meta name="google-site-verification" content="uYQK0BUq5EyKq4h9vtpmFWdum_2l86QoIil3SygABf8" />
-      <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6G5K6B91P"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
-        gtag('config', 'G-N6G5K6B91P');
-      </script>
-      <script type="text/javascript">
-          (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "xqeqvr3gai");
-      </script>
-      <!-- Lucid Focus SDK -->
-      <script>
-        (function(w,d,s,l,i){
-          w[l]=w[l]||[];
-          var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s);
-          j.async=true;
-          j.src='https://www.mylucidfocus.com/sdk/lucidfocus.js';
-          j.onload=function(){ w[l].init({ apiKey: 'l_p4EWpYnFlPth9vAdHz_l3iP77U7mBSOS1ZmxdTjQ0' }); };
-          f.parentNode.insertBefore(j,f);
-        })(window,document,'script','LucidFocus','l_p4EWpYnFlPth9vAdHz_l3iP77U7mBSOS1ZmxdTjQ0');
-      </script>
-      <!-- Meta Pixel -->
-      <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1412403677447698');
-        fbq('track', 'PageView');
-      </script>
-      <noscript><img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=1412403677447698&ev=PageView&noscript=1"
-      /></noscript>
+    <!-- Must be inside <head>. Previously it was pushed into <body> by the Elfsight <div>. -->
+    <meta name="google-site-verification" content="uYQK0BUq5EyKq4h9vtpmFWdum_2l86QoIil3SygABf8" />
+
+    <!--
+      DEFAULTS ONLY.
+      SeoHead sets the real per-page <title>, description, canonical, OG and JSON-LD,
+      and scripts/prerender.mjs bakes those per-page values into each static HTML file.
+      Never put <link rel="canonical"> or og:url here - they must be unique per page.
+    -->
+    <title>Kensley Aesthetics | Doctor-Led Aesthetic Clinic, Jesmond, Newcastle</title>
+    <meta name="description" content="Doctor-led aesthetic clinic in Jesmond, Newcastle. Dermal fillers, anti-wrinkle injections, Profhilo, polynucleotides, RF microneedling &amp; HIFU by GMC-registered Dr Tiru Matla." />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="author" content="Kensley Aesthetics" />
+    <meta name="geo.region" content="GB-NET" />
+    <meta name="geo.placename" content="Newcastle upon Tyne" />
+    <meta property="og:site_name" content="Kensley Aesthetics" />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- Performance: warm up the CMS CDN before React asks for data -->
+    <link rel="preconnect" href="https://cdn.sanity.io" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+
+    <!--
+      Organisation + practitioner structured data.
+      Static on purpose: it must not depend on JavaScript running.
+      TODO: fill in streetAddress, postalCode, geo, openingHours and the GMC number.
+    -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["MedicalBusiness", "MedicalClinic"],
+          "@id": "https://kensleyaesthetics.com/#clinic",
+          "name": "Kensley Aesthetics",
+          "alternateName": "Kensley Aesthetics Newcastle",
+          "url": "https://kensleyaesthetics.com/",
+          "logo": "https://kensleyaesthetics.com/logo512.png",
+          "image": "https://kensleyaesthetics.com/logo512.png",
+          "description": "Doctor-led, GMC-registered aesthetic clinic in Jesmond, Newcastle upon Tyne offering dermal fillers, anti-wrinkle injections, skin boosters, polynucleotides, biostimulators, microneedling, RF microneedling and HIFU.",
+          "telephone": "+44 7920 699154",
+          "email": "kensleyclinic@gmail.com",
+          "priceRange": "\u00a3\u00a3",
+          "currenciesAccepted": "GBP",
+          "paymentAccepted": "Cash, Credit Card, Debit Card",
+          "medicalSpecialty": ["Dermatology", "PlasticSurgery"],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "TODO - clinic street address",
+            "addressLocality": "Jesmond, Newcastle upon Tyne",
+            "addressRegion": "Tyne and Wear",
+            "postalCode": "TODO - NE2 ...",
+            "addressCountry": "GB"
+          },
+          "geo": { "@type": "GeoCoordinates", "latitude": "TODO", "longitude": "TODO" },
+          "hasMap": "TODO - Google Maps share link of the clinic pin",
+          "openingHoursSpecification": [
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00" }
+          ],
+          "areaServed": ["Newcastle upon Tyne", "Jesmond", "Gosforth", "Gateshead", "North Tyneside", "Sunderland", "Durham", "Northumberland"],
+          "founder": { "@id": "https://kensleyaesthetics.com/#dr-tiru-matla" },
+          "employee": { "@id": "https://kensleyaesthetics.com/#dr-tiru-matla" },
+          "sameAs": [
+            "https://www.instagram.com/kensleyaesthetics/",
+            "https://www.facebook.com/profile.php?id=61591977870031",
+            "https://tiktok.com/@kensleyaesthetics",
+            "https://linkedin.com/company/kensleyaesthetics",
+            "https://www.youtube.com/channel/UCXApmZZivbQBNgQymp9dE6w"
+          ]
+        },
+        {
+          "@type": ["Person", "Physician"],
+          "@id": "https://kensleyaesthetics.com/#dr-tiru-matla",
+          "name": "Dr Tiru Matla",
+          "honorificPrefix": "Dr",
+          "jobTitle": "Founder & Clinical Director",
+          "description": "GMC-registered medical doctor (MBBS, MRCGP, DFSRH) with over 20 years of clinical experience, specialising in non-surgical aesthetic medicine.",
+          "url": "https://kensleyaesthetics.com/about",
+          "worksFor": { "@id": "https://kensleyaesthetics.com/#clinic" },
+          "hasCredential": [
+            { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "MBBS" },
+            { "@type": "EducationalOccupationalCredential", "credentialCategory": "membership", "name": "MRCGP" },
+            { "@type": "EducationalOccupationalCredential", "credentialCategory": "diploma", "name": "DFSRH" }
+          ],
+          "memberOf": { "@type": "Organization", "name": "General Medical Council", "url": "https://www.gmc-uk.org/" },
+          "identifier": { "@type": "PropertyValue", "propertyID": "GMC", "value": "TODO - GMC number" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://kensleyaesthetics.com/#website",
+          "url": "https://kensleyaesthetics.com/",
+          "name": "Kensley Aesthetics",
+          "publisher": { "@id": "https://kensleyaesthetics.com/#clinic" },
+          "inLanguage": "en-GB"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6G5K6B91P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N6G5K6B91P');
+    </script>
   </head>
+
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>Kensley Aesthetics - doctor-led aesthetic clinic in Jesmond, Newcastle. Please enable JavaScript to book online, or call 07920 699154.</noscript>
     <div id="root"></div>
+
+    <!-- Third-party widgets & pixels: body only, loaded after content -->
+
+    <!-- Elfsight AI Chatbot (a <div> is NOT allowed in <head>; it was breaking the head) -->
+    <div class="elfsight-app-594756f0-00a0-4242-b173-f98419c2b44d" data-elfsight-app-lazy></div>
+    <script src="https://elfsightcdn.com/platform.js" defer></script>
+
+    <!-- Microsoft Clarity -->
+    <script>
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "xqeqvr3gai");
+    </script>
+
+    <!-- Lucid Focus SDK -->
+    <script>
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        var f=d.getElementsByTagName(s)[0], j=d.createElement(s);
+        j.async=true; j.src='https://www.mylucidfocus.com/sdk/lucidfocus.js';
+        j.onload=function(){ w[l].init({ apiKey: i }); };
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','LucidFocus','l_p4EWpYnFlPth9vAdHz_l3iP77U7mBSOS1ZmxdTjQ0');
+    </script>
+
+    <!-- Meta Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1412403677447698');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" alt=""
+      src="https://www.facebook.com/tr?id=1412403677447698&ev=PageView&noscript=1" /></noscript>
   </body>
 </html>

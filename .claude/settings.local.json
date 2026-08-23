@@ -100,7 +100,11 @@
       "Bash(cd \"D:\\\\creative_touch\\\\renova\" && npx react-scripts build 2>&1 | tail -15)",
       "Bash(ls /d/creative_touch/renova/.env* 2>/dev/null; ls /d/creative_touch/renova/studio-renova/.env* 2>/dev/null)",
       "Bash(node -e \"const {createClient} = require\\('@sanity/client'\\); const c = createClient\\({projectId:'puzajrus',dataset:'production',apiVersion:'2024-01-01',useCdn:false}\\); c.fetch\\('*[_type==\\\\\"mainTreatment\\\\\"] | order\\(num asc\\) { _id, num, label, \\\\\"slug\\\\\": slug.current }'\\).then\\(r=>console.log\\(JSON.stringify\\(r,null,2\\)\\)\\).catch\\(e=>console.error\\(e.message\\)\\)\" 2>&1)",
-      "Bash(cd /d/creative_touch/renova/studio-renova && npx sanity deploy 2>&1)"
+      "Bash(cd /d/creative_touch/renova/studio-renova && npx sanity deploy 2>&1)",
+      "Bash(cd \"D:\\\\creative_touch\\\\renova\" && npm approve-scripts puppeteer && npm run postinstall --prefix node_modules/puppeteer 2>&1 || npx puppeteer browsers install chrome 2>&1)",
+      "Bash(cd \"D:\\\\creative_touch\\\\renova\" && node scripts/generate-sitemap.mjs 2>&1)",
+      "Bash(cd \"D:\\\\creative_touch\\\\renova\" && npm run build 2>&1)",
+      "Bash(rm -rf \"D:\\\\creative_touch\\\\renova\\\\node_modules\\\\.cache\" && cd \"D:\\\\creative_touch\\\\renova\" && npm run build 2>&1)"
     ]
   }
 }

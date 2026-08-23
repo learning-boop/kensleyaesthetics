@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { client, MAIN_TREATMENTS_QUERY } from '../lib/sanityClient';
 import PageHero from '../components/PageHero';
 import SeoHead from '../components/SeoHead';
@@ -31,7 +31,6 @@ const EXTRA_TREATMENTS = [
 
 export default function Treatments() {
   const [sanityData, setSanityData] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     client.fetch(MAIN_TREATMENTS_QUERY).then(setSanityData);
@@ -60,10 +59,10 @@ export default function Treatments() {
           {MAIN_TREATMENTS.map((t) => {
             const extra = sanityData.find((s) => s.slug === t.slug) || {};
             return (
-              <div
+              <Link
                 key={t.slug}
+                to={`/main-treatments/${t.slug}`}
                 className="tr-card tr-card--dark"
-                onClick={() => navigate(`/main-treatments/${t.slug}`)}
               >
                 {extra.image && (
                   <div className="tr-card__img-wrap">
@@ -76,18 +75,18 @@ export default function Treatments() {
                   <p className="tr-card__sub tr-card__sub--light">{extra.tagline || t.sub}</p>
                   <span className="tr-card__cta tr-card__cta--light">Explore →</span>
                 </div>
-              </div>
+              </Link>
             );
           })}
 
-          {/* 9 additional individual treatments — navigate to their own pages */}
+          {/* 9 additional individual treatments - navigate to their own pages */}
           {EXTRA_TREATMENTS.map((t) => {
             const extra = sanityData.find((s) => s.slug === t.slug) || {};
             return (
-              <div
+              <Link
                 key={t.slug}
+                to={`/main-treatments/${t.slug}`}
                 className="tr-card tr-card--dark"
-                onClick={() => navigate(`/main-treatments/${t.slug}`)}
               >
                 {extra.image && (
                   <div className="tr-card__img-wrap">
@@ -100,7 +99,7 @@ export default function Treatments() {
                   <p className="tr-card__sub tr-card__sub--light">{extra.tagline || t.sub}</p>
                   <span className="tr-card__cta tr-card__cta--light">Explore →</span>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

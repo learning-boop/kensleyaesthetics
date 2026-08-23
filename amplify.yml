@@ -4,15 +4,18 @@ frontend:
     preBuild:
       commands:
         - nvm use 22
-        - npm install
+        # Chrome shared libs for Puppeteer (Amazon Linux 2023 build image).
+        # If any package name fails, check `dnf provides` or run the prerender in GitHub Actions instead.
+        - sudo dnf install -y nss atk at-spi2-atk cups-libs libXcomposite libXdamage libXrandr libgbm pango alsa-lib libxkbcommon libdrm mesa-libgbm || true
+        - npm ci
     build:
       commands:
-        - npm run build
+        - npm run build          # runs prebuild (sitemap) -> react-scripts build -> postbuild (prerender)
   artifacts:
     baseDirectory: build
     files:
       - '**/*'
   cache:
     paths:
-      - .npm/**/*
       - node_modules/**/*
+      - ~/.cache/puppeteer/**/*

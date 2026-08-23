@@ -1,92 +1,174 @@
 import { useEffect } from 'react';
 
-const SITE_NAME = 'Kensley Aesthetics';
-const SITE_URL  = 'https://kensleyaesthetics.com';
+export const SITE_NAME = 'Kensley Aesthetics';
+export const SITE_URL  = 'https://kensleyaesthetics.com';
 
-function setMeta(attr, name, content) {
-  let el = document.querySelector(`meta[${attr}="${name}"]`);
+/* ────────────────────────────────────────────────────────────
+ * DOM helpers
+ * ──────────────────────────────────────────────────────────── */
+function upsertMeta(attr, name, content) {
+  let el = document.head.querySelector(`meta[${attr}="${name}"]`);
+  if (content == null || content === '') {
+    // Remove stale tags (e.g. og:image left over from the previous route)
+    if (el) el.remove();
+    return;
+  }
   if (!el) {
     el = document.createElement('meta');
     el.setAttribute(attr, name);
     document.head.appendChild(el);
   }
-  el.setAttribute('content', content || '');
+  el.setAttribute('content', content);
 }
 
-function setCanonical(href) {
-  let link = document.querySelector('link[rel="canonical"]');
-  if (!link) {
-    link = document.createElement('link');
-    link.setAttribute('rel', 'canonical');
-    document.head.appendChild(link);
+function upsertLink(rel, href) {
+  let el = document.head.querySelector(`link[rel="${rel}"]`);
+  if (!href) { if (el) el.remove(); return; }
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', rel);
+    document.head.appendChild(el);
   }
-  link.setAttribute('href', href);
+  el.setAttribute('href', href);
 }
 
-/**
- * SeoHead — sets document title, meta description, keywords, Open Graph,
- * Twitter Card, canonical URL, and optional JSON-LD structured data.
- *
- * Usage:
- *   <SeoHead
- *     title="Post title"
- *     description="Short summary"
- *     keywords="keyword one, keyword two"
- *     image="https://cdn.sanity.io/..."
- *     path="/blog/my-post"
- *     type="article"
- *     jsonLd={{ "@type": "BlogPosting", ... }}
- *   />
- */
-function SeoHead({ title, description, keywords, image, path, type = 'website', jsonLd }) {
-  useEffect(() => {
-    const pageTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
-    const canonical = path ? `${SITE_URL}${path}` : SITE_URL;
+function upsertJsonLd(id, data) {
+  let el = document.getElementById(id);
+  if (!data) { if (el) el.remove(); return; }
+  if (!el) {
+    el = document.createElement('script');
+    el.id   = id;
+    el.type = 'application/ld+json';
+    document.head.appendChild(el);
+  }
+  el.textContent = JSON.stringify(data);
+}
 
-    // ── Document title ────────────────────────────────────
+/* Normalise a path to the canonical form used site-wide:
+ * no trailing slash (except the homepage), no query string, no hash. */
+export function canonicalFor(path = '/') {
+  const clean = path.split(/[?#]/)[0].replace(/\/+$/, '');
+  return `${SITE_URL}${clean || '/'}`;
+}
+
+/* Build a <title>. If the page already includes the brand, don't add it again
+ * ("Lip Fillers Newcastle | Kensley Aesthetics | Kensley Aesthetics" was live). */
+export function buildTitle(title) {
+  if (!title) return `${SITE_NAME} | Doctor-Led Aesthetic Clinic, Jesmond, Newcastle`;
+  return title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+}
+
+/* ────────────────────────────────────────────────────────────
+ * JSON-LD builders (used by pages that pass faqs / breadcrumbs)
+ * ──────────────────────────────────────────────────────────── */
+export function faqPageLd(faqs = []) {
+  const items = faqs.filter(f => f && f.q && f.a);
+  if (!items.length) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+}
+
+export function breadcrumbLd(crumbs = []) {
+  // crumbs: [{ name: 'Treatments', path: '/treatments' }, ...]
+  if (!crumbs.length) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.name,
+      item: canonicalFor(c.path),
+    })),
+  };
+}
+
+/* ────────────────────────────────────────────────────────────
+ * <SeoHead />
+ *
+ *   <SeoHead
+ *     title="Lip Fillers Newcastle"
+ *     description="..."
+ *     path="/main-treatments/dermal-fillers/lips-1ml"
+ *     image="https://cdn.sanity.io/..."
+ *     type="article"                    // optional, default "website"
+ *     noindex                           // optional - 404, booking, thank-you pages
+ *     jsonLd={{...}}                    // optional page-level schema
+ *     faqs={[{ q, a }]}                // optional -> FAQPage schema
+ *     breadcrumbs={[{ name, path }]}   // optional -> BreadcrumbList schema
+ *   />
+ *
+ * NOTE: `keywords` has been dropped - Google has ignored the keywords meta tag since 2009.
+ * ──────────────────────────────────────────────────────────── */
+export default function SeoHead({
+  title,
+  description,
+  image,
+  path = '/',
+  type = 'website',
+  noindex = false,
+  jsonLd,
+  faqs,
+  breadcrumbs,
+  publishedTime,
+  modifiedTime,
+}) {
+  // Stringify complex props so the effect only re-runs when content changes,
+  // not on every render (inline object literals are new references each render).
+  const jsonLdKey = JSON.stringify(jsonLd || null);
+  const faqsKey   = JSON.stringify(faqs || null);
+  const crumbsKey = JSON.stringify(breadcrumbs || null);
+
+  useEffect(() => {
+    const pageTitle = buildTitle(title);
+    const canonical = canonicalFor(path);
+    const desc      = (description || '').trim().slice(0, 160);
+
     document.title = pageTitle;
 
-    // ── Standard meta ─────────────────────────────────────
-    setMeta('name', 'description', description);
-    if (keywords) setMeta('name', 'keywords', keywords);
+    upsertMeta('name', 'description', desc);
+    upsertMeta('name', 'robots', noindex
+      ? 'noindex, nofollow'
+      : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
 
-    // ── Open Graph ────────────────────────────────────────
-    setMeta('property', 'og:site_name',   SITE_NAME);
-    setMeta('property', 'og:type',        type);
-    setMeta('property', 'og:title',       pageTitle);
-    setMeta('property', 'og:description', description);
-    setMeta('property', 'og:url',         canonical);
-    if (image) setMeta('property', 'og:image', image);
+    upsertLink('canonical', noindex ? null : canonical);
 
-    // ── Twitter Card ──────────────────────────────────────
-    setMeta('name', 'twitter:card',        image ? 'summary_large_image' : 'summary');
-    setMeta('name', 'twitter:title',       pageTitle);
-    setMeta('name', 'twitter:description', description);
-    if (image) setMeta('name', 'twitter:image', image);
+    // Open Graph
+    upsertMeta('property', 'og:site_name',   SITE_NAME);
+    upsertMeta('property', 'og:locale',      'en_GB');
+    upsertMeta('property', 'og:type',        type);
+    upsertMeta('property', 'og:title',       pageTitle);
+    upsertMeta('property', 'og:description', desc);
+    upsertMeta('property', 'og:url',         canonical);
+    upsertMeta('property', 'og:image',       image || `${SITE_URL}/logo512.png`);
+    upsertMeta('property', 'article:published_time', type === 'article' ? publishedTime : null);
+    upsertMeta('property', 'article:modified_time',  type === 'article' ? modifiedTime  : null);
 
-    // ── Canonical ─────────────────────────────────────────
-    setCanonical(canonical);
+    // Twitter
+    upsertMeta('name', 'twitter:card',        'summary_large_image');
+    upsertMeta('name', 'twitter:title',       pageTitle);
+    upsertMeta('name', 'twitter:description', desc);
+    upsertMeta('name', 'twitter:image',       image || `${SITE_URL}/logo512.png`);
 
-    // ── JSON-LD structured data ───────────────────────────
-    if (jsonLd) {
-      let script = document.getElementById('seo-jsonld');
-      if (!script) {
-        script = document.createElement('script');
-        script.id   = 'seo-jsonld';
-        script.type = 'application/ld+json';
-        document.head.appendChild(script);
-      }
-      script.textContent = JSON.stringify(jsonLd);
-    }
+    // JSON-LD (page-level). Organisation/Physician schema lives statically in index.html.
+    upsertJsonLd('seo-jsonld',     JSON.parse(jsonLdKey));
+    upsertJsonLd('seo-faq',        faqPageLd(JSON.parse(faqsKey) || []));
+    upsertJsonLd('seo-breadcrumb', breadcrumbLd(JSON.parse(crumbsKey) || []));
+
+    // Marker used by scripts/prerender.mjs to know the head for THIS route is final.
+    document.documentElement.setAttribute('data-seo-path', path.replace(/\/+$/, '') || '/');
 
     return () => {
-      const script = document.getElementById('seo-jsonld');
-      if (script) script.remove();
+      document.documentElement.removeAttribute('data-seo-path');
     };
-  }, [title, description, keywords, image, path, type, jsonLd]);
+  }, [title, description, image, path, type, noindex, jsonLdKey, faqsKey, crumbsKey, publishedTime, modifiedTime]);
 
   return null;
 }
-
-export default SeoHead;
-export { SITE_URL, SITE_NAME };

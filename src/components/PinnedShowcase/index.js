@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import './PinnedShowcase.css';
 
@@ -9,7 +9,6 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
   const wrapperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const n = items.length;
-  const navigate = useNavigate();
 
   const scrollToItem = (i) => {
     const el = wrapperRef.current;
@@ -35,6 +34,7 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
   const total = String(n).padStart(2, '0');
 
   return (
+    <>
     <div ref={wrapperRef} className="ps-wrapper" style={{ height: `${n * 100}vh` }}>
       <div className="ps-sticky">
 
@@ -102,13 +102,13 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
                 exit={{ opacity: 0, x: 8 }}
                 transition={{ duration: 0.35, ease: easeOut, delay: 0.14 }}
               >
-                <button
+                <Link
                   className="ps-cta"
-                  onClick={() => navigate(`/main-treatments/${treatmentSlug}/${t.slug}`)}
+                  to={`/main-treatments/${treatmentSlug}/${t.slug}`}
                 >
                   Learn More
                   <span className="ps-cta__arrow">→</span>
-                </button>
+                </Link>
               </motion.div>
             </AnimatePresence>
           )}
@@ -169,5 +169,19 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
 
       </div>
     </div>
+
+    {/* Crawlable sub-treatment list — hidden visually but fully indexable by Google.
+        The scroll-jacked showcase above only shows one item at a time; this list
+        gives crawlers (and users on slow devices) every link at once. */}
+    {treatmentSlug && items.some(item => item.slug) && (
+      <ul style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }} aria-hidden="true">
+        {items.filter(item => item.slug).map((item) => (
+          <li key={item.slug}>
+            <Link to={`/main-treatments/${treatmentSlug}/${item.slug}`}>{item.name}</Link>
+          </li>
+        ))}
+      </ul>
+    )}
+    </>
   );
 }

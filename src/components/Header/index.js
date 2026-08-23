@@ -1,23 +1,22 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useAppointment } from '../../context/AppointmentContext';
 import './Header.css';
 
 const NAV_LINKS = [
-  { label: 'Home',       href: '/' },
-  { label: 'Treatments', href: '/treatments' },
-  { label: 'Prices',     href: '/prices' },
-  { label: 'Results',    href: '/gallery' },
-  { label: 'Reviews',    href: '/testimonials' },
-  { label: 'About',      href: '/about' },
+  { label: 'Home',         href: '/' },
+  { label: 'Treatments',   href: '/treatments' },
+  { label: 'Prices',       href: '/prices' },
+  { label: 'Results',      href: '/gallery' },
+  { label: 'Reviews',      href: '/testimonials' },
+  { label: 'About',        href: '/about' },
+  { label: 'Skin Concerns',href: '/skin-concerns' },
+  { label: 'Blog',         href: '/blog' },
 ];
 
 function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const navigate = useNavigate();
   const { openDrawer } = useAppointment();
-
-  const go = (href) => { setMobileOpen(false); navigate(href); };
 
   return (
     <>
@@ -45,13 +44,9 @@ function Header() {
           {/* Desktop nav links */}
           <nav className="header__nav">
             {NAV_LINKS.map((link) => (
-              <button
-                key={link.label}
-                className="header__nav-link"
-                onClick={() => navigate(link.href)}
-              >
+              <NavLink key={link.label} to={link.href} className="header__nav-link">
                 {link.label}
-              </button>
+              </NavLink>
             ))}
           </nav>
 
@@ -77,9 +72,9 @@ function Header() {
       <div className={`header__mobile-menu ${mobileOpen ? 'header__mobile-menu--open' : ''}`}>
         <nav className="header__mobile-nav">
           {NAV_LINKS.map((link) => (
-            <button key={link.label} className="header__mobile-link" onClick={() => go(link.href)}>
+            <Link key={link.label} to={link.href} className="header__mobile-link" onClick={() => setMobileOpen(false)}>
               {link.label}
-            </button>
+            </Link>
           ))}
         </nav>
         <button className="header__mobile-book" onClick={() => { setMobileOpen(false); openDrawer(); }}>

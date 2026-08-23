@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { client } from '../lib/sanityClient';
 import { useTreatments } from '../context/TreatmentsContext';
 import { useAppointment } from '../context/AppointmentContext';
@@ -53,7 +53,6 @@ const RELATED_MAP = {
 
 function MainTreatmentDetail() {
   const { slug } = useParams();
-  const navigate = useNavigate();
   const { openDrawer } = useAppointment();
   const { treatments: packages } = useTreatments();
 
@@ -95,12 +94,16 @@ function MainTreatmentDetail() {
   if (loading) return null;
   if (!treatment) return (
     <div style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
+      <SeoHead title="Coming Soon" description="This treatment page is being prepared." path={`/main-treatments/${slug}`} noindex />
       <p style={{ fontFamily: 'Cormorant, Georgia, serif', fontSize: 22, letterSpacing: 2, color: 'var(--color-primary)' }}>
         Content coming soon
       </p>
       <p style={{ fontSize: 13, color: 'var(--color-primary)', opacity: 0.6 }}>
         This treatment page is being prepared. Check back shortly.
       </p>
+      <Link to="/treatments" style={{ fontSize: 13, color: 'var(--color-primary)' }}>
+        View All Treatments
+      </Link>
     </div>
   );
 
@@ -151,9 +154,9 @@ function MainTreatmentDetail() {
             <button className="mtd-btn mtd-btn--dark" onClick={openDrawer}>
               Book Appointment
             </button>
-            <button className="mtd-btn mtd-btn--ghost" onClick={() => navigate('/treatments')}>
+            <Link className="mtd-btn mtd-btn--ghost" to="/treatments">
               All Treatments
-            </button>
+            </Link>
           </div>
         </div>
         <div className="mtd-hero__image-wrap">

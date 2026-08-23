@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { client, SUB_TREATMENT_QUERY } from '../lib/sanityClient';
 import { useAppointment } from '../context/AppointmentContext';
 import { STATIC_SUB_TREATMENTS } from '../data/subTreatments';
@@ -10,7 +10,6 @@ import './SubTreatmentDetail.css';
 
 function SubTreatmentDetail() {
   const { slug, subSlug }     = useParams();
-  const navigate               = useNavigate();
   const { openDrawer }         = useAppointment();
 
   const [treatment, setTreatment] = useState(null);
@@ -77,11 +76,12 @@ function SubTreatmentDetail() {
 
   if (!treatment) return (
     <div className="std-coming-soon">
+      <SeoHead title="Coming Soon" description="This treatment page is being prepared." path={`/main-treatments/${slug}/${subSlug}`} noindex />
       <span className="std-coming-soon__eyebrow">Kensley Aesthetics</span>
       <p className="std-coming-soon__text">This treatment page is being prepared.</p>
-      <button className="std-coming-soon__back" onClick={() => navigate(`/main-treatments/${slug}`)}>
-        ← Back to Treatment
-      </button>
+      <Link className="std-coming-soon__back" to={`/main-treatments/${slug}`}>
+        Back to Treatment
+      </Link>
     </div>
   );
 
@@ -159,9 +159,9 @@ function SubTreatmentDetail() {
           {treatment.description && <p className="std-hero__desc">{treatment.description}</p>}
           <div className="std-hero__actions">
             <button className="std-btn std-btn--gold" onClick={openDrawer}>Book Consultation</button>
-            <button className="std-btn std-btn--ghost" onClick={() => navigate(`/main-treatments/${slug}`)}>
-              ← {parentLabel}
-            </button>
+            <Link className="std-btn std-btn--ghost" to={`/main-treatments/${slug}`}>
+              {parentLabel}
+            </Link>
           </div>
         </div>
         {(treatment.image || treatment.heroImage) && (
@@ -367,11 +367,11 @@ function SubTreatmentDetail() {
             <h2 className="std-related__title">Related Treatments</h2>
             <div className="std-related__grid">
               {treatment.relatedTreatments.map((rt, i) => (
-                <button key={i} className="std-related__card" onClick={() => navigate(`/main-treatments/${rt.parentSlug}/${rt.slug}`)}>
+                <Link key={i} to={`/main-treatments/${rt.parentSlug}/${rt.slug}`} className="std-related__card">
                   <span className="std-related__group">{rt.title}</span>
                   <span className="std-related__name">{rt.name}</span>
                   <span className="std-related__arrow">→</span>
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -383,9 +383,9 @@ function SubTreatmentDetail() {
         <div className="std-back__inner">
           <span className="std-back__eyebrow">{parentLabel}</span>
           <h2 className="std-back__title">Explore More {parentLabel} Treatments</h2>
-          <button className="std-btn std-btn--ghost" onClick={() => navigate(`/main-treatments/${slug}`)}>
+          <Link className="std-btn std-btn--ghost" to={`/main-treatments/${slug}`}>
             View All {parentLabel} →
-          </button>
+          </Link>
         </div>
       </section>
 

@@ -1,12 +1,31 @@
 Options -MultiViews
+RewriteEngine On
 
-# ── MIME types ───────────────────────────────────────────────
-# Ensure XML is served with the correct type for Google Search Console
+# MIME types: sitemap/robots must not be rewritten to the SPA shell
 AddType application/xml .xml
 AddType text/plain      .txt
 
-# ── React SPA routing ────────────────────────────────────────
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.html [QSA,L]
+# 1. Real file? serve it (covers /sitemap.xml, /robots.txt, /static/*, images)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# 2. Prerendered page exists as /<route>/index.html? serve it WITHOUT redirecting
+RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+RewriteRule ^(.+?)/?$ /$1/index.html [L]
+
+# 3. ...or as /<route>.html
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ /$1.html [L]
+
+# 4. Otherwise fall back to the SPA shell (React Router renders <NotFound />)
+RewriteRule ^ /200.html [L]
+
+# Cache static assets hard, HTML softly
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|woff2?|webp|png|jpe?g|svg|mp4)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(html|xml|txt)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
