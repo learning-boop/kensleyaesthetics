@@ -6,7 +6,6 @@ export const PRIMARY_LINKS = [
 ];
 
 export const SECONDARY_LINKS = [
-  { label: 'Skin Concerns',  href: '/skin-concerns' },
   { label: 'Testimonials',   href: '/testimonials' },
   { label: 'Gallery',        href: '/gallery' },
   { label: 'FAQ',            href: '/faq' },

@@ -104,7 +104,9 @@
       "Bash(cd \"D:\\\\creative_touch\\\\renova\" && npm approve-scripts puppeteer && npm run postinstall --prefix node_modules/puppeteer 2>&1 || npx puppeteer browsers install chrome 2>&1)",
       "Bash(cd \"D:\\\\creative_touch\\\\renova\" && node scripts/generate-sitemap.mjs 2>&1)",
       "Bash(cd \"D:\\\\creative_touch\\\\renova\" && npm run build 2>&1)",
-      "Bash(rm -rf \"D:\\\\creative_touch\\\\renova\\\\node_modules\\\\.cache\" && cd \"D:\\\\creative_touch\\\\renova\" && npm run build 2>&1)"
+      "Bash(rm -rf \"D:\\\\creative_touch\\\\renova\\\\node_modules\\\\.cache\" && cd \"D:\\\\creative_touch\\\\renova\" && npm run build 2>&1)",
+      "Bash(cd D:/creative_touch/renova && npm --version && node --version)",
+      "Bash(cd D:/creative_touch/renova && npm ls yaml 2>&1)"
     ]
   }
 }
