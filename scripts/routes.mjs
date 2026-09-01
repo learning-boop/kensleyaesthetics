@@ -12,6 +12,21 @@
 import fs from 'node:fs';
 import { createClient } from '@sanity/client';
 
+/* Location slugs — keep in sync with src/data/locations.js */
+export const LOCATION_SLUGS = [
+  'newcastle-upon-tyne','gateshead','sunderland','durham','washington',
+  'south-shields','jarrow','hebburn','wallsend','north-shields','tynemouth',
+  'whitley-bay','cramlington','blyth','bedlington','ashington','morpeth',
+  'hexham','consett','stanley','chester-le-street','blaydon','prudhoe',
+  'peterlee','seaham','bishop-auckland','middlesbrough','hartlepool',
+  'darlington','stockton-on-tees','alnwick',
+  'leeds','sheffield','york','harrogate','bradford','wakefield',
+  'manchester','liverpool','preston','blackpool','carlisle','penrith',
+  'edinburgh','glasgow','berwick-upon-tweed',
+  'birmingham','nottingham','derby',
+  'london','bristol',
+];
+
 export const SITE_URL = 'https://kensleyaesthetics.com';
 
 const client = createClient({
@@ -41,11 +56,18 @@ export const STATIC_ROUTES = [
   { path: '/faq',            priority: 0.6, changefreq: 'monthly' },
   { path: '/blog',           priority: 0.8, changefreq: 'weekly'  },
   { path: '/training',       priority: 0.5, changefreq: 'monthly' },
+  { path: '/locations',      priority: 0.8, changefreq: 'monthly' },
   { path: '/privacy-policy', priority: 0.2, changefreq: 'yearly'  },
   { path: '/terms',          priority: 0.2, changefreq: 'yearly'  },
   { path: '/book',           sitemap: false },
   { path: '/treatment-plan', sitemap: false },
   { path: '/404',            sitemap: false },
+  /* Location pages */
+  ...LOCATION_SLUGS.map(slug => ({
+    path: `/locations/${slug}`,
+    priority: 0.7,
+    changefreq: 'monthly',
+  })),
 ];
 
 /* Price-variant / duplicate sub-treatment slugs (audit §1.10). Once you have

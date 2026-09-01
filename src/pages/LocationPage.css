@@ -1,0 +1,492 @@
+/* ═══════════════════════════════════════════════════
+   LocationPage.css
+   Styles for /locations/:slug — on-brand with the
+   rest of Kensley Aesthetics (dark navy + gold).
+═══════════════════════════════════════════════════ */
+
+/* ── Hero ──────────────────────────────────────── */
+.lp-hero {
+  background-color: var(--color-dark);
+  color: var(--color-cream);
+  padding: 9rem 1.5rem 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.lp-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 40%, rgba(200,169,106,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.lp-hero__eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+}
+
+.lp-hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-cream);
+  margin-bottom: 1.25rem;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.lp-hero__subtitle {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(250,248,245,0.65);
+  max-width: 540px;
+  margin-inline: auto;
+  line-height: 1.7;
+}
+
+/* ── CTA bar ───────────────────────────────────── */
+.lp-cta-bar {
+  background-color: var(--color-gold);
+  padding: 1.75rem 1.5rem;
+}
+
+.lp-cta-bar__inner {
+  max-width: 900px;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.lp-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.75rem;
+  border-radius: 0;
+  border: 2px solid var(--color-dark);
+  cursor: pointer;
+  transition: background 0.22s, color 0.22s, border-color 0.22s;
+  text-decoration: none;
+}
+
+.lp-cta-btn--primary {
+  background-color: var(--color-dark);
+  color: var(--color-cream);
+}
+
+.lp-cta-btn--primary:hover {
+  background-color: #0a2240;
+  border-color: #0a2240;
+}
+
+.lp-cta-btn--outline {
+  background-color: transparent;
+  color: var(--color-dark);
+}
+
+.lp-cta-btn--outline:hover {
+  background-color: var(--color-dark);
+  color: var(--color-cream);
+}
+
+/* ── Intro section ─────────────────────────────── */
+.lp-intro {
+  padding: 5rem 1.5rem;
+  background-color: var(--color-cream);
+}
+
+.lp-intro__inner {
+  max-width: 860px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.lp-intro__label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.lp-intro__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-dark);
+  margin-bottom: 0;
+}
+
+.lp-intro__body {
+  padding-top: 0.25rem;
+}
+
+.lp-intro__body p {
+  font-family: var(--font-sans);
+  font-size: 0.97rem;
+  line-height: 1.8;
+  color: var(--color-charcoal);
+  margin-bottom: 1.25rem;
+}
+
+.lp-intro__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Dr Matla section ──────────────────────────── */
+.lp-doctor {
+  background-color: var(--color-dark);
+  color: var(--color-cream);
+  padding: 5rem 1.5rem;
+}
+
+.lp-doctor__inner {
+  max-width: 860px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.lp-doctor__photo-wrap {
+  position: relative;
+}
+
+.lp-doctor__photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.lp-doctor__photo-accent {
+  position: absolute;
+  bottom: -1rem;
+  right: -1rem;
+  width: 60%;
+  height: 60%;
+  border: 2px solid var(--color-gold);
+  pointer-events: none;
+}
+
+.lp-doctor__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.lp-doctor__name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-cream);
+  margin-bottom: 1.25rem;
+}
+
+.lp-doctor__bio {
+  font-family: var(--font-sans);
+  font-size: 0.97rem;
+  line-height: 1.8;
+  color: rgba(250,248,245,0.75);
+  margin-bottom: 1rem;
+}
+
+.lp-doctor__credentials {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.lp-doctor__credentials li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.87rem;
+  color: rgba(250,248,245,0.7);
+  line-height: 1.5;
+}
+
+.lp-doctor__credentials li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 20px;
+  height: 1px;
+  background: var(--color-gold);
+  margin-top: 0.7rem;
+}
+
+/* ── Treatments grid ───────────────────────────── */
+.lp-treatments {
+  background-color: var(--color-beige);
+  padding: 5rem 1.5rem;
+}
+
+.lp-treatments__inner {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.lp-section-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
+}
+
+.lp-section-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  color: var(--color-dark);
+  margin-bottom: 2.5rem;
+}
+
+.lp-treatments__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1px;
+  background-color: rgba(11,42,74,0.12);
+  border: 1px solid rgba(11,42,74,0.12);
+}
+
+.lp-treatment-card {
+  background-color: var(--color-cream);
+  padding: 1.6rem 1.4rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: background 0.2s;
+}
+
+.lp-treatment-card:hover {
+  background-color: var(--color-dark);
+}
+
+.lp-treatment-card:hover .lp-treatment-card__name,
+.lp-treatment-card:hover .lp-treatment-card__tagline {
+  color: var(--color-cream);
+}
+
+.lp-treatment-card__num {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--color-gold);
+}
+
+.lp-treatment-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--color-dark);
+  line-height: 1.25;
+  transition: color 0.2s;
+}
+
+.lp-treatment-card__tagline {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: #6b7280;
+  line-height: 1.5;
+  transition: color 0.2s;
+}
+
+/* ── Nearby areas ──────────────────────────────── */
+.lp-nearby {
+  background-color: var(--color-cream);
+  padding: 4rem 1.5rem;
+  border-top: 1px solid rgba(11,42,74,0.08);
+}
+
+.lp-nearby__inner {
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.lp-nearby__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.lp-nearby__tag {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--color-dark);
+  border: 1px solid rgba(11,42,74,0.25);
+  padding: 0.35rem 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+/* ── Contact section ───────────────────────────── */
+.lp-contact {
+  background-color: var(--color-dark);
+  color: var(--color-cream);
+  padding: 5rem 1.5rem;
+}
+
+.lp-contact__inner {
+  max-width: 860px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.lp-contact__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  color: var(--color-cream);
+  margin-bottom: 1rem;
+}
+
+.lp-contact__text {
+  font-family: var(--font-sans);
+  font-size: 0.97rem;
+  line-height: 1.8;
+  color: rgba(250,248,245,0.7);
+  margin-bottom: 2rem;
+}
+
+.lp-contact__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lp-contact__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.lp-contact__link:hover {
+  opacity: 0.75;
+}
+
+.lp-contact__link svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ── CTA below contact form ────────────────────── */
+.lp-bottom-cta {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(250,248,245,0.1);
+}
+
+.lp-bottom-cta p {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: rgba(250,248,245,0.55);
+  line-height: 1.6;
+}
+
+/* ── Breadcrumb ────────────────────────────────── */
+.lp-breadcrumb {
+  background-color: var(--color-beige);
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid rgba(11,42,74,0.08);
+}
+
+.lp-breadcrumb__inner {
+  max-width: 900px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: rgba(11,42,74,0.5);
+}
+
+.lp-breadcrumb__inner a {
+  color: rgba(11,42,74,0.6);
+  text-decoration: none;
+}
+
+.lp-breadcrumb__inner a:hover {
+  color: var(--color-dark);
+}
+
+.lp-breadcrumb__sep {
+  opacity: 0.4;
+}
+
+/* ── Responsive ────────────────────────────────── */
+@media (max-width: 700px) {
+  .lp-intro__inner,
+  .lp-doctor__inner,
+  .lp-contact__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .lp-doctor__photo-wrap {
+    max-width: 280px;
+    margin-inline: auto;
+  }
+
+  .lp-hero {
+    padding: 7rem 1.25rem 3.5rem;
+  }
+
+  .lp-cta-bar__inner {
+    flex-direction: column;
+  }
+
+  .lp-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
