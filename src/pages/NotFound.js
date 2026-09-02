@@ -35,7 +35,7 @@ export default function NotFound() {
       <h1 style={{ margin: '.5rem 0 1rem' }}>We couldn't find that page</h1>
       <p style={{ maxWidth: 520, margin: '0 auto 2rem' }}>
         The link may be out of date, or the page may have moved. Here are the pages people
-        visit most - or call us on <a href="tel:+447920699154">3330570295</a>.
+        visit most - or call us on <a href="tel:03334442013">0333 444 2013</a>.
       </p>
 
       <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexWrap: 'wrap', gap: '.75rem', justifyContent: 'center' }}>

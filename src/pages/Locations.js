@@ -50,7 +50,7 @@ const LOCAL_BUSINESS_LD = {
     addressRegion: 'Tyne and Wear',
     addressCountry: 'GB',
   },
-  telephone: '+447920699154',
+  telephone: '03334442013',
   areaServed: LOCATIONS.map(l => ({
     '@type': 'City',
     name: l.name,
@@ -130,7 +130,7 @@ export default function Locations() {
           <button className="locs-cta-btn locs-cta-btn--gold" onClick={openDrawer}>
             Book an Appointment
           </button>
-          <a className="locs-cta-btn locs-cta-btn--ghost" href="tel:+447920699154">
+          <a className="locs-cta-btn locs-cta-btn--ghost" href="tel:03334442013">
             Call Us
           </a>
           <a

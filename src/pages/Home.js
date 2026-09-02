@@ -14,6 +14,7 @@ import ExpertSection       from '../components/ExpertSection';
 import QuickContact        from '../components/QuickContact';
 import HomeFaqSection      from '../components/HomeFaqSection';
 import JourneySteps        from '../components/JourneySteps';
+import { TeamSplit }       from '../components/TeamSection';
 import SeoHead             from '../components/SeoHead';
 
 const LOCAL_BUSINESS_LD = {
@@ -52,6 +53,7 @@ function Home() {
       <Stats />
       <BeforeAfter />
       <ExpertSection />
+      <TeamSplit />
       <JourneySteps />
 <QuickContact />
     </>

@@ -2,5 +2,29 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /ai-preview
+Disallow: /book
+Disallow: /treatment-plan
+
+# AI crawlers — allow full indexing so answers surface Kensley Aesthetics
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
 
 Sitemap: https://kensleyaesthetics.com/sitemap.xml

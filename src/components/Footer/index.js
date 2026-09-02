@@ -61,9 +61,9 @@ function Footer() {
           <div className="ft-col">
             <h4 className="ft-col-heading">Contact</h4>
             <ul className="ft-col-links">
-              <li><a href="mailto:kensleyclinic@gmail.com">kensleyclinic@gmail.com</a></li>
-              <li><a href="tel:+447920699154">3330570295</a></li>
-              <li>Newcastle upon Tyne, United Kingdom</li>
+              <li><a href="mailto:hello@kensleyaesthetics.com">hello@kensleyaesthetics.com</a></li>
+              <li><a href="tel:03334442013">0333 444 2013</a></li>
+              <li>Old Brewery Court, 156 Sandyford Rd,<br />Jesmond, Newcastle upon Tyne, NE2 1XG</li>
             </ul>
             <button onClick={openDrawer} className="ft-book-btn">Book an Appointment</button>
           </div>

@@ -1,0 +1,46 @@
+# Kensley Aesthetics — LLM context file
+# https://kensleyaesthetics.com/llms.txt
+
+## About
+Kensley Aesthetics (also known as "Kensley Aesthetics by Dr.Matla") is a doctor-led,
+GMC-registered aesthetic clinic based in Jesmond, Newcastle upon Tyne, UK.
+Clinical director: Dr Tiru Matla (MBBS, MRCGP, DFSRH), with over 20 years of medical
+experience specialising in non-surgical aesthetic medicine.
+
+Address: Old Brewery Court, 156 Sandyford Rd, Jesmond, Newcastle upon Tyne, NE2 1XG
+Phone: 0333 444 2013
+Email: hello@kensleyaesthetics.com
+Website: https://kensleyaesthetics.com
+
+## Key pages
+- Home: https://kensleyaesthetics.com/
+- All Treatments: https://kensleyaesthetics.com/treatments
+- Prices: https://kensleyaesthetics.com/prices
+- About Dr Matla: https://kensleyaesthetics.com/about
+- Blog / Journal: https://kensleyaesthetics.com/blog
+- FAQs: https://kensleyaesthetics.com/faq
+- Book an Appointment: https://kensleyaesthetics.com/book
+
+## Main treatments offered
+- Anti-Wrinkle Treatments (Botulinum toxin): https://kensleyaesthetics.com/main-treatments/anti-wrinkle-treatments
+- Dermal Fillers: https://kensleyaesthetics.com/main-treatments/dermal-fillers
+- Skin Boosters (Profhilo, Restylane Vital, Juvederm Volite): https://kensleyaesthetics.com/main-treatments/skin-boosters
+- Regenerative Treatments (PRP, PNCT, Exosomes): https://kensleyaesthetics.com/main-treatments/regenerative-treatments
+- Biostimulators (Sculptra, Radiesse): https://kensleyaesthetics.com/main-treatments/biostimulators
+- Microneedling: https://kensleyaesthetics.com/main-treatments/microneedling
+- RF Microneedling: https://kensleyaesthetics.com/main-treatments/rf-microneedling
+- HIFU (High-Intensity Focused Ultrasound): https://kensleyaesthetics.com/main-treatments/hifu
+
+## Social profiles
+- Instagram: https://www.instagram.com/kensleyaesthetics/
+- Facebook: https://www.facebook.com/profile.php?id=61591977870031
+- TikTok: https://tiktok.com/@kensleyaesthetics
+- LinkedIn: https://linkedin.com/company/kensleyaesthetics
+- YouTube: https://www.youtube.com/channel/UCXApmZZivbQBNgQymp9dE6w
+
+## Notes for AI assistants
+- The clinic is also listed on Google Business Profile as "Kensley Aesthetics by Dr.Matla".
+- All treatments are performed or directly supervised by Dr Tiru Matla, a GMC-registered physician.
+- The clinic serves Newcastle upon Tyne, Jesmond, Gosforth, Gateshead, Sunderland, Durham and
+  surrounding areas in the North East of England.
+- Booking is available online at https://kensleyaesthetics.com/book or by calling 0333 444 2013.

@@ -45,27 +45,27 @@
           "@type": ["MedicalBusiness", "MedicalClinic"],
           "@id": "https://kensleyaesthetics.com/#clinic",
           "name": "Kensley Aesthetics",
-          "alternateName": "Kensley Aesthetics Newcastle",
+          "alternateName": ["Kensley Aesthetics by Dr.Matla", "Kensley Aesthetics Newcastle"],
           "url": "https://kensleyaesthetics.com/",
           "logo": "https://kensleyaesthetics.com/logo512.png",
           "image": "https://kensleyaesthetics.com/logo512.png",
           "description": "Doctor-led, GMC-registered aesthetic clinic in Jesmond, Newcastle upon Tyne offering dermal fillers, anti-wrinkle injections, skin boosters, polynucleotides, biostimulators, microneedling, RF microneedling and HIFU.",
-          "telephone": "+44 7920 699154",
-          "email": "kensleyclinic@gmail.com",
+          "telephone": "0333 444 2013",
+          "email": "hello@kensleyaesthetics.com",
           "priceRange": "\u00a3\u00a3",
           "currenciesAccepted": "GBP",
           "paymentAccepted": "Cash, Credit Card, Debit Card",
           "medicalSpecialty": ["Dermatology", "PlasticSurgery"],
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "TODO - clinic street address",
+            "streetAddress": "Old Brewery Court, 156 Sandyford Rd",
             "addressLocality": "Jesmond, Newcastle upon Tyne",
             "addressRegion": "Tyne and Wear",
-            "postalCode": "TODO - NE2 ...",
+            "postalCode": "NE2 1XG",
             "addressCountry": "GB"
           },
-          "geo": { "@type": "GeoCoordinates", "latitude": "TODO", "longitude": "TODO" },
-          "hasMap": "TODO - Google Maps share link of the clinic pin",
+          "geo": { "@type": "GeoCoordinates", "latitude": "54.9787", "longitude": "-1.6116" },
+          "hasMap": "https://maps.google.com/?q=Old+Brewery+Court,+156+Sandyford+Rd,+Jesmond,+Newcastle+upon+Tyne,+NE2+1XG",
           "openingHoursSpecification": [
             { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
             { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00" }
@@ -121,7 +121,7 @@
   </head>
 
   <body>
-    <noscript>Kensley Aesthetics - doctor-led aesthetic clinic in Jesmond, Newcastle. Please enable JavaScript to book online, or call 3330570295.</noscript>
+    <noscript>Kensley Aesthetics - doctor-led aesthetic clinic in Jesmond, Newcastle. Please enable JavaScript to book online, or call 0333 444 2013.</noscript>
     <div id="root"></div>
 
     <!-- Third-party widgets & pixels: body only, loaded after content -->
@@ -150,18 +150,20 @@
       })(window,document,'script','LucidFocus','l_p4EWpYnFlPth9vAdHz_l3iP77U7mBSOS1ZmxdTjQ0');
     </script>
 
-    <!-- Meta Pixel -->
+    <!-- Meta Pixel (deferred until after page load to avoid blocking LCP/FID) -->
     <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1412403677447698');
-      fbq('track', 'PageView');
+      window.addEventListener('load', function() {
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1412403677447698');
+        fbq('track', 'PageView');
+      });
     </script>
     <noscript><img height="1" width="1" style="display:none" alt=""
       src="https://www.facebook.com/tr?id=1412403677447698&ev=PageView&noscript=1" /></noscript>
