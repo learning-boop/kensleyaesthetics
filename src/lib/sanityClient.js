@@ -46,6 +46,7 @@ export const BLOG_POST_QUERY = `*[_type == "blogPost" && slug.current == $slug][
   title,
   "slug": slug.current,
   publishedAt,
+  _updatedAt,
   category,
   readingTime,
   "coverImage": coverImage.asset->url,
@@ -150,6 +151,7 @@ export const TREATMENTS_QUERY = `*[_type == "treatment"] | order(num asc) {
   "reviews": reviews[].asset->url,
   benefits,
   ideal,
+  prices[] { name, price },
   steps[] {
     stepTitle,
     stepDescription,

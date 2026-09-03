@@ -17,6 +17,17 @@
   background: #f5f0e8;
 }
 
+/* ── Internal links ──────────────────────────────────────── */
+.ep-eyebrow-link,
+.ep-body-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--color-gold, #b9935a);
+  text-underline-offset: 3px;
+}
+.ep-eyebrow-link:hover,
+.ep-body-link:hover { opacity: 0.75; }
+
 /* ── Top bar ─────────────────────────────────────────────── */
 .ep-topbar {
   position: absolute;

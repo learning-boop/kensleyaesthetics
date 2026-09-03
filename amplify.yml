@@ -14,6 +14,15 @@ frontend:
     build:
       commands:
         - npm run build          # runs prebuild (sitemap) -> react-scripts build -> postbuild (prerender)
+  customRules:
+    # www → non-www permanent redirect
+    - source: 'https://www.kensleyaesthetics.com/<*>'
+      target: 'https://kensleyaesthetics.com/<*>'
+      status: '301'
+    # SPA fallback for any URL that didn't get a prerendered static file
+    - source: '</^[^.]+$|\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|woff2|ttf|map|json|xml|mp4|webp)$)([^.]+$)/>'
+      target: '/index.html'
+      status: '200'
   artifacts:
     baseDirectory: build
     files:

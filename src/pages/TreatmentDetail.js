@@ -36,6 +36,8 @@ function TreatmentDetail() {
       : `${treatment.tagline || ''} — Kensley Aesthetics treatment programme in Newcastle.`
     );
 
+  const priceFrom = treatment.prices?.[0]?.price;
+
   return (
     <>
       <SeoHead
@@ -43,13 +45,37 @@ function TreatmentDetail() {
         description={seoDesc.slice(0, 160)}
         image={treatment.image}
         path={`/treatments/${slug}`}
+        faqs={treatment.faqs}
+        breadcrumbs={[
+          { name: 'Home',                  path: '/' },
+          { name: 'Signature Programmes',  path: '/treatments' },
+          { name: treatment.label,         path: `/treatments/${slug}` },
+        ]}
         jsonLd={{
           '@context': 'https://schema.org',
-          '@type': 'MedicalProcedure',
-          name: treatment.label,
-          description: treatment.concern || treatment.tagline || treatment.description,
-          url: `https://kensleyaesthetics.com/treatments/${slug}`,
-          provider: { '@type': 'MedicalBusiness', name: 'Kensley Aesthetics', url: 'https://kensleyaesthetics.com' },
+          '@graph': [
+            {
+              '@type': 'Service',
+              '@id': `https://kensleyaesthetics.com/treatments/${slug}#service`,
+              name: treatment.label,
+              description: treatment.concern || treatment.tagline || treatment.description,
+              url: `https://kensleyaesthetics.com/treatments/${slug}`,
+              provider: { '@id': 'https://kensleyaesthetics.com/#clinic' },
+              areaServed: [
+                { '@type': 'City', name: 'Newcastle upon Tyne' },
+                { '@type': 'AdministrativeArea', name: 'North East England' },
+              ],
+              performer: { '@id': 'https://kensleyaesthetics.com/#dr-tiru-matla' },
+              ...(priceFrom && {
+                offers: {
+                  '@type': 'Offer',
+                  priceCurrency: 'GBP',
+                  price: priceFrom,
+                  availability: 'https://schema.org/InStock',
+                },
+              }),
+            },
+          ],
         }}
       />
 
@@ -73,6 +99,38 @@ function TreatmentDetail() {
             <img src={treatment.image} alt={treatment.label} className="pkg-hero__image" />
           )}
         </div>
+      </section>
+
+      {/* ── AT A GLANCE ──────────────────────────────────────── */}
+      <section className="pkg-glance" aria-label="Treatment quick facts">
+        <dl className="pkg-glance__list">
+          {(treatment.tagline || treatment.description) && (
+            <div className="pkg-glance__item">
+              <dt>What it is</dt>
+              <dd>{treatment.tagline || treatment.description}</dd>
+            </div>
+          )}
+          {treatment.ideal && (
+            <div className="pkg-glance__item">
+              <dt>Who it's for</dt>
+              <dd>{treatment.ideal}</dd>
+            </div>
+          )}
+          {priceFrom && (
+            <div className="pkg-glance__item">
+              <dt>Price from</dt>
+              <dd>From £{priceFrom}</dd>
+            </div>
+          )}
+          <div className="pkg-glance__item">
+            <dt>Downtime</dt>
+            <dd>Minimal — most clients resume daily activities immediately</dd>
+          </div>
+          <div className="pkg-glance__item">
+            <dt>Who performs it</dt>
+            <dd>Dr Tiru Matla — GMC-registered medical doctor &amp; clinical director</dd>
+          </div>
+        </dl>
       </section>
 
       {/* ── TREATMENT STEPS ──────────────────────────────────── */}

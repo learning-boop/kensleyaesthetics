@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import imgSmall from '../../data/images/seven.png';
 import './ExpertSection.css';
@@ -41,7 +42,7 @@ function ExpertSection() {
 
       {/* ── Top bar: eyebrow label ── */}
       <div className="ep-topbar">
-        <span className="ep-eyebrow">Founded by Dr. Tiru Matla</span>
+        <span className="ep-eyebrow">Founded by <Link to="/about" className="ep-eyebrow-link">Dr. Tiru Matla</Link></span>
       </div>
 
       {/* ── Large heading — drifts with cursor ── */}
@@ -56,7 +57,7 @@ function ExpertSection() {
       {/* ── Bottom-right: body text ── */}
       <div className="ep-body-wrap">
         <p className="ep-body">
-          Kensley Aesthetics was founded by Dr. Tiru Matla — a medical doctor
+          Kensley Aesthetics was founded by <Link to="/about" className="ep-body-link">Dr. Tiru Matla</Link> — a medical doctor
           with over 20 years of clinical experience and more than a decade
           specialising in aesthetic medicine. Dr. Matla personally oversees
           clinical standards at Kensley Aesthetics, ensuring every treatment

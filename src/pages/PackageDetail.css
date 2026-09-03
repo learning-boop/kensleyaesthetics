@@ -2,6 +2,39 @@
    PACKAGE DETAIL — pkg-*
    ═══════════════════════════════════════════════════════ */
 
+/* ─── At a Glance strip ─────────────────────────────────── */
+.pkg-glance {
+  background: var(--color-cream);
+  border-top: 1px solid rgba(12,15,13,.08);
+  border-bottom: 1px solid rgba(12,15,13,.08);
+  padding: 36px max(24px, 6vw);
+}
+.pkg-glance__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px 52px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pkg-glance__item { flex: 1 1 180px; }
+.pkg-glance__item dt {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 5px;
+}
+.pkg-glance__item dd {
+  font-family: Cormorant, Georgia, serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-dark);
+  margin: 0;
+}
+
 .pkg-btn {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 9px;

@@ -118,6 +118,12 @@ function MainTreatmentDetail() {
     ? `${treatment.tagline} — ${TREATMENT_KEYWORDS[slug] || 'non-surgical aesthetic treatment'} at Kensley Aesthetics in Newcastle.`
     : `Expert ${treatment.label} at Kensley Aesthetics. ${TREATMENT_KEYWORDS[slug] || 'Non-surgical aesthetic treatments'} in Newcastle.`;
 
+  // Derive lowest intro price across sub-treatments for schema + glance block
+  const priceFrom = treatment.subTreatments
+    ?.map(s => s.priceIntro || s.priceStandard)
+    .filter(Boolean)
+    .sort((a, b) => a - b)[0];
+
   return (
     <>
       <SeoHead
@@ -125,17 +131,37 @@ function MainTreatmentDetail() {
         description={seoDescription.slice(0, 160)}
         image={treatment.image}
         path={`/main-treatments/${slug}`}
+        faqs={treatment.faqs}
+        breadcrumbs={[
+          { name: 'Home',           path: '/' },
+          { name: 'Treatments',     path: '/treatments' },
+          { name: treatment.label,  path: `/main-treatments/${slug}` },
+        ]}
         jsonLd={{
           '@context': 'https://schema.org',
-          '@type': 'MedicalProcedure',
-          name: treatment.label,
-          description: treatment.tagline || treatment.description,
-          url: `https://kensleyaesthetics.com/main-treatments/${slug}`,
-          provider: {
-            '@type': 'MedicalBusiness',
-            name: 'Kensley Aesthetics',
-            url: 'https://kensleyaesthetics.com',
-          },
+          '@graph': [
+            {
+              '@type': 'Service',
+              '@id': `https://kensleyaesthetics.com/main-treatments/${slug}#service`,
+              name: `${treatment.label} Newcastle`,
+              description: treatment.tagline || treatment.description,
+              url: `https://kensleyaesthetics.com/main-treatments/${slug}`,
+              provider: { '@id': 'https://kensleyaesthetics.com/#clinic' },
+              areaServed: [
+                { '@type': 'City', name: 'Newcastle upon Tyne' },
+                { '@type': 'AdministrativeArea', name: 'North East England' },
+              ],
+              performer: { '@id': 'https://kensleyaesthetics.com/#dr-tiru-matla' },
+              ...(priceFrom && {
+                offers: {
+                  '@type': 'Offer',
+                  priceCurrency: 'GBP',
+                  price: priceFrom,
+                  availability: 'https://schema.org/InStock',
+                },
+              }),
+            },
+          ],
         }}
       />
 
@@ -164,6 +190,38 @@ function MainTreatmentDetail() {
             <img src={treatment.image} alt={treatment.label} className="mtd-hero__image" />
           )}
         </div>
+      </section>
+
+      {/* ── AT A GLANCE ─────────────────────────────────── */}
+      <section className="mtd-glance" aria-label="Treatment quick facts">
+        <dl className="mtd-glance__list">
+          {(treatment.tagline || treatment.description) && (
+            <div className="mtd-glance__item">
+              <dt>What it is</dt>
+              <dd>{treatment.tagline || treatment.description}</dd>
+            </div>
+          )}
+          {treatment.ideal && (
+            <div className="mtd-glance__item">
+              <dt>Who it's for</dt>
+              <dd>{treatment.ideal}</dd>
+            </div>
+          )}
+          {priceFrom && (
+            <div className="mtd-glance__item">
+              <dt>Price from</dt>
+              <dd>From £{priceFrom}</dd>
+            </div>
+          )}
+          <div className="mtd-glance__item">
+            <dt>Downtime</dt>
+            <dd>Minimal to none — varies by treatment; discussed at consultation</dd>
+          </div>
+          <div className="mtd-glance__item">
+            <dt>Who performs it</dt>
+            <dd>Dr Tiru Matla — GMC-registered medical doctor &amp; clinical director</dd>
+          </div>
+        </dl>
       </section>
 
       {/* ── BENEFITS STRIP ──────────────────────────────── */}

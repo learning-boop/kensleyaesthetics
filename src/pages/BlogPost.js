@@ -114,6 +114,8 @@ function BlogPost() {
   const seoImage       = post.seo?.ogImage         || post.coverImage;
   const canonicalPath  = `/blog/${post.slug}`;
 
+  const dateModified = post._updatedAt || post.publishedAt;
+
   // ── JSON-LD: BlogPosting schema ───────────────────────────
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -122,16 +124,20 @@ function BlogPost() {
     description:      seoDescription,
     image:            seoImage,
     datePublished:    post.publishedAt,
-    dateModified:     post.publishedAt,
+    dateModified:     dateModified,
     url:              `${SITE_URL}${canonicalPath}`,
     inLanguage:       'en-GB',
     author: {
-      '@type': 'Organization',
-      name:    'Kensley Aesthetics',
-      url:     SITE_URL,
+      '@type':     'Person',
+      '@id':       'https://kensleyaesthetics.com/#dr-tiru-matla',
+      name:        'Dr Tiru Matla',
+      url:         `${SITE_URL}/about`,
+      jobTitle:    'Founder & Clinical Director',
+      description: 'GMC-registered medical doctor (MBBS, MRCGP, DFSRH) with over 20 years of clinical experience specialising in aesthetic medicine.',
     },
     publisher: {
       '@type': 'Organization',
+      '@id':   'https://kensleyaesthetics.com/#clinic',
       name:    'Kensley Aesthetics',
       url:     SITE_URL,
     },
@@ -149,7 +155,14 @@ function BlogPost() {
         image={seoImage}
         path={canonicalPath}
         type="article"
+        publishedTime={post.publishedAt}
+        modifiedTime={dateModified}
         jsonLd={jsonLd}
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Blog', path: '/blog' },
+          { name: post.title, path: canonicalPath },
+        ]}
       />
 
       {/* ── Cover hero ──────────────────────────────────── */}
