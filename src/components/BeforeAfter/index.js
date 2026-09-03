@@ -41,27 +41,33 @@ function BeforeAfter() {
       {/* ── Desktop: scattered parallax cards ── */}
       <div className="ba-cards">
         <motion.div className="ba-card ba-card--1" style={{ y: y1 }}>
-          <img src={img1} alt="Before and after result" />
+          <img src={img1} alt="Anti-wrinkle treatment before and after – Kensley Aesthetics Newcastle" />
         </motion.div>
         <motion.div className="ba-card ba-card--2" style={{ y: y2 }}>
-          <img src={img2} alt="Before and after result" />
+          <img src={img2} alt="Lip filler before and after – Kensley Aesthetics Newcastle" />
         </motion.div>
         <motion.div className="ba-card ba-card--3" style={{ y: y3 }}>
-          <img src={img3} alt="Before and after result" />
+          <img src={img3} alt="Dermal filler cheek enhancement before and after – Kensley Aesthetics Newcastle" />
         </motion.div>
         <motion.div className="ba-card ba-card--4" style={{ y: y4 }}>
-          <img src={img4} alt="Before and after result" />
+          <img src={img4} alt="Profhilo skin booster before and after – Kensley Aesthetics Newcastle" />
         </motion.div>
         <motion.div className="ba-card ba-card--5" style={{ y: y5 }}>
-          <img src={img5} alt="Before and after result" />
+          <img src={img5} alt="RF microneedling skin rejuvenation before and after – Kensley Aesthetics Newcastle" />
         </motion.div>
       </div>
 
       {/* ── Mobile: plain carousel — no Framer Motion so no transform conflicts ── */}
       <div className="ba-mobile-track">
-        {[img1, img2, img3, img4, img5].map((img, i) => (
+        {[
+          { img: img1, alt: 'Anti-wrinkle treatment before and after – Kensley Aesthetics Newcastle' },
+          { img: img2, alt: 'Lip filler before and after – Kensley Aesthetics Newcastle' },
+          { img: img3, alt: 'Dermal filler cheek enhancement before and after – Kensley Aesthetics Newcastle' },
+          { img: img4, alt: 'Profhilo skin booster before and after – Kensley Aesthetics Newcastle' },
+          { img: img5, alt: 'RF microneedling skin rejuvenation before and after – Kensley Aesthetics Newcastle' },
+        ].map(({ img, alt }, i) => (
           <div key={i} className="ba-mobile-card">
-            <img src={img} alt="Before and after result" />
+            <img src={img} alt={alt} />
           </div>
         ))}
       </div>

@@ -1,4 +1,5 @@
 import PageHero from '../components/PageHero';
+import SeoHead from '../components/SeoHead';
 import './pages.css';
 import './legal.css';
 
@@ -100,6 +101,12 @@ Last updated: June 2026`,
 function TermsConditions() {
   return (
     <>
+      <SeoHead
+        path="/terms"
+        title="Terms & Conditions | Kensley Aesthetics"
+        description="Terms and conditions for using the Kensley Aesthetics website and booking aesthetic treatments at our Newcastle clinic."
+        noindex
+      />
       <PageHero
         label="Legal"
         title={<>Terms &<br />Conditions</>}

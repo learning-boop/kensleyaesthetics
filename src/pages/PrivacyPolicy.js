@@ -1,4 +1,5 @@
 import PageHero from '../components/PageHero';
+import SeoHead from '../components/SeoHead';
 import './pages.css';
 import './legal.css';
 
@@ -102,6 +103,12 @@ Last updated: June 2026`,
 function PrivacyPolicy() {
   return (
     <>
+      <SeoHead
+        path="/privacy-policy"
+        title="Privacy Policy | Kensley Aesthetics"
+        description="Read the Kensley Aesthetics privacy policy — how we collect, use and protect your personal data in accordance with UK GDPR."
+        noindex
+      />
       <PageHero
         label="Legal"
         title={<>Privacy<br />Policy</>}

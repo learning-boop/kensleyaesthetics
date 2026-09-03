@@ -17,9 +17,9 @@ const CREDENTIALS = [
     detail: 'Thousands of advanced aesthetic treatments carried out to the highest clinical standards.',
   },
   {
-    number: '#1',
-    label: 'Doctor-Led Clinic in the North East',
-    detail: 'One of the region\'s leading doctor-led aesthetic clinics, trusted by patients across the North East.',
+    number: 'GMC',
+    label: 'Registered Medical Doctor',
+    detail: 'Dr. Tiru Matla is a fully GMC-registered medical doctor, bringing genuine clinical expertise to every aesthetic treatment.',
   },
 ];
 

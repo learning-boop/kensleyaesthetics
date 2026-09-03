@@ -8,6 +8,9 @@ frontend:
         # If any package name fails, check `dnf provides` or run the prerender in GitHub Actions instead.
         - sudo dnf install -y nss atk at-spi2-atk cups-libs libXcomposite libXdamage libXrandr libgbm pango alsa-lib libxkbcommon libdrm mesa-libgbm || true
         - npm ci
+        # Clear stale webpack/babel/eslint build cache so Amplify's cached node_modules
+        # do not cause a dual-cache conflict between consecutive builds.
+        - rm -rf node_modules/.cache || true
     build:
       commands:
         - npm run build          # runs prebuild (sitemap) -> react-scripts build -> postbuild (prerender)
