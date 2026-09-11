@@ -189,8 +189,9 @@
 
     <!-- Third-party widgets & pixels: body only, loaded after content -->
 
-    <!-- Elfsight AI Chatbot (a <div> is NOT allowed in <head>; it was breaking the head) -->
-    <div class="elfsight-app-594756f0-00a0-4242-b173-f98419c2b44d" data-elfsight-app-lazy></div>
+    <!-- Elfsight AI Chatbot: rendered by ChatWidget React component inside #root.
+         Do NOT duplicate the widget div here — Elfsight counts each instance as
+         a separate view and triggers APP_VIEWS_LIMIT_REACHED. -->
     <script src="https://elfsightcdn.com/platform.js" defer></script>
 
     <!-- Microsoft Clarity — deferred until after page load -->
@@ -228,8 +229,8 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1412403677447698');
-        fbq('track', 'PageView');
+        if(typeof fbq==='function'){fbq('init', '1412403677447698');
+        fbq('track', 'PageView');}
       });
     </script>
     <noscript><img height="1" width="1" style="display:none" alt=""

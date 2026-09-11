@@ -228,7 +228,6 @@ function MainTreatmentDetail() {
         <PinnedShowcase
           items={treatment.subTreatments}
           treatmentSlug={treatment.slug}
-          fallbackImage={treatment.image}
         />
       )}
 

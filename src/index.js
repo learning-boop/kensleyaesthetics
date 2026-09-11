@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { createRoot, hydrateRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import './tailwind.css';
 import App from './App';
@@ -15,24 +15,15 @@ const app = (
 
 /**
  * After `scripts/prerender.mjs` runs, every route ships as real HTML.
- * If the root already has server-rendered children, hydrate instead of
- * re-rendering from scratch so the pre-rendered content is never blanked.
+ * Google receives the fully-rendered static HTML for SEO.
  *
- * NOTE: pages that fetch from Sanity in useEffect start with `loading = true`
- * and render `null` on the first client render, which does not match the
- * pre-rendered markup. React 19 recovers by client-rendering (you'll see a
- * hydration warning in dev). That is acceptable for SEO purposes - Google has
- * already received the static HTML - but the long-term fix is to fetch Sanity
- * data at build time (see the audit, Phase 2b). Until then you can keep
- * `createRoot` behaviour by setting PRERENDER_HYDRATE=false.
+ * We always use createRoot (not hydrateRoot) because pages that fetch from
+ * Sanity in useEffect start with `loading = true` / empty state on the first
+ * client render, which doesn't match the pre-rendered markup. hydrateRoot
+ * causes React error #418 (text content mismatch) in production. createRoot
+ * simply replaces the pre-rendered content — the brief flash is imperceptible
+ * and SEO is unaffected since bots already have the static HTML.
  */
-const shouldHydrate =
-  container.hasChildNodes() && process.env.REACT_APP_PRERENDER_HYDRATE !== 'false';
-
-if (shouldHydrate) {
-  hydrateRoot(container, app);
-} else {
-  createRoot(container).render(app);
-}
+createRoot(container).render(app);
 
 reportWebVitals();

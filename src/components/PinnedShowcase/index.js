@@ -1,14 +1,23 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
+import { sanityImg } from '../../utils/sanityImage';
+import { useAppointment } from '../../context/AppointmentContext';
 import './PinnedShowcase.css';
 
 const easeOut = [0.22, 1, 0.36, 1];
+
+const FEATURES = [
+  { icon: '✦', label: 'Natural Results' },
+  { icon: '◎', label: 'No Downtime' },
+  { icon: '⚕', label: 'Doctor Led Care' },
+];
 
 export default function PinnedShowcase({ items, treatmentSlug }) {
   const wrapperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const n = items.length;
+  const { openDrawer } = useAppointment();
 
   const scrollToItem = (i) => {
     const el = wrapperRef.current;
@@ -16,14 +25,10 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
     window.scrollTo({ top: el.offsetTop + (i / n) * el.offsetHeight, behavior: 'smooth' });
   };
 
-  const exitSection = () => {
-    const el = wrapperRef.current;
-    if (!el) return;
-    window.scrollTo({ top: el.offsetTop + el.offsetHeight, behavior: 'smooth' });
-  };
+  const navPrev = () => scrollToItem(Math.max(0, activeIndex - 1));
+  const navNext = () => scrollToItem(Math.min(n - 1, activeIndex + 1));
 
   const { scrollYProgress } = useScroll({ target: wrapperRef });
-  const stepProgress = useTransform(scrollYProgress, (v) => (v * n) % 1);
 
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
     setActiveIndex(Math.min(Math.floor(v * n), n - 1));
@@ -40,13 +45,6 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
 
         {/* ── LEFT: content panel ── */}
         <div className="ps-left">
-
-          {/* counter */}
-          <div className="ps-counter">
-            <span className="ps-counter__cur">{cur}</span>
-            <span className="ps-counter__sep" />
-            <span className="ps-counter__total">{total}</span>
-          </div>
 
           {/* gold label */}
           <AnimatePresence mode="wait">
@@ -76,8 +74,6 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
             </motion.h2>
           </AnimatePresence>
 
-          <span className="ps-divider" />
-
           {/* description */}
           <AnimatePresence mode="wait">
             <motion.p
@@ -92,87 +88,93 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
             </motion.p>
           </AnimatePresence>
 
-          {/* CTA */}
-          {t.slug && treatmentSlug && (
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`cta-${activeIndex}`}
-                initial={{ opacity: 0, x: -12 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 8 }}
-                transition={{ duration: 0.35, ease: easeOut, delay: 0.14 }}
-              >
-                <Link
-                  className="ps-cta"
-                  to={`/main-treatments/${treatmentSlug}/${t.slug}`}
-                >
-                  Learn More
-                  <span className="ps-cta__arrow">→</span>
-                </Link>
-              </motion.div>
-            </AnimatePresence>
-          )}
+          {/* Feature badges */}
+          <div className="ps-features">
+            {FEATURES.map((f) => (
+              <div key={f.label} className="ps-feature">
+                <span className="ps-feature__icon">{f.icon}</span>
+                <span className="ps-feature__label">{f.label}</span>
+              </div>
+            ))}
+          </div>
 
-          {/* Exit section button */}
-          <button className="ps-exit" onClick={exitSection}>
-            <span className="ps-exit__icon">↓</span>
-            Continue
-          </button>
+          {/* CTAs */}
+          <div className="ps-actions">
+            <button className="ps-book-btn" onClick={openDrawer}>
+              Book a Consultation
+              <span className="ps-book-btn__arrow">→</span>
+            </button>
+
+            {t.slug && treatmentSlug && (
+              <Link
+                className="ps-learn-link"
+                to={`/main-treatments/${treatmentSlug}/${t.slug}`}
+              >
+                Learn More
+              </Link>
+            )}
+          </div>
         </div>
 
-        {/* ── RIGHT: treatment index panel (no image) ── */}
-        <div className="ps-right">
+        {/* ── RIGHT: floating explore card ── */}
+        <div className="ps-card">
+          <div className="ps-card__header">
+            <span className="ps-card__title">Explore Treatments</span>
+            <div className="ps-card__nav">
+              <button
+                className="ps-card__nav-btn"
+                onClick={navPrev}
+                disabled={activeIndex === 0}
+                aria-label="Previous treatment"
+              >
+                ←
+              </button>
+              <button
+                className="ps-card__nav-btn"
+                onClick={navNext}
+                disabled={activeIndex === n - 1}
+                aria-label="Next treatment"
+              >
+                →
+              </button>
+            </div>
+          </div>
 
-          {/* large watermark number */}
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={`wm-${activeIndex}`}
-              className="ps-watermark"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5, ease: easeOut }}
-            >
-              {cur}
-            </motion.span>
-          </AnimatePresence>
+          <div className="ps-card__counter">
+            <span className="ps-card__cur">{cur}</span>
+            <span className="ps-card__sep">/</span>
+            <span className="ps-card__total">{total}</span>
+          </div>
 
-          {/* index list of all sub-treatments */}
-          <ul className="ps-index">
+          <ul className="ps-card__list">
             {items.map((item, i) => (
               <li
                 key={i}
-                className={`ps-index__item ${i === activeIndex ? 'ps-index__item--active' : ''}`}
+                className={`ps-card__item ${i === activeIndex ? 'ps-card__item--active' : ''}`}
                 onClick={() => scrollToItem(i)}
               >
-                <span className="ps-index__num">{String(i + 1).padStart(2, '0')}</span>
-                <span className="ps-index__name">{item.name}</span>
-                {i === activeIndex && (
-                  <motion.span
-                    className="ps-index__bar"
-                    layoutId="ps-active-bar"
-                    transition={{ duration: 0.4, ease: easeOut }}
+                <span className="ps-card__item-num">{String(i + 1).padStart(2, '0')}</span>
+                <span className="ps-card__item-name">{item.name}</span>
+                {item.image && (
+                  <img
+                    src={sanityImg(item.image, { width: 80 })}
+                    alt={item.name}
+                    className="ps-card__item-thumb"
+                    width="36"
+                    height="36"
+                    loading="lazy"
                   />
                 )}
               </li>
             ))}
           </ul>
 
-          {/* step progress bar */}
-          <div className="ps-progress-track">
-            <motion.div
-              className="ps-progress-fill"
-              style={{ scaleX: stepProgress, transformOrigin: 'left' }}
-            />
-          </div>
         </div>
 
       </div>
     </div>
 
-    {/* Crawlable sub-treatment list — hidden visually but fully indexable by Google.
-        The scroll-jacked showcase above only shows one item at a time; this list
-        gives crawlers (and users on slow devices) every link at once. */}
+    {/* Crawlable sub-treatment list — hidden visually but fully indexable */}
     {treatmentSlug && items.some(item => item.slug) && (
       <ul style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }} aria-hidden="true">
         {items.filter(item => item.slug).map((item) => (
