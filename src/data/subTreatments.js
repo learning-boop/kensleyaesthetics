@@ -6,11 +6,6 @@
 // ── Shared: WHY KENSLEY (identical for all items) ───────────────────────────
 const WHY_KENSLEY = `Kensley Aesthetics was founded by Dr. Tiru Matla. Our approach is consultation-led, with recommendations based on your medical history, individual anatomy, goals, suitability and informed consent. The clinician responsible for your consultation and treatment will be identified clearly, and expected benefits, limitations, alternatives, recovery and risks will be discussed before you decide whether to proceed.`;
 
-// ── Shared: medication safety, results disclaimer, filler reversibility ───────
-const MEDICATION_SAFETY_NOTE = `Tell your clinician about all medicines, supplements, allergies and medical conditions. Do not stop aspirin, anticoagulants, anti-inflammatory medicines or any prescribed treatment unless the clinician who prescribed them has advised you to do so.`;
-const RESULTS_DISCLAIMER = `Results, recovery, number of sessions and longevity vary between patients. Information on this page is general and does not replace an individual consultation or medical advice.`;
-const FILLER_REVERSIBILITY = `Hyaluronic-acid filler can often be reduced or dissolved using hyaluronidase. More than one session may be needed, complete removal cannot be guaranteed, and hyaluronidase has its own risks, including swelling and allergic reaction.`;
-
 // ── Anti-wrinkle ─────────────────────────────────────────────────────────────
 const AW_PREP = `Arrive with clean, make-up-free skin. Avoid alcohol 24 hours before your appointment. Inform your clinician of any medications, blood thinners, or neuromuscular conditions. A full medical consultation is conducted before any treatment is given.`;
 const AW_EXPECT = `Your clinician will assess your facial anatomy and agree a treatment plan before any injections are given. The treatment involves precise injections using an ultra-fine needle and takes approximately 15–20 minutes.`;

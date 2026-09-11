@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import imgSmall from '../../data/images/seven.png';
 import './ExpertSection.css';
 
 function ExpertSection() {
@@ -12,10 +11,6 @@ function ExpertSection() {
 
   const smoothX = useSpring(rawX, { stiffness: 60, damping: 18 });
   const smoothY = useSpring(rawY, { stiffness: 60, damping: 18 });
-
-  // Small image — counter-parallax
-  const smallX = useTransform(smoothX, v => v * -20);
-  const smallY = useTransform(smoothY, v => v * -16);
 
   // Heading — barely-there drift
   const headX = useTransform(smoothX, v => v * 10);

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAppointment } from '../../context/AppointmentContext';
+import { EmailLink } from '../../utils/obfuscateEmail';
 import './Footer.css';
 
 const MAIN_TREATMENTS = [
@@ -61,7 +62,7 @@ function Footer() {
           <div className="ft-col">
             <h4 className="ft-col-heading">Contact</h4>
             <ul className="ft-col-links">
-              <li><a href="mailto:hello@kensleyaesthetics.com">hello@kensleyaesthetics.com</a></li>
+              <li><EmailLink user="hello" domain="kensleyaesthetics.com" /></li>
               <li><a href="tel:03334442013">0333 444 2013</a></li>
               <li>Old Brewery Court, 156 Sandyford Rd,<br />Jesmond, Newcastle upon Tyne, NE2 1XG</li>
             </ul>

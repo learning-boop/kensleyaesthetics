@@ -97,7 +97,7 @@ function FAQ() {
       />
       <PageHero
         label="FAQ"
-        title={<>Frequently Asked<br />Questions</>}
+        title={<>Frequently Asked{' '}<br />Questions</>}
         subtitle="Everything you need to know before your first appointment."
       />
 

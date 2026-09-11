@@ -10,7 +10,7 @@ export function TeamSplit() {
       {/* Left: team photo */}
       <div className="ts-split__img-col">
         <img
-          src="/assets/kensley-aesthetics-clinical-team-newcastle.png"
+          src="/assets/kensley-aesthetics-clinical-team-newcastle.webp"
           alt="The Kensley Aesthetics clinical team — Dr Tiru Matla and practitioners, Newcastle"
           className="ts-split__img"
           loading="lazy"
@@ -23,7 +23,7 @@ export function TeamSplit() {
       <div className="ts-split__content-col">
         <span className="ts-eyebrow">The People Behind Your Care</span>
         <h2 className="ts-split__heading">
-          Meet<br />Our Team
+          Meet{' '}<br />Our Team
         </h2>
         <div className="ts-split__rule" />
 
@@ -62,7 +62,7 @@ export default function TeamSection() {
         <div className="ts-about-team__left">
           <span className="ts-eyebrow">Our People</span>
           <h2 className="ts-about-team__title">
-            A Team Built<br />on Clinical Trust
+            A Team Built{' '}<br />on Clinical Trust
           </h2>
           <div className="ts-about-team__rule" />
           <p className="ts-about-team__desc">

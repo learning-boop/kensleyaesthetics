@@ -82,7 +82,7 @@ export default function Locations() {
       <section className="locs-hero">
         <p className="locs-hero__eyebrow">Kensley Aesthetics · Jesmond, Newcastle</p>
         <h1 className="locs-hero__title">
-          We Serve Clients<br />Across the UK
+          We Serve Clients{' '}<br />Across the UK
         </h1>
         <p className="locs-hero__subtitle">
           Our doctor-led aesthetic clinic in Jesmond, Newcastle welcomes clients from {LOCATIONS.length} locations across England and Scotland. Find your nearest area below and book with Dr. Tiru Matla.

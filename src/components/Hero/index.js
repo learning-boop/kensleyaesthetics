@@ -20,8 +20,8 @@ function Hero() {
       <div className="hero__content">
         <span className="hero__eyebrow">Founded by Dr. Tiru Matla — Over 20 Years of Medical Experience</span>
         <h1 className="hero__title">
-          Natural-Looking Results<br />
-          by Experienced <em>Medical</em><br />
+          Natural-Looking Results{' '}<br />
+          by Experienced <em>Medical</em>{' '}<br />
           <em>Professionals</em>
         </h1>
         <p className="hero__sub">
@@ -63,9 +63,12 @@ function Hero() {
       {/* Right — image */}
       <div className="hero__image-wrap">
         <img
-          src="/assets/stay_youthful.png"
+          src="/assets/stay_youthful.webp"
           alt="Doctor-led facial aesthetics — Kensley Aesthetics"
           className="hero__image"
+          width="700"
+          height="900"
+          fetchPriority="high"
         />
       </div>
     </section>

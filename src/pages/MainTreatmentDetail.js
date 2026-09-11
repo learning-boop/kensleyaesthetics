@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { client } from '../lib/sanityClient';
-import { useTreatments } from '../context/TreatmentsContext';
 import { useAppointment } from '../context/AppointmentContext';
+import { sanityImg } from '../utils/sanityImage';
 import PinnedShowcase from '../components/PinnedShowcase';
 import QuickContact from '../components/QuickContact';
 import SeoHead from '../components/SeoHead';
@@ -39,22 +39,9 @@ const QUERY = `*[_type == "mainTreatment" && slug.current == $slug][0] {
   }
 }`;
 
-/* Map each main treatment slug → related package slugs (new consolidated packages) */
-const RELATED_MAP = {
-  'anti-wrinkle-treatments':  ['sculpt-and-define', 'non-surgical-lift'],
-  'dermal-fillers':           ['sculpt-and-define', 'non-surgical-lift', 'under-eye-refresh'],
-  'skin-boosters':            ['glow-and-hydrate', 'sculpt-and-define', 'neck-renewal'],
-  'regenerative-treatments':  ['firm-and-lift', 'clear-skin', 'non-surgical-lift'],
-  'biostimulators':           ['firm-and-lift', 'non-surgical-lift'],
-  'microneedling':            ['clear-skin', 'even-and-bright', 'firm-and-lift'],
-  'rf-microneedling':         ['clear-skin', 'firm-and-lift', 'neck-renewal'],
-  'hifu':                     ['non-surgical-lift', 'neck-renewal'],
-};
-
 function MainTreatmentDetail() {
   const { slug } = useParams();
   const { openDrawer } = useAppointment();
-  const { treatments: packages } = useTreatments();
 
   const [treatment, setTreatment] = useState(null);
   const [loading, setLoading]     = useState(true);
@@ -110,9 +97,6 @@ function MainTreatmentDetail() {
   const reviews = treatment.reviews || [];
   const prevReview = () => { setSlideDir('left');  setReviewIndex(i => (i - 1 + reviews.length) % reviews.length); };
   const nextReview = () => { setSlideDir('right'); setReviewIndex(i => (i + 1) % reviews.length); };
-
-  const relatedSlugs = RELATED_MAP[slug] || [];
-  const relatedPackages = packages.filter(p => relatedSlugs.includes(p.slug));
 
   const seoDescription = treatment.tagline
     ? `${treatment.tagline} — ${TREATMENT_KEYWORDS[slug] || 'non-surgical aesthetic treatment'} at Kensley Aesthetics in Newcastle.`
@@ -187,7 +171,7 @@ function MainTreatmentDetail() {
         </div>
         <div className="mtd-hero__image-wrap">
           {treatment.image && (
-            <img src={treatment.image} alt={treatment.label} className="mtd-hero__image" />
+            <img src={sanityImg(treatment.image, { width: 800 })} alt={treatment.label} className="mtd-hero__image" width="800" height="1000" />
           )}
         </div>
       </section>
@@ -252,7 +236,7 @@ function MainTreatmentDetail() {
       {treatment.image_second && (
         <section className="mtd-split">
           <div className="mtd-split__img-wrap">
-            <img src={treatment.image_second} alt={treatment.label} className="mtd-split__img" />
+            <img src={sanityImg(treatment.image_second, { width: 700 })} alt={treatment.label} className="mtd-split__img" width="700" height="875" loading="lazy" />
           </div>
           <div className="mtd-split__content">
             <span className="mtd-split__eyebrow">About This Treatment</span>
@@ -306,7 +290,9 @@ function MainTreatmentDetail() {
             <div
               key={reviewIndex}
               className={`mtd-ba__img td-ba__img-lg--slide-${slideDir}`}
-              style={{ backgroundImage: `url(${reviews[reviewIndex]})` }}
+              role="img"
+              aria-label={`${treatment.label} before and after result ${reviewIndex + 1}`}
+              style={{ backgroundImage: `url(${sanityImg(reviews[reviewIndex], { width: 1000 })})` }}
             />
             {reviews.length > 1 && (
               <div className="mtd-ba__nav">
@@ -318,13 +304,6 @@ function MainTreatmentDetail() {
           </div>
         </section>
       )}
-
-      {/* ── RELATED PACKAGES — hidden until client confirms ── */}
-      {/* {relatedPackages.length > 0 && (
-        <section className="mtd-related">
-          ...
-        </section>
-      )} */}
 
       {/* ── QUICK CONTACT ───────────────────────────────── */}
       <QuickContact />

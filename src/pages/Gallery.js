@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { client, BEFORE_AFTER_QUERY } from '../lib/sanityClient';
+import { sanityImg } from '../utils/sanityImage';
 import PageHero from '../components/PageHero';
 import CtaSection from '../components/CtaSection';
 import SeoHead from '../components/SeoHead';
@@ -77,9 +78,12 @@ function Gallery() {
                     <div className="gallery-item__before">
                       {item.beforeImage ? (
                         <img
-                          src={item.beforeImage}
+                          src={sanityImg(item.beforeImage, { width: 500 })}
                           alt={`${item.label} — before`}
                           className="gallery-item__img"
+                          width="500"
+                          height="600"
+                          loading="lazy"
                         />
                       ) : (
                         <div className="page-image-placeholder">Before</div>
@@ -89,9 +93,12 @@ function Gallery() {
                     <div className="gallery-item__after">
                       {item.afterImage ? (
                         <img
-                          src={item.afterImage}
+                          src={sanityImg(item.afterImage, { width: 500 })}
                           alt={`${item.label} — after`}
                           className="gallery-item__img"
+                          width="500"
+                          height="600"
+                          loading="lazy"
                         />
                       ) : (
                         <div className="page-image-placeholder">After</div>

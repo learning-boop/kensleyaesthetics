@@ -8,7 +8,7 @@ const sections = [
     title: '1. Who We Are',
     content: `Kensley Aesthetics ("we", "us", "our") is an aesthetic clinic providing non-surgical cosmetic treatments. Our registered address is available upon request. We are the data controller responsible for your personal information collected through this website and our clinical services.
 
-For any privacy-related enquiries, please contact us at: kensleyclinic@gmail.com`,
+For any privacy-related enquiries, please contact us at: kensleyclinic\u200B@\u200Bgmail.\u200Bcom`,
   },
   {
     title: '2. Information We Collect',
@@ -84,13 +84,13 @@ You can manage or disable cookies through your browser settings at any time. Dis
 • Object — object to our processing of your data for legitimate interests.
 • Withdraw Consent — where processing is based on consent, you may withdraw it at any time.
 
-To exercise any of these rights, please contact us at kensleyclinic@gmail.com. We will respond within 30 days.`,
+To exercise any of these rights, please contact us at kensleyclinic\u200B@\u200Bgmail.\u200Bcom. We will respond within 30 days.`,
   },
   {
     title: '9. Complaints',
     content: `If you are unhappy with how we handle your personal data, you have the right to lodge a complaint with the Information Commissioner's Office (ICO) at ico.org.uk, or by calling 0303 123 1113.
 
-We would, however, appreciate the opportunity to address your concerns directly before you contact the ICO. Please reach out to us first at kensleyclinic@gmail.com.`,
+We would, however, appreciate the opportunity to address your concerns directly before you contact the ICO. Please reach out to us first at kensleyclinic\u200B@\u200Bgmail.\u200Bcom.`,
   },
   {
     title: '10. Changes to This Policy',
@@ -111,7 +111,7 @@ function PrivacyPolicy() {
       />
       <PageHero
         label="Legal"
-        title={<>Privacy<br />Policy</>}
+        title={<>Privacy{' '}<br />Policy</>}
         subtitle="How we collect, use and protect your personal information."
       />
 

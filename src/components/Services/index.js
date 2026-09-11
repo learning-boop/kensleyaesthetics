@@ -16,7 +16,7 @@ function Services() {
         <div className="services__head">
           <div>
             <p className="section-label">What We Offer</p>
-            <h2 className="section-title">Our Core<br />Services</h2>
+            <h2 className="section-title">Our Core{' '}<br />Services</h2>
           </div>
           <a href="#contact" className="btn-outline">View All Services</a>
         </div>

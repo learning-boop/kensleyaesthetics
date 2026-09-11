@@ -65,7 +65,7 @@ function About() {
 
       <PageHero
         label="About the Clinic"
-        title={<>Kensley<br />Aesthetics</>}
+        title={<>Kensley{' '}<br />Aesthetics</>}
         subtitle="GMC Registered · Doctor-Led · Jesmond, Newcastle"
       />
 
@@ -73,7 +73,7 @@ function About() {
       <section className="ab-profile">
         <div className="ab-profile__img-col">
           <img
-            src="/assets/dr-tiru-matla-founder-kensley-aesthetics-newcastle.png"
+            src="/assets/dr-tiru-matla-founder-kensley-aesthetics-newcastle.webp"
             alt="Dr Tiru Matla — Founder and Clinical Director, Kensley Aesthetics, Newcastle"
             className="ab-profile__img"
             loading="eager"
@@ -83,9 +83,9 @@ function About() {
         </div>
         <div className="ab-profile__content-col">
           <span className="ab-eyebrow">GMC Registered Clinic</span>
-          <h2 className="ab-profile__name">Dr Tiru<br />Matla</h2>
+          <h2 className="ab-profile__name">Dr Tiru{' '}<br />Matla</h2>
           <p className="ab-profile__role">
-            Founder &amp; Clinical Director<br />
+            Founder &amp; Clinical Director{' '}<br />
             MBBS · MRCGP · DFSRH
           </p>
           <div className="ab-divider" />
@@ -104,7 +104,7 @@ function About() {
             <span className="ab-stats-band__num">{s.num}</span>
             <span className="ab-stats-band__label">
               {s.label.split('\n').map((line, i) => (
-                <span key={i}>{line}{i === 0 && <br />}</span>
+                <span key={i}>{line}{i === 0 && <>{' '}<br /></>}</span>
               ))}
             </span>
           </div>
@@ -116,7 +116,7 @@ function About() {
         <div className="ab-credentials__inner">
           <div className="ab-credentials__left">
             <span className="ab-eyebrow ab-eyebrow--dark">Qualifications</span>
-            <h2 className="ab-credentials__title">Credentials<br />&amp; Training</h2>
+            <h2 className="ab-credentials__title">Credentials{' '}<br />&amp; Training</h2>
             <p className="ab-credentials__desc">
               Our clinic is led by a doctor with extensive clinical qualifications, recognised
               as an advanced trainer and educator in aesthetic medicine
@@ -141,7 +141,7 @@ function About() {
         <div className="ab-bio__inner">
           <div className="ab-bio__content-col">
             <span className="ab-eyebrow">About Us</span>
-            <h2 className="ab-bio__title">About the<br />Clinic</h2>
+            <h2 className="ab-bio__title">About the{' '}<br />Clinic</h2>
             <div className="ab-divider" />
             <p className="ab-bio__text">
               Kensley Aesthetics is a doctor-led aesthetic clinic based in Jesmond, Newcastle upon Tyne.
@@ -161,7 +161,7 @@ function About() {
           </div>
           <div className="ab-bio__img-col">
             <img
-              src="/assets/dermal-filler-treatment-kensley-aesthetics-newcastle.png"
+              src="/assets/dermal-filler-treatment-kensley-aesthetics-newcastle.webp"
               alt="Dermal filler treatment at Kensley Aesthetics, Newcastle — doctor-led aesthetic clinic"
               className="ab-bio__img"
               loading="lazy"
@@ -177,7 +177,7 @@ function About() {
         <div className="ab-why__inner">
           <div className="ab-why__header">
             <span className="ab-eyebrow ab-eyebrow--gold">Why Choose Us</span>
-            <h2 className="ab-why__title">Why Choose<br />Kensley Aesthetics</h2>
+            <h2 className="ab-why__title">Why Choose{' '}<br />Kensley Aesthetics</h2>
           </div>
           <div className="ab-why__accordion">
             {whyItems.map((item, i) => (
@@ -206,7 +206,7 @@ function About() {
       <section className="ab-care">
         <div className="ab-care__img-col">
           <img
-            src="/assets/kensley-aesthetics-patient-consultation-newcastle.png"
+            src="/assets/kensley-aesthetics-patient-consultation-newcastle.webp"
             alt="Kensley Aesthetics practitioner during patient consultation, Newcastle clinic"
             className="ab-care__img"
             loading="lazy"
@@ -216,7 +216,7 @@ function About() {
         </div>
         <div className="ab-care__content-col">
           <span className="ab-eyebrow ab-eyebrow--dark">We're Here for You</span>
-          <h2 className="ab-care__title">Exceptional<br />Care &amp; Support</h2>
+          <h2 className="ab-care__title">Exceptional{' '}<br />Care &amp; Support</h2>
           <div className="ab-divider" />
           <p className="ab-care__text">
             From your very first enquiry through to post-treatment follow-up,
@@ -247,7 +247,7 @@ function About() {
       <section className="ab-cta">
         <div className="ab-cta__img-col">
           <img
-            src="/assets/kensley-aesthetics-nurse-consultation-newcastle.png"
+            src="/assets/kensley-aesthetics-nurse-consultation-newcastle.webp"
             alt="Kensley Aesthetics nurse consultation, Jesmond Newcastle — bespoke aesthetic treatment planning"
             className="ab-cta__img"
             loading="lazy"
@@ -257,7 +257,7 @@ function About() {
         </div>
         <div className="ab-cta__content-col">
           <span className="ab-eyebrow ab-eyebrow--gold">Ready to Begin</span>
-          <h2 className="ab-cta__title">Book a<br />Consultation</h2>
+          <h2 className="ab-cta__title">Book a{' '}<br />Consultation</h2>
           <p className="ab-cta__text">
             Begin your journey with a personalised consultation at Kensley Aesthetics.
             Discuss your goals, understand your options, and receive an honest,

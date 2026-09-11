@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { client, SUB_TREATMENT_QUERY } from '../lib/sanityClient';
 import { useAppointment } from '../context/AppointmentContext';
+import { sanityImg } from '../utils/sanityImage';
 import { STATIC_SUB_TREATMENTS } from '../data/subTreatments';
 import SeoHead from '../components/SeoHead';
 import QuickContact from '../components/QuickContact';
@@ -166,7 +167,7 @@ function SubTreatmentDetail() {
         </div>
         {(treatment.image || treatment.heroImage) && (
           <div className="std-hero__image-wrap">
-            <img src={treatment.image || treatment.heroImage} alt={treatment.label} className="std-hero__image" />
+            <img src={sanityImg(treatment.image || treatment.heroImage, { width: 800 })} alt={treatment.label} className="std-hero__image" width="800" height="1000" />
           </div>
         )}
       </section>
@@ -307,7 +308,7 @@ function SubTreatmentDetail() {
             <h2 className="std-ba__title">Before &amp; After</h2>
           </div>
           <div className="std-ba__viewer">
-            <div key={reviewIndex} className="std-ba__img" style={{ backgroundImage: `url(${reviews[reviewIndex]})` }} />
+            <div key={reviewIndex} className="std-ba__img" role="img" aria-label={`${treatment.label} before and after result ${reviewIndex + 1}`} style={{ backgroundImage: `url(${sanityImg(reviews[reviewIndex], { width: 1000 })})` }} />
             {reviews.length > 1 && (
               <div className="std-ba__nav">
                 <button className="std-ba__nav-btn" onClick={prevReview} aria-label="Previous">←</button>

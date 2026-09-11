@@ -1,0 +1,80 @@
+.nf-root {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1.5rem;
+  text-align: center;
+  background: var(--color-cream);
+}
+
+.nf-eyebrow {
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  font-size: .7rem;
+  font-family: var(--font-sans);
+  opacity: .45;
+  margin-bottom: .5rem;
+}
+
+.nf-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--color-primary);
+  margin: 0 0 1.25rem;
+}
+
+.nf-body {
+  max-width: 520px;
+  font-size: .95rem;
+  line-height: 1.7;
+  color: var(--color-primary);
+  opacity: .7;
+  margin: 0 auto 2.5rem;
+}
+.nf-body a { color: inherit; }
+
+.nf-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.nf-link {
+  display: inline-block;
+  padding: .55rem 1.3rem;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: .78rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+  transition: background .25s, color .25s;
+}
+.nf-link:hover {
+  background: var(--color-primary);
+  color: var(--color-cream);
+}
+.nf-link--home {
+  background: var(--color-primary);
+  color: var(--color-cream);
+}
+.nf-link--home:hover {
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.nf-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--color-gold);
+  margin: 0 auto 1.5rem;
+}

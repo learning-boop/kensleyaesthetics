@@ -36,7 +36,7 @@ function Header() {
 
           {/* Logo — left corner */}
           <Link to="/" className="header__logo" onClick={() => setMobileOpen(false)}>
-            <img src="/assets/kensley-aesthetics-logo.png" alt="Kensley Aesthetics" className="header__logo-img" />
+            <img src="/assets/kensley-aesthetics-logo.webp" alt="Kensley Aesthetics" className="header__logo-img" width="180" height="48" />
             <span className="header__logo-sub">Founded by Dr. Tiru Matla</span>
           </Link>
 

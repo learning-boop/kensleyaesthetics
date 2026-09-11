@@ -6,7 +6,7 @@ function CtaSection() {
       <div className="container">
         <p className="section-label">Ready to Begin?</p>
         <h2 className="section-title">
-          Let's Create Something<br />Beautiful Together
+          Let's Create Something{' '}<br />Beautiful Together
         </h2>
         <p className="section-subtitle">
           Book your personal consultation today and take the first step toward

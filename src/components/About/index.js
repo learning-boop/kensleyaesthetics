@@ -20,7 +20,7 @@ function About() {
           <div className="about__content">
             <p className="section-label">Who We Are</p>
             <h2 className="section-title">
-              Beauty Begins<br />with Expert Hands
+              Beauty Begins{' '}<br />with Expert Hands
             </h2>
             <p className="section-subtitle" style={{ marginBottom: 40 }}>
               At Kensley Aesthetics, we merge artistry with expertise to deliver

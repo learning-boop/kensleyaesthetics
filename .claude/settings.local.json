@@ -108,7 +108,13 @@
       "Bash(cd D:/creative_touch/renova && npm --version && node --version)",
       "Bash(cd D:/creative_touch/renova && npm ls yaml 2>&1)",
       "Bash(cd \"D:\\\\creative_touch\\\\renova\" && node scripts/generate-sitemap.mjs)",
-      "Bash(cp \"D:/creative_touch/renova/public/assets/ChatGPT Image Sep 2, 2026, 04_22_06 PM \\(1\\).png\" \"D:/creative_touch/renova/public/assets/dr-tiru-matla-founder-kensley-aesthetics-newcastle.png\" && cp \"D:/creative_touch/renova/public/assets/ChatGPT Image Sep 2, 2026, 06_14_13 PM.png\" \"D:/creative_touch/renova/public/assets/kensley-aesthetics-clinical-team-newcastle.png\" && cp \"D:/creative_touch/renova/public/assets/ChatGPT Image Sep 2, 2026, 06_14_30 PM.png\" \"D:/creative_touch/renova/public/assets/kensley-aesthetics-patient-consultation-newcastle.png\" && cp \"D:/creative_touch/renova/public/assets/ChatGPT Image Sep 2, 2026, 06_14_34 PM.png\" \"D:/creative_touch/renova/public/assets/kensley-aesthetics-nurse-consultation-newcastle.png\" && cp \"D:/creative_touch/renova/public/assets/ChatGPT Image Sep 2, 2026, 06_14_46 PM.png\" \"D:/creative_touch/renova/public/assets/dermal-filler-treatment-kensley-aesthetics-newcastle.png\")"
+      "Bash(cp \"D:/creative_touch/renova/public/assets/ChatGPT Image Sep 2, 2026, 04_22_06 PM \\(1\\).png\" \"D:/creative_touch/renova/public/assets/dr-tiru-matla-founder-kensley-aesthetics-newcastle.png\" && cp \"D:/creative_touch/renova/public/assets/ChatGPT Image Sep 2, 2026, 06_14_13 PM.png\" \"D:/creative_touch/renova/public/assets/kensley-aesthetics-clinical-team-newcastle.png\" && cp \"D:/creative_touch/renova/public/assets/ChatGPT Image Sep 2, 2026, 06_14_30 PM.png\" \"D:/creative_touch/renova/public/assets/kensley-aesthetics-patient-consultation-newcastle.png\" && cp \"D:/creative_touch/renova/public/assets/ChatGPT Image Sep 2, 2026, 06_14_34 PM.png\" \"D:/creative_touch/renova/public/assets/kensley-aesthetics-nurse-consultation-newcastle.png\" && cp \"D:/creative_touch/renova/public/assets/ChatGPT Image Sep 2, 2026, 06_14_46 PM.png\" \"D:/creative_touch/renova/public/assets/dermal-filler-treatment-kensley-aesthetics-newcastle.png\")",
+      "Bash(find /d/creative_touch/renova -type f \\\\\\( -name \"*.png\" -o -name \"*.jpg\" -o -name \"*.jpeg\" -o -name \"*.svg\" -o -name \"*.webp\" -o -name \"*.gif\" \\\\\\) 2>/dev/null | head -50)",
+      "Bash(cd D:/creative_touch/renova && node scripts/convert-images.mjs)",
+      "Bash(cd D:/creative_touch/renova && npx react-scripts build 2>&1 | tail -20)",
+      "Bash(cd D:/creative_touch/renova && npx react-scripts build 2>&1 | tail -15)",
+      "Bash(cd D:/creative_touch/renova && npx react-scripts build 2>&1 | head -60)",
+      "Bash(cd D:/creative_touch/renova && npx react-scripts build 2>&1 | head -30)"
     ]
   }
 }

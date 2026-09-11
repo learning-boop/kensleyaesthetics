@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { useTreatments } from '../context/TreatmentsContext';
 import { useAppointment } from '../context/AppointmentContext';
+import { sanityImg } from '../utils/sanityImage';
 import QuickContact from '../components/QuickContact';
 import SeoHead from '../components/SeoHead';
 import './pages.css';
@@ -96,7 +97,7 @@ function TreatmentDetail() {
         </div>
         <div className="pkg-hero__image-wrap">
           {treatment.image && (
-            <img src={treatment.image} alt={treatment.label} className="pkg-hero__image" />
+            <img src={sanityImg(treatment.image, { width: 800 })} alt={treatment.label} className="pkg-hero__image" width="800" height="1000" />
           )}
         </div>
       </section>
@@ -192,7 +193,7 @@ function TreatmentDetail() {
       {treatment.image_second && (
         <section className="pkg-split">
           <div className="pkg-split__img-wrap">
-            <img src={treatment.image_second} alt={treatment.label} className="pkg-split__img" />
+            <img src={sanityImg(treatment.image_second, { width: 700 })} alt={treatment.label} className="pkg-split__img" width="700" height="875" loading="lazy" />
           </div>
           <div className="pkg-split__content">
             <span className="pkg-split__eyebrow">About This Programme</span>
@@ -216,7 +217,9 @@ function TreatmentDetail() {
             <div
               key={reviewIndex}
               className={`pkg-ba__img td-ba__img-lg--slide-${slideDir}`}
-              style={{ backgroundImage: `url(${reviews[reviewIndex]})` }}
+              role="img"
+              aria-label={`${treatment.label} before and after result ${reviewIndex + 1}`}
+              style={{ backgroundImage: `url(${sanityImg(reviews[reviewIndex], { width: 1000 })})` }}
             />
             {reviews.length > 1 && (
               <div className="pkg-ba__nav">

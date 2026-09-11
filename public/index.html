@@ -28,9 +28,64 @@
     <meta property="og:site_name" content="Kensley Aesthetics" />
     <meta property="og:locale" content="en_GB" />
 
-    <!-- Performance: warm up the CMS CDN before React asks for data -->
+    <!-- ── Performance: preconnects ── -->
     <link rel="preconnect" href="https://cdn.sanity.io" crossorigin />
     <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- ── Font loading: non-render-blocking (was @import in CSS) ── -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
+
+    <!-- ── Hero image preload (LCP element) ── -->
+    <link rel="preload" as="image" type="image/webp" href="%PUBLIC_URL%/assets/stay_youthful.webp" fetchpriority="high" />
+
+    <!-- ── Critical CSS: inlined above-fold styles to eliminate FOUC ── -->
+    <style>
+      *{margin:0;padding:0;box-sizing:border-box}
+      :root{
+        color-scheme:light only;
+        --color-navy:#0B2A4A;--color-primary:#0B2A4A;--color-dark:#0B2A4A;
+        --color-charcoal:#2C2C2C;--color-gold:#C8A96A;--color-cream:#FAF8F5;
+        --color-beige:#F0EBE3;--color-sage:#A8BFA3;--color-rose:#D8A6A0;
+        --color-white:#FFFFFF;
+        --font-serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+        --font-sans:'Inter','Helvetica Neue',Arial,sans-serif
+      }
+      html{scroll-behavior:smooth;background-color:var(--color-cream)!important;color:var(--color-charcoal)!important}
+      body{font-family:var(--font-sans);background-color:var(--color-cream)!important;color:var(--color-charcoal)!important;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:16px;line-height:1.6}
+      #root,header,nav,main,section,footer,div[class],article,aside{color-scheme:light only}
+      img{display:block;max-width:100%;forced-color-adjust:none}
+      a{text-decoration:none;color:inherit}
+      button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+      /* Header critical */
+      .header{position:fixed;top:0;left:0;right:0;z-index:200;background-color:var(--color-white);box-shadow:0 1px 0 rgba(11,42,74,.08)}
+      .header__endorsement{background-color:var(--color-navy);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:36px;gap:16px}
+      .header__endorsement-left,.header__endorsement-right{font-family:var(--font-sans);font-size:10px;font-weight:500;letter-spacing:.12em;color:rgba(250,248,245,.7);white-space:nowrap}
+      .header__endorsement-right{flex-shrink:0;color:var(--color-gold);opacity:.9}
+      .header__accent-line{height:2px;background:linear-gradient(90deg,var(--color-navy) 0%,var(--color-gold) 50%,var(--color-navy) 100%);opacity:.7}
+      .header__bar{display:flex;align-items:center;gap:24px;padding:0 40px;height:58px}
+      .header__logo{flex-shrink:0;text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+      .header__logo-img{height:44px;width:auto;display:block}
+
+      /* Hero critical */
+      .hero{min-height:100vh;background-color:var(--color-cream);display:flex;align-items:stretch;padding-top:96px;position:relative;overflow:hidden}
+      .hero__content{flex:1;display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 72px;position:relative;z-index:1}
+      .hero__image-wrap{width:46%;flex-shrink:0;position:relative;overflow:hidden;background:#ede8e0}
+      .hero__image{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+      .hero__title{font-family:var(--font-serif);font-size:clamp(48px,6vw,96px);font-weight:600;line-height:1;letter-spacing:-.5px;color:var(--color-navy);margin:0 0 28px 0}
+
+      @media(max-width:900px){
+        .header__endorsement{display:none}
+        .hero{flex-direction:column;min-height:100svh;padding-top:60px}
+        .hero__image-wrap{width:100%;height:52svh;flex-shrink:0;order:-1}
+        .hero__content{padding:36px 24px 48px;justify-content:flex-start}
+        body>#root{padding-bottom:72px}
+      }
+    </style>
 
     <!--
       Organisation + practitioner structured data.
@@ -111,13 +166,20 @@
     }
     </script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6G5K6B91P"></script>
+    <!-- Google tag (gtag.js) — deferred until after first paint -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-N6G5K6B91P');
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-N6G5K6B91P';
+        s.async = true;
+        document.head.appendChild(s);
+        s.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-N6G5K6B91P');
+        };
+      });
     </script>
   </head>
 
@@ -131,24 +193,28 @@
     <div class="elfsight-app-594756f0-00a0-4242-b173-f98419c2b44d" data-elfsight-app-lazy></div>
     <script src="https://elfsightcdn.com/platform.js" defer></script>
 
-    <!-- Microsoft Clarity -->
+    <!-- Microsoft Clarity — deferred until after page load -->
     <script>
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "xqeqvr3gai");
+      window.addEventListener('load', function(){
+        (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "xqeqvr3gai");
+      });
     </script>
 
-    <!-- Lucid Focus SDK -->
+    <!-- Lucid Focus SDK — deferred until after page load -->
     <script>
-      (function(w,d,s,l,i){
-        w[l]=w[l]||[];
-        var f=d.getElementsByTagName(s)[0], j=d.createElement(s);
-        j.async=true; j.src='https://www.mylucidfocus.com/sdk/lucidfocus.js';
-        j.onload=function(){ w[l].init({ apiKey: i }); };
-        f.parentNode.insertBefore(j,f);
-      })(window,document,'script','LucidFocus','l_p4EWpYnFlPth9vAdHz_l3iP77U7mBSOS1ZmxdTjQ0');
+      window.addEventListener('load', function(){
+        (function(w,d,s,l,i){
+          w[l]=w[l]||[];
+          var f=d.getElementsByTagName(s)[0], j=d.createElement(s);
+          j.async=true; j.src='https://www.mylucidfocus.com/sdk/lucidfocus.js';
+          j.onload=function(){ w[l].init({ apiKey: i }); };
+          f.parentNode.insertBefore(j,f);
+        })(window,document,'script','LucidFocus','l_p4EWpYnFlPth9vAdHz_l3iP77U7mBSOS1ZmxdTjQ0');
+      });
     </script>
 
     <!-- Meta Pixel (deferred until after page load to avoid blocking LCP/FID) -->

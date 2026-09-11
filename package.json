@@ -24,6 +24,7 @@
     "build": "cross-env CI=false react-scripts build",
     "postbuild": "node scripts/prerender.mjs",
     "routes": "node scripts/routes.mjs",
+    "convert-images": "node scripts/convert-images.mjs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -48,6 +49,7 @@
   "devDependencies": {
     "cross-env": "^10.1.0",
     "puppeteer": "^24.0.0",
+    "sharp": "^0.35.4",
     "tailwindcss": "^3.4.19",
     "yaml": "^2.9.0"
   },

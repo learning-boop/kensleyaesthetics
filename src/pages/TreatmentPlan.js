@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useTreatments } from '../context/TreatmentsContext';
+import { sanityImg } from '../utils/sanityImage';
 import PageHero from '../components/PageHero';
 import SeoHead from '../components/SeoHead';
 import './TreatmentPlan.css';
@@ -27,7 +28,7 @@ export default function TreatmentPlan() {
             >
               {t.image && (
                 <div className="tp-card__img-wrap">
-                  <img src={t.image} alt={t.label} className="tp-card__img" />
+                  <img src={sanityImg(t.image, { width: 500 })} alt={t.label} className="tp-card__img" width="500" height="600" loading="lazy" />
                 </div>
               )}
               <div className="tp-card__body">

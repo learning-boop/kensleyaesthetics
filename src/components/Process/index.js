@@ -13,7 +13,7 @@ function Process() {
       <div className="container">
         <div className="process__head">
           <p className="section-label">How It Works</p>
-          <h2 className="section-title">Our Simple<br />4-Step Process</h2>
+          <h2 className="section-title">Our Simple{' '}<br />4-Step Process</h2>
           <p className="section-subtitle">
             From the first conversation to the final reveal — a seamless journey
             designed around you.

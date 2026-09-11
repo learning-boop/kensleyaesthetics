@@ -144,7 +144,7 @@ export default function Services() {
       />
       <PageHero
         label="Professional Education"
-        title={<>Advanced Aesthetic<br />Training Programmes</>}
+        title={<>Advanced Aesthetic{' '}<br />Training Programmes</>}
         subtitle="Industry-leading courses for medical practitioners who demand excellence — in technique, safety, and results."
       />
 
@@ -152,7 +152,7 @@ export default function Services() {
       <section className="tr-intro">
         <span className="tr-intro__label">Kensley Aesthetics — Education</span>
         <h2 className="tr-intro__statement">
-          We don't just<br />practise aesthetics.<br />
+          We don't just{' '}<br />practise aesthetics.{' '}<br />
           <em>We teach it.</em>
         </h2>
         <p className="tr-intro__body">
@@ -212,7 +212,7 @@ export default function Services() {
       <section className="tr-why">
         <div className="tr-why__inner">
           <span className="tr-why__label">Why Choose Us</span>
-          <h2 className="tr-why__heading">THE KENSLEY AESTHETICS<br />DIFFERENCE</h2>
+          <h2 className="tr-why__heading">THE KENSLEY AESTHETICS{' '}<br />DIFFERENCE</h2>
           <div className="tr-why__grid">
             {WHY_ITEMS.map((w, i) => (
               <div className="tr-why__card" key={i}>

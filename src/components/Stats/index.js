@@ -30,7 +30,7 @@ function Stats() {
       {/* ── Left: headline copy ── */}
       <div className="si-center">
         <span className="si-eyebrow">Why Choose Kensley Aesthetics</span>
-        <h2 className="si-title">Under<br />Expert<br />Medical<br />Supervision</h2>
+        <h2 className="si-title">Under{' '}<br />Expert{' '}<br />Medical{' '}<br />Supervision</h2>
         <div className="si-divider" />
         <p className="si-subtitle">
           Every treatment at Kensley Aesthetics is conducted under the

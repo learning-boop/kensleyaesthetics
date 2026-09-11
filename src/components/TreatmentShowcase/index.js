@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { client, MAIN_TREATMENTS_QUERY } from '../../lib/sanityClient';
+import { sanityImg } from '../../utils/sanityImage';
 import { useAppointment } from '../../context/AppointmentContext';
 import './showcase.css';
 
@@ -49,9 +50,12 @@ function TreatmentImage({ treatment }) {
   return (
     <div className="ts-img-inner">
       <img
-        src={treatment.image}
+        src={sanityImg(treatment.image, { width: 800 })}
         alt={treatment.title}
         className="ts-treatment-img"
+        width="800"
+        height="1000"
+        loading="lazy"
         onError={(e) => {
           e.currentTarget.style.display = 'none';
         }}
@@ -71,7 +75,7 @@ function DesktopContent({ treatment }) {
           <span key={word + i} className="ts-title-word-row">
             <span style={{ display: 'block' }}>{word}</span>
           </span>
-        ))}
+        )).reduce((acc, el, i) => i === 0 ? [el] : [...acc, ' ', el], [])}
       </div>
 
       <span className="ts-divider" />
@@ -376,9 +380,12 @@ function TreatmentShowcase() {
               <div className="ts-mobile-panel-image">
                 <div className="ts-img-inner">
                   <img
-                    src={t.image}
+                    src={sanityImg(t.image, { width: 600 })}
                     alt={t.title}
                     className="ts-treatment-img"
+                    width="600"
+                    height="750"
+                    loading="lazy"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
                     }}

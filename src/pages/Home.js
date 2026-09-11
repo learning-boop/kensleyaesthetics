@@ -12,7 +12,6 @@ import ExpertSection       from '../components/ExpertSection';
 // import Testimonials        from '../components/Testimonials';
 // import CtaSection          from '../components/CtaSection';
 import QuickContact        from '../components/QuickContact';
-import HomeFaqSection      from '../components/HomeFaqSection';
 import JourneySteps        from '../components/JourneySteps';
 import { TeamSplit }       from '../components/TeamSection';
 import SeoHead             from '../components/SeoHead';

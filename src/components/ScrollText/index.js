@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import drMatlaImg from '../../data/images/drmatla.png';
+import drMatlaImg from '../../data/images/drmatla.webp';
 import './ScrollText.css';
 
 const TRUST_CARDS = [
@@ -29,6 +29,9 @@ function ScrollText() {
           src={drMatlaImg}
           alt="Dr. Tiru Matla — Kensley Aesthetics founder"
           className="brand-story__image"
+          width="600"
+          height="750"
+          loading="lazy"
         />
       </div>
 

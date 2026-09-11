@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import faqImgTop    from '../../data/images/nine.png';
-import faqImgBottom from '../../data/images/ten.png';
+import faqImgTop    from '../../data/images/nine.webp';
+import faqImgBottom from '../../data/images/ten.webp';
 import './HomeFaqSection.css';
 
 const FAQS = [
@@ -68,7 +68,7 @@ export default function HomeFaqSection() {
           </div>
         </div>
         <div className="hfaq-top-img-col">
-          <img src={faqImgTop} alt="Expert aesthetic care" />
+          <img src={faqImgTop} alt="Expert aesthetic care" width="400" height="500" loading="lazy" />
         </div>
       </div>
 
@@ -88,7 +88,7 @@ export default function HomeFaqSection() {
 
         {/* Row 3 col 1 — bottom image */}
         <div className="hfaq-grid-img">
-          <img src={faqImgBottom} alt="Precision treatment tools" />
+          <img src={faqImgBottom} alt="Precision treatment tools" width="400" height="500" loading="lazy" />
         </div>
 
         {/* Row 3 col 2 — last FAQ card */}
@@ -103,7 +103,7 @@ export default function HomeFaqSection() {
         {/* Row 3 col 3 — Show All Answers */}
         <Link to="/faq" className="hfaq-show-all" style={{ textDecoration: 'none' }}>
           <p className="hfaq-show-all-label">
-            Show<br />All Answers
+            Show{' '}<br />All Answers
           </p>
           <div className="hfaq-show-all-circle">+</div>
         </Link>

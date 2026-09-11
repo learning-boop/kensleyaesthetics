@@ -1,9 +1,10 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { useAppointment } from '../context/AppointmentContext';
-import SeoHead, { SITE_URL, breadcrumbLd } from '../components/SeoHead';
+import SeoHead from '../components/SeoHead';
 import QuickContact from '../components/QuickContact';
 import { LOCATIONS_BY_SLUG } from '../data/locations';
-import drMatlaImg from '../data/images/drmatla.png';
+import drMatlaImg from '../data/images/drmatla.webp';
+import { EmailLink } from '../utils/obfuscateEmail';
 import './LocationPage.css';
 
 /* ── Treatment cards ─────────────────────────── */
@@ -58,7 +59,6 @@ export default function LocationPage() {
   const pageTitle   = `Aesthetic Treatments in ${loc.name} | Kensley Aesthetics`;
   const description = `Doctor-led aesthetic treatments serving ${loc.name} (${loc.county}). Visit Kensley Aesthetics in Jesmond, Newcastle — led by Dr. Tiru Matla with 20+ years of clinical experience. Anti-wrinkle, fillers, Profhilo, HIFU & more.`;
   const path        = `/locations/${loc.slug}`;
-  const canonical   = `${SITE_URL}${path}`;
 
   const localBusinessLd = {
     '@context': 'https://schema.org',
@@ -88,12 +88,6 @@ export default function LocationPage() {
       'https://www.facebook.com/profile.php?id=61591977870031',
     ],
   };
-
-  const crumbLd = breadcrumbLd([
-    { name: 'Home',      path: '/' },
-    { name: 'Locations', path: '/locations' },
-    { name: loc.name,    path },
-  ]);
 
   return (
     <>
@@ -278,13 +272,13 @@ export default function LocationPage() {
                 <WhatsAppIcon />
                 WhatsApp Us
               </a>
-              <a href="mailto:kensleyclinic@gmail.com" className="lp-contact__link">
+              <EmailLink user="kensleyclinic" domain="gmail.com" className="lp-contact__link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
-                kensleyclinic@gmail.com
-              </a>
+                kensleyclinic&#8203;@gmail.com
+              </EmailLink>
             </div>
             <button
               className="lp-cta-btn lp-cta-btn--primary"
