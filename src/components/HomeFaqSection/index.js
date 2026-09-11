@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import faqImgTop    from '../../data/images/nine.webp';
-import faqImgBottom from '../../data/images/ten.webp';
+import faqImgTop    from '../../data/images/nine.png';
+import faqImgBottom from '../../data/images/ten.png';
 import './HomeFaqSection.css';
 
 const FAQS = [

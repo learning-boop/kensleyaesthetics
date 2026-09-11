@@ -63,7 +63,7 @@ function Hero() {
       {/* Right — image */}
       <div className="hero__image-wrap">
         <img
-          src="/assets/stay_youthful.webp"
+          src="/assets/stay_youthful.png"
           alt="Doctor-led facial aesthetics — Kensley Aesthetics"
           className="hero__image"
           width="700"

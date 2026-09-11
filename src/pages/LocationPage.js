@@ -3,7 +3,7 @@ import { useAppointment } from '../context/AppointmentContext';
 import SeoHead from '../components/SeoHead';
 import QuickContact from '../components/QuickContact';
 import { LOCATIONS_BY_SLUG } from '../data/locations';
-import drMatlaImg from '../data/images/drmatla.webp';
+import drMatlaImg from '../data/images/drmatla.png';
 import { EmailLink } from '../utils/obfuscateEmail';
 import './LocationPage.css';
 

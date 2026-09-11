@@ -10,7 +10,7 @@ export function TeamSplit() {
       {/* Left: team photo */}
       <div className="ts-split__img-col">
         <img
-          src="/assets/kensley-aesthetics-clinical-team-newcastle.webp"
+          src="/assets/kensley-aesthetics-clinical-team-newcastle.png"
           alt="The Kensley Aesthetics clinical team — Dr Tiru Matla and practitioners, Newcastle"
           className="ts-split__img"
           loading="lazy"
