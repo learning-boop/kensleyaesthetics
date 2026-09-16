@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"D:/creative_touch/renova-next\" && npm run build 2>&1 | tail -80)"
+    ]
+  }
+}
