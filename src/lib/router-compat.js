@@ -7,7 +7,7 @@
 
 import NextLink from 'next/link';
 import { useRouter, useParams as useNextParams, usePathname } from 'next/navigation';
-import { forwardRef } from 'react';
+import { forwardRef, useCallback } from 'react';
 
 /* ── Link ─────────────────────────────────────────────────── */
 const Link = forwardRef(function Link({ to, className, style, onClick, children, ...rest }, ref) {
@@ -47,7 +47,7 @@ const NavLink = forwardRef(function NavLink({ to, className, style, children, en
 /* ── useNavigate ──────────────────────────────────────────── */
 function useNavigate() {
   const router = useRouter();
-  return function navigate(to, options) {
+  return useCallback(function navigate(to, options) {
     if (typeof to === 'number') {
       if (to === -1) router.back();
       else if (to === 1) router.forward();
@@ -58,7 +58,7 @@ function useNavigate() {
     } else {
       router.push(to);
     }
-  };
+  }, [router]);
 }
 
 /* ── useLocation ──────────────────────────────────────────── */

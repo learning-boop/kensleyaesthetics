@@ -1,7 +1,18 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cd \"D:/creative_touch/renova-next\" && npm run build 2>&1 | tail -80)"
+      "Bash(cd \"D:/creative_touch/renova-next\" && npm run build 2>&1 | tail -80)",
+      "Bash(ls -la /d/creative_touch/renova-next/app/*/page.js 2>/dev/null | head -20)",
+      "Bash(find /d/creative_touch/renova-next/app -name \"*.js\" -type f ! -path \"*/.next/*\" -exec grep -l \"Link\\\\|href=\" {} \\\\; | head -15)",
+      "Bash(grep -r \"http\" /d/creative_touch/renova-next --include=\"*.json\" --include=\"*.config.js\" --include=\"*.mjs\" ! -path \"*/node_modules/*\" ! -path \"*/.next/*\" | grep -E \"\\(www\\\\.|kensleyaesthetics\\)\" | head -20)",
+      "Bash(cd \"D:/creative_touch/renova-next\" && npm run build 2>&1 | tail -50)",
+      "Bash(curl -s http://localhost:3999/main-treatments/dermal-fillers 2>/dev/null | grep -i -E '<title>|<meta name=\"description\"|<link rel=\"canonical\"|application/ld\\\\+json' | head -10)",
+      "Bash(curl -s http://localhost:3999/main-treatments/dermal-fillers 2>/dev/null | grep -oP '<title>[^<]+</title>')",
+      "Bash(curl -s http://localhost:3999/main-treatments/dermal-fillers 2>/dev/null | grep -oP 'canonical[^>]+>')",
+      "Bash(curl -s http://localhost:3999/main-treatments/dermal-fillers 2>/dev/null | grep -oP '<meta name=\"description\" content=\"[^\"]*\"')",
+      "Bash(curl -s http://localhost:3999/main-treatments/dermal-fillers 2>/dev/null | grep -c 'application/ld+json')",
+      "Bash(curl -s http://localhost:3999/about 2>/dev/null | grep -oP '<title>[^<]+</title>' && curl -s http://localhost:3999/about 2>/dev/null | grep -oP 'canonical[^/]*[^>]+>' | head -1)",
+      "Bash(pkill -f \"next start\" 2>/dev/null; echo \"done\")"
     ]
   }
 }
