@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import faqImgTop    from '../../data/images/nine.png';
-import faqImgBottom from '../../data/images/ten.png';
+const faqImgTop    = '/images/nine.png';
+const faqImgBottom = '/images/ten.png';
 import './HomeFaqSection.css';
 
 const FAQS = [

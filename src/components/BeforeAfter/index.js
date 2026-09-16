@@ -1,10 +1,10 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import img1 from '../../data/images/one.jpg';
-import img2 from '../../data/images/two.png';
-import img3 from '../../data/images/three.png';
-import img4 from '../../data/images/four.png';
-import img5 from '../../data/images/five.png';
+const img1 = '/images/one.jpg';
+const img2 = '/images/two.png';
+const img3 = '/images/three.png';
+const img4 = '/images/four.png';
+const img5 = '/images/five.png';
 import './BeforeAfter.css';
 
 function BeforeAfter() {

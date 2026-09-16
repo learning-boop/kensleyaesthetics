@@ -1,0 +1,152 @@
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: light only;
+
+  /* ── Colours ──────────────────────────────────── */
+  --color-navy:     #0B2A4A;   /* Deep Navy — dark backgrounds, headings */
+  --color-primary:  #0B2A4A;   /* alias → navy */
+  --color-dark:     #0B2A4A;   /* alias → navy */
+  --color-charcoal: #2C2C2C;   /* body text */
+  --color-gold:     #C8A96A;   /* Soft Gold — accents */
+  --color-cream:    #FAF8F5;   /* Light Beige — page background */
+  --color-beige:    #F0EBE3;   /* slightly deeper beige for cards/panels */
+  --color-sage:     #A8BFA3;
+  --color-rose:     #D8A6A0;
+  --color-white:    #FFFFFF;
+
+  /* ── Typography ───────────────────────────────── */
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-cream) !important;
+  color: var(--color-charcoal) !important;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream) !important;
+  color: var(--color-charcoal) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Prevent browser force-dark from inverting layout containers */
+#__next,
+header, nav, main, section, footer,
+div[class], article, aside {
+  color-scheme: light only;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  forced-color-adjust: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ── Global mobile padding for sticky bottom CTA ── */
+@media (max-width: 900px) {
+  body > #__next {
+    padding-bottom: 72px;
+  }
+}
+
+/* ─── Layout ─────────────────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ─── Buttons ────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-block;
+  padding: 14px 36px;
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gold);
+  color: var(--color-dark);
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 14px 36px;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+}
+
+/* ─── Mobile base ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .container        { padding: 0 20px; }
+  .section-subtitle { font-size: 15px; }
+  .btn-primary,
+  .btn-outline      { padding: 13px 28px; font-size: 13px; }
+}
+
+/* ─── Section Labels ─────────────────────────────────────── */
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-dark);
+}
+
+.section-subtitle {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-primary);
+  opacity: 0.92;
+  max-width: 560px;
+}
