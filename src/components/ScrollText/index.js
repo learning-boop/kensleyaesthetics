@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import drMatlaImg from '../../data/images/drmatla.png';
+const drMatlaImg = '/images/drmatla.png';
 import './ScrollText.css';
 
 const TRUST_CARDS = [

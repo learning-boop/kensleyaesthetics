@@ -1,8 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: [
+    './app/**/*.{js,jsx}',
+    './src/**/*.{js,jsx}',
+  ],
   corePlugins: {
-    preflight: false, // Disable CSS reset so existing styles are unaffected
+    preflight: false,
   },
   theme: {
     extend: {
