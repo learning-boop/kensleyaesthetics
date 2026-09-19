@@ -101,6 +101,21 @@ export const mainTreatment = defineType({
       ],
     }),
     defineField({
+      name: 'seoTitle',
+      title: 'SEO Title',
+      type: 'string',
+      description: 'Custom page title for search engines. Max 60 characters.',
+      validation: Rule => Rule.max(70).warning('Aim for under 70 characters for best SERP display'),
+    }),
+    defineField({
+      name: 'seoDescription',
+      title: 'SEO Meta Description',
+      type: 'text',
+      rows: 3,
+      description: 'Custom meta description. Max 160 characters.',
+      validation: Rule => Rule.max(160).warning('Aim for under 160 characters'),
+    }),
+    defineField({
       name: 'subTreatments',
       title: 'Sub-Treatments',
       type: 'array',

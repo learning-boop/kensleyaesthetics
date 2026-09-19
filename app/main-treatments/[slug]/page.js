@@ -9,6 +9,7 @@ const SITE_URL = 'https://kensleyaesthetics.com';
 const META_QUERY = `*[_type == "mainTreatment" && slug.current == $slug][0] {
   label, tagline, description, "slug": slug.current,
   "image": image.asset->url,
+  seoTitle, seoDescription,
   faqs[] { q, a },
   subTreatments[]-> { priceIntro, priceStandard }
 }`;
@@ -49,8 +50,8 @@ export async function generateMetadata({ params }) {
     return { title: 'Coming Soon | Kensley Aesthetics', robots: { index: false } };
   }
 
-  const desc = buildDescription(t, slug);
-  const title = `${t.label} Newcastle | Kensley Aesthetics`;
+  const title = t.seoTitle || `${t.label} Newcastle | Kensley Aesthetics`;
+  const desc = t.seoDescription || buildDescription(t, slug);
   const url = `${SITE_URL}/main-treatments/${slug}`;
 
   return {

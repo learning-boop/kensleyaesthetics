@@ -12,7 +12,12 @@
       "Bash(curl -s http://localhost:3999/main-treatments/dermal-fillers 2>/dev/null | grep -oP '<meta name=\"description\" content=\"[^\"]*\"')",
       "Bash(curl -s http://localhost:3999/main-treatments/dermal-fillers 2>/dev/null | grep -c 'application/ld+json')",
       "Bash(curl -s http://localhost:3999/about 2>/dev/null | grep -oP '<title>[^<]+</title>' && curl -s http://localhost:3999/about 2>/dev/null | grep -oP 'canonical[^/]*[^>]+>' | head -1)",
-      "Bash(pkill -f \"next start\" 2>/dev/null; echo \"done\")"
+      "Bash(pkill -f \"next start\" 2>/dev/null; echo \"done\")",
+      "Bash(curl -s \"https://puzajrus.api.sanity.io/v2024-01-01/data/query/production\" --data-urlencode 'query=*[_type == \"mainTreatment\"] | order\\(num asc\\) { _id, label, \"slug\": slug.current }')",
+      "Bash(curl -s \"https://puzajrus.api.sanity.io/v2024-01-01/data/query/production?query=*%5B_type+%3D%3D+%22mainTreatment%22%5D+%7C+order\\(num+asc\\)+%7B+_id%2C+label%2C+%22slug%22%3A+slug.current+%7D\")",
+      "Bash(cd \"D:/creative_touch/renova-next/studio-renova\" && node scripts/push-seo-meta.mjs)",
+      "Bash(curl -s \"https://puzajrus.api.sanity.io/v2024-01-01/data/query/production?query=*%5B_type+%3D%3D+%22mainTreatment%22%5D+%7C+order\\(num+asc\\)+%7B+label%2C+seoTitle%2C+seoDescription+%7D\" | python -m json.tool)",
+      "Bash(cd \"D:/creative_touch/renova-next/studio-renova\" && npx sanity deploy 2>&1)"
     ]
   }
 }
