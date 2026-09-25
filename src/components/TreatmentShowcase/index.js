@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import NextImage from 'next/image';
 import { Link } from 'react-router-dom';
 import { client, MAIN_TREATMENTS_QUERY } from '../../lib/sanityClient';
 import { sanityImg } from '../../utils/sanityImage';
@@ -47,18 +48,18 @@ function ProgressDots({ activeIndex, onDotClick, count }) {
 
 // ─── Image ─────────────────────────────────────────────────────────
 function TreatmentImage({ treatment }) {
+  const imgSrc = sanityImg(treatment.image, { width: 800 });
+  if (!imgSrc) return <div className="ts-img-inner" />;
   return (
     <div className="ts-img-inner">
-      <img
-        src={sanityImg(treatment.image, { width: 800 })}
+      <NextImage
+        src={imgSrc}
         alt={treatment.title}
         className="ts-treatment-img"
-        width="800"
-        height="1000"
+        width={800}
+        height={1000}
         loading="lazy"
-        onError={(e) => {
-          e.currentTarget.style.display = 'none';
-        }}
+        sizes="(max-width: 860px) 100vw, 40vw"
       />
     </div>
   );
@@ -379,17 +380,17 @@ function TreatmentShowcase() {
             <div key={t.id} className="ts-mobile-panel">
               <div className="ts-mobile-panel-image">
                 <div className="ts-img-inner">
-                  <img
-                    src={sanityImg(t.image, { width: 600 })}
-                    alt={t.title}
-                    className="ts-treatment-img"
-                    width="600"
-                    height="750"
-                    loading="lazy"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                    }}
-                  />
+                  {sanityImg(t.image, { width: 600 }) && (
+                    <NextImage
+                      src={sanityImg(t.image, { width: 600 })}
+                      alt={t.title}
+                      className="ts-treatment-img"
+                      width={600}
+                      height={750}
+                      loading="lazy"
+                      sizes="100vw"
+                    />
+                  )}
                 </div>
               </div>
 

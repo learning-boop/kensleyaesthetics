@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 const drMatlaImg = '/images/drmatla.png';
@@ -25,13 +26,14 @@ function ScrollText() {
     <section className="brand-story">
       {/* Left — image */}
       <div className="brand-story__image-col">
-        <img
+        <Image
           src={drMatlaImg}
           alt="Dr. Tiru Matla — Kensley Aesthetics founder"
           className="brand-story__image"
-          width="600"
-          height="750"
+          width={600}
+          height={750}
           loading="lazy"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
 

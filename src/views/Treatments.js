@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { Link } from 'react-router-dom';
 import { client, MAIN_TREATMENTS_QUERY } from '../lib/sanityClient';
 import { sanityImg } from '../utils/sanityImage';
@@ -67,7 +68,7 @@ export default function Treatments() {
               >
                 {extra.image && (
                   <div className="tr-card__img-wrap">
-                    <img src={sanityImg(extra.image, { width: 500 })} alt={t.label} className="tr-card__img" width="500" height="600" loading="lazy" />
+                    <Image src={sanityImg(extra.image, { width: 500 })} alt={t.label} className="tr-card__img" width={500} height={600} loading="lazy" sizes="(max-width: 768px) 100vw, 33vw" />
                   </div>
                 )}
                 <div className="tr-card__body">
@@ -91,7 +92,7 @@ export default function Treatments() {
               >
                 {extra.image && (
                   <div className="tr-card__img-wrap">
-                    <img src={sanityImg(extra.image, { width: 500 })} alt={t.label} className="tr-card__img" width="500" height="600" loading="lazy" />
+                    <Image src={sanityImg(extra.image, { width: 500 })} alt={t.label} className="tr-card__img" width={500} height={600} loading="lazy" sizes="(max-width: 768px) 100vw, 33vw" />
                   </div>
                 )}
                 <div className="tr-card__body">

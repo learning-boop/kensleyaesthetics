@@ -36,7 +36,7 @@ function Footer() {
         <div className="ft-cols">
 
           <div className="ft-col">
-            <h4 className="ft-col-heading">Main Treatments</h4>
+            <h3 className="ft-col-heading">Main Treatments</h3>
             <ul className="ft-col-links">
               {MAIN_TREATMENTS.map((t) => (
                 <li key={t.href}>
@@ -47,7 +47,7 @@ function Footer() {
           </div>
 
           <div className="ft-col">
-            <h4 className="ft-col-heading">Pages</h4>
+            <h3 className="ft-col-heading">Pages</h3>
             <ul className="ft-col-links">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/treatments">Treatments</Link></li>
@@ -60,7 +60,7 @@ function Footer() {
           </div>
 
           <div className="ft-col">
-            <h4 className="ft-col-heading">Contact</h4>
+            <h3 className="ft-col-heading">Contact</h3>
             <ul className="ft-col-links">
               <li><EmailLink user="hello" domain="kensleyaesthetics.com" /></li>
               <li><a href="tel:03334442013">0333 444 2013</a></li>

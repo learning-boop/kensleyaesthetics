@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Link } from 'react-router-dom';
 import { client, BLOG_POSTS_QUERY } from '../lib/sanityClient';
 import { sanityImg, sanitySrcSet } from '../utils/sanityImage';
@@ -24,15 +25,14 @@ function PostCard({ post, featured = false }) {
     >
       <div className="blog-card__image-wrap">
         {post.coverImage
-          ? <img
+          ? <Image
               src={sanityImg(post.coverImage, { width: 600 })}
-              srcSet={sanitySrcSet(post.coverImage, [400, 600, 900])}
-              sizes={featured ? '(max-width: 768px) 100vw, 900px' : '(max-width: 768px) 100vw, 400px'}
               alt={post.coverImageAlt || post.title}
               className="blog-card__image"
-              width="600"
-              height="400"
+              width={600}
+              height={400}
               loading="lazy"
+              sizes={featured ? '(max-width: 768px) 100vw, 900px' : '(max-width: 768px) 100vw, 400px'}
             />
           : <div className="blog-card__image-placeholder" />
         }

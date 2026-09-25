@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 import { Link } from 'react-router-dom';
 const faqImgTop    = '/images/nine.png';
 const faqImgBottom = '/images/ten.png';
@@ -40,7 +41,11 @@ function FaqCard({ faq, index, expanded, onToggle, tall }) {
   return (
     <div
       className={`hfaq-card${isOpen ? ' expanded' : ''}${tall ? ' hfaq-tall' : ''}`}
+      role="button"
+      tabIndex={0}
+      aria-expanded={isOpen}
       onClick={() => onToggle(isOpen ? null : index)}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggle(isOpen ? null : index); } }}
     >
       <p className="hfaq-card-q">{faq.q}</p>
       <p className="hfaq-card-a">{faq.a}</p>
@@ -68,7 +73,7 @@ export default function HomeFaqSection() {
           </div>
         </div>
         <div className="hfaq-top-img-col">
-          <img src={faqImgTop} alt="Expert aesthetic care" width="400" height="500" loading="lazy" />
+          <Image src={faqImgTop} alt="Expert aesthetic care" width={400} height={500} loading="lazy" sizes="(max-width: 768px) 100vw, 33vw" />
         </div>
       </div>
 
@@ -88,7 +93,7 @@ export default function HomeFaqSection() {
 
         {/* Row 3 col 1 — bottom image */}
         <div className="hfaq-grid-img">
-          <img src={faqImgBottom} alt="Precision treatment tools" width="400" height="500" loading="lazy" />
+          <Image src={faqImgBottom} alt="Precision treatment tools" width={400} height={500} loading="lazy" sizes="(max-width: 768px) 100vw, 33vw" />
         </div>
 
         {/* Row 3 col 2 — last FAQ card */}

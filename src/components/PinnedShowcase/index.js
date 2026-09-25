@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { sanityImg } from '../../utils/sanityImage';
 import { useAppointment } from '../../context/AppointmentContext';
@@ -156,13 +157,14 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
                 <span className="ps-card__item-num">{String(i + 1).padStart(2, '0')}</span>
                 <span className="ps-card__item-name">{item.name}</span>
                 {item.image && (
-                  <img
+                  <Image
                     src={sanityImg(item.image, { width: 80 })}
                     alt={item.name}
                     className="ps-card__item-thumb"
-                    width="36"
-                    height="36"
+                    width={36}
+                    height={36}
                     loading="lazy"
+                    sizes="36px"
                   />
                 )}
               </li>

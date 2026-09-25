@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import SeoHead from '../components/SeoHead';
@@ -72,13 +73,14 @@ function About() {
       {/* ── PROFILE ──────────────────────────────────────────── */}
       <section className="ab-profile">
         <div className="ab-profile__img-col">
-          <img
+          <Image
             src="/assets/dr-tiru-matla-founder-kensley-aesthetics-newcastle.png"
             alt="Dr Tiru Matla — Founder and Clinical Director, Kensley Aesthetics, Newcastle"
             className="ab-profile__img"
             loading="eager"
-            width="600"
-            height="750"
+            width={600}
+            height={750}
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
         <div className="ab-profile__content-col">
@@ -160,13 +162,14 @@ function About() {
             </p>
           </div>
           <div className="ab-bio__img-col">
-            <img
+            <Image
               src="/assets/dermal-filler-treatment-kensley-aesthetics-newcastle.png"
               alt="Dermal filler treatment at Kensley Aesthetics, Newcastle — doctor-led aesthetic clinic"
               className="ab-bio__img"
               loading="lazy"
-              width="600"
-              height="750"
+              width={600}
+              height={750}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         </div>
@@ -205,13 +208,14 @@ function About() {
       {/* ── CUSTOMER CARE ────────────────────────────────────── */}
       <section className="ab-care">
         <div className="ab-care__img-col">
-          <img
+          <Image
             src="/assets/kensley-aesthetics-patient-consultation-newcastle.png"
             alt="Kensley Aesthetics practitioner during patient consultation, Newcastle clinic"
             className="ab-care__img"
             loading="lazy"
-            width="600"
-            height="750"
+            width={600}
+            height={750}
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
         <div className="ab-care__content-col">
@@ -246,13 +250,14 @@ function About() {
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section className="ab-cta">
         <div className="ab-cta__img-col">
-          <img
+          <Image
             src="/assets/kensley-aesthetics-nurse-consultation-newcastle.png"
             alt="Kensley Aesthetics nurse consultation, Jesmond Newcastle — bespoke aesthetic treatment planning"
             className="ab-cta__img"
             loading="lazy"
-            width="600"
-            height="750"
+            width={600}
+            height={750}
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
         <div className="ab-cta__content-col">

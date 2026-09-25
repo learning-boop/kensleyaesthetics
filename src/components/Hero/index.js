@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useNavigate } from 'react-router-dom';
 import { useAppointment } from '../../context/AppointmentContext';
 import './Hero.css';
@@ -62,13 +63,14 @@ function Hero() {
 
       {/* Right — image */}
       <div className="hero__image-wrap">
-        <img
+        <Image
           src="/assets/stay_youthful.png"
           alt="Doctor-led facial aesthetics — Kensley Aesthetics"
           className="hero__image"
-          width="700"
-          height="900"
-          fetchPriority="high"
+          width={700}
+          height={900}
+          priority
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
     </section>

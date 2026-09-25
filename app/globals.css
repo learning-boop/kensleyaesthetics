@@ -23,8 +23,8 @@
   --color-white:    #FFFFFF;
 
   /* ── Typography ───────────────────────────────── */
-  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --font-sans:  'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans:  var(--font-inter), 'Inter', 'Helvetica Neue', Arial, sans-serif;
 }
 
 html {
@@ -59,6 +59,13 @@ img {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* Links inside body copy should be visually distinguishable (not just by colour) */
+p a, li a, td a, dd a {
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 2px;
 }
 
 button {
@@ -147,6 +154,5 @@ button {
   font-size: 16px;
   line-height: 1.8;
   color: var(--color-primary);
-  opacity: 0.92;
   max-width: 560px;
 }

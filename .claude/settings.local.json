@@ -17,7 +17,21 @@
       "Bash(curl -s \"https://puzajrus.api.sanity.io/v2024-01-01/data/query/production?query=*%5B_type+%3D%3D+%22mainTreatment%22%5D+%7C+order\\(num+asc\\)+%7B+_id%2C+label%2C+%22slug%22%3A+slug.current+%7D\")",
       "Bash(cd \"D:/creative_touch/renova-next/studio-renova\" && node scripts/push-seo-meta.mjs)",
       "Bash(curl -s \"https://puzajrus.api.sanity.io/v2024-01-01/data/query/production?query=*%5B_type+%3D%3D+%22mainTreatment%22%5D+%7C+order\\(num+asc\\)+%7B+label%2C+seoTitle%2C+seoDescription+%7D\" | python -m json.tool)",
-      "Bash(cd \"D:/creative_touch/renova-next/studio-renova\" && npx sanity deploy 2>&1)"
+      "Bash(cd \"D:/creative_touch/renova-next/studio-renova\" && npx sanity deploy 2>&1)",
+      "Bash(grep -r \"color:.*#[a-f0-9]\\\\{3,6\\\\}\\\\|color:.*rgb\\(.*[01][0-5][0-9]\" /d/creative_touch/renova-next/src --include=\"*.js\" --include=\"*.jsx\" 2>/dev/null | head -50)",
+      "Bash(grep -r \"\\\\.png\\\\|\\\\.jpeg\\\\|\\\\.jpg\" /d/creative_touch/renova-next/src --include=\"*.js\" --include=\"*.jsx\" 2>/dev/null | head -40)",
+      "Bash(find /d/creative_touch/renova-next/src/data -name \"*.js\" -o -name \"*.json\" 2>/dev/null | head -20)",
+      "Bash(grep -r \"display.*none\\\\|visibility.*hidden\\\\|width.*0\\\\|height.*0\" /d/creative_touch/renova-next/src --include=\"*.js\" 2>/dev/null | head -40)",
+      "Bash(grep -r \"color.*gray\\\\|color.*#[789a-f][0-9a-f]{2,5}\\\\|color.*rgb\\(1[0-4][0-9]\" /d/creative_touch/renova-next/src --include=\"*.js\" 2>/dev/null | head -40)",
+      "Bash(grep -r \"class.*['\\\\\"].*\\\\\\(small\\\\|tiny\\\\|sm\\\\\\)['\\\\\"]\" /d/creative_touch/renova-next/src --include=\"*.js\" 2>/dev/null | head -20)",
+      "Bash(grep -r \"window\\\\|document\" /d/creative_touch/renova-next/src --include=\"*.js\" 2>/dev/null | head -40)",
+      "Bash(grep -rn \"querySelector\\\\|getElementById\\\\|getElementsBy\" /d/creative_touch/renova-next/src --include=\"*.js\" 2>/dev/null | head -20)",
+      "Bash(grep -rn \"min-width\\\\|min-height\" /d/creative_touch/renova-next/src --include=\"*.js\" 2>/dev/null | grep -E \"0|1|2|3|4|5px\" | head -20)",
+      "Bash(grep -r \"\\\\.png\\\\|\\\\.jpg\\\\|\\\\.jpeg\" /d/creative_touch/renova-next/src --include=\"*.css\" 2>/dev/null | head -30)",
+      "Bash(grep -rn \"min-width.*px\\\\|min-height.*px\" /d/creative_touch/renova-next/src --include=\"*.js\" 2>/dev/null | head -20)",
+      "Bash(grep -rn \"<a.*#\\\\|href=['\\\\\"]#\" /d/creative_touch/renova-next/src --include=\"*.js\" 2>/dev/null | head -20)",
+      "Bash(cd \"D:\\\\creative_touch\\\\renova-next\" && npx next build 2>&1 | head -80)",
+      "Bash(cd \"D:\\\\creative_touch\\\\renova-next\" && npx next build 2>&1 | tail -40)"
     ]
   }
 }

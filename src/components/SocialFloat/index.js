@@ -63,7 +63,7 @@ const socials = [
 
 function SocialFloat() {
   return (
-    <div className="sf-root" aria-label="Social media links">
+    <nav className="sf-root" aria-label="Social media links">
       <div className="sf-line" />
       <ul className="sf-list">
         {socials.map((s) => (
@@ -82,7 +82,7 @@ function SocialFloat() {
         ))}
       </ul>
       <div className="sf-line" />
-    </div>
+    </nav>
   );
 }
 

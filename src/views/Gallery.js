@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Link } from 'react-router-dom';
 import { client, BEFORE_AFTER_QUERY } from '../lib/sanityClient';
 import { sanityImg } from '../utils/sanityImage';
@@ -77,13 +78,14 @@ function Gallery() {
                   <div className="gallery-item__images">
                     <div className="gallery-item__before">
                       {item.beforeImage ? (
-                        <img
+                        <Image
                           src={sanityImg(item.beforeImage, { width: 500 })}
                           alt={`${item.label} — before`}
                           className="gallery-item__img"
-                          width="500"
-                          height="600"
+                          width={500}
+                          height={600}
                           loading="lazy"
+                          sizes="(max-width: 768px) 50vw, 25vw"
                         />
                       ) : (
                         <div className="page-image-placeholder">Before</div>
@@ -92,13 +94,14 @@ function Gallery() {
                     </div>
                     <div className="gallery-item__after">
                       {item.afterImage ? (
-                        <img
+                        <Image
                           src={sanityImg(item.afterImage, { width: 500 })}
                           alt={`${item.label} — after`}
                           className="gallery-item__img"
-                          width="500"
-                          height="600"
+                          width={500}
+                          height={600}
                           loading="lazy"
+                          sizes="(max-width: 768px) 50vw, 25vw"
                         />
                       ) : (
                         <div className="page-image-placeholder">After</div>

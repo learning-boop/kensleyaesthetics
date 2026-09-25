@@ -1,4 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
+import Image from 'next/image';
 import { useAppointment } from '../context/AppointmentContext';
 import SeoHead from '../components/SeoHead';
 import QuickContact from '../components/QuickContact';
@@ -169,13 +170,14 @@ export default function LocationPage() {
       <section className="lp-doctor" aria-label="About Dr. Tiru Matla">
         <div className="lp-doctor__inner">
           <div className="lp-doctor__photo-wrap">
-            <img
+            <Image
               src={drMatlaImg}
               alt="Dr. Tiru Matla — Founder of Kensley Aesthetics"
               className="lp-doctor__photo"
               loading="lazy"
-              width="400"
-              height="500"
+              width={400}
+              height={500}
+              sizes="(max-width: 768px) 100vw, 400px"
             />
             <div className="lp-doctor__photo-accent" aria-hidden="true" />
           </div>

@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 const img1 = '/images/one.jpg';
 const img2 = '/images/two.png';
@@ -41,19 +42,19 @@ function BeforeAfter() {
       {/* ── Desktop: scattered parallax cards ── */}
       <div className="ba-cards">
         <motion.div className="ba-card ba-card--1" style={{ y: y1 }}>
-          <img src={img1} alt="Anti-wrinkle treatment before and after – Kensley Aesthetics Newcastle" width="400" height="500" loading="lazy" />
+          <Image src={img1} alt="Anti-wrinkle treatment before and after – Kensley Aesthetics Newcastle" width={400} height={500} loading="lazy" sizes="20vw" />
         </motion.div>
         <motion.div className="ba-card ba-card--2" style={{ y: y2 }}>
-          <img src={img2} alt="Lip filler before and after – Kensley Aesthetics Newcastle" width="400" height="500" loading="lazy" />
+          <Image src={img2} alt="Lip filler before and after – Kensley Aesthetics Newcastle" width={400} height={500} loading="lazy" sizes="20vw" />
         </motion.div>
         <motion.div className="ba-card ba-card--3" style={{ y: y3 }}>
-          <img src={img3} alt="Dermal filler cheek enhancement before and after – Kensley Aesthetics Newcastle" width="400" height="500" loading="lazy" />
+          <Image src={img3} alt="Dermal filler cheek enhancement before and after – Kensley Aesthetics Newcastle" width={400} height={500} loading="lazy" sizes="20vw" />
         </motion.div>
         <motion.div className="ba-card ba-card--4" style={{ y: y4 }}>
-          <img src={img4} alt="Profhilo skin booster before and after – Kensley Aesthetics Newcastle" width="400" height="500" loading="lazy" />
+          <Image src={img4} alt="Profhilo skin booster before and after – Kensley Aesthetics Newcastle" width={400} height={500} loading="lazy" sizes="20vw" />
         </motion.div>
         <motion.div className="ba-card ba-card--5" style={{ y: y5 }}>
-          <img src={img5} alt="RF microneedling skin rejuvenation before and after – Kensley Aesthetics Newcastle" width="400" height="500" loading="lazy" />
+          <Image src={img5} alt="RF microneedling skin rejuvenation before and after – Kensley Aesthetics Newcastle" width={400} height={500} loading="lazy" sizes="20vw" />
         </motion.div>
       </div>
 
@@ -67,7 +68,7 @@ function BeforeAfter() {
           { img: img5, alt: 'RF microneedling skin rejuvenation before and after – Kensley Aesthetics Newcastle' },
         ].map(({ img, alt }, i) => (
           <div key={i} className="ba-mobile-card">
-            <img src={img} alt={alt} width="400" height="500" loading="lazy" />
+            <Image src={img} alt={alt} width={400} height={500} loading="lazy" sizes="80vw" />
           </div>
         ))}
       </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import Image from 'next/image';
 import { client } from '../lib/sanityClient';
 import { useAppointment } from '../context/AppointmentContext';
 import { sanityImg } from '../utils/sanityImage';
@@ -171,7 +172,7 @@ function MainTreatmentDetail() {
         </div>
         <div className="mtd-hero__image-wrap">
           {treatment.image && (
-            <img src={sanityImg(treatment.image, { width: 800 })} alt={treatment.label} className="mtd-hero__image" width="800" height="1000" />
+            <Image src={sanityImg(treatment.image, { width: 800 })} alt={treatment.label} className="mtd-hero__image" width={800} height={1000} sizes="(max-width: 768px) 100vw, 50vw" />
           )}
         </div>
       </section>
@@ -235,7 +236,7 @@ function MainTreatmentDetail() {
       {treatment.image_second && (
         <section className="mtd-split">
           <div className="mtd-split__img-wrap">
-            <img src={sanityImg(treatment.image_second, { width: 700 })} alt={treatment.label} className="mtd-split__img" width="700" height="875" loading="lazy" />
+            <Image src={sanityImg(treatment.image_second, { width: 700 })} alt={treatment.label} className="mtd-split__img" width={700} height={875} loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
           <div className="mtd-split__content">
             <span className="mtd-split__eyebrow">About This Treatment</span>

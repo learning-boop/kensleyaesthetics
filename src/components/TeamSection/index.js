@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useAppointment } from '../../context/AppointmentContext';
 import './TeamSection.css';
 
@@ -9,13 +10,14 @@ export function TeamSplit() {
     <section className="ts-split">
       {/* Left: team photo */}
       <div className="ts-split__img-col">
-        <img
+        <Image
           src="/assets/kensley-aesthetics-clinical-team-newcastle.png"
           alt="The Kensley Aesthetics clinical team — Dr Tiru Matla and practitioners, Newcastle"
           className="ts-split__img"
           loading="lazy"
-          width="800"
-          height="600"
+          width={800}
+          height={600}
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
 

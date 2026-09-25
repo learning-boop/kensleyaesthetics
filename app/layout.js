@@ -1,6 +1,22 @@
 import './globals.css';
+import { Cormorant_Garamond, Inter } from 'next/font/google';
 import Providers from './Providers';
 import Script from 'next/script';
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-cormorant',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const metadata = {
   metadataBase: new URL('https://kensleyaesthetics.com'),
@@ -106,21 +122,13 @@ const STRUCTURED_DATA = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en-GB">
+    <html lang="en-GB" className={`${cormorant.variable} ${inter.variable}`}>
       <head>
         <meta name="theme-color" content="#F8F4EF" />
 
         {/* Preconnects */}
         <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cdn.sanity.io" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-        {/* Fonts */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap"
-        />
 
         {/* Hero image preload */}
         <link rel="preload" as="image" type="image/png" href="/assets/stay_youthful.png" fetchPriority="high" />
@@ -140,9 +148,9 @@ export default function RootLayout({ children }) {
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-N6G5K6B91P"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script id="gtag-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

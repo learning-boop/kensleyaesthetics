@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import Image from 'next/image';
 import { client, SUB_TREATMENT_QUERY } from '../lib/sanityClient';
 import { useAppointment } from '../context/AppointmentContext';
 import { sanityImg } from '../utils/sanityImage';
@@ -167,7 +168,7 @@ function SubTreatmentDetail() {
         </div>
         {(treatment.image || treatment.heroImage) && (
           <div className="std-hero__image-wrap">
-            <img src={sanityImg(treatment.image || treatment.heroImage, { width: 800 })} alt={treatment.label} className="std-hero__image" width="800" height="1000" />
+            <Image src={sanityImg(treatment.image || treatment.heroImage, { width: 800 })} alt={treatment.label} className="std-hero__image" width={800} height={1000} sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
         )}
       </section>

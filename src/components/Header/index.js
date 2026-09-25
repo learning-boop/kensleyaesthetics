@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 import { Link, NavLink } from 'react-router-dom';
 import { useAppointment } from '../../context/AppointmentContext';
 import './Header.css';
@@ -36,7 +37,7 @@ function Header() {
 
           {/* Logo — left corner */}
           <Link to="/" className="header__logo" onClick={() => setMobileOpen(false)}>
-            <img src="/assets/kensley-aesthetics-logo.png" alt="Kensley Aesthetics" className="header__logo-img" width="180" height="48" />
+            <Image src="/assets/kensley-aesthetics-logo.png" alt="Kensley Aesthetics" className="header__logo-img" width={180} height={48} priority />
             <span className="header__logo-sub">Founded by Dr. Tiru Matla</span>
           </Link>
 

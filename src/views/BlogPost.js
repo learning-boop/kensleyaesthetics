@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { PortableText } from '@portabletext/react';
 import { client, BLOG_POST_QUERY, RECENT_POSTS_QUERY } from '../lib/sanityClient';
@@ -51,15 +52,14 @@ const portableTextComponents = {
   types: {
     image: ({ value }) => (
       <figure className="bp-figure">
-        <img
+        <Image
           src={sanityImg(value?.asset?.url, { width: 800 })}
-          srcSet={sanitySrcSet(value?.asset?.url, [400, 800, 1200])}
-          sizes="(max-width: 768px) 100vw, 800px"
           alt={value?.alt || 'Blog image'}
           className="bp-image"
-          width="800"
-          height="500"
+          width={800}
+          height={500}
           loading="lazy"
+          sizes="(max-width: 768px) 100vw, 800px"
         />
         {value?.caption && <figcaption className="bp-caption">{value.caption}</figcaption>}
       </figure>
@@ -72,7 +72,7 @@ function RecentCard({ post }) {
   return (
     <Link to={`/blog/${post.slug}`} className="bp-recent-card">
       {post.coverImage && (
-        <img src={sanityImg(post.coverImage, { width: 300 })} alt={post.coverImageAlt || post.title} className="bp-recent-card__img" width="300" height="200" loading="lazy" />
+        <Image src={sanityImg(post.coverImage, { width: 300 })} alt={post.coverImageAlt || post.title} className="bp-recent-card__img" width={300} height={200} loading="lazy" sizes="(max-width: 768px) 100vw, 300px" />
       )}
       <div className="bp-recent-card__body">
         <span className="bp-recent-card__cat">{post.category}</span>
@@ -173,14 +173,13 @@ function BlogPost() {
       {/* ── Cover hero ──────────────────────────────────── */}
       <div className="bp-hero">
         {post.coverImage && (
-          <img
+          <Image
             src={sanityImg(post.coverImage, { width: 1400 })}
-            srcSet={sanitySrcSet(post.coverImage, [600, 1000, 1400])}
-            sizes="100vw"
             alt={post.coverImageAlt || post.title}
             className="bp-hero__img"
-            width="1400"
-            height="700"
+            width={1400}
+            height={700}
+            sizes="100vw"
           />
         )}
         <div className="bp-hero__overlay">

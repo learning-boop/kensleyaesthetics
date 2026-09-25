@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
+import Image from 'next/image';
 import { useTreatments } from '../context/TreatmentsContext';
 import { useAppointment } from '../context/AppointmentContext';
 import { sanityImg } from '../utils/sanityImage';
@@ -97,7 +98,7 @@ function TreatmentDetail() {
         </div>
         <div className="pkg-hero__image-wrap">
           {treatment.image && (
-            <img src={sanityImg(treatment.image, { width: 800 })} alt={treatment.label} className="pkg-hero__image" width="800" height="1000" />
+            <Image src={sanityImg(treatment.image, { width: 800 })} alt={treatment.label} className="pkg-hero__image" width={800} height={1000} sizes="(max-width: 768px) 100vw, 50vw" />
           )}
         </div>
       </section>
@@ -193,7 +194,7 @@ function TreatmentDetail() {
       {treatment.image_second && (
         <section className="pkg-split">
           <div className="pkg-split__img-wrap">
-            <img src={sanityImg(treatment.image_second, { width: 700 })} alt={treatment.label} className="pkg-split__img" width="700" height="875" loading="lazy" />
+            <Image src={sanityImg(treatment.image_second, { width: 700 })} alt={treatment.label} className="pkg-split__img" width={700} height={875} loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
           <div className="pkg-split__content">
             <span className="pkg-split__eyebrow">About This Programme</span>
