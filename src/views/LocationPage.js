@@ -74,7 +74,7 @@ export default function LocationPage() {
       addressRegion: 'Tyne and Wear',
       addressCountry: 'GB',
     },
-    telephone: '03334442013',
+    telephone: '03330570295',
     areaServed: {
       '@type': 'City',
       name: loc.name,
@@ -133,7 +133,7 @@ export default function LocationPage() {
             <CalendarIcon />
             Book an Appointment
           </button>
-          <a className="lp-cta-btn lp-cta-btn--outline" href="tel:03334442013">
+          <a className="lp-cta-btn lp-cta-btn--outline" href="tel:03330570295">
             <PhoneIcon />
             Call Us
           </a>
@@ -261,9 +261,9 @@ export default function LocationPage() {
               whichever is easiest for you.
             </p>
             <div className="lp-contact__links">
-              <a href="tel:03334442013" className="lp-contact__link">
+              <a href="tel:03330570295" className="lp-contact__link">
                 <PhoneIcon />
-                Call: 0333 444 2013
+                Call: 0333 057 0295
               </a>
               <a
                 href="https://wa.me/447920699154"

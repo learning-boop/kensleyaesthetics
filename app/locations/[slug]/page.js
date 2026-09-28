@@ -50,7 +50,7 @@ export default async function LocationDetailPage({ params }) {
           addressRegion: 'Tyne and Wear',
           addressCountry: 'GB',
         },
-        telephone: '03334442013',
+        telephone: '03330570295',
         areaServed: { '@type': 'City', name: loc.name },
         founder: {
           '@type': 'Physician',

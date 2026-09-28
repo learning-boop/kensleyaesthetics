@@ -63,7 +63,7 @@ function Footer() {
             <h3 className="ft-col-heading">Contact</h3>
             <ul className="ft-col-links">
               <li><EmailLink user="hello" domain="kensleyaesthetics.com" /></li>
-              <li><a href="tel:03334442013">0333 444 2013</a></li>
+              <li><a href="tel:03330570295">0333 057 0295</a></li>
               <li>Old Brewery Court, 156 Sandyford Rd,<br />Jesmond, Newcastle upon Tyne, NE2 1XG</li>
             </ul>
             <button onClick={openDrawer} className="ft-book-btn">Book an Appointment</button>

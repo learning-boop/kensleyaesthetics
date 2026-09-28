@@ -62,7 +62,7 @@ const STRUCTURED_DATA = {
       "logo": "https://kensleyaesthetics.com/logo512.png",
       "image": "https://kensleyaesthetics.com/logo512.png",
       "description": "Doctor-led, GMC-registered aesthetic clinic in Jesmond, Newcastle upon Tyne offering dermal fillers, anti-wrinkle injections, skin boosters, polynucleotides, biostimulators, microneedling, RF microneedling and HIFU.",
-      "telephone": "0333 444 2013",
+      "telephone": "0333 057 0295",
       "email": "hello@kensleyaesthetics.com",
       "priceRange": "\u00a3\u00a3",
       "currenciesAccepted": "GBP",
