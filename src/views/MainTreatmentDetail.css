@@ -69,11 +69,13 @@
 
 /* ─── HERO ─────────────────────────────────────────────── */
 .mtd-hero {
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100svh;
   background: var(--color-cream);
   display: flex;
   align-items: stretch;
   padding-top: 60px;
+  overflow: hidden;
 }
 
 .mtd-hero__content {
@@ -81,7 +83,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 80px 60px 80px 72px;
+  padding: 40px 48px 40px 60px;
 }
 
 .mtd-hero__eyebrow {
@@ -97,34 +99,34 @@
 
 .mtd-hero__title {
   font-family: 'Cormorant', Georgia, serif;
-  font-size: clamp(52px, 6.5vw, 100px);
+  font-size: clamp(40px, 5vw, 72px);
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.5px;
   color: var(--color-dark);
-  margin: 0 0 20px 0;
+  margin: 0 0 14px 0;
   text-transform: uppercase;
 }
 
 .mtd-hero__tagline {
   font-family: 'Cormorant', Georgia, serif;
-  font-size: clamp(16px, 1.6vw, 22px);
+  font-size: clamp(15px, 1.4vw, 20px);
   font-weight: 400;
   font-style: italic;
   color: rgba(12, 15, 13, 0.6);
-  margin: 0 0 20px 0;
+  margin: 0 0 14px 0;
   line-height: 1.4;
 }
 
 .mtd-hero__desc {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
-  line-height: 1.8;
+  line-height: 1.75;
   letter-spacing: 0.03em;
   color: rgba(12, 15, 13, 0.6);
   max-width: 420px;
-  margin: 0 0 48px 0;
+  margin: 0 0 28px 0;
 }
 
 .mtd-hero__actions {
@@ -614,13 +616,15 @@
   /* Hero */
   .mtd-hero {
     flex-direction: column;
-    min-height: 100svh;
+    height: calc(100svh - 72px);
+    max-height: 100svh;
     padding-top: 58px;
   }
 
   .mtd-hero__image-wrap {
     width: 100%;
-    height: 52svh;
+    height: 40svh;
+    flex-shrink: 0;
     order: -1;
   }
 
@@ -629,18 +633,21 @@
   }
 
   .mtd-hero__content {
-    padding: 36px 24px 48px;
-    justify-content: flex-start;
+    padding: 24px 24px 28px;
+    justify-content: center;
+    flex: 1;
+    min-height: 0;
   }
 
   .mtd-hero__title {
-    font-size: clamp(40px, 11vw, 70px);
-    margin-bottom: 14px;
+    font-size: clamp(28px, 8vw, 48px);
+    margin-bottom: 10px;
   }
 
   .mtd-hero__desc {
     max-width: 100%;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
+    font-size: 11px;
   }
 
   .mtd-hero__actions {

@@ -19,10 +19,6 @@ const FAQS = [
     a: 'Yes — many of our treatments complement each other beautifully. Your specialist will design a bespoke plan, advising on safe combinations and the ideal sequencing for the best results.',
   },
   {
-    q: 'How long do I need after my treatment?',
-    a: 'Most treatments require no downtime at all. You can return to your daily activities immediately. Some treatments may cause minor redness or swelling for a few hours.',
-  },
-  {
     q: 'What is the typical recovery time?',
     a: 'Recovery varies by treatment. Injectable treatments may cause minor swelling or bruising for 24–48 hours, which resolves naturally. Skin treatments typically have no visible recovery period.',
   },

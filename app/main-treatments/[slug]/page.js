@@ -6,16 +6,43 @@ import MainTreatmentDetailClient from './MainTreatmentDetailClient';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
 
-const META_QUERY = `*[_type == "mainTreatment" && slug.current == $slug][0] {
-  label, tagline, description, "slug": slug.current,
+export async function generateStaticParams() {
+  const sanity = await client.fetch(`*[_type == "mainTreatment"]{ "slug": slug.current }`);
+  const sanitySlugs = sanity.map((t) => t.slug);
+  const staticSlugs = Object.keys(STATIC_MAIN_TREATMENTS);
+  const allSlugs = [...new Set([...sanitySlugs, ...staticSlugs])];
+  return allSlugs.map((slug) => ({ slug }));
+}
+
+const FULL_QUERY = `*[_type == "mainTreatment" && slug.current == $slug][0] {
+  num,
+  "slug": slug.current,
+  label,
+  tagline,
+  description,
   "image": image.asset->url,
-  seoTitle, seoDescription,
+  "image_second": image_second.asset->url,
+  "reviews": reviews[].asset->url,
+  benefits,
+  ideal,
   faqs[] { q, a },
-  subTreatments[]-> { priceIntro, priceStandard }
+  seoTitle,
+  seoDescription,
+  subTreatments[]-> {
+    "slug": slug.current,
+    "title": group,
+    "name": label,
+    description,
+    tagline,
+    "image": image.asset->url,
+    duration,
+    priceStandard,
+    priceIntro,
+  }
 }`;
 
 async function getTreatment(slug) {
-  const data = await client.fetch(META_QUERY, { slug });
+  const data = await client.fetch(FULL_QUERY, { slug });
   if (data) {
     if (!data.subTreatments || data.subTreatments.length === 0) {
       data.subTreatments = STATIC_SUB_TREATMENTS[slug] || [];
@@ -27,7 +54,10 @@ async function getTreatment(slug) {
     return {
       ...staticMain,
       image: null,
+      image_second: null,
+      reviews: [],
       faqs: [],
+      ideal: null,
       subTreatments: STATIC_SUB_TREATMENTS[slug] || [],
     };
   }
@@ -84,7 +114,7 @@ export default async function MainTreatmentDetailPage({ params }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
-      <MainTreatmentDetailClient />
+      <MainTreatmentDetailClient initialTreatment={t} />
     </>
   );
 }

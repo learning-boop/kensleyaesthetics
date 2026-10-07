@@ -10,8 +10,12 @@ const SIGNATURE_SLUGS = [
 const MAIN_TREATMENT_SLUGS = [
   'anti-wrinkle-treatments', 'dermal-fillers', 'skin-boosters',
   'regenerative-treatments', 'biostimulators', 'microneedling',
-  'rf-microneedling', 'hifu',
+  'rf-microneedling', 'hifu', 'chemical-peel', 'hydro2-facial',
+  'mesotherapy', 'led-light-therapy', 'profhilo', 'prp',
+  'polynucleotides', 'medical-grade-skincare',
 ];
+
+export const dynamic = 'force-static';
 
 export default function sitemap() {
   const now = new Date().toISOString();

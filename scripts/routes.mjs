@@ -40,7 +40,7 @@ const client = createClient({
 export const MAIN_TREATMENT_SLUGS = [
   'anti-wrinkle-treatments', 'dermal-fillers', 'skin-boosters', 'regenerative-treatments',
   'biostimulators', 'microneedling', 'rf-microneedling', 'hifu',
-  'chemical-peel', '3d-hydro2-facial', 'mesotherapy', 'led-light-therapy',
+  'chemical-peel', 'hydro2-facial', 'mesotherapy', 'led-light-therapy',
   'profhilo', 'prp', 'polynucleotides', 'medical-grade-skincare',
 ];
 

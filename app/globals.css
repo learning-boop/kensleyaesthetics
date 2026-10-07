@@ -31,6 +31,7 @@ html {
   scroll-behavior: smooth;
   background-color: var(--color-cream) !important;
   color: var(--color-charcoal) !important;
+  overflow-x: hidden;
 }
 
 body {

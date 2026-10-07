@@ -62,8 +62,8 @@ const STRUCTURED_DATA = {
       "logo": "https://kensleyaesthetics.com/logo512.png",
       "image": "https://kensleyaesthetics.com/logo512.png",
       "description": "Doctor-led, GMC-registered aesthetic clinic in Jesmond, Newcastle upon Tyne offering dermal fillers, anti-wrinkle injections, skin boosters, polynucleotides, biostimulators, microneedling, RF microneedling and HIFU.",
-      "telephone": "0333 057 0295",
-      "email": "hello@kensleyaesthetics.com",
+      "telephone": "333 057 0295",
+      "email": "kensleyclinic@gmail.com",
       "priceRange": "\u00a3\u00a3",
       "currenciesAccepted": "GBP",
       "paymentAccepted": "Cash, Credit Card, Debit Card",
@@ -82,7 +82,7 @@ const STRUCTURED_DATA = {
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
         { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00" }
       ],
-      "areaServed": ["Newcastle upon Tyne", "Jesmond", "Gosforth", "Gateshead", "North Tyneside", "Sunderland", "Durham", "Northumberland"],
+      "areaServed": ["Newcastle upon Tyne", "Jesmond"],
       "founder": { "@id": "https://kensleyaesthetics.com/#dr-tiru-matla" },
       "employee": { "@id": "https://kensleyaesthetics.com/#dr-tiru-matla" },
       "sameAs": [

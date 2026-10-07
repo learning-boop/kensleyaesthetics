@@ -2,45 +2,40 @@ import Image from 'next/image';
 import { useAppointment } from '../../context/AppointmentContext';
 import './TeamSection.css';
 
-/* ── Homepage split layout ──────────────────────────────── */
-export function TeamSplit() {
-  const { openDrawer } = useAppointment();
+const TEAM_IMAGES = [
+  { src: '/images/our-team/skin-specialist-kensley-aesthetics-clinic-newcastle.jpg', alt: 'Skin specialist at Kensley Aesthetics clinic, Newcastle upon Tyne' },
+  { src: '/images/our-team/dr-tiru-matla-clinical-director-kensley-aesthetics-newcastle.jpg', alt: 'Dr Tiru Matla, Clinical Director at Kensley Aesthetics, Jesmond, Newcastle' },
+  { src: '/images/our-team/medical-aesthetics-team-member-kensley-clinic-newcastle.jpg', alt: 'Medical aesthetics team member at Kensley clinic, Newcastle' },
+  { src: '/images/our-team/aesthetic-practitioner-kensley-aesthetics-jesmond-newcastle.jpg', alt: 'Aesthetic practitioner at Kensley Aesthetics clinic in Jesmond, Newcastle' },
+  { src: '/images/our-team/aesthetics-practitioner-kensley-aesthetics-newcastle.jpg', alt: 'Aesthetics practitioner at Kensley Aesthetics, Newcastle' },
+];
 
+/* ── Homepage team slider ──────────────────────────────── */
+export function TeamSplit() {
   return (
-    <section className="ts-split">
-      {/* Left: team photo */}
-      <div className="ts-split__img-col">
-        <Image
-          src="/assets/kensley-aesthetics-clinical-team-newcastle.png"
-          alt="The Kensley Aesthetics clinical team — Dr Tiru Matla and practitioners, Newcastle"
-          className="ts-split__img"
-          loading="lazy"
-          width={800}
-          height={600}
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
+    <section className="team-slider">
+      <div className="team-slider__header">
+        <span className="ts-eyebrow">The People Behind Your Care</span>
+        <h2 className="team-slider__title">Meet Our Team</h2>
       </div>
 
-      {/* Right: content */}
-      <div className="ts-split__content-col">
-        <span className="ts-eyebrow">The People Behind Your Care</span>
-        <h2 className="ts-split__heading">
-          Meet{' '}<br />Our Team
-        </h2>
-        <div className="ts-split__rule" />
-
-        {/* Founder feature */}
-        <div className="ts-split__founder">
-          <p className="ts-split__founder-label">Founder &amp; Clinical Director</p>
-          <h3 className="ts-split__founder-name">Dr Tiru Matla</h3>
-          <p className="ts-split__founder-creds">MBBS · MRCGP · DFSRH · GMC Registered</p>
+      <div className="team-slider__track-wrap">
+        <div className="team-slider__track">
+          {/* Double the images for seamless infinite loop */}
+          {[...TEAM_IMAGES, ...TEAM_IMAGES].map((img, i) => (
+            <div key={i} className="team-slider__slide">
+              <Image
+                src={img.src}
+                alt={img.alt}
+                className="team-slider__img"
+                width={500}
+                height={500}
+                loading="lazy"
+                sizes="(max-width: 860px) 70vw, 320px"
+              />
+            </div>
+          ))}
         </div>
-
-        <div className="ts-split__member-divider" />
-
-        <button className="ts-split__btn" onClick={openDrawer}>
-          Book a Consultation
-        </button>
       </div>
     </section>
   );
@@ -48,8 +43,7 @@ export function TeamSplit() {
 
 const PRACTITIONER_ROLES = [
   { title: 'Clinical Director', name: 'Dr Tiru Matla', creds: 'MBBS · MRCGP · DFSRH' },
-  { title: 'Facial Aesthetics', name: 'Dr Mariyam Durrani', creds: 'Dentist & Aesthetics Practitioner' },
-  { title: 'Aesthetics Practitioner', name: 'Sophia Azam', creds: 'Pharmacist · Independent Prescriber' },
+  { title: 'Aesthetics Practitioner', name: 'Aesthetics Practitioner', creds: 'Aesthetics Practitioner' },
 ];
 
 /* ── About page team section ────────────────────────────── */
@@ -74,7 +68,7 @@ export default function TeamSection() {
             counsel, and care that puts the patient first.
           </p>
           <button className="ts-about-team__btn" onClick={openDrawer}>
-            Book a Consultation
+            Schedule Your Consultation
           </button>
         </div>
 

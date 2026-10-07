@@ -6,7 +6,7 @@ import { sanityImg } from '../../utils/sanityImage';
 import { useAppointment } from '../../context/AppointmentContext';
 import './showcase.css';
 
-const VARIANTS = ['v1', 'v2', 'v3', 'v4'];
+const VARIANTS = ['v1', 'v1', 'v1', 'v1'];
 
 // ─── Desktop: Brand + Book ─────────────────────────────────────────
 function BrandBlock() {
@@ -22,7 +22,7 @@ function AppointmentButton() {
   const { openDrawer } = useAppointment();
   return (
     <button onClick={openDrawer} className="ts-appt-btn">
-      Book an Appointment
+      Schedule Your Consultation
       <span className="ts-appt-btn__arrow">→</span>
     </button>
   );
@@ -56,10 +56,10 @@ function TreatmentImage({ treatment }) {
         src={imgSrc}
         alt={treatment.title}
         className="ts-treatment-img"
-        width={800}
-        height={1000}
+        width={500}
+        height={500}
         loading="lazy"
-        sizes="(max-width: 860px) 100vw, 40vw"
+        sizes="(max-width: 860px) 100vw, 30vw"
       />
     </div>
   );
@@ -385,8 +385,8 @@ function TreatmentShowcase() {
                       src={sanityImg(t.image, { width: 600 })}
                       alt={t.title}
                       className="ts-treatment-img"
-                      width={600}
-                      height={750}
+                      width={500}
+                      height={500}
                       loading="lazy"
                       sizes="100vw"
                     />

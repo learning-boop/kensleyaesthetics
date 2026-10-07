@@ -3,16 +3,44 @@ import TreatmentDetailClient from './TreatmentDetailClient';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
 
-const META_QUERY = `*[_type == "treatment" && slug.current == $slug][0] {
-  label, tagline, description, concern,
+export async function generateStaticParams() {
+  const treatments = await client.fetch(`*[_type == "treatment"]{ "slug": slug.current }`);
+  return treatments.map((t) => ({ slug: t.slug }));
+}
+
+const FULL_QUERY = `*[_type == "treatment" && slug.current == $slug][0] {
+  num,
   "slug": slug.current,
+  label,
+  tagline,
+  description,
+  concern,
   "image": image.asset->url,
-  seoTitle, seoDescription,
-  faqs[] { q, a }
+  "image_second": image_second.asset->url,
+  "reviews": reviews[].asset->url,
+  benefits,
+  ideal,
+  prices[] { name, price },
+  steps[] {
+    stepTitle,
+    stepDescription,
+    treatments[] { name, mainTreatmentSlug }
+  },
+  caveatLine,
+  ctaLabel,
+  seoTitle,
+  seoDescription,
+  faqs[] { q, a },
+  subTreatments[] {
+    title,
+    name,
+    description,
+    "image": image.asset->url
+  }
 }`;
 
 async function getTreatment(slug) {
-  return client.fetch(META_QUERY, { slug });
+  return client.fetch(FULL_QUERY, { slug });
 }
 
 export async function generateMetadata({ params }) {
@@ -85,7 +113,7 @@ export default async function TreatmentDetailPage({ params }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
-      <TreatmentDetailClient />
+      <TreatmentDetailClient initialTreatment={t} />
     </>
   );
 }

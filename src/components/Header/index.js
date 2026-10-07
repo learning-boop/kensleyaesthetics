@@ -21,24 +21,10 @@ function Header() {
   return (
     <>
       <header className="header">
-        {/* Founder endorsement bar */}
-        <div className="header__endorsement">
-          <span className="header__endorsement-left">
-            A new face-focused aesthetics clinic, founded and clinically led by Dr. Tiru Matla
-          </span>
-          <span className="header__endorsement-right">
-            20+ Years Medical Experience&nbsp;&nbsp;·&nbsp;&nbsp;Doctor-Led Care&nbsp;&nbsp;·&nbsp;&nbsp;Newcastle
-          </span>
-        </div>
-
-        <div className="header__accent-line" />
-
         <div className="header__bar">
-
           {/* Logo — left corner */}
           <Link to="/" className="header__logo" onClick={() => setMobileOpen(false)}>
             <Image src="/assets/kensley-aesthetics-logo.png" alt="Kensley Aesthetics" className="header__logo-img" width={180} height={48} priority />
-            <span className="header__logo-sub">Founded by Dr. Tiru Matla</span>
           </Link>
 
           {/* Desktop nav links */}
@@ -78,20 +64,20 @@ function Header() {
           ))}
         </nav>
         <button className="header__mobile-book" onClick={() => { setMobileOpen(false); openDrawer(); }}>
-          Book a Consultation
+          Schedule Your Consultation
         </button>
       </div>
 
       {/* Sticky mobile bottom CTA — always visible on mobile */}
       <div className="header__sticky-cta">
-        <a href="tel:03330570295" className="header__sticky-call-btn">
+        <a href="tel:3330570295" className="header__sticky-call-btn">
           <svg className="header__sticky-call-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
           </svg>
           Call Us Today
         </a>
         <button className="header__sticky-cta-btn" onClick={openDrawer}>
-          Book a Consultation
+          Schedule Your Consultation
         </button>
       </div>
     </>

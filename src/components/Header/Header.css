@@ -1,36 +1,3 @@
-/* ─── FOUNDER ENDORSEMENT BAR ───────────────────────────── */
-.header__endorsement {
-  background-color: var(--color-navy);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  height: 36px;
-  gap: 16px;
-}
-
-.header__endorsement-left,
-.header__endorsement-right {
-  font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  color: rgba(250, 248, 245, 0.88);
-  white-space: nowrap;
-}
-
-.header__endorsement-left {
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.header__endorsement-right {
-  flex-shrink: 0;
-  color: var(--color-gold);
-}
-
 /* ─── HEADER BAR ───────────────────────────────────────── */
 .header {
   position: fixed;
@@ -40,17 +7,12 @@
   box-shadow: 0 1px 0 rgba(11, 42, 74, 0.08);
 }
 
-.header__accent-line {
-  height: 2px;
-  background: linear-gradient(90deg, var(--color-navy) 0%, var(--color-gold) 50%, var(--color-navy) 100%);
-}
-
 .header__bar {
   display: flex;
   align-items: center;
   gap: 24px;
   padding: 0 40px;
-  height: 58px;
+  height: 72px;
 }
 
 /* ─── Logo ─────────────────────────────────────────────── */
@@ -58,25 +20,13 @@
   flex-shrink: 0;
   text-decoration: none;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
+  align-items: center;
 }
 
 .header__logo-img {
-  height: 44px;
+  height: 56px;
   width: auto;
   display: block;
-}
-
-.header__logo-sub {
-  font-family: var(--font-sans);
-  font-size: 8.5px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-gold);
-  white-space: nowrap;
 }
 
 /* ─── Desktop nav ──────────────────────────────────────── */
@@ -90,15 +40,15 @@
 
 .header__nav-link {
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: rgba(11, 42, 74, 0.78);
+  color: rgba(11, 42, 74, 0.88);
   background: none;
   border: none;
   cursor: pointer;
-  padding: 14px 12px;
+  padding: 18px 14px;
   white-space: nowrap;
   transition: color 0.2s ease;
 }
@@ -117,9 +67,9 @@
 
 .header__book {
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-white);
   background: var(--color-navy);
@@ -178,7 +128,7 @@
 /* ─── Mobile slide-down menu ───────────────────────────── */
 .header__mobile-menu {
   position: fixed;
-  top: 60px;
+  top: 72px;
   left: 0;
   right: 0;
   bottom: 72px; /* leave room for sticky CTA */
@@ -254,17 +204,14 @@
 
 /* ─── Mobile breakpoint ────────────────────────────────── */
 @media (max-width: 900px) {
-  .header__endorsement { display: none; }
-  .header__nav { display: none; }
+.header__nav { display: none; }
   .header__mobile-toggle { display: flex; }
   .header__bar {
     padding: 0 20px;
     justify-content: space-between;
   }
 
-  .header__logo-img { height: 40px; }
-  .header__logo-sub { display: none; }
-
+  .header__logo-img { height: 48px; }
   /* Hide the header-bar "Book" button on mobile — sticky CTA handles it */
   .header__book { display: none; }
 

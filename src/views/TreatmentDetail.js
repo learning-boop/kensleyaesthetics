@@ -10,23 +10,23 @@ import './pages.css';
 import './TreatmentDetail.css';
 import './PackageDetail.css';
 
-function TreatmentDetail() {
+function TreatmentDetail({ initialTreatment = null }) {
   const { slug } = useParams();
   const navigate = useNavigate();
   const { treatments, loading } = useTreatments();
   const { openDrawer } = useAppointment();
-  const treatment = treatments.find((t) => t.slug === slug);
+  const treatment = initialTreatment || treatments.find((t) => t.slug === slug);
   const [openFaq, setOpenFaq] = useState(null);
   const [reviewIndex, setReviewIndex] = useState(0);
   const [slideDir, setSlideDir] = useState('right');
 
-  if (loading) return null;
+  if (!initialTreatment && loading) return null;
   if (!treatment) return <Navigate to="/" replace />;
 
   const reviews = treatment.reviews || [];
   const steps = treatment.steps || [];
   const faqs = treatment.faqs || [];
-  const ctaLabel = treatment.ctaLabel || 'Book a Consultation';
+  const ctaLabel = treatment.ctaLabel || 'Schedule Your Consultation';
 
   const prevReview = () => { setSlideDir('left');  setReviewIndex(i => (i - 1 + reviews.length) % reviews.length); };
   const nextReview = () => { setSlideDir('right'); setReviewIndex(i => (i + 1) % reviews.length); };
@@ -124,10 +124,6 @@ function TreatmentDetail() {
               <dd>From £{priceFrom}</dd>
             </div>
           )}
-          <div className="pkg-glance__item">
-            <dt>Downtime</dt>
-            <dd>Minimal — most clients resume daily activities immediately</dd>
-          </div>
           <div className="pkg-glance__item">
             <dt>Who performs it</dt>
             <dd>Dr Tiru Matla — GMC-registered medical doctor &amp; clinical director</dd>

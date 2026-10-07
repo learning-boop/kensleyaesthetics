@@ -25,7 +25,7 @@ export default function NotFound() {
       <p className="nf-body">
         The link may be out of date, or the page may have moved. Here are the pages
         people visit most — or call us on{' '}
-        <a href="tel:03330570295">0333 057 0295</a>.
+        <a href="tel:3330570295">333 057 0295</a>.
       </p>
 
       <ul className="nf-links">

@@ -35,10 +35,6 @@ const faqs = [
         a: 'This varies by treatment. Relaxant injections typically last 3–4 months, dermal fillers 9–18 months, and skin-boosting treatments such as Profhilo typically last several months (commonly reviewed at around 6 months). Your practitioner will give you a realistic expectation during your consultation.',
       },
       {
-        q: 'Is there any downtime after treatment?',
-        a: 'Most of our treatments require little to no downtime. Some clients experience mild redness or swelling that resolves within a few hours to days. We will advise you on what to expect before your appointment.',
-      },
-      {
         q: 'Can I combine treatments?',
         a: 'Absolutely. Many clients benefit from combining treatments for a more comprehensive result. Our Full Face Refresh is specifically designed as a combination protocol.',
       },

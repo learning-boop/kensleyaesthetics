@@ -1957,7 +1957,7 @@ export const STATIC_SUB_TREATMENTS = {
   ],
 
   /* ─── 10 3D HydrO2 Facial ────────────────────────────────────────── */
-  '3d-hydro2-facial': [
+  'hydro2-facial': [
     {
       title: '3D HydrO2 Facial', name: '30-Minute Treatment', slug: '30-minute',
       seoTitle: 'HydrO2 Facial Newcastle | 30 Minute Treatment | Kensley Aesthetics',

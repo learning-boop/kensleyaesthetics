@@ -12,6 +12,14 @@ const MAIN_TREATMENTS = [
   { label: 'Microneedling',            href: '/main-treatments/microneedling' },
   { label: 'RF Microneedling',         href: '/main-treatments/rf-microneedling' },
   { label: 'HIFU',                     href: '/main-treatments/hifu' },
+  { label: 'Chemical Peel',            href: '/main-treatments/chemical-peel' },
+  { label: '3D HydrO2 Facial',         href: '/main-treatments/hydro2-facial' },
+  { label: 'Mesotherapy',              href: '/main-treatments/mesotherapy' },
+  { label: 'LED Light Therapy',        href: '/main-treatments/led-light-therapy' },
+  { label: 'Profhilo',                 href: '/main-treatments/profhilo' },
+  { label: 'PRP',                      href: '/main-treatments/prp' },
+  { label: 'Polynucleotides',          href: '/main-treatments/polynucleotides' },
+  { label: 'Medical-Grade Skincare',   href: '/main-treatments/medical-grade-skincare' },
 ];
 
 function Footer() {
@@ -62,11 +70,11 @@ function Footer() {
           <div className="ft-col">
             <h3 className="ft-col-heading">Contact</h3>
             <ul className="ft-col-links">
-              <li><EmailLink user="hello" domain="kensleyaesthetics.com" /></li>
-              <li><a href="tel:03330570295">0333 057 0295</a></li>
+              <li><EmailLink user="kensleyclinic" domain="gmail.com" /></li>
+              <li><a href="tel:3330570295">333 057 0295</a></li>
               <li>Old Brewery Court, 156 Sandyford Rd,<br />Jesmond, Newcastle upon Tyne, NE2 1XG</li>
             </ul>
-            <button onClick={openDrawer} className="ft-book-btn">Book an Appointment</button>
+            <button onClick={openDrawer} className="ft-book-btn">Schedule Your Consultation</button>
           </div>
 
         </div>
@@ -119,7 +127,7 @@ function Footer() {
               &copy; {new Date().getFullYear()} Kensley Aesthetics
             </p>
             <p className="ft-credit">
-              Design &amp; Development &amp; SEO by{' '}
+              Developed by{' '}
               <a href="https://creatorstouchglobal.com" target="_blank" rel="noopener noreferrer">
                 Creator Touch
               </a>

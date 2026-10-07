@@ -7,7 +7,7 @@
  *   <EmailLink user="hello" domain="kensleyaesthetics.com" className="my-link" />
  *
  *   import { emailHref, emailText } from '../utils/obfuscateEmail';
- *   emailHref('hello', 'kensleyaesthetics.com')  // "mailto:hello@kensleyaesthetics.com"
+ *   emailHref('hello', 'kensleyaesthetics.com')  // "mailto:hello@kensleyaesthetics"
  */
 
 export function emailText(user, domain) {

@@ -13,7 +13,7 @@ function CtaSection() {
           the transformation you deserve.
         </p>
         <div className="cta-section__actions">
-          <a href="#contact" className="btn-primary">Book a Consultation</a>
+          <a href="#contact" className="btn-primary">Schedule Your Consultation</a>
           {/* <a href="#contact" className="btn-outline">Contact Us</a> */}
         </div>
       </div>

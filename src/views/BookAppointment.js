@@ -22,7 +22,7 @@ function BookAppointment() {
   return (
     <>
       <SeoHead
-        title="Book an Appointment | Kensley Aesthetics Newcastle"
+        title="Schedule Your Consultation | Kensley Aesthetics Newcastle"
         description="Book your aesthetic consultation or treatment at Kensley Aesthetics in Jesmond, Newcastle. Doctor-led care, bespoke treatment plans."
         path="/book"
       />
@@ -30,7 +30,7 @@ function BookAppointment() {
       {/* ── Compact header ── */}
       <div className="ba-header">
         <span className="ba-header__eyebrow">Get Started</span>
-        <h1 className="ba-header__title">Book an Appointment</h1>
+        <h1 className="ba-header__title">Schedule Your Consultation</h1>
         <p className="ba-header__sub">Beauty Refined · Confidence Restored</p>
       </div>
 
@@ -43,7 +43,7 @@ function BookAppointment() {
           scrolling="no"
           style={{ width: '100%', height: iframeHeight + 'px', border: 'none', display: 'block' }}
           id="ansOlbIframe"
-          title="Book an Appointment — Kensley Aesthetics"
+          title="Schedule Your Consultation — Kensley Aesthetics"
         />
       </section>
     </>

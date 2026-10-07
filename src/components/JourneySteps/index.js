@@ -6,32 +6,32 @@ import './JourneySteps.css';
 // ── Step data ────────────────────────────────────────────────────────
 const STEPS = [
   {
-    title: 'Consultation',
-    desc: 'Our specialist carefully listens to your goals and discusses any contraindications. Together you arrive at personalised solutions that enhance your natural beauty — every stage is thoroughly explained, from preparation to aftercare.',
+    title: 'Schedule Your Consultation',
+    desc: "Get in touch online or by phone to book your consultation. We'll find a time that works for you.",
   },
   {
-    title: 'Preparation for Treatment',
-    desc: 'A tailored treatment plan is designed specifically for you, selecting the optimal products, protocols, and techniques to achieve your aesthetic goals safely and with precision.',
+    title: 'Your Consultation',
+    desc: "Meet with your clinician to discuss your goals, concerns and medical history. We'll recommend the best options for you.",
   },
   {
-    title: 'Arrival at the Clinic',
-    desc: 'Upon arrival you are warmly welcomed and prepared for your treatment. Our team ensures your complete comfort and addresses any final questions before your session begins.',
+    title: 'Your Personalised Treatment Plan',
+    desc: 'Receive a tailored plan designed around your needs, including the recommended treatments, expected results and costs.',
   },
   {
-    title: 'Marking',
-    desc: 'Precise preparation and marking are completed to guide the treatment. Every detail is carefully mapped before the procedure begins, ensuring a balanced and harmonious outcome.',
+    title: 'Preparing for Treatment',
+    desc: "We'll send you simple pre-treatment guidelines to follow so you're fully prepared for your appointment.",
   },
   {
-    title: 'Treatment',
-    desc: 'Your specialist performs the treatment with precision and artistry, using only premium clinically approved products and techniques selected for your individual needs.',
+    title: 'Arriving at the Clinic',
+    desc: "You'll be welcomed by our team, made comfortable and talked through everything before we begin.",
   },
   {
-    title: 'Immediately After',
-    desc: 'You receive detailed aftercare instructions and are monitored until fully comfortable. Our team remains available for any questions or concerns in the hours following your treatment.',
+    title: 'Your Treatment',
+    desc: 'Your clinician carries out the treatment with care and precision, keeping you informed and comfortable throughout.',
   },
   {
-    title: 'Recovery',
-    desc: 'Most treatments require minimal to no downtime. We schedule a follow-up to review your results, answer any questions, and ensure your complete satisfaction with the outcome.',
+    title: 'Aftercare and Follow-Up',
+    desc: "You'll receive clear aftercare advice and a follow-up appointment to check your results and answer any questions.",
   },
 ];
 

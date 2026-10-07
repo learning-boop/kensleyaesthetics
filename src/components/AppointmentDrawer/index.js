@@ -45,7 +45,7 @@ function AppointmentDrawer() {
         <div className="appt-drawer__head">
           <div className="appt-drawer__brand">
             <span className="appt-drawer__eyebrow">Kensley Aesthetics</span>
-            <span className="appt-drawer__title">Book an Appointment</span>
+            <span className="appt-drawer__title">Schedule Your Consultation</span>
           </div>
           <button className="appt-drawer__close" onClick={closeDrawer} aria-label="Close">
             <span />
@@ -61,7 +61,7 @@ function AppointmentDrawer() {
             scrolling="no"
             style={{ width: '100%', height: iframeHeight + 'px', border: 'none', display: 'block' }}
             id="ansOlbIframe"
-            title="Book an Appointment"
+            title="Schedule Your Consultation"
           />
         </div>
 

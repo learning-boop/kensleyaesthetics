@@ -10,25 +10,25 @@ import QuickContact from '../components/QuickContact';
 import './TreatmentDetail.css';
 import './SubTreatmentDetail.css';
 
-function SubTreatmentDetail() {
+function SubTreatmentDetail({ initialTreatment = null }) {
   const { slug, subSlug }     = useParams();
   const { openDrawer }         = useAppointment();
 
-  const [treatment, setTreatment] = useState(null);
-  const [loading, setLoading]     = useState(true);
+  const [treatment, setTreatment] = useState(initialTreatment);
+  const [loading, setLoading]     = useState(!initialTreatment);
   const [openFaq, setOpenFaq]         = useState(null);
   const [reviewIndex, setReviewIndex] = useState(0);
   const [activeTab, setActiveTab]     = useState(0);
   const tabBarRef                     = useRef(null);
 
   useEffect(() => {
+    if (initialTreatment) return;
     setLoading(true);
     client.fetch(SUB_TREATMENT_QUERY, { slug, subSlug })
       .then(data => {
         if (data) {
           setTreatment(data);
         } else {
-          // Fall back to static data when Sanity document doesn't exist yet
           const staticList = STATIC_SUB_TREATMENTS[slug] || [];
           const staticItem = staticList.find(item => item.slug === subSlug);
           if (staticItem) {
@@ -72,7 +72,7 @@ function SubTreatmentDetail() {
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [slug, subSlug]);
+  }, [slug, subSlug, initialTreatment]);
 
   if (loading) return null;
 
@@ -160,7 +160,7 @@ function SubTreatmentDetail() {
           {treatment.tagline && <p className="std-hero__tagline">{treatment.tagline}</p>}
           {treatment.description && <p className="std-hero__desc">{treatment.description}</p>}
           <div className="std-hero__actions">
-            <button className="std-btn std-btn--gold" onClick={openDrawer}>Book Consultation</button>
+            <button className="std-btn std-btn--gold" onClick={openDrawer}>Schedule Your Consultation</button>
             <Link className="std-btn std-btn--ghost" to={`/main-treatments/${slug}`}>
               {parentLabel}
             </Link>
@@ -285,7 +285,7 @@ function SubTreatmentDetail() {
             <span className="std-ideal__eyebrow">Is This Right for You?</span>
             <h2 className="std-ideal__title">Suitability</h2>
             <p className="std-ideal__body">{treatment.suitability || treatment.ideal}</p>
-            <button className="std-btn std-btn--gold" onClick={openDrawer}>Book a Consultation</button>
+            <button className="std-btn std-btn--gold" onClick={openDrawer}>Schedule Your Consultation</button>
           </div>
         </section>
       )}
@@ -328,7 +328,7 @@ function SubTreatmentDetail() {
             <span className="std-why__eyebrow">Doctor-Led Aesthetics</span>
             <h2 className="std-why__title">Why Kensley Aesthetics?</h2>
             <p className="std-why__body">{treatment.whyKensley}</p>
-            <button className="std-btn std-btn--gold" onClick={openDrawer}>Book a Consultation</button>
+            <button className="std-btn std-btn--gold" onClick={openDrawer}>Schedule Your Consultation</button>
           </div>
         </section>
       )}

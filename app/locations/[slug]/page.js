@@ -1,7 +1,11 @@
-import { LOCATIONS_BY_SLUG } from '@/src/data/locations';
+import { LOCATIONS, LOCATIONS_BY_SLUG } from '@/src/data/locations';
 import LocationPageClient from './LocationPageClient';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
+
+export function generateStaticParams() {
+  return LOCATIONS.map((loc) => ({ slug: loc.slug }));
+}
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -50,7 +54,7 @@ export default async function LocationDetailPage({ params }) {
           addressRegion: 'Tyne and Wear',
           addressCountry: 'GB',
         },
-        telephone: '03330570295',
+        telephone: '3330570295',
         areaServed: { '@type': 'City', name: loc.name },
         founder: {
           '@type': 'Physician',

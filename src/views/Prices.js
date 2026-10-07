@@ -219,7 +219,7 @@ function PriceTreatmentCard({ treatment }) {
           All prices include a complimentary consultation. A patch test is required 48 hours prior to treatment.
         </p>
         <button className="price-card__cta" onClick={openDrawer}>
-          Book a Consultation
+          Schedule Your Consultation
         </button>
       </div>
     </article>

@@ -4,8 +4,6 @@ import Image from 'next/image';
 import { client } from '../lib/sanityClient';
 import { useAppointment } from '../context/AppointmentContext';
 import { sanityImg } from '../utils/sanityImage';
-import PinnedShowcase from '../components/PinnedShowcase';
-import QuickContact from '../components/QuickContact';
 import SeoHead from '../components/SeoHead';
 import { TREATMENT_KEYWORDS } from '../data/keywords';
 import { STATIC_SUB_TREATMENTS } from '../data/subTreatments';
@@ -34,32 +32,30 @@ const QUERY = `*[_type == "mainTreatment" && slug.current == $slug][0] {
     tagline,
     "image": image.asset->url,
     duration,
-    downtime,
     priceStandard,
     priceIntro,
   }
 }`;
 
-function MainTreatmentDetail() {
+function MainTreatmentDetail({ initialTreatment = null }) {
   const { slug } = useParams();
   const { openDrawer } = useAppointment();
 
-  const [treatment, setTreatment] = useState(null);
-  const [loading, setLoading]     = useState(true);
+  const [treatment, setTreatment] = useState(initialTreatment);
+  const [loading, setLoading]     = useState(!initialTreatment);
   const [openFaq, setOpenFaq]     = useState(null);
   const [reviewIndex, setReviewIndex] = useState(0);
   const [slideDir, setSlideDir]       = useState('right');
 
   useEffect(() => {
+    if (initialTreatment) return;
     client.fetch(QUERY, { slug })
       .then(data => {
         if (data) {
-          // Sanity document exists — fill in sub-treatments from static if empty
           if (!data.subTreatments || data.subTreatments.length === 0) {
             data.subTreatments = STATIC_SUB_TREATMENTS[slug] || [];
           }
         } else {
-          // No Sanity document yet — use fully static fallback
           const staticMain = STATIC_MAIN_TREATMENTS[slug];
           if (staticMain) {
             data = {
@@ -77,7 +73,7 @@ function MainTreatmentDetail() {
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [slug]);
+  }, [slug, initialTreatment]);
 
   if (loading) return null;
   if (!treatment) return (
@@ -163,11 +159,8 @@ function MainTreatmentDetail() {
           )}
           <div className="mtd-hero__actions">
             <button className="mtd-btn mtd-btn--dark" onClick={openDrawer}>
-              Book Appointment
+              Schedule Your Consultation
             </button>
-            <Link className="mtd-btn mtd-btn--ghost" to="/treatments">
-              All Treatments
-            </Link>
           </div>
         </div>
         <div className="mtd-hero__image-wrap">
@@ -176,61 +169,6 @@ function MainTreatmentDetail() {
           )}
         </div>
       </section>
-
-      {/* ── AT A GLANCE ─────────────────────────────────── */}
-      <section className="mtd-glance" aria-label="Treatment quick facts">
-        <dl className="mtd-glance__list">
-          {(treatment.tagline || treatment.description) && (
-            <div className="mtd-glance__item">
-              <dt>What it is</dt>
-              <dd>{treatment.tagline || treatment.description}</dd>
-            </div>
-          )}
-          {treatment.ideal && (
-            <div className="mtd-glance__item">
-              <dt>Who it's for</dt>
-              <dd>{treatment.ideal}</dd>
-            </div>
-          )}
-          {priceFrom && (
-            <div className="mtd-glance__item">
-              <dt>Price from</dt>
-              <dd>From £{priceFrom}</dd>
-            </div>
-          )}
-          <div className="mtd-glance__item">
-            <dt>Downtime</dt>
-            <dd>Minimal to none — varies by treatment; discussed at consultation</dd>
-          </div>
-          <div className="mtd-glance__item">
-            <dt>Who performs it</dt>
-            <dd>Dr Tiru Matla — GMC-registered medical doctor &amp; clinical director</dd>
-          </div>
-        </dl>
-      </section>
-
-      {/* ── BENEFITS STRIP ──────────────────────────────── */}
-      {treatment.benefits && treatment.benefits.length > 0 && (
-        <section className="mtd-benefits">
-          <span className="mtd-benefits__label">Key Benefits</span>
-          <ul className="mtd-benefits__list">
-            {treatment.benefits.map((b, i) => (
-              <li key={i} className="mtd-benefits__item">
-                <span className="mtd-benefits__dot" />
-                {b}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      {/* ── PINNED SUB-TREATMENTS ───────────────────────── */}
-      {treatment.subTreatments && treatment.subTreatments.length > 0 && (
-        <PinnedShowcase
-          items={treatment.subTreatments}
-          treatmentSlug={treatment.slug}
-        />
-      )}
 
       {/* ── SECOND IMAGE + DESCRIPTION SPLIT ────────────── */}
       {treatment.image_second && (
@@ -243,7 +181,7 @@ function MainTreatmentDetail() {
             <h2 className="mtd-split__title">{treatment.label}</h2>
             <p className="mtd-split__body">{treatment.description}</p>
             <button className="mtd-btn mtd-btn--dark" onClick={openDrawer}>
-              Book a Consultation
+              Schedule Your Consultation
             </button>
           </div>
         </section>
@@ -305,8 +243,6 @@ function MainTreatmentDetail() {
         </section>
       )}
 
-      {/* ── QUICK CONTACT ───────────────────────────────── */}
-      <QuickContact />
     </>
   );
 }

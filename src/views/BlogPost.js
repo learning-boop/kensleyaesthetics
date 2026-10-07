@@ -83,14 +83,15 @@ function RecentCard({ post }) {
   );
 }
 
-function BlogPost() {
+function BlogPost({ initialPost = null, initialRelated = [] }) {
   const { slug }     = useParams();
   const navigate     = useNavigate();
-  const [post, setPost]       = useState(null);
-  const [related, setRelated] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [post, setPost]       = useState(initialPost);
+  const [related, setRelated] = useState(initialRelated);
+  const [loading, setLoading] = useState(!initialPost);
 
   useEffect(() => {
+    if (initialPost) return;
     setLoading(true);
     Promise.all([
       client.fetch(BLOG_POST_QUERY, { slug }),
@@ -98,10 +99,9 @@ function BlogPost() {
     ]).then(([postData, recentData]) => {
       if (!postData) { navigate('/blog', { replace: true }); return; }
       setPost(postData);
-      // Related = recent posts excluding the current one
       setRelated(recentData.filter(p => p.slug !== slug).slice(0, 2));
     }).finally(() => setLoading(false));
-  }, [slug, navigate]);
+  }, [slug, navigate, initialPost]);
 
   if (loading) {
     return (
@@ -230,12 +230,12 @@ function BlogPost() {
               {/* CTA card */}
               <div className="bp-sidebar__card bp-sidebar__card--cta">
                 <p className="section-label">Ready to Start?</p>
-                <h3 className="bp-sidebar__heading">Book a Consultation</h3>
+                <h3 className="bp-sidebar__heading">Schedule Your Consultation</h3>
                 <p className="bp-sidebar__text">
                   Talk to our team about the treatments that are right for you.
                 </p>
                 <Link to="/book" className="btn-primary" style={{ display: 'block', textAlign: 'center', marginTop: 24 }}>
-                  Book Now
+                  Schedule Your Consultation
                 </Link>
               </div>
 

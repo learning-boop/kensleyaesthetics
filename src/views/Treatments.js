@@ -16,13 +16,13 @@ const MAIN_TREATMENTS = [
   { num: '05', label: 'Biostimulators',           slug: 'biostimulators',          sub: 'Collagen-stimulating injectables for deeper structural support.' },
   { num: '06', label: 'Microneedling',            slug: 'microneedling',           sub: 'Controlled micro-injuries that trigger collagen remodelling.' },
   { num: '07', label: 'RF Microneedling',         slug: 'rf-microneedling',        sub: 'Microneedling enhanced with radiofrequency energy for tightening.' },
-  { num: '08', label: 'HIFU',                     slug: 'hifu',                    sub: 'Ultrasound lifting for the face, jowls and neck — no downtime.' },
+  { num: '08', label: 'HIFU',                     slug: 'hifu',                    sub: 'Ultrasound lifting for the face, jowls and neck.' },
 ];
 
 /* Additional individual treatments — now have Sanity pages */
 const EXTRA_TREATMENTS = [
   { num: '09', label: 'Chemical Peel',              slug: 'chemical-peel',            sub: 'Resurface and refresh the skin surface, targeting texture and tone.' },
-  { num: '10', label: '3D HydrO2 Facial',           slug: '3d-hydro2-facial',         sub: 'Advanced facial combining oxygen, hydration and ultrasound technology.' },
+  { num: '10', label: '3D HydrO2 Facial',           slug: 'hydro2-facial',         sub: 'Advanced facial combining oxygen, hydration and ultrasound technology.' },
   { num: '11', label: 'Mesotherapy',                slug: 'mesotherapy',              sub: 'Microinjections delivering vitamins and actives directly into the skin.' },
   { num: '12', label: 'LED Light Therapy',          slug: 'led-light-therapy',        sub: 'Clinically proven light wavelengths to calm, heal and rejuvenate.' },
   { num: '13', label: 'Profhilo',                   slug: 'profhilo',                 sub: 'High-concentration hyaluronic acid that bio-remodels skin from within.' },
@@ -45,13 +45,11 @@ export default function Treatments() {
         description="Explore our full range of advanced aesthetic treatments including anti-wrinkle, dermal fillers, skin boosters and more."
         path="/treatments"
       />
-      <PageHero label="What We Offer" title="Our Treatments" />
 
       {/* ── ALL 17 INDIVIDUAL TREATMENTS ─────────────────── */}
       <section className="tr-root tr-root--dark">
         <div className="tr-section-header tr-section-header--light">
-          <span className="tr-section-eyebrow">What We Offer</span>
-          <h2 className="tr-section-title tr-section-title--light">All Treatments</h2>
+          <h2 className="tr-section-title tr-section-title--light">What We Offer</h2>
           <p className="tr-section-sub tr-section-sub--light">
             Every treatment we offer — each can be taken standalone or combined as part of a personalised plan.
           </p>

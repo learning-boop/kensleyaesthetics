@@ -36,7 +36,7 @@ function BeforeAfter() {
       {/* ── Readable label — top center ── */}
       <div className="ba-label-block">
         <span className="ba-eyebrow">Real Results</span>
-        <p className="ba-sub">Visible transformations. Every treatment, every client.</p>
+        <p className="ba-sub">Visible transformations. Individual results may vary.</p>
       </div>
 
       {/* ── Desktop: scattered parallax cards ── */}
@@ -72,6 +72,11 @@ function BeforeAfter() {
           </div>
         ))}
       </div>
+
+      {/* ── Disclaimer ── */}
+      <p className="ba-disclaimer" style={{ textAlign: 'center', fontSize: '0.75rem', opacity: 0.6, marginTop: '1.5rem', fontFamily: 'var(--font-sans)' }}>
+        Individual results may vary. Images show actual client results but outcomes differ depending on individual factors.
+      </p>
 
       {/* ── Bottom CTA strip ── */}
       <div className="ba-footer">

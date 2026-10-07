@@ -16,21 +16,21 @@ export const STATIC_MAIN_TREATMENTS = {
       'Reduces pigmentation, sun damage, and uneven skin colour',
       'Stimulates collagen and accelerates cell turnover',
       'Suitable for a range of skin types and concerns',
-      'Minimal downtime with progressive, lasting results',
+      'Progressive, lasting results',
     ],
   },
 
-  '3d-hydro2-facial': {
+  'hydro2-facial': {
     label: '3D HydrO2 Facial',
-    slug: '3d-hydro2-facial',
+    slug: 'hydro2-facial',
     tagline: 'Advanced multi-step facial for deep cleansing, hydration, and instant glow.',
-    description: 'The 3D HydrO2 Facial is an advanced treatment combining deep cleansing, exfoliation, oxygenation, and intensive hydration. Suitable for all skin types, it delivers an immediate, visible improvement in skin radiance and texture with zero downtime.',
+    description: 'The 3D HydrO2 Facial is an advanced treatment combining deep cleansing, exfoliation, oxygenation, and intensive hydration. Suitable for all skin types, it delivers an immediate, visible improvement in skin radiance and texture.',
     benefits: [
       'Deep pore cleansing and exfoliation',
       'Intense skin hydration with medical-grade serums',
       'Oxygen infusion for a radiant, healthy glow',
       'Suitable for all skin types including sensitive skin',
-      'Zero downtime — perfect before a special event',
+      'Perfect before a special event',
     ],
   },
 
@@ -57,7 +57,7 @@ export const STATIC_MAIN_TREATMENTS = {
       'Stimulates collagen and elastin production',
       'Reduces redness, inflammation, and sensitivity',
       'Effective for acne-prone and congested skin',
-      'Pain-free treatment with zero downtime',
+      'Pain-free, non-invasive treatment',
       'Enhances results of other aesthetic treatments when combined',
     ],
   },
@@ -86,7 +86,7 @@ export const STATIC_MAIN_TREATMENTS = {
       'Stimulates collagen and elastin production',
       'Effective for skin rejuvenation and hair regrowth',
       'Improves skin tone, texture, and radiance',
-      'Minimal downtime, safe for most skin types',
+      'Safe for most skin types',
     ],
   },
 

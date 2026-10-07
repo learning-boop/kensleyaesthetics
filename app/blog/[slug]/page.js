@@ -1,25 +1,16 @@
-import { client } from '@/src/lib/sanityClient';
+import { client, BLOG_POST_QUERY, RECENT_POSTS_QUERY } from '@/src/lib/sanityClient';
 import BlogPostClient from './BlogPostClient';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
 
-const META_QUERY = `*[_type == "blogPost" && slug.current == $slug][0] {
-  title,
-  "slug": slug.current,
-  publishedAt,
-  _updatedAt,
-  excerpt,
-  "coverImage": coverImage.asset->url,
-  seo { metaTitle, metaDescription, "ogImage": ogImage.asset->url }
-}`;
-
-async function getPost(slug) {
-  return client.fetch(META_QUERY, { slug });
+export async function generateStaticParams() {
+  const posts = await client.fetch(`*[_type == "blogPost"]{ "slug": slug.current }`);
+  return posts.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const post = await getPost(slug);
+  const post = await client.fetch(BLOG_POST_QUERY, { slug });
 
   if (!post) {
     return { title: 'Blog | Kensley Aesthetics' };
@@ -50,7 +41,14 @@ export async function generateMetadata({ params }) {
 
 export default async function BlogPostPage({ params }) {
   const { slug } = await params;
-  const post = await getPost(slug);
+  const [post, recentPosts] = await Promise.all([
+    client.fetch(BLOG_POST_QUERY, { slug }),
+    client.fetch(RECENT_POSTS_QUERY),
+  ]);
+
+  const related = recentPosts
+    ? recentPosts.filter(p => p.slug !== slug).slice(0, 2)
+    : [];
 
   const jsonLd = post ? {
     '@context': 'https://schema.org',
@@ -85,7 +83,7 @@ export default async function BlogPostPage({ params }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
-      <BlogPostClient />
+      <BlogPostClient initialPost={post} initialRelated={related} />
     </>
   );
 }

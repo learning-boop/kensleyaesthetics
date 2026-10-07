@@ -1,12 +1,12 @@
 import LocationsView from './LocationsView';
 
 export const metadata = {
-  title: 'Aesthetic Clinic Locations | Kensley Aesthetics — Newcastle',
-  description: 'Kensley Aesthetics serves clients from 50 UK locations — from Newcastle and the North East to Edinburgh, Leeds, Manchester and London. Doctor-led treatments by Dr. Tiru Matla.',
+  title: 'Aesthetic Clinic Location | Kensley Aesthetics — Jesmond, Newcastle',
+  description: 'Visit Kensley Aesthetics in Jesmond, Newcastle upon Tyne. Doctor-led aesthetic treatments by Dr. Tiru Matla — anti-wrinkle, dermal fillers, Profhilo, HIFU & more.',
   alternates: { canonical: 'https://kensleyaesthetics.com/locations' },
   openGraph: {
-    title: 'Aesthetic Clinic Locations | Kensley Aesthetics — Newcastle',
-    description: 'Kensley Aesthetics serves clients from 50 UK locations — from Newcastle and the North East to Edinburgh, Leeds, Manchester and London. Doctor-led treatments by Dr. Tiru Matla.',
+    title: 'Aesthetic Clinic Location | Kensley Aesthetics — Jesmond, Newcastle',
+    description: 'Visit Kensley Aesthetics in Jesmond, Newcastle upon Tyne. Doctor-led aesthetic treatments by Dr. Tiru Matla — anti-wrinkle, dermal fillers, Profhilo, HIFU & more.',
     url: 'https://kensleyaesthetics.com/locations',
     siteName: 'Kensley Aesthetics',
     locale: 'en_GB',

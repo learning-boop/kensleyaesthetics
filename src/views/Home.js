@@ -1,18 +1,9 @@
 import Hero                from '../components/Hero';
 import ScrollText          from '../components/ScrollText';
-// import BookingPopup        from '../components/BookingPopup';
 import TreatmentShowcase   from '../components/TreatmentShowcase';
-import Stats               from '../components/Stats';
 import BeforeAfter         from '../components/BeforeAfter';
-import ExpertSection       from '../components/ExpertSection';
-// import About               from '../components/About';
-// import Services            from '../components/Services';
-// import Process             from '../components/Process';
-// import Pillars             from '../components/Pillars';
-// import Testimonials        from '../components/Testimonials';
-// import CtaSection          from '../components/CtaSection';
-import QuickContact        from '../components/QuickContact';
 import JourneySteps        from '../components/JourneySteps';
+import ClinicShowcase      from '../components/ClinicShowcase';
 import { TeamSplit }       from '../components/TeamSection';
 import SeoHead             from '../components/SeoHead';
 
@@ -46,15 +37,12 @@ function Home() {
         jsonLd={LOCAL_BUSINESS_LD}
       />
       <Hero />
-      {/* <BookingPopup /> */}
-      <ScrollText />
       <TreatmentShowcase />
-      <Stats />
+      <ScrollText />
       <BeforeAfter />
-      <ExpertSection />
       <TeamSplit />
       <JourneySteps />
-<QuickContact />
+      <ClinicShowcase />
     </>
   );
 }

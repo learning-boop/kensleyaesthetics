@@ -1,23 +1,24 @@
-import { client } from '@/src/lib/sanityClient';
+import { client, SUB_TREATMENT_QUERY } from '@/src/lib/sanityClient';
 import { STATIC_SUB_TREATMENTS } from '@/src/data/subTreatments';
 import SubTreatmentDetailClient from './SubTreatmentDetailClient';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
 
-const META_QUERY = `*[_type == "subTreatment" && slug.current == $subSlug && parentTreatment->slug.current == $slug][0] {
-  label,
-  "slug": slug.current,
-  tagline,
-  description,
-  "image": image.asset->url,
-  seoTitle,
-  seoDescription,
-  "parentLabel": parentTreatment->label,
-  "parentSlug": parentTreatment->slug.current
-}`;
+export async function generateStaticParams() {
+  const sanity = await client.fetch(`*[_type == "subTreatment"]{ "slug": slug.current, "parentSlug": parentTreatment->slug.current }`);
+  const params = sanity.map((s) => ({ slug: s.parentSlug, subSlug: s.slug }));
+  for (const [parentSlug, subs] of Object.entries(STATIC_SUB_TREATMENTS)) {
+    for (const sub of subs) {
+      if (!params.some((p) => p.slug === parentSlug && p.subSlug === sub.slug)) {
+        params.push({ slug: parentSlug, subSlug: sub.slug });
+      }
+    }
+  }
+  return params;
+}
 
 async function getSubTreatment(slug, subSlug) {
-  const data = await client.fetch(META_QUERY, { slug, subSlug });
+  const data = await client.fetch(SUB_TREATMENT_QUERY, { slug, subSlug });
   if (data) return data;
 
   const staticList = STATIC_SUB_TREATMENTS[slug] || [];
@@ -26,11 +27,35 @@ async function getSubTreatment(slug, subSlug) {
     return {
       label: staticItem.name,
       slug: staticItem.slug,
+      group: staticItem.title || null,
       tagline: staticItem.tagline || null,
       description: staticItem.description || null,
       image: null,
       seoTitle: staticItem.seoTitle || null,
       seoDescription: staticItem.seoDescription || null,
+      introduction: staticItem.introduction || null,
+      anaesthetic: staticItem.anaesthetic || null,
+      longevity: staticItem.longevity || null,
+      duration: staticItem.duration || null,
+      downtime: staticItem.downtime || null,
+      numSessions: staticItem.numSessions || null,
+      resultsTimeline: staticItem.resultsTimeline || null,
+      whatItHelps: staticItem.whatItHelps || null,
+      howItWorks: staticItem.howItWorks || null,
+      benefits: staticItem.benefits || [],
+      preparation: staticItem.preparation || null,
+      whatToExpect: staticItem.whatToExpect || null,
+      durationAndSessions: staticItem.durationAndSessions || null,
+      resultsAndTimeline: staticItem.resultsAndTimeline || null,
+      recoveryAndDowntime: staticItem.recoveryAndDowntime || null,
+      aftercare: staticItem.aftercare || null,
+      suitability: staticItem.suitability || null,
+      sideEffectsAndRisks: staticItem.sideEffectsAndRisks || null,
+      whyKensley: staticItem.whyKensley || null,
+      faqs: staticItem.faqs || [],
+      relatedTreatments: staticItem.relatedTreatments || [],
+      priceStandard: staticItem.priceStandard || null,
+      priceIntro: staticItem.priceIntro || null,
       parentLabel: slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
       parentSlug: slug,
     };
@@ -111,7 +136,7 @@ export default async function SubTreatmentDetailPage({ params }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
-      <SubTreatmentDetailClient />
+      <SubTreatmentDetailClient initialTreatment={t} />
     </>
   );
 }

@@ -10,7 +10,6 @@ const easeOut = [0.22, 1, 0.36, 1];
 
 const FEATURES = [
   { icon: '✦', label: 'Natural Results' },
-  { icon: '◎', label: 'No Downtime' },
   { icon: '⚕', label: 'Doctor Led Care' },
 ];
 
@@ -102,7 +101,7 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
           {/* CTAs */}
           <div className="ps-actions">
             <button className="ps-book-btn" onClick={openDrawer}>
-              Book a Consultation
+              Schedule Your Consultation
               <span className="ps-book-btn__arrow">→</span>
             </button>
 

@@ -32,7 +32,7 @@ const PARENT_ID_MAP = {
   'rf-microneedling':        'mainTreatment-rf-microneedling',
   'hifu':                    'mainTreatment-hifu',
   'chemical-peel':           'main-treatment-chemical-peel',
-  '3d-hydro2-facial':        'main-treatment-hydro2-facial',
+  'hydro2-facial':           'main-treatment-hydro2-facial',
   'mesotherapy':             'main-treatment-mesotherapy',
   'led-light-therapy':       'main-treatment-led-light-therapy',
   'profhilo':                'main-treatment-profhilo',
