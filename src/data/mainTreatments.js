@@ -11,18 +11,18 @@ export const STATIC_MAIN_TREATMENTS = {
     slug: 'anti-wrinkle-treatments',
     seoTitle: 'Wrinkle Consultations Newcastle | Kensley',
     seoDescription: 'Concerned about forehead lines or crow\'s feet? Explore personalised wrinkle consultations at Kensley Aesthetics in Jesmond, Newcastle.',
-    tagline: 'Your expressions tell your story. Let\u2019s talk about the lines that concern you.',
-    description: 'Fine lines and wrinkles are a natural part of ageing, but sometimes they can become more noticeable than we\u2019d like. At Kensley Aesthetics in Jesmond, we offer personalised consultations to assess facial lines, understand your concerns and discuss suitable treatment options, their limitations and potential risks.',
+    tagline: 'Your expressions tell your story. Let’s talk about the lines that concern you.',
+    description: 'Fine lines and wrinkles are a natural part of ageing, but sometimes they can become more noticeable than we’d like. At Kensley Aesthetics in Jesmond, we offer personalised consultations to assess facial lines, understand your concerns and discuss suitable treatment options, their limitations and potential risks.',
     benefits: [
       'Forehead lines',
       'Frown lines between the eyebrows',
-      'Crow\u2019s feet around the eyes',
+      'Crow’s feet around the eyes',
       'Fine lines around the mouth',
       'Other facial lines and changes in skin quality',
     ],
     faqs: [
       { q: 'Will I still look like myself?', a: 'The aim of any consultation is to discuss options that respect your natural facial movement and expressions. Treatments are always tailored to your anatomy and preferences.' },
-      { q: 'How do I know which treatment is right for me?', a: 'That\u2019s exactly what the consultation is for. Your clinician will assess the specific lines, discuss the cause and explain the most appropriate options.' },
+      { q: 'How do I know which treatment is right for me?', a: 'That’s exactly what the consultation is for. Your clinician will assess the specific lines, discuss the cause and explain the most appropriate options.' },
       { q: 'Is this just about Botox?', a: 'No. While prescription-only injectable treatments are one option, your consultation may also consider skincare, skin-boosting treatments, or other approaches depending on your concerns.' },
       { q: 'Will it hurt?', a: 'Any potential discomfort depends on the treatment discussed. Your clinician will explain what to expect, including pain management options, before any decisions are made.' },
       { q: 'How long do results last?', a: 'This depends on the specific treatment, product, area treated and individual factors. Expected timelines will be discussed during your consultation.' },
@@ -39,7 +39,7 @@ export const STATIC_MAIN_TREATMENTS = {
     benefits: [
       'Improved skin hydration and moisture retention',
       'Potential improvement in skin firmness',
-      'Treatment of the face, neck, hands or d\u00e9colletage',
+      'Treatment of the face, neck, hands or décolletage',
       'A treatment focused on skin quality rather than volume',
       'Suitable for various skin types, following clinical assessment',
     ],
@@ -81,7 +81,7 @@ export const STATIC_MAIN_TREATMENTS = {
     seoTitle: 'Microneedling Newcastle | Kensley Aesthetics',
     seoDescription: 'Explore microneedling for acne scars, fine lines and uneven texture at Kensley Aesthetics in Jesmond, Newcastle. Book your consultation.',
     tagline: 'Fine lines, scars and uneven texture can improve when your skin is supported to repair itself.',
-    description: 'Microneedling is a treatment that uses fine needles to create controlled micro-channels in the skin, which may stimulate the skin\u2019s natural repair processes. At Kensley Aesthetics in Jesmond, Newcastle upon Tyne, we assess your individual skin concerns before discussing whether microneedling or an alternative approach is appropriate.',
+    description: 'Microneedling is a treatment that uses fine needles to create controlled micro-channels in the skin, which may stimulate the skin’s natural repair processes. At Kensley Aesthetics in Jesmond, Newcastle upon Tyne, we assess your individual skin concerns before discussing whether microneedling or an alternative approach is appropriate.',
     benefits: [
       'May improve the appearance of acne scars',
       'Potential improvement in skin texture and tone',
@@ -125,7 +125,7 @@ export const STATIC_MAIN_TREATMENTS = {
     slug: 'skin-boosters',
     seoTitle: 'Skin Boosters Newcastle | Kensley Jesmond',
     seoDescription: 'Explore skin boosters for hydration, fine lines and skin quality at Kensley Aesthetics in Jesmond, Newcastle. Book your consultation.',
-    tagline: 'When your skin feels thirsty, tired or less supple, it\u2019s worth understanding why.',
+    tagline: 'When your skin feels thirsty, tired or less supple, it’s worth understanding why.',
     description: 'Skin boosters are injectable aesthetic treatments designed to improve skin hydration and quality. Many use hyaluronic acid, although formulations and treatment techniques differ. At Kensley Aesthetics in Jesmond, Newcastle upon Tyne, we assess concerns such as dryness, fine lines and uneven texture before discussing suitable treatment options.',
     benefits: [
       'Skin hydration',
@@ -199,12 +199,12 @@ export const STATIC_MAIN_TREATMENTS = {
   },
 
   'prp': {
-    label: 'PRP \u2013 Platelet-Rich Plasma',
+    label: 'PRP – Platelet-Rich Plasma',
     slug: 'prp',
     tagline: 'Harness your body\'s own healing power for natural skin regeneration.',
     description: 'Platelet-Rich Plasma (PRP) therapy uses a concentrated sample of your own blood plasma, rich in growth factors, to stimulate natural collagen production, improve skin quality, and accelerate tissue repair. It is effective for facial rejuvenation, under-eye concerns, and hair loss.',
     benefits: [
-      '100% natural \u2014 uses your own growth factors',
+      '100% natural — uses your own growth factors',
       'Stimulates collagen and elastin production',
       'Effective for skin rejuvenation and hair regrowth',
       'Improves skin tone, texture, and radiance',

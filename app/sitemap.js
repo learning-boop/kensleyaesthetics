@@ -10,7 +10,7 @@ const SIGNATURE_SLUGS = [
 
 const MAIN_TREATMENT_SLUGS = [
   'anti-wrinkle-treatments', 'dermal-fillers', 'skin-boosters',
-  'regenerative-treatments', 'biostimulators', 'microneedling',
+  'biostimulators', 'microneedling',
   'rf-microneedling', 'hifu', 'chemical-peel', 'hydro2-facial',
   'mesotherapy', 'led-light-therapy', 'profhilo', 'prp',
   'polynucleotides', 'medical-grade-skincare', 'thread-lift',

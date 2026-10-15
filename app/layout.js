@@ -24,7 +24,7 @@ export const metadata = {
     default: 'Kensley Aesthetics | Doctor-Led Aesthetic Clinic, Jesmond, Newcastle',
     template: '%s',
   },
-  description: 'Doctor-led aesthetic clinic in Jesmond, Newcastle. Dermal fillers, anti-wrinkle injections, Profhilo, polynucleotides, RF microneedling & HIFU by GMC-registered Dr Tiru Matla.',
+  description: 'Doctor-led aesthetic clinic in Jesmond, Newcastle. Dermal fillers, anti-wrinkle injections, Profhilo, polynucleotides, RF microneedling & HIFU by Dr Tiru Matla.',
   authors: [{ name: 'Kensley Aesthetics' }],
   verification: {
     google: 'uYQK0BUq5EyKq4h9vtpmFWdum_2l86QoIil3SygABf8',
@@ -61,7 +61,7 @@ const STRUCTURED_DATA = {
       "url": "https://kensleyaesthetics.com/",
       "logo": "https://kensleyaesthetics.com/logo512.png",
       "image": "https://kensleyaesthetics.com/logo512.png",
-      "description": "Doctor-led, GMC-registered aesthetic clinic in Jesmond, Newcastle upon Tyne offering dermal fillers, anti-wrinkle injections, skin boosters, polynucleotides, biostimulators, microneedling, RF microneedling and HIFU.",
+      "description": "Doctor-led aesthetic clinic in Jesmond, Newcastle upon Tyne offering dermal fillers, anti-wrinkle injections, skin boosters, polynucleotides, biostimulators, microneedling, RF microneedling and HIFU.",
       "telephone": "333 057 0295",
       "email": "kensleyclinic@gmail.com",
       "priceRange": "\u00a3\u00a3",
@@ -99,7 +99,7 @@ const STRUCTURED_DATA = {
       "name": "Dr Tiru Matla",
       "honorificPrefix": "Dr",
       "jobTitle": "Founder & Clinical Director",
-      "description": "GMC-registered medical doctor (MBBS, MRCGP, DFSRH) with over 20 years of clinical experience, specialising in non-surgical aesthetic medicine.",
+      "description": "Medical doctor (MBBS, MRCGP, DFSRH) with over 20 years of clinical experience, specialising in non-surgical aesthetic medicine.",
       "url": "https://kensleyaesthetics.com/about",
       "worksFor": { "@id": "https://kensleyaesthetics.com/#clinic" },
       "hasCredential": [

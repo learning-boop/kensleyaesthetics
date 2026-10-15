@@ -126,7 +126,7 @@ function TreatmentDetail({ initialTreatment = null }) {
           )}
           <div className="pkg-glance__item">
             <dt>Who performs it</dt>
-            <dd>Dr Tiru Matla — GMC-registered medical doctor &amp; clinical director</dd>
+            <dd>Dr Tiru Matla — medical doctor &amp; clinical director</dd>
           </div>
         </dl>
       </section>

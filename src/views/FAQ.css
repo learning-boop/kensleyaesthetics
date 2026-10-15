@@ -1,0 +1,259 @@
+/* ─── FAQ Hero ──────────────────────────────────────────── */
+.fq-hero {
+  background: var(--color-dark);
+  padding: 120px 40px 80px;
+  text-align: center;
+}
+
+.fq-hero__inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.fq-hero__label {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 20px;
+}
+
+.fq-hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 400;
+  color: var(--color-cream);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.fq-hero__title em {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.fq-hero__sub {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-cream);
+  opacity: 0.8;
+}
+
+/* ─── FAQ Body ──────────────────────────────────────────── */
+.fq-body {
+  padding: 80px 40px;
+  background: var(--color-cream, #faf8f5);
+}
+
+.fq-body__inner {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* ─── Category ──────────────────────────────────────────── */
+.fq-category__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--color-gold);
+}
+
+.fq-category__icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.fq-category__title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--color-dark);
+}
+
+.fq-category__list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── FAQ Item ──────────────────────────────────────────── */
+.fq-item {
+  border-bottom: 1px solid rgba(18, 60, 63, 0.1);
+}
+
+.fq-item__btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 22px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-dark);
+  text-align: left;
+  gap: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.2s;
+}
+
+.fq-item__btn:hover {
+  color: var(--color-gold);
+}
+
+.fq-item__icon {
+  font-size: 22px;
+  color: var(--color-gold);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-gold);
+  transition: background 0.2s, color 0.2s;
+}
+
+.fq-item--open .fq-item__icon {
+  background: var(--color-gold);
+  color: var(--color-dark);
+}
+
+.fq-item__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.fq-item__body--open {
+  max-height: 300px;
+  padding-bottom: 20px;
+}
+
+.fq-item__a {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--color-primary);
+  max-width: 680px;
+  padding-left: 4px;
+}
+
+/* ─── CTA Band ──────────────────────────────────────────── */
+.fq-cta {
+  padding: 80px 40px;
+  background: var(--color-dark);
+}
+
+.fq-cta__inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.fq-cta__card {
+  text-align: center;
+  padding: 56px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.fq-cta__title {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--color-cream);
+  margin-bottom: 12px;
+}
+
+.fq-cta__text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-cream);
+  opacity: 0.85;
+  max-width: 480px;
+  margin: 0 auto 32px;
+}
+
+.fq-cta__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.fq-cta__btn {
+  padding: 14px 32px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.fq-cta__btn--primary {
+  background: var(--color-gold);
+  color: var(--color-dark);
+  border: 1px solid var(--color-gold);
+}
+
+.fq-cta__btn--primary:hover {
+  background: transparent;
+  color: var(--color-gold);
+}
+
+.fq-cta__btn--outline {
+  background: transparent;
+  color: var(--color-cream);
+  border: 1px solid var(--color-cream);
+}
+
+.fq-cta__btn--outline:hover {
+  background: var(--color-cream);
+  color: var(--color-dark);
+}
+
+/* ─── Responsive ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .fq-hero {
+    padding: 100px 24px 60px;
+  }
+
+  .fq-body {
+    padding: 60px 24px;
+  }
+
+  .fq-body__inner {
+    gap: 40px;
+  }
+
+  .fq-item__btn {
+    font-size: 15px;
+    padding: 18px 0;
+  }
+
+  .fq-cta {
+    padding: 60px 24px;
+  }
+
+  .fq-cta__card {
+    padding: 40px 24px;
+  }
+
+  .fq-cta__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fq-cta__btn {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+}

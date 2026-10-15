@@ -11,11 +11,9 @@ const stats = [
   { num: '20+',     label: 'Years of Medical\nExperience' },
   { num: '10+',     label: 'Years in Aesthetic\nMedicine' },
   { num: '10,000+', label: 'Aesthetic Procedures\nPerformed' },
-  { num: 'GMC',     label: 'Registered\nDoctor-Led Clinic' },
 ];
 
 const credentials = [
-  'GMC Registered Doctor-Led Clinic',
   'MBBS, MRCGP, DFSRH',
   'PGCert Aesthetics & Cosmetic Medicine',
   'Hyacorp Body Filler Trainer',
@@ -26,12 +24,8 @@ const credentials = [
 
 const whyItems = [
   {
-    q: 'GMC Registered Doctor-Led Care',
-    a: 'Every treatment at Kensley Aesthetics is performed personally by a fully GMC-registered doctor with over 20 years of clinical experience. You are never treated by a non-medical practitioner.',
-  },
-  {
-    q: '10,000+ Aesthetic Procedures Performed',
-    a: 'With over 10,000 aesthetic procedures carried out, we bring a depth and breadth of clinical experience that is exceptional in aesthetic medicine.',
+    q: 'Experienced Doctor-Led Care',
+    a: 'Every treatment at Kensley Aesthetics is performed personally by a medically qualified doctor with over 20 years of clinical experience. You are never treated by a non-medical practitioner.',
   },
   {
     q: 'Bespoke Plans, Not Templates',
@@ -58,19 +52,18 @@ function About() {
   return (
     <>
       <SeoHead
-        title="About Us | GMC Registered Doctor-Led Aesthetic Clinic Newcastle"
-        description="Kensley Aesthetics is a GMC-registered, doctor-led aesthetic clinic in Newcastle. Over 20 years of medical experience, 10,000+ procedures performed. MBBS, MRCGP qualified. Honest counsel, natural results."
-        keywords="doctor-led aesthetic clinic Newcastle, GMC registered aesthetics Newcastle, Kensley Aesthetics about, medical aesthetic doctor Newcastle, aesthetic clinic Jesmond Newcastle, MRCGP aesthetics"
+        title="About Us | Doctor-Led Aesthetic Clinic Newcastle"
+        description="Kensley Aesthetics is a doctor-led aesthetic clinic in Jesmond, Newcastle. Over 20 years of medical experience, 10,000+ procedures performed. MBBS, MRCGP qualified. Honest counsel, natural results."
         path="/about"
       />
 
       <PageHero
         label="About the Clinic"
         title={<>Kensley{' '}<br />Aesthetics</>}
-        subtitle="GMC Registered · Doctor-Led · Jesmond, Newcastle"
+        subtitle="Doctor-Led · Jesmond, Newcastle"
       />
 
-      {/* ── PROFILE ──────────────────────────────────────────── */}
+      {/* ── PROFILE ────────────────────────────────────────────────── */}
       <section className="ab-profile">
         <div className="ab-profile__img-col">
           <Image
@@ -84,7 +77,7 @@ function About() {
           />
         </div>
         <div className="ab-profile__content-col">
-          <span className="ab-eyebrow">GMC Registered Clinic</span>
+          <span className="ab-eyebrow">Clinical Director</span>
           <h2 className="ab-profile__name">Dr Tiru{' '}<br />Matla</h2>
           <p className="ab-profile__role">
             Founder &amp; Clinical Director{' '}<br />
@@ -99,7 +92,7 @@ function About() {
         </div>
       </section>
 
-      {/* ── STATS BAND ───────────────────────────────────────── */}
+      {/* ── STATS BAND ───────────────────────────────────────────── */}
       <section className="ab-stats-band">
         {stats.map((s) => (
           <div className="ab-stats-band__item" key={s.num}>
@@ -113,7 +106,7 @@ function About() {
         ))}
       </section>
 
-      {/* ── CREDENTIALS ──────────────────────────────────────── */}
+      {/* ── CREDENTIALS ──────────────────────────────────────────── */}
       <section className="ab-credentials">
         <div className="ab-credentials__inner">
           <div className="ab-credentials__left">
@@ -138,44 +131,7 @@ function About() {
         </div>
       </section>
 
-      {/* ── BIOGRAPHY ────────────────────────────────────────── */}
-      <section className="ab-bio">
-        <div className="ab-bio__inner">
-          <div className="ab-bio__content-col">
-            <span className="ab-eyebrow">About Us</span>
-            <h2 className="ab-bio__title">About the{' '}<br />Clinic</h2>
-            <div className="ab-divider" />
-            <p className="ab-bio__text">
-              Kensley Aesthetics is a doctor-led aesthetic clinic based in Jesmond, Newcastle upon Tyne.
-              Our clinical director brings over 20 years of medical experience and more than 10 years
-              dedicated exclusively to advanced aesthetic medicine, with over 10,000 aesthetic procedures
-              performed.
-            </p>
-            <p className="ab-bio__text">
-              We are a Hyacorp Body Filler Trainer clinic and Genefill DX Trainer clinic — reflecting
-              our commitment to innovation, education and excellence in advanced aesthetic medicine.
-            </p>
-            <p className="ab-bio__text">
-              Kensley Aesthetics operates to the highest standards of patient safety and
-              clinical governance, providing bespoke, doctor-led care tailored to each individual
-              client's goals and anatomy.
-            </p>
-          </div>
-          <div className="ab-bio__img-col">
-            <Image
-              src="/assets/dermal-filler-treatment-kensley-aesthetics-newcastle.png"
-              alt="Dermal filler treatment at Kensley Aesthetics, Newcastle — doctor-led aesthetic clinic"
-              className="ab-bio__img"
-              loading="lazy"
-              width={600}
-              height={750}
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY CHOOSE ───────────────────────────────────────── */}
+      {/* ── WHY CHOOSE ───────────────────────────────────────────── */}
       <section className="ab-why">
         <div className="ab-why__inner">
           <div className="ab-why__header">
@@ -202,10 +158,10 @@ function About() {
         </div>
       </section>
 
-      {/* ── TEAM ─────────────────────────────────────────────── */}
+      {/* ── TEAM ───────────────────────────────────────────────── */}
       <TeamSection />
 
-      {/* ── CUSTOMER CARE ────────────────────────────────────── */}
+      {/* ── CUSTOMER CARE ────────────────────────────────────────── */}
       <section className="ab-care">
         <div className="ab-care__img-col">
           <Image

@@ -11,7 +11,6 @@ const TREATMENTS = [
   { slug: 'anti-wrinkle-treatments', num: '01', name: 'Anti-Wrinkle Treatments', tagline: 'Smooth expression lines naturally' },
   { slug: 'dermal-fillers',          num: '02', name: 'Dermal Fillers',           tagline: 'Sculpt, define & restore volume' },
   { slug: 'skin-boosters',           num: '03', name: 'Skin Boosters',            tagline: 'Deep hydration & lasting radiance' },
-  { slug: 'regenerative-treatments', num: '04', name: 'Regenerative Treatments',  tagline: 'PRP, exosomes & polynucleotides' },
   { slug: 'biostimulators',          num: '05', name: 'Biostimulators',           tagline: 'Stimulate collagen from within' },
   { slug: 'microneedling',           num: '06', name: 'Microneedling',            tagline: 'Resurface & rejuvenate your skin' },
   { slug: 'rf-microneedling',        num: '07', name: 'RF Microneedling',         tagline: 'Tighten, lift & smooth' },
@@ -162,7 +161,7 @@ export default function LocationPage() {
             <p className="lp-doctor__eyebrow">Meet Your Expert</p>
             <h2 className="lp-doctor__name">Dr. Tiru Matla<br /><em style={{ fontWeight: 300, fontSize: '0.75em' }}>Founder &amp; Medical Director</em></h2>
             <p className="lp-doctor__bio">
-              Dr. Tiru Matla is a GMC-registered medical doctor with over 20 years of clinical experience,
+              Dr. Tiru Matla is a medical doctor with over 20 years of clinical experience,
               including more than a decade specialising in aesthetic medicine. He founded Kensley Aesthetics
               with a single ambition: to deliver results that look completely natural and feel genuinely
               transformative — guided always by clinical rigour, not trend.

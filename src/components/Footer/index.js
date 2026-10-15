@@ -7,7 +7,6 @@ const MAIN_TREATMENTS = [
   { label: 'Anti-Wrinkle Treatments', href: '/main-treatments/anti-wrinkle-treatments' },
   { label: 'Dermal Fillers',           href: '/main-treatments/dermal-fillers' },
   { label: 'Skin Boosters',            href: '/main-treatments/skin-boosters' },
-  { label: 'Regenerative Treatments',  href: '/main-treatments/regenerative-treatments' },
   { label: 'Biostimulators',           href: '/main-treatments/biostimulators' },
   { label: 'Microneedling',            href: '/main-treatments/microneedling' },
   { label: 'RF Microneedling',         href: '/main-treatments/rf-microneedling' },

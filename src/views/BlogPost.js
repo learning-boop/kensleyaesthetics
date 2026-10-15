@@ -138,7 +138,7 @@ function BlogPost({ initialPost = null, initialRelated = [] }) {
       name:        'Dr Tiru Matla',
       url:         `${SITE_URL}/about`,
       jobTitle:    'Founder & Clinical Director',
-      description: 'GMC-registered medical doctor (MBBS, MRCGP, DFSRH) with over 20 years of clinical experience specialising in aesthetic medicine.',
+      description: 'Medical doctor (MBBS, MRCGP, DFSRH) with over 20 years of clinical experience specialising in aesthetic medicine.',
     },
     publisher: {
       '@type': 'Organization',

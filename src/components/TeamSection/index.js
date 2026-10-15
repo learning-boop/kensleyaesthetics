@@ -3,11 +3,9 @@ import { useAppointment } from '../../context/AppointmentContext';
 import './TeamSection.css';
 
 const TEAM_IMAGES = [
-  { src: '/images/our-team/skin-specialist-kensley-aesthetics-clinic-newcastle.jpg', alt: 'Skin specialist at Kensley Aesthetics clinic, Newcastle upon Tyne' },
   { src: '/images/our-team/dr-tiru-matla-clinical-director-kensley-aesthetics-newcastle.jpg', alt: 'Dr Tiru Matla, Clinical Director at Kensley Aesthetics, Jesmond, Newcastle' },
   { src: '/images/our-team/medical-aesthetics-team-member-kensley-clinic-newcastle.jpg', alt: 'Medical aesthetics team member at Kensley clinic, Newcastle' },
   { src: '/images/our-team/aesthetic-practitioner-kensley-aesthetics-jesmond-newcastle.jpg', alt: 'Aesthetic practitioner at Kensley Aesthetics clinic in Jesmond, Newcastle' },
-  { src: '/images/our-team/aesthetics-practitioner-kensley-aesthetics-newcastle.jpg', alt: 'Aesthetics practitioner at Kensley Aesthetics, Newcastle' },
 ];
 
 /* ── Homepage team slider ──────────────────────────────── */

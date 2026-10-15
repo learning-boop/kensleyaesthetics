@@ -3,32 +3,32 @@ import './ClinicShowcase.css';
 
 const CLINIC_IMAGES = [
   {
-    src: '/images/clinic/kensley-aesthetics-waiting-room-branded-wall-jesmond.jpeg',
+    src: '/images/clinic/kensley-aesthetics-waiting-room-branded-wall-jesmond-50kb.jpeg',
     alt: 'Kensley Aesthetics waiting room with branded wall and comfortable seating',
     label: 'Waiting Area',
   },
   {
-    src: '/images/clinic/kensley-aesthetics-building-exterior-entrance-jesmond.jpeg',
+    src: '/images/clinic/kensley-aesthetics-building-exterior-entrance-jesmond-50kb.jpeg',
     alt: 'Kensley Aesthetics clinic exterior and entrance in Jesmond, Newcastle',
     label: 'Our Clinic',
   },
   {
-    src: '/images/clinic/kensley-aesthetics-treatment-room-hydrafacial-newcastle.jpeg',
+    src: '/images/clinic/kensley-aesthetics-treatment-room-hydrafacial-newcastle-50kb.jpeg',
     alt: 'Modern treatment room with HydraFacial equipment at Kensley Aesthetics Newcastle',
     label: 'Treatment Room',
   },
   {
-    src: '/images/clinic/kensley-aesthetics-clinic-entrance-jesmond-newcastle.jpeg',
+    src: '/images/clinic/kensley-aesthetics-clinic-entrance-jesmond-newcastle-50kb.jpeg',
     alt: 'Kensley Aesthetics branded entrance with logo at Jesmond clinic, Newcastle',
     label: 'Welcome',
   },
   {
-    src: '/images/clinic/kensley-aesthetics-consultation-room-medical-supplies-newcastle.jpeg',
+    src: '/images/clinic/kensley-aesthetics-consultation-room-medical-supplies-newcastle-50kb.jpeg',
     alt: 'Clinical consultation room with medical supplies at Kensley Aesthetics',
     label: 'Clinical Suite',
   },
   {
-    src: '/images/clinic/kensley-aesthetics-consultation-office-jesmond-newcastle.jpeg',
+    src: '/images/clinic/kensley-aesthetics-consultation-office-jesmond-newcastle-50kb.jpeg',
     alt: 'Private consultation office at Kensley Aesthetics clinic in Jesmond',
     label: 'Consultation Room',
   },

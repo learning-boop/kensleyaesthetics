@@ -4,7 +4,7 @@ const CREDENTIALS = [
   {
     number: '20+',
     label: 'Years of Clinical Experience',
-    detail: 'Dr. Tiru Matla is a GMC-registered medical doctor with over two decades of clinical practice.',
+    detail: 'Dr. Tiru Matla is a medical doctor with over two decades of clinical practice.',
   },
   {
     number: '10+',
@@ -15,11 +15,6 @@ const CREDENTIALS = [
     number: '1000s',
     label: 'of Procedures Performed',
     detail: 'Thousands of advanced aesthetic treatments carried out to the highest clinical standards.',
-  },
-  {
-    number: 'GMC',
-    label: 'Registered Medical Doctor',
-    detail: 'Dr. Tiru Matla is a fully GMC-registered medical doctor, bringing genuine clinical expertise to every aesthetic treatment.',
   },
 ];
 
@@ -35,7 +30,7 @@ function Stats() {
         <p className="si-subtitle">
           Every treatment at Kensley Aesthetics is conducted under the
           direct clinical oversight of <strong>Dr. Tiru Matla</strong> — a
-          GMC-registered medical doctor with over 20 years of clinical
+          medical doctor with over 20 years of clinical
           experience and more than a decade specialising in aesthetic
           medicine. You are in the hands of a true expert.
         </p>
