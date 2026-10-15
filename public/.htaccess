@@ -1,19 +1,29 @@
-RewriteEngine On
+# kensleyaesthetics.com — Next.js static export on cPanel / LiteSpeed
+Options -Indexes
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
 
-# If the request is for an existing file or directory, serve it directly
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
+RewriteEngine On
+RewriteBase /
+
+# Optional (recommended): one canonical origin — https + non-www.
+# Delete this block if you ever put the site behind Cloudflare with "Flexible" SSL.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://kensleyaesthetics.com%{REQUEST_URI} [R=301,L]
+
+# 1) Real files (css / js / images / .html / .txt payloads) are served as-is.
+#    Only -f here — the old "-d" pass-through let the folder hijack the route.
+RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
-# If a directory with index.html exists for this path, serve it
-# e.g. /pricing -> /pricing/index.html
-RewriteCond %{REQUEST_FILENAME}/index.html -f
-RewriteRule ^(.*)$ $1/index.html [L]
+# 2) /treatments/  ->  treatments.html  (internal rewrite)
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+)/$ $1.html [L]
 
-# If a .html file exists for this path, serve it
-# e.g. /pricing -> /pricing.html
+# 3) /treatments  ->  treatments.html  (internal rewrite, URL stays clean)
+#    Must run BEFORE any directory check: a folder with the same name exists.
 RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.*)$ $1.html [L]
+RewriteRule ^(.+)$ $1.html [L]
 
-# Custom 404 - fallback to Next.js 404 page if it exists
-ErrorDocument 404 /404.html
+# Anything left is a bare folder (403 -> shows the 404 page) or a genuine 404.

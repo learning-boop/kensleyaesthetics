@@ -1,4 +1,5 @@
 import { LOCATIONS } from '@/src/data/locations';
+import { STATIC_SUB_TREATMENTS } from '@/src/data/subTreatments';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
 
@@ -12,7 +13,7 @@ const MAIN_TREATMENT_SLUGS = [
   'regenerative-treatments', 'biostimulators', 'microneedling',
   'rf-microneedling', 'hifu', 'chemical-peel', 'hydro2-facial',
   'mesotherapy', 'led-light-therapy', 'profhilo', 'prp',
-  'polynucleotides', 'medical-grade-skincare',
+  'polynucleotides', 'medical-grade-skincare', 'thread-lift',
 ];
 
 export const dynamic = 'force-static';
@@ -52,6 +53,16 @@ export default function sitemap() {
     lastModified: now,
   }));
 
+  const subTreatmentPages = Object.entries(STATIC_SUB_TREATMENTS).flatMap(
+    ([parentSlug, subs]) =>
+      subs.map((sub) => ({
+        url: `${SITE_URL}/main-treatments/${parentSlug}/${sub.slug}`,
+        changeFrequency: 'monthly',
+        priority: 0.8,
+        lastModified: now,
+      })),
+  );
+
   const locationPages = LOCATIONS.map((loc) => ({
     url: `${SITE_URL}/locations/${loc.slug}`,
     changeFrequency: 'monthly',
@@ -59,5 +70,5 @@ export default function sitemap() {
     lastModified: now,
   }));
 
-  return [...staticPages, ...treatmentPages, ...mainTreatmentPages, ...locationPages];
+  return [...staticPages, ...treatmentPages, ...mainTreatmentPages, ...subTreatmentPages, ...locationPages];
 }

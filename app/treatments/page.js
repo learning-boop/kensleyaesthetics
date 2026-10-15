@@ -1,12 +1,12 @@
 import TreatmentsView from './TreatmentsView';
 
 export const metadata = {
-  title: 'Treatments | Kensley Aesthetics',
-  description: 'Explore our full range of advanced aesthetic treatments including anti-wrinkle, dermal fillers, skin boosters and more.',
+  title: 'Aesthetic Treatments Newcastle | Kensley Aesthetics',
+  description: 'Explore skin boosters, dermal fillers and aesthetic treatments at Kensley Aesthetics in Jesmond, Newcastle. Book a personalised consultation.',
   alternates: { canonical: 'https://kensleyaesthetics.com/treatments' },
   openGraph: {
-    title: 'Treatments | Kensley Aesthetics',
-    description: 'Explore our full range of advanced aesthetic treatments including anti-wrinkle, dermal fillers, skin boosters and more.',
+    title: 'Aesthetic Treatments Newcastle | Kensley Aesthetics',
+    description: 'Explore skin boosters, dermal fillers and aesthetic treatments at Kensley Aesthetics in Jesmond, Newcastle. Book a personalised consultation.',
     url: 'https://kensleyaesthetics.com/treatments',
     siteName: 'Kensley Aesthetics',
     locale: 'en_GB',

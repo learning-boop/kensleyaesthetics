@@ -53,11 +53,11 @@ async function getTreatment(slug) {
   if (staticMain) {
     return {
       ...staticMain,
-      image: null,
-      image_second: null,
-      reviews: [],
-      faqs: [],
-      ideal: null,
+      image: staticMain.image || null,
+      image_second: staticMain.image_second || null,
+      reviews: staticMain.reviews || [],
+      faqs: staticMain.faqs || [],
+      ideal: staticMain.ideal || null,
       subTreatments: STATIC_SUB_TREATMENTS[slug] || [],
     };
   }

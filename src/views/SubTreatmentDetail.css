@@ -92,7 +92,7 @@
   display: grid;
   grid-template-columns: 1fr;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 .std-hero__content {
   padding: 64px 24px 56px;

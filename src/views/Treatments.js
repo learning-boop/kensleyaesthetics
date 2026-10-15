@@ -9,26 +9,26 @@ import './Treatments.css';
 
 /* Treatments with their own detail pages */
 const MAIN_TREATMENTS = [
-  { num: '01', label: 'Anti-Wrinkle Treatments', slug: 'anti-wrinkle-treatments', sub: 'Smooth expression lines and prevent new ones forming.' },
-  { num: '02', label: 'Dermal Fillers',           slug: 'dermal-fillers',          sub: 'Restore volume, define features and improve facial balance.' },
-  { num: '03', label: 'Skin Boosters',            slug: 'skin-boosters',           sub: 'Deep injectable hydration for lasting glow and suppleness.' },
-  { num: '04', label: 'Regenerative Treatments',  slug: 'regenerative-treatments', sub: 'PRP, polynucleotides and exosomes to repair and rebuild skin.' },
-  { num: '05', label: 'Biostimulators',           slug: 'biostimulators',          sub: 'Collagen-stimulating injectables for deeper structural support.' },
-  { num: '06', label: 'Microneedling',            slug: 'microneedling',           sub: 'Controlled micro-injuries that trigger collagen remodelling.' },
-  { num: '07', label: 'RF Microneedling',         slug: 'rf-microneedling',        sub: 'Microneedling enhanced with radiofrequency energy for tightening.' },
-  { num: '08', label: 'HIFU',                     slug: 'hifu',                    sub: 'Ultrasound lifting for the face, jowls and neck.' },
+  { num: '01', label: 'Anti-Wrinkle Consultations', slug: 'anti-wrinkle-treatments', sub: 'Explore personalised options for forehead lines, frown lines and other facial wrinkles, with clinical guidance tailored to you.' },
+  { num: '02', label: 'Dermal Fillers',              slug: 'dermal-fillers',          sub: 'Restore selected areas of lost volume or enhance facial balance with a personalised, natural-looking approach.' },
+  { num: '03', label: 'Skin Boosters',               slug: 'skin-boosters',           sub: 'Improve skin hydration and quality with injectable treatments selected for your individual skin concerns.' },
+  { num: '04', label: 'Regenerative Treatments',     slug: 'regenerative-treatments', sub: 'Explore selected treatments aimed at supporting skin quality, with balanced advice about benefits and evidence.' },
+  { num: '05', label: 'Biostimulators',              slug: 'biostimulators',          sub: 'Discover collagen-stimulating treatments designed to support gradual changes in facial volume and skin quality.' },
+  { num: '06', label: 'Microneedling',               slug: 'microneedling',           sub: 'Improve the appearance of acne scars, uneven texture and fine lines through controlled skin renewal.' },
+  { num: '07', label: 'RF Microneedling',            slug: 'rf-microneedling',        sub: 'Combine microneedling with radiofrequency energy for selected texture and mild skin laxity concerns.' },
+  { num: '08', label: 'HIFU',                        slug: 'hifu',                    sub: 'Explore ultrasound-based treatment options for selected concerns involving mild skin laxity.' },
 ];
 
 /* Additional individual treatments — now have Sanity pages */
 const EXTRA_TREATMENTS = [
-  { num: '09', label: 'Chemical Peel',              slug: 'chemical-peel',            sub: 'Resurface and refresh the skin surface, targeting texture and tone.' },
-  { num: '10', label: '3D HydrO2 Facial',           slug: 'hydro2-facial',         sub: 'Advanced facial combining oxygen, hydration and ultrasound technology.' },
-  { num: '11', label: 'Mesotherapy',                slug: 'mesotherapy',              sub: 'Microinjections delivering vitamins and actives directly into the skin.' },
-  { num: '12', label: 'LED Light Therapy',          slug: 'led-light-therapy',        sub: 'Clinically proven light wavelengths to calm, heal and rejuvenate.' },
-  { num: '13', label: 'Profhilo',                   slug: 'profhilo',                 sub: 'High-concentration hyaluronic acid that bio-remodels skin from within.' },
-  { num: '14', label: 'PRP (Platelet-Rich Plasma)', slug: 'prp',                      sub: 'Your own growth factors used to regenerate and repair skin tissue.' },
-  { num: '15', label: 'Polynucleotides',            slug: 'polynucleotides',          sub: 'DNA-repair molecules that deeply restore skin health and elasticity.' },
-  { num: '16', label: 'Medical-Grade Skincare',     slug: 'medical-grade-skincare',   sub: 'Clinician-prescribed homecare plans that support and extend results.' },
+  { num: '09', label: 'Chemical Peels',              slug: 'chemical-peel',            sub: 'Refresh uneven skin tone and texture with professionally selected exfoliating treatments.' },
+  { num: '10', label: '3D HydrO2 Facial',           slug: 'hydro2-facial',            sub: 'Enjoy a personalised facial treatment focused on cleansing, exfoliation and skin hydration.' },
+  { num: '11', label: 'Mesotherapy',                 slug: 'mesotherapy',              sub: 'Explore injectable skin treatments using selected formulations for individual skin quality concerns.' },
+  { num: '12', label: 'LED Light Therapy',           slug: 'led-light-therapy',        sub: 'Discover non-invasive light-based treatments for selected skin concerns and skincare plans.' },
+  { num: '13', label: 'Profhilo',                    slug: 'profhilo',                 sub: 'Support hydration, elasticity and smoother-looking skin with hyaluronic acid bioremodelling.' },
+  { num: '14', label: 'PRP',                         slug: 'prp',                      sub: 'Explore platelet-rich plasma procedures and their potential role in selected skin concerns.' },
+  { num: '15', label: 'Polynucleotides',             slug: 'polynucleotides',          sub: 'Learn about polynucleotide treatments for skin quality and delicate areas, including around the eyes.' },
+  { num: '16', label: 'Medical-Grade Skincare',      slug: 'medical-grade-skincare',   sub: 'Build a personalised skincare routine guided by your skin type, concerns and treatment goals.' },
 ];
 
 export default function Treatments() {
@@ -41,17 +41,17 @@ export default function Treatments() {
   return (
     <>
       <SeoHead
-        title="Treatments | Kensley Aesthetics"
-        description="Explore our full range of advanced aesthetic treatments including anti-wrinkle, dermal fillers, skin boosters and more."
+        title="Aesthetic Treatments Newcastle | Kensley Aesthetics"
+        description="Explore skin boosters, dermal fillers and aesthetic treatments at Kensley Aesthetics in Jesmond, Newcastle. Book a personalised consultation."
         path="/treatments"
       />
 
       {/* ── ALL 17 INDIVIDUAL TREATMENTS ─────────────────── */}
       <section className="tr-root tr-root--dark">
         <div className="tr-section-header tr-section-header--light">
-          <h2 className="tr-section-title tr-section-title--light">What We Offer</h2>
+          <h2 className="tr-section-title tr-section-title--light">Aesthetic Treatments in Newcastle upon Tyne</h2>
           <p className="tr-section-sub tr-section-sub--light">
-            Every treatment we offer — each can be taken standalone or combined as part of a personalised plan.
+            Natural-looking results. Personalised care. Confidence that feels like you.
           </p>
         </div>
         <div className="tr-grid">

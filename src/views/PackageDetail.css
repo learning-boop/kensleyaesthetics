@@ -565,13 +565,14 @@
   /* Hero */
   .pkg-hero {
     flex-direction: column;
-    min-height: 100svh;
+    min-height: auto;
     padding-top: 58px;
   }
 
   .pkg-hero__image-wrap {
     width: 100%;
-    height: 52svh;
+    height: 44svh;
+    max-height: 380px;
     order: -1;
   }
 
