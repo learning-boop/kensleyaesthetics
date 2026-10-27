@@ -1062,7 +1062,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Polynucleotides', name: 'Polynucleotides', slug: 'polynucleotides',
-      heroImage: '/assets/kensley-treatment-images/04-regenerative-treatments/polynucleotide-skin-rejuvenation/kensley-regenerative-treatments-polynucleotide-skin-rejuvenation-01.webp',
+      heroImage: '/images/kensley-real/skin-boosters-rejuran-kensley-aesthetics-newcastle.webp',
       seoTitle: 'Polynucleotides Newcastle | PDRN Skin Treatment | Kensley Aesthetics',
       tagline: 'Cellular repair at its finest.',
       description: 'Biocompatible polynucleotide injections to repair, regenerate, and rejuvenate the skin at a deep cellular level.',
@@ -2690,7 +2690,7 @@ export const STATIC_SUB_TREATMENTS = {
     },
     {
       title: 'Medical-Grade Skincare', name: 'ZO® Skin Health', slug: 'zo-skin-health',
-      heroImage: '/assets/kensley-treatment-images/16-medical-grade-skincare/zo-skincare/kensley-medical-grade-skincare-zo-skincare-01.webp',
+      heroImage: '/images/kensley-real/medical-grade-skincare-zo-skin-health-kensley-aesthetics.webp',
       seoTitle: 'ZO Skin Health Newcastle | Kensley Aesthetics',
       tagline: 'Science-driven skincare for lasting results.',
       description: 'ZO Skin Health is a clinician-prescribed skincare system developed by Dr. Zein Obagi, combining potent active ingredients with personalised protocols to optimise skin health and support your in-clinic treatment outcomes.',

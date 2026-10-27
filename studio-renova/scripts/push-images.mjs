@@ -6,7 +6,7 @@ const client = createClient({
   projectId: 'puzajrus',
   dataset: 'production',
   apiVersion: '2024-01-01',
-  token: 'skECACuhN7I6sfL9RkYv7W2lanykaSiNMhfDFGnT9bu1m2eMifzzhobTVILcxWA3pUTxJ22qfLc2AVEicgzMXF0bh8is2oCzx0e14oPczyNW8TRexoAYBDNk0AH0roku8024CayM9UCSnD296tSV0ai0TOEOAFYSVjAEcljplwn9V4URycOJ',
+  token: process.env.SANITY_TOKEN,
   useCdn: false,
 })
 

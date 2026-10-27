@@ -4,8 +4,10 @@ import './TeamSection.css';
 
 const TEAM_IMAGES = [
   { src: '/images/our-team/dr-tiru-matla-clinical-director-kensley-aesthetics-newcastle.jpg', alt: 'Dr Tiru Matla, Clinical Director at Kensley Aesthetics, Jesmond, Newcastle' },
-  { src: '/images/our-team/medical-aesthetics-team-member-kensley-clinic-newcastle.jpg', alt: 'Medical aesthetics team member at Kensley clinic, Newcastle' },
-  { src: '/images/our-team/aesthetic-practitioner-kensley-aesthetics-jesmond-newcastle.jpg', alt: 'Aesthetic practitioner at Kensley Aesthetics clinic in Jesmond, Newcastle' },
+  { src: '/images/kensley-real/team-a-dr-mariyam-durrani-kensley-aesthetics.webp', alt: 'Dr Mariyam Durrani, Aesthetic Practitioner at Kensley Aesthetics, Newcastle' },
+  { src: '/images/kensley-real/team-b-aesthetic-practitioner-kensley-aesthetics.webp', alt: 'Aesthetic practitioner at Kensley Aesthetics clinic, Newcastle' },
+  { src: '/images/kensley-real/team-c-aesthetic-practitioner-kensley-aesthetics.webp', alt: 'Aesthetic practitioner at Kensley Aesthetics clinic in Jesmond, Newcastle' },
+  { src: '/images/kensley-real/team-d-aesthetic-practitioner-kensley-aesthetics.webp', alt: 'Aesthetic practitioner at Kensley Aesthetics clinic, Newcastle' },
 ];
 
 /* ── Homepage team slider ──────────────────────────────── */
@@ -41,6 +43,7 @@ export function TeamSplit() {
 
 const PRACTITIONER_ROLES = [
   { title: 'Clinical Director', name: 'Dr Tiru Matla', creds: 'MBBS · MRCGP · DFSRH' },
+  { title: 'Aesthetics Practitioner', name: 'Dr Mariyam Durrani', creds: 'Aesthetic Practitioner' },
   { title: 'Aesthetics Practitioner', name: 'Aesthetics Practitioner', creds: 'Aesthetics Practitioner' },
 ];
 

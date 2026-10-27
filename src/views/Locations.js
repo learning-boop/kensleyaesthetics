@@ -97,7 +97,7 @@ export default function Locations() {
           <button className="locs-cta-btn locs-cta-btn--gold" onClick={openDrawer}>
             Schedule Your Consultation
           </button>
-          <a className="locs-cta-btn locs-cta-btn--ghost" href="tel:3330570295">
+          <a className="locs-cta-btn locs-cta-btn--ghost" href="tel:+443330570295">
             Call Us
           </a>
           <a

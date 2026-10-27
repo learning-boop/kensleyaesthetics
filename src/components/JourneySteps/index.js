@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-
-
+import Image from 'next/image';
 import './JourneySteps.css';
 
 // ── Step data ────────────────────────────────────────────────────────
@@ -12,6 +11,8 @@ const STEPS = [
   {
     title: 'Your Consultation',
     desc: "Meet with your clinician to discuss your goals, concerns and medical history. We'll recommend the best options for you.",
+    image: '/images/kensley-real/practitioner-patient-consultation-kensley-aesthetics.webp',
+    imageAlt: 'Practitioner during patient consultation at Kensley Aesthetics',
   },
   {
     title: 'Your Personalised Treatment Plan',
@@ -80,7 +81,22 @@ function StepItem({ step, isOpen, onToggle }) {
       {/* Expanded content */}
       <div className="js-step-body" aria-hidden={!isOpen}>
         {isOpen && (
-          <p className="js-step-desc">{step.desc}</p>
+          <>
+            <p className="js-step-desc">{step.desc}</p>
+            {step.image && (
+              <div className="js-step-img-wrap">
+                <Image
+                  src={step.image}
+                  alt={step.imageAlt || ''}
+                  className="js-step-img"
+                  width={600}
+                  height={400}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

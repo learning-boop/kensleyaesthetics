@@ -161,11 +161,73 @@ function About() {
       {/* ── TEAM ───────────────────────────────────────────────── */}
       <TeamSection />
 
+      {/* ── TEAM PORTRAITS ─────────────────────────────────────── */}
+      <section className="ab-portraits">
+        <div className="ab-portraits__grid">
+          <div className="ab-portraits__card ab-portraits__card--featured">
+            <Image
+              src="/images/kensley-real/dr-mariyam-durrani-portrait-kensley-aesthetics.webp"
+              alt="Dr Mariyam Durrani — Aesthetic Practitioner, Kensley Aesthetics"
+              className="ab-portraits__img"
+              width={600}
+              height={750}
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <span className="ab-portraits__label">Dr Mariyam Durrani</span>
+          </div>
+          <div className="ab-portraits__card">
+            <Image
+              src="/images/kensley-real/team-b-kensley-aesthetics-waiting-room-jesmond.webp"
+              alt="Aesthetic practitioner in the waiting room at Kensley Aesthetics, Jesmond"
+              className="ab-portraits__img"
+              width={600}
+              height={750}
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 30vw"
+            />
+          </div>
+          <div className="ab-portraits__card">
+            <Image
+              src="/images/kensley-real/team-c-consultation-desk-kensley-aesthetics.webp"
+              alt="Practitioner at consultation desk, Kensley Aesthetics"
+              className="ab-portraits__img"
+              width={600}
+              height={750}
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 30vw"
+            />
+          </div>
+          <div className="ab-portraits__card">
+            <Image
+              src="/images/kensley-real/team-d-consultation-desk-kensley-aesthetics.webp"
+              alt="Practitioner at consultation desk, Kensley Aesthetics"
+              className="ab-portraits__img"
+              width={600}
+              height={750}
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 30vw"
+            />
+          </div>
+          <div className="ab-portraits__card">
+            <Image
+              src="/images/kensley-real/team-d-treatment-room-kensley-aesthetics.webp"
+              alt="Practitioner in treatment room at Kensley Aesthetics"
+              className="ab-portraits__img"
+              width={600}
+              height={750}
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 30vw"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* ── CUSTOMER CARE ────────────────────────────────────────── */}
       <section className="ab-care">
         <div className="ab-care__img-col">
           <Image
-            src="/assets/kensley-aesthetics-patient-consultation-newcastle.png"
+            src="/images/kensley-real/practitioner-patient-consultation-kensley-aesthetics.webp"
             alt="Kensley Aesthetics practitioner during patient consultation, Newcastle clinic"
             className="ab-care__img"
             loading="lazy"
@@ -190,11 +252,11 @@ function About() {
             no waiting, just a friendly conversation.
           </p>
           <div className="ab-care__actions">
-            <a href="tel:3330570295" className="ab-care__call-btn">
+            <a href="tel:+443330570295" className="ab-care__call-btn">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 12.9 19.79 19.79 0 0 1 1.08 4.18 2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 5.99 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
-              Call 333 057 0295
+              Call 0333 057 0295
             </a>
             <button className="ab-care__book-btn" onClick={openDrawer}>
               Book Online

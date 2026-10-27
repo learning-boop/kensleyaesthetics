@@ -136,6 +136,21 @@
   to   { opacity: 1; transform: translateY(0);   }
 }
 
+/* ─── Step image ────────────────────────────────────────────────── */
+.js-step-img-wrap {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  padding: 0 32px;
+  animation: jsDescIn 0.55s 0.15s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.js-step-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
 /* ─── Mobile ────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .js-section { padding: 40px 0 52px; }

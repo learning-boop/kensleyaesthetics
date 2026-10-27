@@ -3,8 +3,8 @@ import './ClinicShowcase.css';
 
 const CLINIC_IMAGES = [
   {
-    src: '/images/clinic/kensley-aesthetics-waiting-room-branded-wall-jesmond-50kb.jpeg',
-    alt: 'Kensley Aesthetics waiting room with branded wall and comfortable seating',
+    src: '/images/kensley-real/kensley-aesthetics-waiting-area-jesmond-newcastle.webp',
+    alt: 'Kensley Aesthetics waiting area in Jesmond, Newcastle',
     label: 'Waiting Area',
   },
   {
@@ -13,8 +13,8 @@ const CLINIC_IMAGES = [
     label: 'Our Clinic',
   },
   {
-    src: '/images/clinic/kensley-aesthetics-treatment-room-hydrafacial-newcastle-50kb.jpeg',
-    alt: 'Modern treatment room with HydraFacial equipment at Kensley Aesthetics Newcastle',
+    src: '/images/kensley-real/kensley-aesthetics-treatment-room-devices-newcastle.webp',
+    alt: 'Treatment room with aesthetic devices at Kensley Aesthetics Newcastle',
     label: 'Treatment Room',
   },
   {
@@ -28,8 +28,8 @@ const CLINIC_IMAGES = [
     label: 'Clinical Suite',
   },
   {
-    src: '/images/clinic/kensley-aesthetics-consultation-office-jesmond-newcastle-50kb.jpeg',
-    alt: 'Private consultation office at Kensley Aesthetics clinic in Jesmond',
+    src: '/images/kensley-real/kensley-aesthetics-consultation-room-jesmond-newcastle.webp',
+    alt: 'Private consultation room at Kensley Aesthetics clinic in Jesmond, Newcastle',
     label: 'Consultation Room',
   },
 ];

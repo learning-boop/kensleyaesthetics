@@ -119,7 +119,7 @@ export default function LocationPage() {
             <CalendarIcon />
             Schedule Your Consultation
           </button>
-          <a className="lp-cta-btn lp-cta-btn--outline" href="tel:3330570295">
+          <a className="lp-cta-btn lp-cta-btn--outline" href="tel:+443330570295">
             <PhoneIcon />
             Call Us
           </a>

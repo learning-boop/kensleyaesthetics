@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 out.zip
+
+# delivery folder (source images, not for the repo)
+kensley-website-ready/

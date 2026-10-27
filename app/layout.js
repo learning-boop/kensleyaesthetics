@@ -5,7 +5,7 @@ import Script from 'next/script';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['300', '400', '500', '600', '700'],
   style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-cormorant',
@@ -62,12 +62,11 @@ const STRUCTURED_DATA = {
       "logo": "https://kensleyaesthetics.com/logo512.png",
       "image": "https://kensleyaesthetics.com/logo512.png",
       "description": "Doctor-led aesthetic clinic in Jesmond, Newcastle upon Tyne offering dermal fillers, anti-wrinkle injections, skin boosters, polynucleotides, biostimulators, microneedling, RF microneedling and HIFU.",
-      "telephone": "333 057 0295",
+      "telephone": "+44 333 057 0295",
       "email": "kensleyclinic@gmail.com",
       "priceRange": "\u00a3\u00a3",
       "currenciesAccepted": "GBP",
       "paymentAccepted": "Cash, Credit Card, Debit Card",
-      "medicalSpecialty": ["Dermatology", "PlasticSurgery"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Old Brewery Court, 156 Sandyford Rd",
@@ -130,8 +129,8 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cdn.sanity.io" />
 
-        {/* Hero image preload */}
-        <link rel="preload" as="image" type="image/png" href="/assets/stay_youthful.png" fetchPriority="high" />
+        {/* Hero video poster preload */}
+        <link rel="preload" as="image" type="image/webp" href="/video/posters/hero-loop-desktop-kensley-aesthetics-poster.webp" fetchPriority="high" />
 
         {/* Organisation structured data */}
         <script
