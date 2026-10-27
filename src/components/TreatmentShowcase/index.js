@@ -163,7 +163,7 @@ function TreatmentShowcase() {
           variant: VARIANTS[i % VARIANTS.length],
         }))
       );
-    });
+    }).catch((err) => console.error('TreatmentShowcase fetch error:', err));
   }, []);
 
   // Mobile swipe hint — show when section enters view, hide on first swipe or after 2.5s
