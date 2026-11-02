@@ -56,16 +56,17 @@ function PostCard({ post, featured = false }) {
   );
 }
 
-function Blog() {
-  const [posts, setPosts]           = useState([]);
-  const [loading, setLoading]       = useState(true);
+function Blog({ initialPosts = null }) {
+  const [posts, setPosts]           = useState(initialPosts || []);
+  const [loading, setLoading]       = useState(!initialPosts);
   const [activeCategory, setActive] = useState('All');
 
   useEffect(() => {
+    if (initialPosts) return; // already rendered at build time
     client.fetch(BLOG_POSTS_QUERY)
       .then(setPosts)
       .finally(() => setLoading(false));
-  }, []);
+  }, [initialPosts]);
 
   const filtered = activeCategory === 'All'
     ? posts
@@ -90,8 +91,8 @@ function Blog() {
   return (
     <>
       <SeoHead
-        title="Aesthetics & Skincare Journal | Expert Advice Newcastle"
-        description="Expert guides on non-surgical aesthetic treatments, skincare tips, aftercare advice and real results from Kensley Aesthetics — Newcastle's leading doctor-led aesthetic clinic."
+        title="Skincare & Aesthetics Journal | Kensley Aesthetics"
+        description="Guides to non-surgical treatments, skincare and aftercare from Kensley Aesthetics, a doctor-led aesthetic clinic in Jesmond, Newcastle."
         keywords="aesthetics blog Newcastle, skincare tips Newcastle, dermal filler guide, anti-wrinkle treatment advice, lip filler guide Newcastle, jawline filler guide, non-surgical facelift guide, aesthetic aftercare tips"
         path="/blog"
         jsonLd={jsonLd}

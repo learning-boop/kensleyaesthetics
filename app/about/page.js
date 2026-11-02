@@ -1,17 +1,17 @@
 import AboutView from './AboutView';
 
 export const metadata = {
-  title: 'About Us | Doctor-Led Aesthetic Clinic Newcastle | Kensley Aesthetics',
-  description: 'Kensley Aesthetics is a doctor-led aesthetic clinic in Jesmond, Newcastle. Over 20 years of medical experience, 10,000+ procedures performed. MBBS, MRCGP qualified. Honest counsel, natural results.',
+  title: 'About Kensley Aesthetics | Aesthetic Clinic in Jesmond',
+  description: 'Kensley Aesthetics is a doctor-led aesthetic clinic in Jesmond, Newcastle, founded by Dr Tiru Matla. Personal consultations and natural-looking results.',
   alternates: { canonical: 'https://kensleyaesthetics.com/about' },
   openGraph: {
-    title: 'About Us | Doctor-Led Aesthetic Clinic Newcastle | Kensley Aesthetics',
-    description: 'Kensley Aesthetics is a doctor-led aesthetic clinic in Jesmond, Newcastle. Over 20 years of medical experience, 10,000+ procedures performed. MBBS, MRCGP qualified. Honest counsel, natural results.',
+    title: 'About Kensley Aesthetics | Aesthetic Clinic in Jesmond',
+    description: 'Kensley Aesthetics is a doctor-led aesthetic clinic in Jesmond, Newcastle, founded by Dr Tiru Matla. Personal consultations and natural-looking results.',
     url: 'https://kensleyaesthetics.com/about',
     siteName: 'Kensley Aesthetics',
     locale: 'en_GB',
     type: 'website',
-    images: ['https://kensleyaesthetics.com/logo512.png'],
+    images: ['https://kensleyaesthetics.com/og/kensley-aesthetics-share.jpg'],
   },
 };
 

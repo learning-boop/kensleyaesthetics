@@ -1,17 +1,17 @@
 import TestimonialsView from './TestimonialsView';
 
 export const metadata = {
-  title: 'Client Testimonials | Real Reviews | Kensley Aesthetics Newcastle',
-  description: 'Read verified client reviews and real stories from Kensley Aesthetics Newcastle. Discover what patients say about their dermal filler, anti-wrinkle, Profhilo, lip filler and skin rejuvenation results.',
+  title: 'Client Reviews | Kensley Aesthetics Newcastle',
+  description: 'Read what clients say about their experience at Kensley Aesthetics, a doctor-led aesthetic clinic in Jesmond, Newcastle.',
   alternates: { canonical: 'https://kensleyaesthetics.com/testimonials' },
   openGraph: {
-    title: 'Client Testimonials | Real Reviews | Kensley Aesthetics Newcastle',
-    description: 'Read verified client reviews and real stories from Kensley Aesthetics Newcastle. Discover what patients say about their dermal filler, anti-wrinkle, Profhilo, lip filler and skin rejuvenation results.',
+    title: 'Client Reviews | Kensley Aesthetics Newcastle',
+    description: 'Read what clients say about their experience at Kensley Aesthetics, a doctor-led aesthetic clinic in Jesmond, Newcastle.',
     url: 'https://kensleyaesthetics.com/testimonials',
     siteName: 'Kensley Aesthetics',
     locale: 'en_GB',
     type: 'website',
-    images: ['https://kensleyaesthetics.com/logo512.png'],
+    images: ['https://kensleyaesthetics.com/og/kensley-aesthetics-share.jpg'],
   },
 };
 

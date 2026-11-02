@@ -7,21 +7,6 @@ import TeamSection from '../components/TeamSection';
 import { useAppointment } from '../context/AppointmentContext';
 import './About.css';
 
-const stats = [
-  { num: '20+',     label: 'Years of Medical\nExperience' },
-  { num: '10+',     label: 'Years in Aesthetic\nMedicine' },
-  { num: '10,000+', label: 'Aesthetic Procedures\nPerformed' },
-];
-
-const credentials = [
-  'MBBS, MRCGP, DFSRH',
-  'PGCert Aesthetics & Cosmetic Medicine',
-  'Hyacorp Body Filler Trainer',
-  'Genefill DX Trainer',
-  'Advanced Aesthetic Medicine Practice',
-  'Founder & Clinical Director — Kensley Aesthetics',
-];
-
 const whyItems = [
   {
     q: 'Experienced Doctor-Led Care',
@@ -52,8 +37,8 @@ function About() {
   return (
     <>
       <SeoHead
-        title="About Us | Doctor-Led Aesthetic Clinic Newcastle"
-        description="Kensley Aesthetics is a doctor-led aesthetic clinic in Jesmond, Newcastle. Over 20 years of medical experience, 10,000+ procedures performed. MBBS, MRCGP qualified. Honest counsel, natural results."
+        title="About Kensley Aesthetics | Aesthetic Clinic in Jesmond"
+        description="Kensley Aesthetics is a doctor-led aesthetic clinic in Jesmond, Newcastle, founded by Dr Tiru Matla. Personal consultations and natural-looking results."
         path="/about"
       />
 
@@ -63,71 +48,61 @@ function About() {
         subtitle="Doctor-Led · Jesmond, Newcastle"
       />
 
-      {/* ── PROFILE ────────────────────────────────────────────────── */}
-      <section className="ab-profile">
-        <div className="ab-profile__img-col">
-          <Image
-            src="/assets/dr-tiru-matla-founder-kensley-aesthetics-newcastle.png"
-            alt="Dr Tiru Matla — Founder and Clinical Director, Kensley Aesthetics, Newcastle"
-            className="ab-profile__img"
-            loading="eager"
-            width={600}
-            height={750}
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
-        </div>
-        <div className="ab-profile__content-col">
-          <span className="ab-eyebrow">Clinical Director</span>
-          <h2 className="ab-profile__name">Dr Tiru{' '}<br />Matla</h2>
-          <p className="ab-profile__role">
-            Founder &amp; Clinical Director{' '}<br />
-            MBBS · MRCGP · DFSRH
-          </p>
-          <div className="ab-divider" />
-          <blockquote className="ab-profile__quote">
-            "Our aim is to deliver natural, safe and effective treatments that help
-            patients look refreshed, feel confident and achieve their aesthetic
-            goals with complete trust and peace of mind."
-          </blockquote>
-        </div>
-      </section>
+      {/* ── INTRO (client brief Nov 2026: founder mentioned once, briefly) ── */}
+      <section className="ab-intro" aria-labelledby="ab-intro-lead">
+        <div className="ab-intro__inner">
+          <h2 className="ab-intro__lead" id="ab-intro-lead">
+            Beauty refined.<br />
+            Confidence restored.
+          </h2>
 
-      {/* ── STATS BAND ───────────────────────────────────────────── */}
-      <section className="ab-stats-band">
-        {stats.map((s) => (
-          <div className="ab-stats-band__item" key={s.num}>
-            <span className="ab-stats-band__num">{s.num}</span>
-            <span className="ab-stats-band__label">
-              {s.label.split('\n').map((line, i) => (
-                <span key={i}>{line}{i === 0 && <>{' '}<br /></>}</span>
-              ))}
-            </span>
-          </div>
-        ))}
-      </section>
+          <div className="ab-intro__body">
+            <figure className="ab-intro__figure">
+              <Image
+                src="/images/kensley-real/kensley-aesthetics-consultation-room-jesmond-newcastle.webp"
+                alt="A patient in consultation with a practitioner in the oak-panelled consultation room at Kensley Aesthetics, Jesmond"
+                className="ab-intro__img"
+                width={1200}
+                height={800}
+                loading="eager"
+                sizes="(max-width: 900px) 100vw, 58vw"
+              />
+              <figcaption className="ab-intro__caption">Our consultation room on Sandyford Road, Jesmond</figcaption>
+            </figure>
 
-      {/* ── CREDENTIALS ──────────────────────────────────────────── */}
-      <section className="ab-credentials">
-        <div className="ab-credentials__inner">
-          <div className="ab-credentials__left">
-            <span className="ab-eyebrow ab-eyebrow--dark">Qualifications</span>
-            <h2 className="ab-credentials__title">Credentials{' '}<br />&amp; Training</h2>
-            <p className="ab-credentials__desc">
-              Our clinic is led by a doctor with extensive clinical qualifications, recognised
-              as an advanced trainer and educator in aesthetic medicine
-              across the United Kingdom.
-            </p>
-          </div>
-          <div className="ab-credentials__right">
-            <div className="ab-credentials__grid">
-              {credentials.map((c, i) => (
-                <div className="ab-credentials__card" key={i}>
-                  <span className="ab-credentials__card-num">0{i + 1}</span>
-                  <p className="ab-credentials__card-text">{c}</p>
-                </div>
-              ))}
+            <div className="ab-intro__text">
+              <p>
+                Kensley Aesthetics is a doctor-led face and skin clinic in Jesmond, Newcastle.
+                We focus on subtle, well-judged treatment: the kind of change people notice as
+                &ldquo;you look well&rdquo;, rather than &ldquo;what have you had done&rdquo;.
+              </p>
+              <p>
+                Every plan begins with an unhurried consultation. We take time to understand your
+                concerns and medical history, assess your skin and facial structure, and explain
+                your options honestly, including when doing less is the better choice.
+              </p>
+              <p className="ab-intro__founder">
+                The clinic was founded by Dr Tiru Matla, an experienced medical doctor who carries
+                out treatments personally, supported by a dedicated team of medical aesthetic
+                practitioners.
+              </p>
             </div>
           </div>
+
+          <ul className="ab-intro__commitments">
+            <li>
+              <h3>Time to talk first</h3>
+              <p>Every treatment starts with a consultation, with time for your questions and no pressure to book on the day.</p>
+            </li>
+            <li>
+              <h3>Natural, never overdone</h3>
+              <p>We aim for subtle, balanced results that respect your features and the way your face moves.</p>
+            </li>
+            <li>
+              <h3>Care after your visit</h3>
+              <p>Clear aftercare advice and a follow-up appointment to review your results and answer any questions.</p>
+            </li>
+          </ul>
         </div>
       </section>
 

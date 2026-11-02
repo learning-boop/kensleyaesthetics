@@ -66,7 +66,7 @@ export async function generateMetadata({ params }) {
       siteName: 'Kensley Aesthetics',
       locale: 'en_GB',
       type: 'website',
-      images: [t.image || `${SITE_URL}/logo512.png`],
+      images: [t.image || `${SITE_URL}/og/kensley-aesthetics-share.jpg`],
     },
   };
 }

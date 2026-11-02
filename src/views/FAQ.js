@@ -2,72 +2,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppointment } from '../context/AppointmentContext';
 import SeoHead from '../components/SeoHead';
+import { FAQ_PAGE_CATEGORIES } from '../data/pageFaqs';
 import './FAQ.css';
 
-const faqs = [
-  {
-    category: 'Your Consultation',
-    icon: '✨',
-    items: [
-      {
-        q: 'What happens during a consultation?',
-        a: 'Your consultation is a relaxed, no-pressure conversation. We’ll assess your skin, discuss your goals and recommend the most suitable treatments. There’s no obligation to book on the day.',
-      },
-      {
-        q: 'How do I know which treatment is right for me?',
-        a: 'Our team will assess your skin and concerns during your consultation and create a personalised plan. You can also browse our Skin Concerns page to explore treatments by concern.',
-      },
-      {
-        q: 'Are your practitioners medically qualified?',
-        a: 'Yes. All treatments at Kensley Aesthetics are performed or overseen by medically qualified practitioners with specialist training in aesthetic medicine.',
-      },
-    ],
-  },
-  {
-    category: 'Treatments & Results',
-    icon: '✶',
-    items: [
-      {
-        q: 'Do the treatments hurt?',
-        a: 'Discomfort is minimal. We use fine needles, topical numbing agents and a gentle technique to ensure your experience is as comfortable as possible.',
-      },
-      {
-        q: 'How long do results last?',
-        a: 'This varies by treatment. Relaxant injections typically last 3–4 months, dermal fillers 9–18 months, and skin-boosting treatments such as Profhilo typically last several months (commonly reviewed at around 6 months). Your practitioner will give you a realistic expectation during your consultation.',
-      },
-      {
-        q: 'Can I combine treatments?',
-        a: 'Absolutely. Many clients benefit from combining treatments for a more comprehensive result. Our Full Face Refresh is specifically designed as a combination protocol.',
-      },
-      {
-        q: 'How soon will I see results?',
-        a: 'Some treatments show immediate improvement, while others develop gradually over weeks as your skin responds. Your clinician will explain the expected timeline for your specific treatment.',
-      },
-    ],
-  },
-  {
-    category: 'Booking & Practical',
-    icon: '☆',
-    items: [
-      {
-        q: 'How do I book an appointment?',
-        a: 'You can book directly through our contact page, or call us to speak with a member of our team. We offer both weekday and weekend appointments.',
-      },
-      {
-        q: 'What should I do before my appointment?',
-        a: 'Where possible, avoid over-the-counter blood-thinning medication such as ibuprofen or aspirin for 24–48 hours before treatment — but never stop prescribed medication without your doctor’s advice first. Stay hydrated and arrive with a clean face. We will provide full pre-treatment instructions when you book.',
-      },
-      {
-        q: 'What aftercare do I need?',
-        a: 'Aftercare varies by treatment, but generally we advise avoiding strenuous exercise, alcohol and direct sun exposure for 24 hours. Full aftercare instructions will be provided at your appointment.',
-      },
-      {
-        q: 'What if I’m not happy with my result?',
-        a: 'Your satisfaction is our priority. If you have any concerns about your results, please contact us and we will arrange a follow-up appointment to assess and advise.',
-      },
-    ],
-  },
-];
+// Content lives in src/data/pageFaqs.js (shared with the FAQPage JSON-LD in app/faq/page.js)
+const faqs = FAQ_PAGE_CATEGORIES;
 
 function FAQItem({ q, a, isOpen, onToggle }) {
   return (
@@ -83,8 +22,6 @@ function FAQItem({ q, a, isOpen, onToggle }) {
   );
 }
 
-const allFaqs = faqs.flatMap(cat => cat.items);
-
 function FAQ() {
   const [openKey, setOpenKey] = useState(null);
   const { openDrawer } = useAppointment();
@@ -92,10 +29,9 @@ function FAQ() {
   return (
     <>
       <SeoHead
-        title="FAQs | Non-Surgical Aesthetic Treatments Newcastle"
-        description="Answers to your most common questions about non-surgical aesthetic treatments at Kensley Aesthetics — dermal fillers, anti-wrinkle consultations, Profhilo, microneedling, HIFU and more. Doctor-led clinic in Newcastle."
+        title="Aesthetic Treatment FAQs | Kensley Aesthetics Newcastle"
+        description="Answers to common questions about consultations, treatments, recovery, prices and booking at Kensley Aesthetics in Jesmond, Newcastle."
         path="/faq"
-        faqs={allFaqs}
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'FAQs', path: '/faq' },

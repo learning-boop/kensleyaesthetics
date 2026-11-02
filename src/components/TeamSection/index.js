@@ -3,7 +3,6 @@ import { useAppointment } from '../../context/AppointmentContext';
 import './TeamSection.css';
 
 const TEAM_IMAGES = [
-  { src: '/images/our-team/dr-tiru-matla-clinical-director-kensley-aesthetics-newcastle.jpg', alt: 'Dr Tiru Matla, Clinical Director at Kensley Aesthetics, Jesmond, Newcastle' },
   { src: '/images/kensley-real/team-a-dr-mariyam-durrani-kensley-aesthetics.webp', alt: 'Dr Mariyam Durrani, Aesthetic Practitioner at Kensley Aesthetics, Newcastle' },
   { src: '/images/kensley-real/team-b-aesthetic-practitioner-kensley-aesthetics.webp', alt: 'Aesthetic practitioner at Kensley Aesthetics clinic, Newcastle' },
   { src: '/images/kensley-real/team-c-aesthetic-practitioner-kensley-aesthetics.webp', alt: 'Aesthetic practitioner at Kensley Aesthetics clinic in Jesmond, Newcastle' },
@@ -42,7 +41,6 @@ export function TeamSplit() {
 }
 
 const PRACTITIONER_ROLES = [
-  { title: 'Clinical Director', name: 'Dr Tiru Matla', creds: 'MBBS · MRCGP · DFSRH' },
   { title: 'Aesthetics Practitioner', name: 'Dr Mariyam Durrani', creds: 'Aesthetic Practitioner' },
   { title: 'Aesthetics Practitioner', name: 'Aesthetics Practitioner', creds: 'Aesthetics Practitioner' },
 ];
@@ -63,8 +61,8 @@ export default function TeamSection() {
           </h2>
           <div className="ts-about-team__rule" />
           <p className="ts-about-team__desc">
-            Kensley Aesthetics is led by Dr Tiru Matla and supported by a dedicated
-            team of medically qualified practitioners. Every member of our team
+            Kensley Aesthetics is supported by a dedicated team of medically
+            qualified practitioners. Every member of our team
             shares the same clinical philosophy — natural-looking results, honest
             counsel, and care that puts the patient first.
           </p>

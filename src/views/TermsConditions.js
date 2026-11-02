@@ -6,11 +6,11 @@ import './legal.css';
 const sections = [
   {
     title: '1. About These Terms',
-    content: `These Terms and Conditions govern your use of the Kensley Aesthetics website (kensleyaesthetics.co.uk) and the aesthetic treatments and services we provide.
+    content: `These Terms and Conditions govern your use of the Kensley Aesthetics website (kensleyaesthetics.com) and the aesthetic treatments and services we provide.
 
 By using our website or booking a treatment, you agree to be bound by these terms. Please read them carefully. If you do not agree, please do not use our website or services.
 
-Kensley Aesthetics is operated by [Company Name], registered in England and Wales. Registered address available upon request.`,
+Kensley Aesthetics is based at Old Brewery Court, 156 Sandyford Rd, Jesmond, Newcastle upon Tyne NE2 1XG. Details of the company that operates the clinic are available on request.`,
   },
   {
     title: '2. Our Services',
@@ -30,7 +30,7 @@ Consultations may be offered free of charge or at a fee, which will be communica
     title: '4. Bookings & Appointments',
     content: `Appointments can be made via our website, phone or in person. When booking, you will be asked to provide personal and health information necessary to prepare for your treatment.
 
-We require at least 48 hours' notice to cancel or rescheduled an appointment. Cancellations made with less than 48 hours' notice, or failure to attend without notice, may result in a cancellation fee.
+We require at least 48 hours' notice to cancel or reschedule an appointment. Cancellations made with less than 48 hours' notice, or failure to attend without notice, may result in a cancellation fee.
 
 A deposit may be required to secure certain bookings. Deposit terms will be confirmed at the time of booking.`,
   },

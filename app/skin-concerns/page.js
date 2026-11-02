@@ -1,20 +1,32 @@
 import SkinConcernsView from './SkinConcernsView';
+import { SKIN_CONCERNS_FAQS, faqPageJsonLd } from '@/src/data/pageFaqs';
 
 export const metadata = {
-  title: 'Skin Concerns | Find Your Ideal Treatment Newcastle | Kensley Aesthetics',
-  description: 'Not sure which treatment is right for you? Explore our skin concerns guide — wrinkles, fine lines, volume loss, sagging skin, under eye bags, dull skin and more. Kensley Aesthetics, Newcastle.',
+  title: 'Skin Concerns & Treatment Options | Kensley Aesthetics',
+  description: 'Explore treatment options by skin concern, from fine lines and volume loss to pigmentation and acne scarring, at Kensley Aesthetics in Jesmond, Newcastle.',
   alternates: { canonical: 'https://kensleyaesthetics.com/skin-concerns' },
   openGraph: {
-    title: 'Skin Concerns | Find Your Ideal Treatment Newcastle | Kensley Aesthetics',
-    description: 'Not sure which treatment is right for you? Explore our skin concerns guide — wrinkles, fine lines, volume loss, sagging skin, under eye bags, dull skin and more. Kensley Aesthetics, Newcastle.',
+    title: 'Skin Concerns & Treatment Options | Kensley Aesthetics',
+    description: 'Explore treatment options by skin concern, from fine lines and volume loss to pigmentation and acne scarring, at Kensley Aesthetics in Jesmond, Newcastle.',
     url: 'https://kensleyaesthetics.com/skin-concerns',
     siteName: 'Kensley Aesthetics',
     locale: 'en_GB',
     type: 'website',
-    images: ['https://kensleyaesthetics.com/logo512.png'],
+    images: ['https://kensleyaesthetics.com/og/kensley-aesthetics-share.jpg'],
   },
 };
 
 export default function SkinConcernsPage() {
-  return <SkinConcernsView />;
+  const faqLd = faqPageJsonLd(SKIN_CONCERNS_FAQS);
+  return (
+    <>
+      {faqLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      )}
+      <SkinConcernsView />
+    </>
+  );
 }

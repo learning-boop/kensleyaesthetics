@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
       siteName: 'Kensley Aesthetics',
       locale: 'en_GB',
       type: 'article',
-      images: image ? [image] : [`${SITE_URL}/logo512.png`],
+      images: image ? [image] : [`${SITE_URL}/og/kensley-aesthetics-share.jpg`],
       publishedTime: post.publishedAt,
       modifiedTime: post._updatedAt || post.publishedAt,
     },

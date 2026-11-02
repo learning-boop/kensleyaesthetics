@@ -1,5 +1,4 @@
 import Hero                from '../components/Hero';
-import ScrollText          from '../components/ScrollText';
 import TreatmentShowcase   from '../components/TreatmentShowcase';
 import JourneySteps        from '../components/JourneySteps';
 import ClinicShowcase      from '../components/ClinicShowcase';
@@ -10,7 +9,6 @@ function Home() {
     <>
       <Hero />
       <TreatmentShowcase />
-      <ScrollText />
       <TeamSplit />
       <JourneySteps />
       <ClinicShowcase />

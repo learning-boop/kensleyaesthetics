@@ -1,25 +1,65 @@
 import { LOCATIONS } from '@/src/data/locations';
-import { STATIC_SUB_TREATMENTS } from '@/src/data/subTreatments';
+import { STATIC_MAIN_TREATMENTS } from '@/src/data/mainTreatments';
+import { client } from '@/src/lib/sanityClient';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
 
-const SIGNATURE_SLUGS = [
-  'smooth-lines', 'face-sculpt', 'skin-glow', 'collagen-restore',
-  'clear-skin', 'neck-renewal', 'full-face-refresh', 'stay-youthful',
+// Fallbacks, used only if Sanity can't be reached at build time.
+// The live lists come from Sanity below, using the same queries as the
+// pages' generateStaticParams, so the sitemap never lists a page that
+// wasn't built (e.g. removed treatment plans).
+const FALLBACK_TREATMENT_SLUGS = [
+  'clear-skin', 'even-and-bright', 'firm-and-lift', 'glow-and-hydrate',
+  'neck-renewal', 'non-surgical-lift', 'sculpt-and-define', 'under-eye-refresh',
 ];
 
-const MAIN_TREATMENT_SLUGS = [
+const FALLBACK_MAIN_TREATMENT_SLUGS = [
   'anti-wrinkle-treatments', 'dermal-fillers', 'skin-boosters',
-  'biostimulators', 'microneedling',
+  'regenerative-treatments', 'biostimulators', 'microneedling',
   'rf-microneedling', 'hifu', 'chemical-peel', 'hydro2-facial',
   'mesotherapy', 'led-light-therapy', 'profhilo', 'prp',
   'polynucleotides', 'medical-grade-skincare', 'thread-lift',
 ];
 
+// /book and /treatment-plan are noindexed (thin pages), so they are not listed.
+// Sub-treatment pages (/main-treatments/<slug>/<sub>) were removed from the
+// site in Nov 2026 and are no longer built, so they are not listed here.
+// public/.htaccess returns 410 Gone for any old copies left on the server.
+
+async function fetchSlugs(query, fallback) {
+  try {
+    const rows = await client.fetch(query);
+    const slugs = (rows || []).map((r) => r.slug).filter(Boolean);
+    return slugs.length ? slugs : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+async function fetchBlogPosts() {
+  try {
+    const rows = await client.fetch(`*[_type == "blogPost" && defined(slug.current)]{ "slug": slug.current, publishedAt, _updatedAt }`);
+    return rows || [];
+  } catch {
+    return [];
+  }
+}
+
 export const dynamic = 'force-static';
 
-export default function sitemap() {
+export default async function sitemap() {
   const now = new Date().toISOString();
+
+  const treatmentSlugs = await fetchSlugs(
+    `*[_type == "treatment"]{ "slug": slug.current }`,
+    FALLBACK_TREATMENT_SLUGS,
+  );
+  const mainTreatmentSlugs = [
+    ...new Set([
+      ...(await fetchSlugs(`*[_type == "mainTreatment"]{ "slug": slug.current }`, FALLBACK_MAIN_TREATMENT_SLUGS)),
+      ...Object.keys(STATIC_MAIN_TREATMENTS),
+    ]),
+  ].sort();
 
   const staticPages = [
     { url: `${SITE_URL}/`, changeFrequency: 'weekly', priority: 1.0 },
@@ -32,36 +72,31 @@ export default function sitemap() {
     { url: `${SITE_URL}/faq`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/blog`, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/prices`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE_URL}/book`, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE_URL}/treatment-plan`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/locations`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/privacy-policy`, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/terms`, changeFrequency: 'yearly', priority: 0.3 },
   ];
 
-  const treatmentPages = SIGNATURE_SLUGS.map((slug) => ({
+  const treatmentPages = treatmentSlugs.map((slug) => ({
     url: `${SITE_URL}/treatments/${slug}`,
     changeFrequency: 'monthly',
     priority: 0.8,
     lastModified: now,
   }));
 
-  const mainTreatmentPages = MAIN_TREATMENT_SLUGS.map((slug) => ({
+  const mainTreatmentPages = mainTreatmentSlugs.map((slug) => ({
     url: `${SITE_URL}/main-treatments/${slug}`,
     changeFrequency: 'monthly',
     priority: 0.9,
     lastModified: now,
   }));
 
-  const subTreatmentPages = Object.entries(STATIC_SUB_TREATMENTS).flatMap(
-    ([parentSlug, subs]) =>
-      subs.map((sub) => ({
-        url: `${SITE_URL}/main-treatments/${parentSlug}/${sub.slug}`,
-        changeFrequency: 'monthly',
-        priority: 0.8,
-        lastModified: now,
-      })),
-  );
+  const blogPages = (await fetchBlogPosts()).map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    changeFrequency: 'monthly',
+    priority: 0.6,
+    lastModified: post._updatedAt || post.publishedAt || now,
+  }));
 
   const locationPages = LOCATIONS.map((loc) => ({
     url: `${SITE_URL}/locations/${loc.slug}`,
@@ -70,5 +105,5 @@ export default function sitemap() {
     lastModified: now,
   }));
 
-  return [...staticPages, ...treatmentPages, ...mainTreatmentPages, ...subTreatmentPages, ...locationPages];
+  return [...staticPages, ...treatmentPages, ...mainTreatmentPages, ...blogPages, ...locationPages];
 }

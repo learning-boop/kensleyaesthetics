@@ -11,7 +11,7 @@ export const metadata = {
     siteName: 'Kensley Aesthetics',
     locale: 'en_GB',
     type: 'website',
-    images: ['https://kensleyaesthetics.com/logo512.png'],
+    images: ['https://kensleyaesthetics.com/og/kensley-aesthetics-share.jpg'],
   },
 };
 

@@ -10,7 +10,7 @@ const POPULAR = [
   { label: 'Skin Boosters',           href: '/main-treatments/skin-boosters' },
   { label: 'Prices',                  href: '/prices' },
   { label: 'Before & After',          href: '/gallery' },
-  { label: 'About Dr Tiru Matla',     href: '/about' },
+  { label: 'About Kensley Aesthetics', href: '/about' },
   { label: 'Blog',                    href: '/blog' },
 ];
 

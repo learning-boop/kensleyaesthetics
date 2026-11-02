@@ -22,6 +22,7 @@ function BookAppointment() {
   return (
     <>
       <SeoHead
+        noindex
         title="Schedule Your Consultation | Kensley Aesthetics Newcastle"
         description="Book your aesthetic consultation or treatment at Kensley Aesthetics in Jesmond, Newcastle. Doctor-led care, bespoke treatment plans."
         path="/book"

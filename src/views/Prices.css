@@ -429,7 +429,7 @@
 
   /* Small label above each price */
   .price-card__price-col--standard::before {
-    content: 'Dr. Matla';
+    content: 'Price';
     display: block;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 8px;

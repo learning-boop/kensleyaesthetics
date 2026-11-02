@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
   }
 
   const title = `Aesthetic Treatments in ${loc.name} | Kensley Aesthetics`;
-  const description = `Doctor-led aesthetic treatments serving ${loc.name} (${loc.county}). Visit Kensley Aesthetics in Jesmond, Newcastle — led by Dr. Tiru Matla with 20+ years of clinical experience. Anti-wrinkle, fillers, Profhilo, HIFU & more.`.slice(0, 160);
+  const description = `Doctor-led aesthetic treatments for clients across ${loc.name}, at our clinic on Sandyford Road, Jesmond. Book a consultation with Kensley Aesthetics.`.slice(0, 160);
   const url = `${SITE_URL}/locations/${loc.slug}`;
 
   return {
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }) {
       siteName: 'Kensley Aesthetics',
       locale: 'en_GB',
       type: 'website',
-      images: [`${SITE_URL}/logo512.png`],
+      images: [`${SITE_URL}/og/kensley-aesthetics-share.jpg`],
     },
   };
 }
@@ -49,18 +49,15 @@ export default async function LocationDetailPage({ params }) {
         description: `Doctor-led aesthetic clinic in Jesmond, Newcastle, serving clients from ${loc.name} and across ${loc.region}.`,
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Jesmond',
-          addressLocality: 'Newcastle upon Tyne',
+          streetAddress: 'Old Brewery Court, 156 Sandyford Rd',
+          addressLocality: 'Jesmond, Newcastle upon Tyne',
           addressRegion: 'Tyne and Wear',
+          postalCode: 'NE2 1XG',
           addressCountry: 'GB',
         },
-        telephone: '3330570295',
+        telephone: '+44 333 057 0295',
         areaServed: { '@type': 'City', name: loc.name },
-        founder: {
-          '@type': 'Physician',
-          name: 'Dr. Tiru Matla',
-          jobTitle: 'Founder & Medical Director',
-        },
+        founder: { '@id': `${SITE_URL}/#dr-tiru-matla` },
       },
       {
         '@type': 'BreadcrumbList',

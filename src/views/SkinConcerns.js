@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import CtaSection from '../components/CtaSection';
 import SeoHead from '../components/SeoHead';
+import PageFaq from '../components/PageFaq';
+import { SKIN_CONCERNS_FAQS } from '../data/pageFaqs';
 import './pages.css';
 
 const concerns = [
@@ -61,8 +63,8 @@ function SkinConcerns() {
   return (
     <>
       <SeoHead
-        title="Skin Concerns | Find Your Ideal Treatment Newcastle"
-        description="Not sure which treatment is right for you? Explore our skin concerns guide — wrinkles, fine lines, volume loss, sagging skin, under eye bags, dull skin and more. Kensley Aesthetics, Newcastle."
+        title="Skin Concerns & Treatment Options | Kensley Aesthetics"
+        description="Explore treatment options by skin concern, from fine lines and volume loss to pigmentation and acne scarring, at Kensley Aesthetics in Jesmond, Newcastle."
         keywords="skin concerns aesthetic treatment Newcastle, wrinkle treatment Newcastle, volume loss filler Newcastle, skin tightening Newcastle, tear trough filler Newcastle, dull skin treatment, sagging skin treatment Newcastle, aesthetic treatment guide"
         path="/skin-concerns"
       />
@@ -91,6 +93,14 @@ function SkinConcerns() {
           </div>
         </div>
       </section>
+
+      {/* FAQs — Q7, Q9 (AEO/GEO handoff); schema rendered in app/skin-concerns/page.js */}
+      <PageFaq
+        id="skin-concerns-faq"
+        eyebrow="Common Questions"
+        title="Skin Concerns FAQs"
+        faqs={SKIN_CONCERNS_FAQS}
+      />
 
       <section className="page-section page-section--tinted">
         <div className="container page-centered">

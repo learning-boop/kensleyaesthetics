@@ -25,12 +25,12 @@ export const LOCATIONS = [
     council: 'Newcastle City Council',
     region: 'North East England',
     distanceMiles: 0,
-    heroHeadline: 'Premier Aesthetic Clinic in Newcastle',
+    heroHeadline: 'Refined aesthetic care in the heart of Jesmond',
     intro:
-      'Kensley Aesthetics is based right here in Newcastle upon Tyne — in the beautiful neighbourhood of Jesmond — making us your closest doctor-led aesthetic clinic. Whether you live in Gosforth, Heaton, Jesmond itself, or anywhere across the city, world-class aesthetic care is never far away.',
+      'Our clinic on Sandyford Road welcomes clients from across Newcastle upon Tyne, offering unhurried consultations and treatments with a medically qualified team.',
     body:
-      'Located on Sandyford Road in the heart of Jesmond, our clinic is easily accessible from every part of Newcastle. We are just a short walk from Jesmond Metro station, with excellent bus links and parking nearby. Dr Tiru Matla and the team welcome clients from across Newcastle and the surrounding areas for expert aesthetic treatments in a safe, clinical environment.',
-    cta: 'Book your consultation today at Kensley Aesthetics, Jesmond — Newcastle\'s premier doctor-led aesthetic clinic.',
+      'Whether you live in Jesmond itself, in Gosforth or Heaton, or work in the city centre, the clinic is easy to reach for a consultation, a treatment or a follow-up visit.',
+    cta: 'Book online or call us to arrange a consultation at our Jesmond clinic. There is no obligation to go ahead with treatment on the day.',
     nearbyAreas: ['Jesmond', 'Gosforth', 'Heaton', 'Sandyford', 'Fenham', 'Kenton', 'Byker', 'Ouseburn', 'City Centre'],
   },
 ];

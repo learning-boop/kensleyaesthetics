@@ -1,20 +1,32 @@
 import FAQView from './FAQView';
+import { FAQ_PAGE_FAQS, faqPageJsonLd } from '@/src/data/pageFaqs';
 
 export const metadata = {
-  title: 'FAQs | Non-Surgical Aesthetic Treatments Newcastle | Kensley Aesthetics',
-  description: 'Answers to your most common questions about non-surgical aesthetic treatments at Kensley Aesthetics — dermal fillers, anti-wrinkle injections, Profhilo, microneedling, HIFU and more. Doctor-led clinic in Newcastle.',
+  title: 'Aesthetic Treatment FAQs | Kensley Aesthetics Newcastle',
+  description: 'Answers to common questions about consultations, treatments, recovery, prices and booking at Kensley Aesthetics in Jesmond, Newcastle.',
   alternates: { canonical: 'https://kensleyaesthetics.com/faq' },
   openGraph: {
-    title: 'FAQs | Non-Surgical Aesthetic Treatments Newcastle | Kensley Aesthetics',
-    description: 'Answers to your most common questions about non-surgical aesthetic treatments at Kensley Aesthetics — dermal fillers, anti-wrinkle injections, Profhilo, microneedling, HIFU and more. Doctor-led clinic in Newcastle.',
+    title: 'Aesthetic Treatment FAQs | Kensley Aesthetics Newcastle',
+    description: 'Answers to common questions about consultations, treatments, recovery, prices and booking at Kensley Aesthetics in Jesmond, Newcastle.',
     url: 'https://kensleyaesthetics.com/faq',
     siteName: 'Kensley Aesthetics',
     locale: 'en_GB',
     type: 'website',
-    images: ['https://kensleyaesthetics.com/logo512.png'],
+    images: ['https://kensleyaesthetics.com/og/kensley-aesthetics-share.jpg'],
   },
 };
 
 export default function FAQPage() {
-  return <FAQView />;
+  const faqLd = faqPageJsonLd(FAQ_PAGE_FAQS);
+  return (
+    <>
+      {faqLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      )}
+      <FAQView />
+    </>
+  );
 }

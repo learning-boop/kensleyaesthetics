@@ -4,8 +4,7 @@
 ## About
 Kensley Aesthetics (also known as "Kensley Aesthetics by Dr.Matla") is a doctor-led,
 GMC-registered aesthetic clinic based in Jesmond, Newcastle upon Tyne, UK.
-Clinical director: Dr Tiru Matla (MBBS, MRCGP, DFSRH), with over 20 years of medical
-experience specialising in non-surgical aesthetic medicine.
+Founded by Dr Tiru Matla, a medical doctor who carries out treatments at the clinic.
 
 Address: Old Brewery Court, 156 Sandyford Rd, Jesmond, Newcastle upon Tyne, NE2 1XG
 Phone: 0333 057 0295
@@ -16,7 +15,7 @@ Website: https://kensleyaesthetics.com
 - Home: https://kensleyaesthetics.com/
 - All Treatments: https://kensleyaesthetics.com/treatments
 - Prices: https://kensleyaesthetics.com/prices
-- About Dr Matla: https://kensleyaesthetics.com/about
+- About the clinic: https://kensleyaesthetics.com/about
 - Blog / Journal: https://kensleyaesthetics.com/blog
 - FAQs: https://kensleyaesthetics.com/faq
 - Book an Appointment: https://kensleyaesthetics.com/book

@@ -8,16 +8,17 @@ import CtaSection from '../components/CtaSection';
 import SeoHead from '../components/SeoHead';
 import './pages.css';
 
-function Gallery() {
-  const [items, setItems]         = useState([]);
-  const [loading, setLoading]     = useState(true);
+function Gallery({ initialItems = null }) {
+  const [items, setItems]         = useState(initialItems || []);
+  const [loading, setLoading]     = useState(!initialItems);
   const [activeCategory, setActiveCategory] = useState('All');
 
   useEffect(() => {
+    if (initialItems) return; // already rendered at build time
     client.fetch(BEFORE_AFTER_QUERY)
       .then((data) => { setItems(data); setLoading(false); })
       .catch(() => setLoading(false));
-  }, []);
+  }, [initialItems]);
 
   // Build category list dynamically from data
   const categories = ['All', ...Array.from(new Set(items.map((i) => i.category))).filter(Boolean)];
@@ -29,8 +30,8 @@ function Gallery() {
   return (
     <>
       <SeoHead
-        title="Before & After Gallery | Real Patient Results Newcastle"
-        description="View real before and after results from Kensley Aesthetics Newcastle — dermal fillers, lip fillers, Profhilo, RF microneedling, HIFU, jawline filler, cheek filler and tear trough filler. Genuine patient photos."
+        title="Before & After Results | Kensley Aesthetics Newcastle"
+        description="Before and after photos of treatments at Kensley Aesthetics in Jesmond, Newcastle. Individual results vary, and your clinician will explain what to expect."
         keywords="before and after dermal fillers Newcastle, lip filler before after Newcastle, Profhilo results Newcastle, jawline filler results, cheek filler before after, RF microneedling results Newcastle, HIFU results Newcastle, aesthetic treatment results"
         path="/gallery"
       />

@@ -58,7 +58,7 @@ function Footer() {
             <ul className="ft-col-links">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/treatments">Treatments</Link></li>
-              <li><Link to="/gallery">Before &amp; After</Link></li>
+              <li><Link to="/gallery">Results</Link></li>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/blog">Blog</Link></li>
               <li><Link to="/faq">FAQs</Link></li>

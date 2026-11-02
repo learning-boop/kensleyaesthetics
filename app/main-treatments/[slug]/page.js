@@ -2,6 +2,7 @@ import { client } from '@/src/lib/sanityClient';
 import { STATIC_MAIN_TREATMENTS } from '@/src/data/mainTreatments';
 import { STATIC_SUB_TREATMENTS } from '@/src/data/subTreatments';
 import { TREATMENT_KEYWORDS } from '@/src/data/keywords';
+import { treatmentFaqs } from '@/src/data/pageFaqs';
 import MainTreatmentDetailClient from './MainTreatmentDetailClient';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
@@ -41,7 +42,15 @@ const FULL_QUERY = `*[_type == "mainTreatment" && slug.current == $slug][0] {
   }
 }`;
 
+// Adds the AEO/GEO FAQ updates (src/data/pageFaqs.js) on top of the Sanity / static FAQs,
+// so the visible accordion and the FAQPage schema below always match.
 async function getTreatment(slug) {
+  const t = await getTreatmentBase(slug);
+  if (!t) return null;
+  return { ...t, faqs: treatmentFaqs(slug, t.faqs) };
+}
+
+async function getTreatmentBase(slug) {
   const data = await client.fetch(FULL_QUERY, { slug });
   if (data) {
     if (!data.subTreatments || data.subTreatments.length === 0) {
@@ -95,7 +104,7 @@ export async function generateMetadata({ params }) {
       siteName: 'Kensley Aesthetics',
       locale: 'en_GB',
       type: 'website',
-      images: [t.image || `${SITE_URL}/logo512.png`],
+      images: [t.image || `${SITE_URL}/og/kensley-aesthetics-share.jpg`],
     },
   };
 }

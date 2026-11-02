@@ -13,6 +13,7 @@ export default function TreatmentPlan() {
   return (
     <>
       <SeoHead
+        noindex
         title="Treatment Plans | Kensley Aesthetics"
         description="Explore our curated signature treatment programmes — personalised packages designed to restore, refresh and refine."
         path="/treatment-plan"

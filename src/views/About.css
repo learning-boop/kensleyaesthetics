@@ -26,6 +26,143 @@
   margin: 24px 0;
 }
 
+/* ─── INTRO (editorial, founder mentioned once) ──────────────── */
+.ab-intro {
+  background: var(--color-cream);
+  padding: 120px 0 112px;
+}
+
+.ab-intro__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.ab-intro__lead {
+  font-family: var(--font-serif);
+  font-size: clamp(34px, 4.2vw, 64px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.005em;
+  color: var(--color-navy);
+  max-width: 18em;
+  margin: 0 0 64px;
+}
+
+.ab-intro__body {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  column-gap: 72px;
+  align-items: start;
+}
+
+.ab-intro__figure {
+  margin: 0;
+}
+
+.ab-intro__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.ab-intro__caption {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(11, 42, 74, 0.6);
+  margin-top: 12px;
+}
+
+.ab-intro__text {
+  padding-top: 8px;
+  max-width: 34em;
+}
+
+.ab-intro__text p {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-navy);
+  margin: 0 0 22px;
+}
+
+.ab-intro__text .ab-intro__founder {
+  margin: 34px 0 0;
+  padding-top: 26px;
+  border-top: 1px solid rgba(200, 169, 106, 0.6);
+  font-size: 15px;
+  color: rgba(11, 42, 74, 0.78);
+}
+
+.ab-intro__commitments {
+  list-style: none;
+  margin: 88px 0 0;
+  padding: 40px 0 0;
+  border-top: 1px solid rgba(11, 42, 74, 0.12);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 56px;
+}
+
+.ab-intro__commitments h3 {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-navy);
+  margin: 0 0 10px;
+}
+
+.ab-intro__commitments p {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(11, 42, 74, 0.75);
+  margin: 0;
+  max-width: 30em;
+}
+
+@media (max-width: 900px) {
+  .ab-intro {
+    padding: 72px 0 64px;
+  }
+
+  .ab-intro__inner {
+    padding: 0 16px;
+  }
+
+  .ab-intro__lead {
+    margin-bottom: 36px;
+  }
+
+  .ab-intro__body {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+
+  .ab-intro__text {
+    padding-top: 0;
+  }
+
+  .ab-intro__text p {
+    font-size: 15px;
+  }
+
+  .ab-intro__commitments {
+    margin-top: 48px;
+    padding-top: 32px;
+    grid-template-columns: 1fr;
+    row-gap: 28px;
+  }
+
+  .ab-intro__commitments h3 {
+    font-size: 23px;
+  }
+}
+
 /* ─── PROFILE ────────────────────────────────────────────── */
 .ab-profile {
   display: grid;

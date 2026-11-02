@@ -62,8 +62,8 @@ function Testimonials() {
   return (
     <>
       <SeoHead
-        title="Client Testimonials | Real Reviews | Kensley Aesthetics Newcastle"
-        description="Read verified client reviews and real stories from Kensley Aesthetics Newcastle. Discover what patients say about their dermal filler, anti-wrinkle, Profhilo, lip filler and skin rejuvenation results."
+        title="Client Reviews | Kensley Aesthetics Newcastle"
+        description="Read what clients say about their experience at Kensley Aesthetics, a doctor-led aesthetic clinic in Jesmond, Newcastle."
         keywords="Kensley Aesthetics reviews, aesthetic clinic reviews Newcastle, dermal filler reviews Newcastle, lip filler reviews Newcastle, anti-wrinkle reviews Newcastle, Profhilo reviews, patient testimonials aesthetics Newcastle"
         path="/testimonials"
       />

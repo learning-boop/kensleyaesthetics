@@ -24,7 +24,7 @@ export const metadata = {
     default: 'Kensley Aesthetics | Doctor-Led Aesthetic Clinic, Jesmond, Newcastle',
     template: '%s',
   },
-  description: 'Doctor-led aesthetic clinic in Jesmond, Newcastle. Dermal fillers, anti-wrinkle injections, Profhilo, polynucleotides, RF microneedling & HIFU by Dr Tiru Matla.',
+  description: 'Doctor-led aesthetic clinic in Jesmond, Newcastle. Dermal fillers, anti-wrinkle injections, Profhilo, polynucleotides, RF microneedling & HIFU.',
   authors: [{ name: 'Kensley Aesthetics' }],
   verification: {
     google: 'uYQK0BUq5EyKq4h9vtpmFWdum_2l86QoIil3SygABf8',
@@ -33,7 +33,7 @@ export const metadata = {
     siteName: 'Kensley Aesthetics',
     locale: 'en_GB',
     type: 'website',
-    images: ['/logo512.png'],
+    images: ['/og/kensley-aesthetics-share.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
@@ -60,7 +60,7 @@ const STRUCTURED_DATA = {
       "alternateName": ["Kensley Aesthetics by Dr.Matla", "Kensley Aesthetics Newcastle"],
       "url": "https://kensleyaesthetics.com/",
       "logo": "https://kensleyaesthetics.com/logo512.png",
-      "image": "https://kensleyaesthetics.com/logo512.png",
+      "image": "https://kensleyaesthetics.com/og/kensley-aesthetics-share.jpg",
       "description": "Doctor-led aesthetic clinic in Jesmond, Newcastle upon Tyne offering dermal fillers, anti-wrinkle injections, skin boosters, polynucleotides, biostimulators, microneedling, RF microneedling and HIFU.",
       "telephone": "+44 333 057 0295",
       "email": "kensleyclinic@gmail.com",
@@ -97,16 +97,10 @@ const STRUCTURED_DATA = {
       "@id": "https://kensleyaesthetics.com/#dr-tiru-matla",
       "name": "Dr Tiru Matla",
       "honorificPrefix": "Dr",
-      "jobTitle": "Founder & Clinical Director",
-      "description": "Medical doctor (MBBS, MRCGP, DFSRH) with over 20 years of clinical experience, specialising in non-surgical aesthetic medicine.",
+      "jobTitle": "Founder",
+      "description": "Medical doctor and founder of Kensley Aesthetics.",
       "url": "https://kensleyaesthetics.com/about",
-      "worksFor": { "@id": "https://kensleyaesthetics.com/#clinic" },
-      "hasCredential": [
-        { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "MBBS" },
-        { "@type": "EducationalOccupationalCredential", "credentialCategory": "membership", "name": "MRCGP" },
-        { "@type": "EducationalOccupationalCredential", "credentialCategory": "diploma", "name": "DFSRH" }
-      ],
-      "memberOf": { "@type": "Organization", "name": "General Medical Council", "url": "https://www.gmc-uk.org/" }
+      "worksFor": { "@id": "https://kensleyaesthetics.com/#clinic" }
     },
     {
       "@type": "WebSite",

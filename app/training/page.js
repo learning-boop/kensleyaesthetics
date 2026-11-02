@@ -1,17 +1,17 @@
 import TrainingView from './TrainingView';
 
 export const metadata = {
-  title: 'Aesthetics Training Courses Newcastle | Doctor-Led Education | Kensley Aesthetics',
-  description: 'Professional aesthetics training courses for medical practitioners in Newcastle. Foundation injectables, dermal fillers, advanced techniques and combination therapies — doctor-led training by Kensley Aesthetics.',
+  title: 'Aesthetics Training Courses | Kensley Aesthetics Newcastle',
+  description: 'Aesthetics training for medical practitioners in Newcastle, from foundation injectables to advanced techniques, delivered at Kensley Aesthetics in Jesmond.',
   alternates: { canonical: 'https://kensleyaesthetics.com/training' },
   openGraph: {
-    title: 'Aesthetics Training Courses Newcastle | Doctor-Led Education | Kensley Aesthetics',
-    description: 'Professional aesthetics training courses for medical practitioners in Newcastle. Foundation injectables, dermal fillers, advanced techniques and combination therapies — doctor-led training by Kensley Aesthetics.',
+    title: 'Aesthetics Training Courses | Kensley Aesthetics Newcastle',
+    description: 'Aesthetics training for medical practitioners in Newcastle, from foundation injectables to advanced techniques, delivered at Kensley Aesthetics in Jesmond.',
     url: 'https://kensleyaesthetics.com/training',
     siteName: 'Kensley Aesthetics',
     locale: 'en_GB',
     type: 'website',
-    images: ['https://kensleyaesthetics.com/logo512.png'],
+    images: ['https://kensleyaesthetics.com/og/kensley-aesthetics-share.jpg'],
   },
 };
 

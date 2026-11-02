@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { useAppointment } from '../context/AppointmentContext';
 import SeoHead from '../components/SeoHead';
 import { LOCATIONS } from '../data/locations';
+import PageFaq from '../components/PageFaq';
+import { LOCATIONS_FAQS } from '../data/pageFaqs';
 import './Locations.css';
 
 const LOCAL_BUSINESS_LD = {
@@ -10,7 +12,7 @@ const LOCAL_BUSINESS_LD = {
   name: 'Kensley Aesthetics',
   url: 'https://kensleyaesthetics.com',
   description:
-    'Doctor-led aesthetic clinic in Jesmond, Newcastle upon Tyne. Led by Dr. Tiru Matla — 20+ years of clinical experience.',
+    'Doctor-led aesthetic clinic in Jesmond, Newcastle upon Tyne.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Old Brewery Court, 156 Sandyford Rd',
@@ -19,16 +21,12 @@ const LOCAL_BUSINESS_LD = {
     postalCode: 'NE2 1XG',
     addressCountry: 'GB',
   },
-  telephone: '3330570295',
+  telephone: '+44 333 057 0295',
   areaServed: [
     { '@type': 'City', name: 'Newcastle upon Tyne' },
     { '@type': 'Place', name: 'Jesmond' },
   ],
-  founder: {
-    '@type': 'Physician',
-    name: 'Dr. Tiru Matla',
-    jobTitle: 'Founder & Medical Director',
-  },
+  founder: { '@id': 'https://kensleyaesthetics.com/#dr-tiru-matla' },
 };
 
 export default function Locations() {
@@ -37,8 +35,8 @@ export default function Locations() {
   return (
     <>
       <SeoHead
-        title="Aesthetic Clinic Location | Kensley Aesthetics — Jesmond, Newcastle"
-        description="Visit Kensley Aesthetics in Jesmond, Newcastle upon Tyne. Doctor-led aesthetic treatments by Dr. Tiru Matla."
+        title="Visit Our Clinic in Jesmond | Kensley Aesthetics"
+        description="Find Kensley Aesthetics at Old Brewery Court, 156 Sandyford Rd, Jesmond, Newcastle NE2 1XG. Book a consultation online or call 0333 057 0295."
         path="/locations"
         jsonLd={LOCAL_BUSINESS_LD}
         breadcrumbs={[
@@ -54,7 +52,7 @@ export default function Locations() {
           Visit Our Clinic{' '}<br />in Jesmond, Newcastle
         </h1>
         <p className="locs-hero__subtitle">
-          Our doctor-led aesthetic clinic is located in the heart of Jesmond, Newcastle upon Tyne. Book a consultation with Dr. Tiru Matla today.
+          Our doctor-led aesthetic clinic is located in the heart of Jesmond, Newcastle upon Tyne. Book your consultation today.
         </p>
       </section>
 
@@ -84,14 +82,22 @@ export default function Locations() {
         </div>
       </main>
 
+      {/* FAQs — Q16–Q18 (AEO/GEO handoff); schema rendered in app/locations/page.js */}
+      <PageFaq
+        id="locations-faq"
+        eyebrow="Visiting Kensley"
+        title="Finding the Right Clinic in Newcastle"
+        faqs={LOCATIONS_FAQS}
+      />
+
       {/* Bottom CTA */}
       <section className="locs-cta" aria-label="Book a consultation">
         <h2 className="locs-cta__heading">
           Ready to Visit Us?
         </h2>
         <p className="locs-cta__sub">
-          Our Jesmond clinic is located at Old Brewery Court, 156 Sandyford Rd, Newcastle upon Tyne, NE2 1XG.
-          Book online, call, or message us on WhatsApp — Dr. Matla will be in touch.
+          Our Jesmond clinic is located at Old Brewery Court, 156 Sandyford Rd, Jesmond, Newcastle upon Tyne, NE2 1XG.
+          Book online, call, or message us on WhatsApp — our team will be in touch.
         </p>
         <div className="locs-cta__btns">
           <button className="locs-cta-btn locs-cta-btn--gold" onClick={openDrawer}>

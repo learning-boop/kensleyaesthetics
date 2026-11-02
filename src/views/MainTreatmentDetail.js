@@ -8,6 +8,7 @@ import SeoHead from '../components/SeoHead';
 import { TREATMENT_KEYWORDS } from '../data/keywords';
 import { STATIC_SUB_TREATMENTS } from '../data/subTreatments';
 import { STATIC_MAIN_TREATMENTS } from '../data/mainTreatments';
+import { treatmentFaqs } from '../data/pageFaqs';
 import './pages.css';
 import './TreatmentDetail.css';
 import './MainTreatmentDetail.css';
@@ -69,7 +70,7 @@ function MainTreatmentDetail({ initialTreatment = null }) {
             };
           }
         }
-        setTreatment(data);
+        setTreatment(data ? { ...data, faqs: treatmentFaqs(slug, data.faqs) } : data);
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -105,6 +106,8 @@ function MainTreatmentDetail({ initialTreatment = null }) {
     .filter(Boolean)
     .sort((a, b) => a - b)[0];
 
+  // When the page is pre-rendered (initialTreatment), FAQPage schema is already output
+  // server-side by app/main-treatments/[slug]/page.js — skip it here to avoid a duplicate.
   return (
     <>
       <SeoHead
@@ -112,7 +115,7 @@ function MainTreatmentDetail({ initialTreatment = null }) {
         description={seoDescription.slice(0, 160)}
         image={treatment.image}
         path={`/main-treatments/${slug}`}
-        faqs={treatment.faqs}
+        faqs={initialTreatment ? undefined : treatment.faqs}
         breadcrumbs={[
           { name: 'Home',           path: '/' },
           { name: 'Treatments',     path: '/treatments' },
@@ -178,8 +181,11 @@ function MainTreatmentDetail({ initialTreatment = null }) {
           </div>
           <div className="mtd-split__content">
             <span className="mtd-split__eyebrow">About This Treatment</span>
-            <h2 className="mtd-split__title">{treatment.label}</h2>
-            <p className="mtd-split__body">{treatment.description}</p>
+            <h2 className="mtd-split__title">Your consultation comes first</h2>
+            <p className="mtd-split__body">
+              Every treatment at Kensley Aesthetics starts with a consultation, so we can
+              check it suits you and explain what to expect, including results, recovery and possible risks.
+            </p>
             <button className="mtd-btn mtd-btn--dark" onClick={openDrawer}>
               Schedule Your Consultation
             </button>
