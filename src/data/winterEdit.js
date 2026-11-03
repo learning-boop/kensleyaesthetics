@@ -1,22 +1,24 @@
 /**
- * The Kensley Winter Edit — seasonal offer page (/winter-edit).
+ * Black Friday at Kensley — offer page (/black-friday).
+ * (File keeps its original name; the offer was first planned as the "Winter Edit".)
  *
  * Offer prices supplied by the clinic (Nov 2026). `was` is the clinic's
  * standard price; under UK rules a crossed-out price must be one the clinic
  * has genuinely charged.
  *
- * After `endsAt` the page swaps the prices for an "offer has ended" message,
- * the homepage banner hides itself, and the page drops out of the sitemap
- * on the next build.
+ * The end date is used internally only and is never shown on the site
+ * (clinic's decision). After `endsAt` the page swaps the prices for an
+ * "offers have ended" message, the homepage banner hides itself, and the
+ * page drops out of the sitemap on the next build.
  *
- * Wording rules (ASA / CAP, cosmetic treatments): no "Black Friday",
- * no countdowns or "hurry" wording, never name prescription-only medicines.
+ * Wording reminders (ASA / CAP, cosmetic treatments): no countdowns or
+ * "hurry" wording, never name prescription-only medicines.
  */
 
 export const WINTER_EDIT = {
-  name: 'The Winter Edit',
+  name: 'Black Friday at Kensley',
   endsAt: '2026-11-30T23:59:59Z', // UK time is GMT in November
-  endLabel: '30 November 2026',
+  endLabel: '30 November 2026', // internal only, not displayed
 
   groups: [
     {
@@ -25,8 +27,8 @@ export const WINTER_EDIT = {
       focus: '62% 74%', // crop point on phones
       items: [
         // Client's list says "HydraFacial"; the clinic's device is listed on the site as the 3D HydrO2 Facial
-        { name: '3D HydrO2 Facial', note: '', was: 199, now: 99, href: '/main-treatments/hydro2-facial' },
-        { name: 'Chemical Peel', note: '', was: 125, now: 79, href: '/main-treatments/chemical-peel' },
+        { name: '3D HydrO2 Facial', note: 'Face treatment', was: 199, now: 99, href: '/main-treatments/hydro2-facial' },
+        { name: 'Chemical Peel', note: 'Face treatment', was: 125, now: 79, href: '/main-treatments/chemical-peel' },
       ],
     },
     {
@@ -34,9 +36,9 @@ export const WINTER_EDIT = {
       image: '/images/promo/winter-edit-texture.webp',
       focus: '40% 32%',
       items: [
-        { name: 'Microneedling', note: 'Face', was: 199, now: 129, href: '/main-treatments/microneedling' },
-        { name: 'Microneedling course', note: 'Face, course of 3 sessions', was: 500, now: 349, href: '/main-treatments/microneedling' },
-        { name: 'RF Microneedling', note: '', was: 499, now: 349, href: '/main-treatments/rf-microneedling' },
+        { name: 'Microneedling', note: 'Face treatment', was: 199, now: 129, href: '/main-treatments/microneedling' },
+        { name: 'Microneedling course', note: 'Face treatment · Course of 3 sessions', was: 500, now: 349, href: '/main-treatments/microneedling' },
+        { name: 'RF Microneedling', note: 'Face treatment', was: 499, now: 349, href: '/main-treatments/rf-microneedling' },
       ],
     },
     {
@@ -44,10 +46,10 @@ export const WINTER_EDIT = {
       image: '/images/promo/winter-edit-boosters.webp',
       focus: '50% 58%',
       items: [
-        { name: 'Skin Booster', note: 'Selected skin booster', was: 225, now: 149, href: '/main-treatments/skin-boosters' },
-        { name: 'Profhilo', note: 'Face', was: 299, now: 199, href: '/main-treatments/profhilo' },
-        { name: 'Polynucleotides', note: 'Face', was: 299, now: 199, href: '/main-treatments/polynucleotides' },
-        { name: 'PRP', note: 'Face', was: 350, now: 249, href: '/main-treatments/prp' },
+        { name: 'Skin Booster', note: 'Face treatment', was: 225, now: 149, href: '/main-treatments/skin-boosters' },
+        { name: 'Profhilo', note: 'Face treatment', was: 299, now: 199, href: '/main-treatments/profhilo' },
+        { name: 'Polynucleotides', note: 'Face treatment', was: 299, now: 199, href: '/main-treatments/polynucleotides' },
+        { name: 'PRP', note: 'Face treatment', was: 350, now: 249, href: '/main-treatments/prp' },
       ],
     },
     {
@@ -55,8 +57,8 @@ export const WINTER_EDIT = {
       image: '/images/promo/winter-edit-lifting.webp',
       focus: '58% 36%',
       items: [
-        { name: 'HIFU', note: 'Face', was: 700, now: 350, href: '/main-treatments/hifu' },
-        { name: 'HIFU', note: 'Face & neck', was: 1000, now: 499, href: '/main-treatments/hifu' },
+        { name: 'HIFU', note: 'Face treatment', was: 700, now: 350, href: '/main-treatments/hifu' },
+        { name: 'HIFU', note: 'Face & neck treatment', was: 1000, now: 499, href: '/main-treatments/hifu' },
       ],
     },
   ],
@@ -68,23 +70,12 @@ export const WINTER_EDIT = {
     cta1280: '/images/promo/winter-edit-cta-1280.webp',
   },
 
-  terms: [
-    'The Winter Edit offers end on 30 November 2026.',
-    'Original prices are Kensley Aesthetics’ standard prices.',
-    'Every treatment includes a complimentary consultation and goes ahead only if it is suitable for you.',
-    'A patch test is required 48 hours before treatment.',
-    'Available to clients aged 18 and over.',
-  ],
 };
 
 export const WINTER_EDIT_FAQS = [
   {
     q: 'Is a consultation included?',
-    a: 'Yes. Every Winter Edit treatment starts with a complimentary consultation. Your practitioner will look at your skin, medical history and goals, and will only go ahead if the treatment is suitable for you.',
-  },
-  {
-    q: 'When do the Winter Edit offers end?',
-    a: 'The Winter Edit offers end on 30 November 2026.',
+    a: 'Yes. Every Black Friday treatment starts with a complimentary consultation. Your practitioner will look at your skin, medical history and goals, and will only go ahead if the treatment is suitable for you.',
   },
   {
     q: 'Do I need a patch test?',
@@ -95,7 +86,7 @@ export const WINTER_EDIT_FAQS = [
     a: 'It depends on the treatment. Facials usually involve little interruption, while microneedling, RF microneedling and chemical peels can cause temporary redness or sensitivity. Your practitioner will explain what to expect before you book.',
   },
   {
-    q: 'Who can book a Winter Edit treatment?',
+    q: 'Who can book a Black Friday treatment?',
     a: 'Anyone aged 18 or over can book a consultation. Treatment goes ahead only if it is clinically suitable for you.',
   },
 ];

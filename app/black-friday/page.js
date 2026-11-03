@@ -1,11 +1,11 @@
-import WinterEditView from './WinterEditView';
-import { WINTER_EDIT, WINTER_EDIT_FAQS, isWinterEditLive } from '@/src/data/winterEdit';
+import BlackFridayView from './BlackFridayView';
+import { WINTER_EDIT_FAQS, isWinterEditLive } from '@/src/data/winterEdit';
 import { faqPageJsonLd } from '@/src/data/pageFaqs';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
-const URL = `${SITE_URL}/winter-edit`;
-const TITLE = 'The Winter Edit: Seasonal Skin Offers | Kensley Aesthetics';
-const DESCRIPTION = `Seasonal prices on selected skin treatments at Kensley Aesthetics, Jesmond, Newcastle, until ${WINTER_EDIT.endLabel}. Each starts with a free consultation.`;
+const URL = `${SITE_URL}/black-friday`;
+const TITLE = 'Black Friday Skin Treatment Offers | Kensley Aesthetics Newcastle';
+const DESCRIPTION = 'Black Friday prices on selected skin treatments at Kensley Aesthetics in Jesmond, Newcastle. Every treatment starts with a free consultation.';
 const OG_IMAGE = `${SITE_URL}/og/kensley-winter-edit-share.jpg`;
 
 export const metadata = {
@@ -34,7 +34,7 @@ const breadcrumbLd = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
-    { '@type': 'ListItem', position: 2, name: 'The Winter Edit', item: URL },
+    { '@type': 'ListItem', position: 2, name: 'Black Friday at Kensley', item: URL },
   ],
 };
 
@@ -55,7 +55,7 @@ export default function WinterEditPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
         />
       )}
-      <WinterEditView initialEnded={ended} />
+      <BlackFridayView initialEnded={ended} />
     </>
   );
 }

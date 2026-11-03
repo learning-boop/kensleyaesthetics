@@ -42,7 +42,7 @@ function OfferRow({ item }) {
           <del>{gbp(item.was)}</del>
         </span>
         <span className="we-item__now">
-          <span className="we-sr">Winter Edit price </span>
+          <span className="we-sr">Black Friday price </span>
           {gbp(item.now)}
         </span>
         <span className="we-item__save">Save {gbp(item.was - item.now)}</span>
@@ -64,9 +64,9 @@ export default function WinterEdit({ initialEnded = false }) {
   return (
     <>
       <SeoHead
-        title="The Winter Edit: Seasonal Skin Offers | Kensley Aesthetics"
-        description={`Seasonal prices on selected skin treatments at Kensley Aesthetics, Jesmond, Newcastle, until ${WINTER_EDIT.endLabel}. Each starts with a free consultation.`}
-        path="/winter-edit"
+        title="Black Friday Skin Treatment Offers | Kensley Aesthetics Newcastle"
+        description="Black Friday prices on selected skin treatments at Kensley Aesthetics in Jesmond, Newcastle. Every treatment starts with a free consultation."
+        path="/black-friday"
       />
 
       {/* ── Hero (same image as the homepage banner) ── */}
@@ -91,13 +91,12 @@ export default function WinterEdit({ initialEnded = false }) {
         <div className="we-hero__shade" aria-hidden="true" />
 
         <div className="we-hero__inner">
-          <p className="we-eyebrow">Seasonal offers at Kensley</p>
           <h1 className="we-hero__title" id="we-title">
-            The Winter <em>Edit</em>
+            Black Friday <em>at Kensley</em>
           </h1>
           {ended ? (
             <p className="we-hero__lead">
-              The Winter Edit has now ended. Thank you to everyone who joined us. Our current
+              Our Black Friday offers have now ended. Thank you to everyone who joined us. Our current
               prices are on the price list, and every treatment still starts with a
               complimentary consultation.
             </p>
@@ -107,9 +106,8 @@ export default function WinterEdit({ initialEnded = false }) {
                 Up to <strong>{maxSavingPercent()}% off</strong> selected skin treatments
               </p>
               <p className="we-hero__lead">
-                Seasonal prices on eleven of our most-requested treatments, until{' '}
-                {WINTER_EDIT.endLabel}. Every treatment starts with a consultation, so we can
-                check it suits you.
+                Special prices on eleven of our most-requested treatments. Every treatment
+                starts with a consultation, so we can check it suits you.
               </p>
             </>
           )}
@@ -133,8 +131,7 @@ export default function WinterEdit({ initialEnded = false }) {
             <header className="we-head">
               <h2 className="we-title" id="we-offers-title">The offers</h2>
               <p className="we-intro">
-                Every treatment includes a complimentary consultation. Offers end{' '}
-                {WINTER_EDIT.endLabel}.
+                Every treatment includes a complimentary consultation.
               </p>
             </header>
 
@@ -234,28 +231,14 @@ export default function WinterEdit({ initialEnded = false }) {
         </div>
       </section>
 
-      {/* ── FAQs (FAQPage schema is rendered server-side in app/winter-edit/page.js) ── */}
+      {/* ── FAQs (FAQPage schema is rendered server-side in app/black-friday/page.js) ── */}
       {!ended && (
         <PageFaq
-          id="winter-edit-faq"
-          eyebrow="The Winter Edit"
+          id="black-friday-faq"
+          eyebrow="Black Friday at Kensley"
           title="Your questions"
           faqs={WINTER_EDIT_FAQS}
         />
-      )}
-
-      {/* ── Terms ── */}
-      {!ended && (
-        <section className="we-terms" aria-labelledby="we-terms-title">
-          <div className="we-inner">
-            <h2 className="we-terms__title" id="we-terms-title">Offer terms</h2>
-            <ul className="we-terms__list">
-              {WINTER_EDIT.terms.map((t) => (
-                <li key={t}>{t}</li>
-              ))}
-            </ul>
-          </div>
-        </section>
       )}
 
       {/* ── Closing call to action ── */}

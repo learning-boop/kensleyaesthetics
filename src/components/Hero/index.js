@@ -18,7 +18,8 @@ function PromoButton({ cta, className, onBook }) {
   );
 }
 
-/* Slide 2 — seasonal offer. The words are live text over a text-free image. */
+/* Offer slide — shown FIRST while the offer is running.
+   The words are live text over a text-free image. */
 function PromoSlide({ promo, onBook }) {
   const img = promo.image;
   return (
@@ -37,15 +38,14 @@ function PromoSlide({ promo, onBook }) {
           className="hero-promo__img"
           width={1672}
           height={941}
-          loading="lazy"
-          decoding="async"
-          fetchPriority="low"
+          draggable={false}
+          fetchPriority="high"
         />
       </picture>
       <div className="hero-promo__shade" aria-hidden="true" />
 
       <div className="hero-promo__content">
-        <p className="hero-promo__eyebrow">{promo.eyebrow}</p>
+        {promo.eyebrow && <p className="hero-promo__eyebrow">{promo.eyebrow}</p>}
         <h2 className="hero-promo__title">
           {promo.title} <em>{promo.titleAccent}</em>
         </h2>
@@ -57,7 +57,7 @@ function PromoSlide({ promo, onBook }) {
           <PromoButton cta={promo.primary} className="hero__btn hero__btn--gold" onBook={onBook} />
           <PromoButton cta={promo.secondary} className="hero__btn hero__btn--light" onBook={onBook} />
         </div>
-        <p className="hero-promo__terms">{promo.terms}</p>
+        {promo.terms && <p className="hero-promo__terms">{promo.terms}</p>}
       </div>
     </div>
   );
@@ -68,6 +68,7 @@ function Hero() {
   const { openDrawer } = useAppointment();
   const videoRef = useRef(null);
   const touchX = useRef(null);
+  const dragX = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
@@ -96,7 +97,7 @@ function Hero() {
     };
   }, []);
 
-  // Hide the offer slide once its end date has passed
+  // Hide the offer slide once the offer is over (the clinic slide then stands alone)
   useEffect(() => {
     if (!isPromoLive(HERO_PROMO)) {
       setShowPromo(false);
@@ -109,8 +110,12 @@ function Hero() {
     if (prefersReducedMotion) setPaused(true);
   }, [prefersReducedMotion]);
 
-  const count = showPromo ? 2 : 1;
+  // Slide order: offer first (while running), then the clinic slide
+  const slides = showPromo ? ['promo', 'main'] : ['main'];
+  const count = slides.length;
   const isSlider = count > 1;
+  const indexOf = (name) => slides.indexOf(name);
+  const isActive = (name) => active === indexOf(name);
 
   // Autoplay
   useEffect(() => {
@@ -120,16 +125,17 @@ function Hero() {
   }, [active, count, isSlider, paused, holding]);
 
   // Only play the clinic video while its slide is showing
+  const mainShowing = isActive('main');
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    if (active === 0) {
+    if (mainShowing) {
       const p = v.play && v.play();
       if (p && p.catch) p.catch(() => {});
     } else if (v.pause) {
       v.pause();
     }
-  }, [active]);
+  }, [mainShowing]);
 
   const go = (i) => setActive(((i % count) + count) % count);
 
@@ -140,6 +146,18 @@ function Hero() {
     if (touchX.current === null || !isSlider) return;
     const dx = e.changedTouches[0].clientX - touchX.current;
     touchX.current = null;
+    if (Math.abs(dx) > 50) go(active + (dx < 0 ? 1 : -1));
+  };
+
+  // Mouse drag on desktop changes slide (instead of selecting text)
+  const onMouseDown = (e) => {
+    if (e.button !== 0) return;
+    dragX.current = e.clientX;
+  };
+  const onMouseUp = (e) => {
+    if (dragX.current === null || !isSlider) return;
+    const dx = e.clientX - dragX.current;
+    dragX.current = null;
     if (Math.abs(dx) > 50) go(active + (dx < 0 ? 1 : -1));
   };
 
@@ -154,17 +172,19 @@ function Hero() {
     ? '/video/posters/hero-loop-mobile-kensley-aesthetics-poster.webp'
     : '/video/posters/hero-loop-desktop-kensley-aesthetics-poster.webp';
 
-  const slideProps = (i, label) =>
+  const labels = { promo: HERO_PROMO.label, main: 'Welcome' };
+
+  const slideProps = (name) =>
     isSlider
       ? {
           role: 'group',
           'aria-roledescription': 'slide',
-          'aria-label': `${i + 1} of ${count}: ${label}`,
-          inert: active !== i ? true : undefined,
+          'aria-label': `${indexOf(name) + 1} of ${count}: ${labels[name]}`,
+          inert: !isActive(name) ? true : undefined,
         }
       : {};
 
-  const classes = ['hero', isSlider ? 'hero--slider' : '', active === 1 ? 'hero--dark' : '']
+  const classes = ['hero', isSlider ? 'hero--slider' : '', isActive('promo') ? 'hero--dark' : '']
     .filter(Boolean)
     .join(' ');
 
@@ -178,11 +198,27 @@ function Hero() {
       onFocus={() => setHolding(true)}
       onBlur={onBlur}
     >
-      <div className="hero__track" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-        {/* Slide 1 — welcome + clinic video */}
+      <div
+        className="hero__track"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+        onMouseDown={onMouseDown}
+        onMouseUp={onMouseUp}
+      >
+        {/* Offer slide (first) */}
+        {showPromo && (
+          <div
+            className={`hero__slide hero__slide--promo${isActive('promo') ? ' is-active' : ''}`}
+            {...slideProps('promo')}
+          >
+            <PromoSlide promo={HERO_PROMO} onBook={openDrawer} />
+          </div>
+        )}
+
+        {/* Clinic slide — welcome + video */}
         <div
-          className={`hero__slide hero__slide--main${active === 0 ? ' is-active' : ''}`}
-          {...slideProps(0, 'Welcome')}
+          className={`hero__slide hero__slide--main${isActive('main') ? ' is-active' : ''}`}
+          {...slideProps('main')}
         >
           {/* Left — content */}
           <div className="hero__content">
@@ -208,16 +244,17 @@ function Hero() {
                 src={posterSrc}
                 alt="Kensley Aesthetics reception at Jesmond, Newcastle"
                 className="hero__poster"
+                draggable={false}
                 width={isMobile ? 720 : 1280}
                 height={isMobile ? 1280 : 720}
-                fetchPriority="high"
+                loading={showPromo ? 'lazy' : undefined}
               />
             ) : (
               <video
                 ref={videoRef}
                 key={videoSrc}
                 className="hero__video"
-                autoPlay
+                autoPlay={!showPromo}
                 muted
                 loop
                 playsInline
@@ -229,16 +266,6 @@ function Hero() {
             )}
           </div>
         </div>
-
-        {/* Slide 2 — seasonal offer */}
-        {showPromo && (
-          <div
-            className={`hero__slide hero__slide--promo${active === 1 ? ' is-active' : ''}`}
-            {...slideProps(1, HERO_PROMO.label)}
-          >
-            <PromoSlide promo={HERO_PROMO} onBook={openDrawer} />
-          </div>
-        )}
       </div>
 
       {isSlider && (
@@ -256,12 +283,12 @@ function Hero() {
             )}
           </button>
           <div className="hero__dots">
-            {['Welcome', HERO_PROMO.label].map((label, i) => (
+            {slides.map((name, i) => (
               <button
-                key={label}
+                key={name}
                 type="button"
                 className={`hero__dot${active === i ? ' is-active' : ''}`}
-                aria-label={`Show slide ${i + 1}: ${label}`}
+                aria-label={`Show slide ${i + 1}: ${labels[name]}`}
                 aria-current={active === i ? 'true' : undefined}
                 onClick={() => go(i)}
               />

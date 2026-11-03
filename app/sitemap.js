@@ -80,7 +80,7 @@ export default async function sitemap() {
 
   // Seasonal offer page: listed only while the offer is running.
   if (isWinterEditLive()) {
-    staticPages.push({ url: `${SITE_URL}/winter-edit`, changeFrequency: 'weekly', priority: 0.8 });
+    staticPages.push({ url: `${SITE_URL}/black-friday`, changeFrequency: 'weekly', priority: 0.8 });
   }
 
   const treatmentPages = treatmentSlugs.map((slug) => ({

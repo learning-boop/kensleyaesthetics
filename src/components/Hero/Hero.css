@@ -6,6 +6,15 @@
   padding-top: 72px; /* the fixed header bar is 72px tall */
   position: relative;
   overflow: hidden;
+  /* It's a slider: a mouse drag changes slide, so don't let it select text
+     (a drag used to highlight the "Our treatments" heading below). */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.hero img,
+.hero video {
+  -webkit-user-drag: none;
 }
 
 .hero::after {
