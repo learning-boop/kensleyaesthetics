@@ -121,7 +121,9 @@
       "Bash(tasklist //FI \"PID eq 2444\" //FO CSV //NH && tasklist //FI \"PID eq 19964\" //FO CSV //NH && tasklist //FI \"PID eq 8804\" //FO CSV //NH && tasklist //FI \"PID eq 6068\" //FO CSV //NH)",
       "Bash(taskkill //PID 19964 //F && taskkill //PID 8804 //F)",
       "Bash(netstat -ano | grep -E \":3001|:3002\" | grep \"LISTENING\")",
-      "Bash(taskkill //PID 2444 //F)"
+      "Bash(taskkill //PID 2444 //F)",
+      "Bash(git add:*)",
+      "Bash(git push:*)"
     ]
   }
 }

@@ -3,9 +3,7 @@
   height: 100vh;
   max-height: 100svh;
   background-color: var(--color-cream);
-  display: flex;
-  align-items: stretch;
-  padding-top: 58px; /* header bar height */
+  padding-top: 72px; /* the fixed header bar is 72px tall */
   position: relative;
   overflow: hidden;
 }
@@ -17,7 +15,38 @@
   left: 0;
   right: 0;
   height: 1px;
+  z-index: 4;
   background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+/* ── Slides: stacked in one grid cell so the height never jumps ── */
+.hero__track {
+  display: grid;
+  height: 100%;
+}
+
+.hero__slide {
+  grid-area: 1 / 1;
+  min-width: 0;
+  min-height: 0;
+  transition: opacity 0.9s ease, visibility 0s linear 0s;
+}
+
+.hero--slider .hero__slide:not(.is-active) {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.9s ease, visibility 0s linear 0.9s;
+}
+
+.hero--slider .hero__slide.is-active {
+  z-index: 1;
+}
+
+.hero__slide--main {
+  display: flex;
+  align-items: stretch;
+  background-color: var(--color-cream);
 }
 
 /* ── Left content column ── */
@@ -57,11 +86,15 @@
 }
 
 .hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  text-decoration: none;
   border: none;
   cursor: pointer;
   padding: 14px 28px;
@@ -89,6 +122,36 @@
   color: var(--color-gold);
 }
 
+/* Buttons on the dark offer slide */
+.hero__btn--gold {
+  background: var(--color-gold);
+  color: var(--color-navy);
+  border: 1px solid var(--color-gold);
+}
+
+.hero__btn--gold:hover {
+  background: #FAF8F5;
+  border-color: #FAF8F5;
+}
+
+.hero__btn--light {
+  background: transparent;
+  color: #FAF8F5;
+  border: 1px solid rgba(250, 248, 245, 0.45);
+}
+
+.hero__btn--light:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.hero__btn:focus-visible,
+.hero__dot:focus-visible,
+.hero__pause:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
 /* ── Right image/video column ── */
 .hero__image-wrap {
   width: 46%;
@@ -107,14 +170,222 @@
   display: block;
 }
 
+/* ─── Slide 2: seasonal offer ────────────────────────────── */
+.hero__slide--promo {
+  position: relative;
+  overflow: hidden;
+  background: #050c1a;
+}
+
+.hero-promo {
+  position: relative;
+  height: 100%;
+}
+
+.hero-promo__media,
+.hero-promo__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-promo__img {
+  display: block;
+  object-fit: cover;
+  /* Crop from the empty left side first, so she is never cut off */
+  object-position: 100% 0%; /* crop from the bottom, never the top of her head */
+}
+
+/* Keeps the text readable when narrower screens bring her closer */
+.hero-promo__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(5, 12, 26, 0.92) 0%,
+    rgba(5, 12, 26, 0.7) 32%,
+    rgba(5, 12, 26, 0) 58%
+  );
+}
+
+.hero-promo__content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  max-width: 660px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 48px 72px 60px;
+}
+
+.hero-promo__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin: 0 0 24px;
+}
+
+.hero-promo__eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+}
+
+.hero-promo__title {
+  font-family: var(--font-serif);
+  font-size: clamp(44px, 5.6vw, 92px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.5px;
+  color: #FAF8F5;
+  margin: 0 0 22px;
+}
+
+.hero-promo__title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-gold);
+}
+
+.hero-promo__offer {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 400;
+  line-height: 1.25;
+  color: #FAF8F5;
+  margin: 0 0 14px;
+}
+
+.hero-promo__offer strong {
+  font-weight: 600;
+  color: var(--color-gold);
+}
+
+.hero-promo__text {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(250, 248, 245, 0.78);
+  max-width: 30em;
+  margin: 0 0 30px;
+}
+
+.hero-promo__terms {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  line-height: 1.6;
+  color: rgba(250, 248, 245, 0.55);
+  max-width: 38em;
+  margin: 22px 0 0;
+}
+
+/* ─── Slider controls ───────────────────────────────────── */
+.hero__controls {
+  position: absolute;
+  left: 60px;
+  bottom: 26px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: var(--color-navy);
+  transition: color 0.6s ease;
+}
+
+.hero--dark .hero__controls {
+  color: #FAF8F5;
+}
+
+.hero__dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero__dot {
+  position: relative;
+  width: 28px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transition: width 0.4s ease;
+}
+
+.hero__dot::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  background: currentColor;
+  opacity: 0.5;
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+.hero__dot.is-active {
+  width: 44px;
+}
+
+.hero__dot.is-active::before {
+  opacity: 1;
+  background: var(--color-gold);
+}
+
+.hero__pause {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: none;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.hero__pause:hover {
+  opacity: 1;
+}
+
+.hero__pause svg {
+  width: 10px;
+  height: 10px;
+  fill: currentColor;
+}
+
 /* ── Mobile ── */
 @media (max-width: 860px) {
   .hero {
-    flex-direction: column;
     height: auto;
     max-height: none;
-    padding-top: 58px;
+    padding-top: 72px;
     padding-bottom: 0;
+  }
+
+  .hero__track {
+    height: auto;
+  }
+
+  .hero__slide--main {
+    flex-direction: column;
   }
 
   /* Mobile video is portrait (720x1280): give the box the same 9:16 shape so the
@@ -123,8 +394,8 @@
     width: 100%;
     height: auto;
     aspect-ratio: 9 / 16;
-    max-height: calc(100vh - 58px);
-    max-height: calc(100svh - 58px);
+    max-height: calc(100vh - 72px);
+    max-height: calc(100svh - 72px);
     flex-shrink: 0;
     order: -1;
     background: #ede8e0;
@@ -144,6 +415,11 @@
     flex-shrink: 0;
   }
 
+  /* room for the slide controls under the buttons */
+  .hero--slider .hero__content {
+    padding-bottom: 64px;
+  }
+
   .hero__title {
     font-size: clamp(26px, 7.5vw, 42px);
     margin-bottom: 16px;
@@ -152,5 +428,66 @@
   .hero__btn {
     padding: 12px 20px;
     font-size: 9px;
+  }
+
+  /* Offer slide: picture on top, words on the dark lower part */
+  .hero-promo__img {
+    object-position: 50% 0%;
+  }
+
+  .hero-promo__shade {
+    background: linear-gradient(
+      180deg,
+      rgba(5, 12, 26, 0) 0%,
+      rgba(5, 12, 26, 0) 36%,
+      rgba(5, 12, 26, 0.86) 56%,
+      #050c1a 74%
+    );
+  }
+
+  .hero-promo__content {
+    max-width: none;
+    justify-content: flex-end;
+    padding: 24px 24px 64px;
+  }
+
+  .hero-promo__eyebrow {
+    font-size: 10px;
+    margin-bottom: 16px;
+  }
+
+  .hero-promo__title {
+    font-size: clamp(38px, 11vw, 56px);
+    margin-bottom: 14px;
+  }
+
+  .hero-promo__offer {
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
+
+  .hero-promo__text {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .hero-promo__terms {
+    font-size: 10.5px;
+    margin-top: 16px;
+  }
+
+  .hero__controls {
+    left: 24px;
+    bottom: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__slide,
+  .hero--slider .hero__slide:not(.is-active),
+  .hero__dot,
+  .hero__controls {
+    transition: none;
   }
 }

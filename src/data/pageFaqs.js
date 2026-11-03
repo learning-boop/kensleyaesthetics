@@ -18,6 +18,9 @@
  *   /main-treatments/rf-microneedling Q11
  *   /main-treatments/chemical-peel .. Q8
  *   /main-treatments/anti-wrinkle-treatments  Q15
+ *
+ *   / (homepage) .................... all 21 as visible text only. No FAQ
+ *                                     schema there, so nothing is duplicated.
  */
 
 import { PRICE_TREATMENTS } from './prices';
@@ -305,6 +308,48 @@ export const TREATMENT_FAQ_UPDATES = {
     },
   ],
 };
+
+/* ────────────────────────────────────────────────────────────
+ * Homepage — all 21 questions, most useful first.
+ * Text is read from the lists above so every page stays in sync.
+ * `link` points to the page that covers the topic in more depth.
+ * ──────────────────────────────────────────────────────────── */
+const tf = (slug) => TREATMENT_FAQ_UPDATES[slug] || [];
+
+const HOME_FAQ_ORDER = [
+  // shown first
+  [FAQ_PAGE_FAQS, 'How do I know which aesthetic treatment might suit my skin?', '/treatments', 'Explore our treatments'],
+  [FAQ_PAGE_FAQS, 'How can I book a consultation at Kensley Aesthetics?'],
+  [PRICES_FAQS, 'How much do aesthetic treatments cost at Kensley Aesthetics?', '/prices', 'See our prices'],
+  [LOCATIONS_FAQS, 'Where is Kensley Aesthetics located in Newcastle?', '/locations/newcastle-upon-tyne', 'Finding the clinic'],
+  [tf('dermal-fillers'), 'Can dermal fillers look natural?', '/main-treatments/dermal-fillers', 'About dermal fillers'],
+  [tf('skin-boosters'), 'What is the difference between a skin booster and dermal filler?', '/main-treatments/skin-boosters', 'About skin boosters'],
+  [tf('profhilo'), 'What is the difference between Profhilo and polynucleotides?', '/main-treatments/profhilo', 'About Profhilo'],
+  [FAQ_PAGE_FAQS, 'How much recovery time should I allow after a skin treatment?'],
+  // shown after "Show all questions"
+  [SKIN_CONCERNS_FAQS, 'What skin treatments can I consider if I do not want injections?', '/skin-concerns', 'Browse skin concerns'],
+  [SKIN_CONCERNS_FAQS, 'What treatments might help with acne scars or uneven skin texture?', '/skin-concerns', 'Browse skin concerns'],
+  [tf('chemical-peel'), 'Can a chemical peel help with uneven skin tone or pigmentation?', '/main-treatments/chemical-peel', 'About chemical peels'],
+  [tf('skin-boosters'), 'What is a skin booster, and is it the same as skincare?', '/main-treatments/skin-boosters', 'About skin boosters'],
+  [tf('biostimulators'), 'How do biostimulators compare with dermal fillers?', '/main-treatments/biostimulators', 'About biostimulators'],
+  [tf('polynucleotides'), 'Are polynucleotide injections suitable for the under-eye area?', '/main-treatments/polynucleotides', 'About polynucleotides'],
+  [tf('rf-microneedling'), 'Are RF microneedling and HIFU completely safe?', '/main-treatments/rf-microneedling', 'About RF microneedling'],
+  [tf('dermal-fillers'), 'What are the risks of having dermal fillers?', '/main-treatments/dermal-fillers', 'About dermal fillers'],
+  [tf('anti-wrinkle-treatments'), 'What happens during a consultation for lines and wrinkles?', '/main-treatments/anti-wrinkle-treatments', 'About wrinkle consultations'],
+  [FAQ_PAGE_FAQS, 'Does Kensley Aesthetics offer Profhilo and polynucleotide treatments?', '/treatments', 'See all treatments'],
+  [FAQ_PAGE_FAQS, 'Does Kensley Aesthetics offer HIFU, LED light therapy, PRP and mesotherapy?', '/treatments', 'See all treatments'],
+  [LOCATIONS_FAQS, 'How do I choose an aesthetic clinic in Newcastle upon Tyne?', '/about', 'About Kensley Aesthetics'],
+  [LOCATIONS_FAQS, 'How can I check whether an aesthetic practitioner is qualified?', '/about', 'Meet our team'],
+];
+
+export const HOME_FAQS = HOME_FAQ_ORDER.map(([list, q, to, label]) => {
+  const f = list.find((x) => x.q === q);
+  if (!f) return null;
+  return { q: f.q, a: f.a, link: to ? { to, label } : null };
+}).filter(Boolean);
+
+/** How many homepage questions show before "Show all questions". */
+export const HOME_FAQS_FEATURED = 8;
 
 /* ────────────────────────────────────────────────────────────
  * Helpers

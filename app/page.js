@@ -1,4 +1,5 @@
 import HomeView from './HomeView';
+import { client, MAIN_TREATMENTS_QUERY } from '@/src/lib/sanityClient';
 
 export const metadata = {
   title: 'Aesthetic Clinic Newcastle upon Tyne | Kensley Aesthetics',
@@ -21,6 +22,13 @@ export const metadata = {
   },
 };
 
-export default function HomePage() {
-  return <HomeView />;
+// Treatments are fetched at build time so the homepage cards are in the HTML.
+export default async function HomePage() {
+  let treatments = null;
+  try {
+    treatments = await client.fetch(MAIN_TREATMENTS_QUERY);
+  } catch {
+    treatments = null; // cards fall back to loading in the browser
+  }
+  return <HomeView initialTreatments={treatments} />;
 }

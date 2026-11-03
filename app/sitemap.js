@@ -1,6 +1,7 @@
 import { LOCATIONS } from '@/src/data/locations';
 import { STATIC_MAIN_TREATMENTS } from '@/src/data/mainTreatments';
 import { client } from '@/src/lib/sanityClient';
+import { isWinterEditLive } from '@/src/data/winterEdit';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
 
@@ -76,6 +77,11 @@ export default async function sitemap() {
     { url: `${SITE_URL}/privacy-policy`, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/terms`, changeFrequency: 'yearly', priority: 0.3 },
   ];
+
+  // Seasonal offer page: listed only while the offer is running.
+  if (isWinterEditLive()) {
+    staticPages.push({ url: `${SITE_URL}/winter-edit`, changeFrequency: 'weekly', priority: 0.8 });
+  }
 
   const treatmentPages = treatmentSlugs.map((slug) => ({
     url: `${SITE_URL}/treatments/${slug}`,

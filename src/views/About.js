@@ -3,14 +3,14 @@ import Image from 'next/image';
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import SeoHead from '../components/SeoHead';
-import TeamSection from '../components/TeamSection';
+import TeamProfiles from '../components/TeamProfiles';
 import { useAppointment } from '../context/AppointmentContext';
 import './About.css';
 
 const whyItems = [
   {
-    q: 'Experienced Doctor-Led Care',
-    a: 'Every treatment at Kensley Aesthetics is performed personally by a medically qualified doctor with over 20 years of clinical experience. You are never treated by a non-medical practitioner.',
+    q: 'Qualified Healthcare Professionals',
+    a: 'Your treatment is carried out by one of our qualified healthcare professionals, each with further training in aesthetic medicine. Every treatment starts with a full consultation and an assessment of your suitability.',
   },
   {
     q: 'Bespoke Plans, Not Templates',
@@ -38,7 +38,7 @@ function About() {
     <>
       <SeoHead
         title="About Kensley Aesthetics | Aesthetic Clinic in Jesmond"
-        description="Kensley Aesthetics is a doctor-led aesthetic clinic in Jesmond, Newcastle, founded by Dr Tiru Matla. Personal consultations and natural-looking results."
+        description="Kensley Aesthetics is a doctor-led aesthetic clinic in Jesmond, Newcastle, founded by Dr Matla. Personal consultations and natural-looking results."
         path="/about"
       />
 
@@ -82,7 +82,7 @@ function About() {
                 your options honestly, including when doing less is the better choice.
               </p>
               <p className="ab-intro__founder">
-                Kensley Aesthetics was founded by Dr Tiru Matla. As Founder and Clinical Lead,
+                Kensley Aesthetics was founded by Dr Matla. As Founder and Clinical Lead,
                 Dr Matla oversees a dedicated team of qualified medical aesthetic practitioners
                 who deliver personalised treatments with a strong focus on patient safety,
                 clinical excellence and natural-looking results.
@@ -107,6 +107,9 @@ function About() {
         </div>
       </section>
 
+      {/* ── MEET THE TEAM (profiles; photos added later in src/data/team.js) ── */}
+      <TeamProfiles />
+
       {/* ── WHY CHOOSE ───────────────────────────────────────────── */}
       <section className="ab-why">
         <div className="ab-why__inner">
@@ -130,71 +133,6 @@ function About() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── TEAM ───────────────────────────────────────────────── */}
-      <TeamSection />
-
-      {/* ── TEAM PORTRAITS ─────────────────────────────────────── */}
-      <section className="ab-portraits">
-        <div className="ab-portraits__grid">
-          <div className="ab-portraits__card ab-portraits__card--featured">
-            <Image
-              src="/images/kensley-real/dr-mariyam-durrani-portrait-kensley-aesthetics.webp"
-              alt="Dr Mariyam Durrani — Aesthetic Practitioner, Kensley Aesthetics"
-              className="ab-portraits__img"
-              width={600}
-              height={750}
-              loading="lazy"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            <span className="ab-portraits__label">Dr Mariyam Durrani</span>
-          </div>
-          <div className="ab-portraits__card">
-            <Image
-              src="/images/kensley-real/team-b-kensley-aesthetics-waiting-room-jesmond.webp"
-              alt="Aesthetic practitioner in the waiting room at Kensley Aesthetics, Jesmond"
-              className="ab-portraits__img"
-              width={600}
-              height={750}
-              loading="lazy"
-              sizes="(max-width: 768px) 100vw, 30vw"
-            />
-          </div>
-          <div className="ab-portraits__card">
-            <Image
-              src="/images/kensley-real/team-c-consultation-desk-kensley-aesthetics.webp"
-              alt="Practitioner at consultation desk, Kensley Aesthetics"
-              className="ab-portraits__img"
-              width={600}
-              height={750}
-              loading="lazy"
-              sizes="(max-width: 768px) 100vw, 30vw"
-            />
-          </div>
-          <div className="ab-portraits__card">
-            <Image
-              src="/images/kensley-real/team-d-consultation-desk-kensley-aesthetics.webp"
-              alt="Practitioner at consultation desk, Kensley Aesthetics"
-              className="ab-portraits__img"
-              width={600}
-              height={750}
-              loading="lazy"
-              sizes="(max-width: 768px) 100vw, 30vw"
-            />
-          </div>
-          <div className="ab-portraits__card">
-            <Image
-              src="/images/kensley-real/team-d-treatment-room-kensley-aesthetics.webp"
-              alt="Practitioner in treatment room at Kensley Aesthetics"
-              className="ab-portraits__img"
-              width={600}
-              height={750}
-              loading="lazy"
-              sizes="(max-width: 768px) 100vw, 30vw"
-            />
           </div>
         </div>
       </section>

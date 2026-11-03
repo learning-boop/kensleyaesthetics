@@ -3,15 +3,17 @@ import TreatmentShowcase   from '../components/TreatmentShowcase';
 import JourneySteps        from '../components/JourneySteps';
 import ClinicShowcase      from '../components/ClinicShowcase';
 import { TeamSplit }       from '../components/TeamSection';
+import HomeFaq             from '../components/HomeFaq';
 
-function Home() {
+function Home({ initialTreatments }) {
   return (
     <>
       <Hero />
-      <TreatmentShowcase />
+      <TreatmentShowcase initialTreatments={initialTreatments} />
       <TeamSplit />
       <JourneySteps />
       <ClinicShowcase />
+      <HomeFaq />
     </>
   );
 }
