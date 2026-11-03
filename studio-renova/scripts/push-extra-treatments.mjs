@@ -113,29 +113,6 @@ const treatments = [
   },
   {
     _type: 'mainTreatment',
-    _id:   'main-treatment-thread-lift',
-    num:   '13',
-    label: 'Thread Lift',
-    slug:  { _type: 'slug', current: 'thread-lift' },
-    tagline: 'PDO or Aptos threads to physically lift sagging skin without surgery.',
-    description:
-      'A thread lift uses dissolvable threads (PDO or Aptos) inserted beneath the skin to physically lift and reposition sagging tissue. The threads also stimulate a collagen response as they dissolve, supporting longer-term skin quality improvement.\n\nIt is a minimally invasive alternative to surgical lifting, typically performed under local anaesthetic. Suitability is assessed face-to-face — results vary by individual and the degree of laxity present.',
-    benefits: [
-      'Physically lifts and repositions sagging skin',
-      'Stimulates collagen as threads dissolve over time',
-      'Minimally invasive — performed under local anaesthetic',
-      'Visible lift with results that continue to improve',
-      'Works well alongside HIFU in a staged lifting plan',
-    ],
-    ideal: 'Ideal for clients with mild to moderate skin sagging or laxity who want a more defined lift than energy-based treatments alone can provide.',
-    faqs: [
-      { _key: 'faq-tl-1', q: 'How long does a thread lift last?', a: 'Most clients see results lasting 1–2 years, though this varies by individual, the threads used and how the skin responds. A review appointment is scheduled after treatment to assess results.' },
-      { _key: 'faq-tl-2', q: 'Is there downtime?', a: 'There may be some mild swelling, bruising or tenderness in the days following treatment. Most clients return to normal activities within a few days.' },
-      { _key: 'faq-tl-3', q: 'Can thread lift be combined with fillers or HIFU?', a: 'Yes — thread lift is often used as part of a staged plan alongside HIFU or dermal fillers. The order and timing of treatments is planned at consultation for safety and best results.' },
-    ],
-  },
-  {
-    _type: 'mainTreatment',
     _id:   'main-treatment-profhilo',
     num:   '14',
     label: 'Profhilo',

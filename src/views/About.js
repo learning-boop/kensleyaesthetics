@@ -82,9 +82,10 @@ function About() {
                 your options honestly, including when doing less is the better choice.
               </p>
               <p className="ab-intro__founder">
-                The clinic was founded by Dr Tiru Matla, an experienced medical doctor who carries
-                out treatments personally, supported by a dedicated team of medical aesthetic
-                practitioners.
+                Kensley Aesthetics was founded by Dr Tiru Matla. As Founder and Clinical Lead,
+                Dr Matla oversees a dedicated team of qualified medical aesthetic practitioners
+                who deliver personalised treatments with a strong focus on patient safety,
+                clinical excellence and natural-looking results.
               </p>
             </div>
           </div>

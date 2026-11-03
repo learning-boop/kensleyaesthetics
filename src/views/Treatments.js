@@ -28,7 +28,6 @@ const EXTRA_TREATMENTS = [
   { num: '13', label: 'PRP',                         slug: 'prp',                      sub: 'Explore platelet-rich plasma procedures and their potential role in selected skin concerns.' },
   { num: '14', label: 'Polynucleotides',             slug: 'polynucleotides',          sub: 'Learn about polynucleotide treatments for skin quality and delicate areas, including around the eyes.' },
   { num: '15', label: 'Medical-Grade Skincare',      slug: 'medical-grade-skincare',   sub: 'Build a personalised skincare routine guided by your skin type, concerns and treatment goals.' },
-  { num: '16', label: 'Thread Lift',                 slug: 'thread-lift',              sub: 'Explore thread-lift options for selected areas of mild to moderate skin laxity, following a full consultation.' },
 ];
 
 export default function Treatments() {

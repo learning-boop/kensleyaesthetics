@@ -18,7 +18,7 @@ const FALLBACK_MAIN_TREATMENT_SLUGS = [
   'regenerative-treatments', 'biostimulators', 'microneedling',
   'rf-microneedling', 'hifu', 'chemical-peel', 'hydro2-facial',
   'mesotherapy', 'led-light-therapy', 'profhilo', 'prp',
-  'polynucleotides', 'medical-grade-skincare', 'thread-lift',
+  'polynucleotides', 'medical-grade-skincare',
 ];
 
 // /book and /treatment-plan are noindexed (thin pages), so they are not listed.
