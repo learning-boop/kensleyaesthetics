@@ -15,12 +15,13 @@ function TreatmentDetail({ initialTreatment = null }) {
   const navigate = useNavigate();
   const { treatments, loading } = useTreatments();
   const { openDrawer } = useAppointment();
-  const treatment = initialTreatment || treatments.find((t) => t.slug === slug);
+  const liveTreatment = treatments.find((t) => t.slug === slug);
+  const treatment = liveTreatment || initialTreatment;
   const [openFaq, setOpenFaq] = useState(null);
   const [reviewIndex, setReviewIndex] = useState(0);
   const [slideDir, setSlideDir] = useState('right');
 
-  if (!initialTreatment && loading) return null;
+  if (!treatment && loading) return null;
   if (!treatment) return <Navigate to="/" replace />;
 
   const reviews = treatment.reviews || [];

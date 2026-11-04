@@ -22,7 +22,6 @@ function SubTreatmentDetail({ initialTreatment = null }) {
   const tabBarRef                     = useRef(null);
 
   useEffect(() => {
-    if (initialTreatment) return;
     setLoading(true);
     client.fetch(SUB_TREATMENT_QUERY, { slug, subSlug })
       .then(data => {
@@ -72,7 +71,7 @@ function SubTreatmentDetail({ initialTreatment = null }) {
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [slug, subSlug, initialTreatment]);
+  }, [slug, subSlug]);
 
   if (loading) return null;
 

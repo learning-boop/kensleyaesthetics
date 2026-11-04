@@ -49,7 +49,6 @@ function MainTreatmentDetail({ initialTreatment = null }) {
   const [slideDir, setSlideDir]       = useState('right');
 
   useEffect(() => {
-    if (initialTreatment) return;
     client.fetch(QUERY, { slug })
       .then(data => {
         if (data) {
@@ -74,7 +73,7 @@ function MainTreatmentDetail({ initialTreatment = null }) {
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [slug, initialTreatment]);
+  }, [slug]);
 
   if (loading) return null;
   if (!treatment) return (
