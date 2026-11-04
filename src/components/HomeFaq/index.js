@@ -4,8 +4,8 @@ import { HOME_FAQS, HOME_FAQS_FEATURED } from '../../data/pageFaqs';
 import { useAppointment } from '../../context/AppointmentContext';
 import './HomeFaq.css';
 
-/* Homepage FAQ — the digital marketer's 21 AEO / GEO questions (Nov 2026).
-   Every answer is in the pre-rendered HTML; the first few show by default.
+/* Homepage FAQ — the 6 most common questions from the digital marketer's
+   AEO / GEO list (Nov 2026). Every answer is in the pre-rendered HTML.
    No FAQPage JSON-LD here: each question is already marked up once, on the
    page listed at the top of src/data/pageFaqs.js. */
 

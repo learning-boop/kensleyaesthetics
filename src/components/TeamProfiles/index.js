@@ -25,13 +25,13 @@ function Profile({ person }) {
       <div className="tp-photo">
         {person.photo ? (
           <Image
-            src={person.photo}
+            src={person.photoRound || person.photo}
             alt={`${person.name}, ${person.role} at Kensley Aesthetics`}
             className="tp-photo__img"
-            width={800}
-            height={1000}
+            width={600}
+            height={600}
             loading="lazy"
-            sizes="(max-width: 900px) 100vw, 40vw"
+            sizes="(max-width: 900px) 220px, 300px"
           />
         ) : (
           <div className="tp-photo__empty" aria-hidden="true">

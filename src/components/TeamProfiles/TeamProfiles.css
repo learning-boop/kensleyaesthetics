@@ -59,19 +59,27 @@
 .tp-photo {
   position: sticky;
   top: 104px;
+  display: flex;
+  justify-content: center;
+  padding: 10px; /* room for the gold ring */
 }
 
+/* Round portraits with a fine gold ring (Nov 2026, client request) */
 .tp-photo__img,
 .tp-photo__empty {
   display: block;
   width: 100%;
+  max-width: 300px;
   height: auto; /* let aspect-ratio win over the img height attribute */
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
+  border-radius: 50%;
 }
 
 .tp-photo__img {
   background: #EFE9E0;
+  outline: 1px solid rgba(200, 169, 106, 0.55);
+  outline-offset: 8px;
 }
 
 /* Empty frame until the clinic's photo is added */
@@ -210,7 +218,12 @@
 
   .tp-photo {
     position: static;
-    max-width: 280px;
+    justify-content: flex-start;
+  }
+
+  .tp-photo__img,
+  .tp-photo__empty {
+    max-width: 220px;
   }
 
   .tp-photo__empty span {

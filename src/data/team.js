@@ -3,7 +3,9 @@
  * Bios supplied by the clinic (Nov 2026), lightly edited for consistency.
  *
  * PHOTOS: /public/images/team/<slug>.webp — 640×800 (4:5), cropped from the
- * clinic's own team photos in /images/kensley-real/. Set `photo: null` to
+ * clinic's own team photos in /images/kensley-real/. `photoRound` is a
+ * 600×600 head-and-shoulders crop used for the round photos on the About
+ * page (Nov 2026). Set `photo: null` to
  * show the empty frame with the person's initials instead.
  *
  * REGISTRATION: add the professional register and number when the clinic
@@ -17,6 +19,7 @@ export const TEAM = [
     name: 'Dr Mariyam Durrani',
     role: 'Facial Aesthetics Practitioner',
     photo: '/images/team/dr-mariyam-durrani.webp',
+    photoRound: '/images/team/dr-mariyam-durrani-round.webp',
     registration: null,
     facts: [
       { label: 'Experience', value: 'Five years in dentistry and around four years in facial aesthetics' },
@@ -36,6 +39,7 @@ export const TEAM = [
     name: 'Dr Pamela Inglis',
     role: 'Aesthetic Practitioner',
     photo: '/images/team/dr-pamela-inglis.webp',
+    photoRound: '/images/team/dr-pamela-inglis-round.webp',
     registration: null,
     facts: [
       { label: 'Experience', value: 'Many years of nursing experience' },
@@ -52,6 +56,7 @@ export const TEAM = [
     name: 'Sophia Azam',
     role: 'Aesthetic Practitioner',
     photo: '/images/team/sophia-azam.webp',
+    photoRound: '/images/team/sophia-azam-round.webp',
     registration: null,
     facts: [
       { label: 'Experience', value: 'Over eight years in healthcare, across community pharmacy and GP practices' },
@@ -67,6 +72,7 @@ export const TEAM = [
     name: 'Jacquelyn Foggin',
     role: 'Aesthetic Practitioner',
     photo: '/images/team/jacquelyn-foggin.webp',
+    photoRound: '/images/team/jacquelyn-foggin-round.webp',
     registration: null,
     facts: [
       { label: 'Experience', value: 'Over 39 years in healthcare, practising aesthetics since 2020' },

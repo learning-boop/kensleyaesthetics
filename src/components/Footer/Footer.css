@@ -1,29 +1,31 @@
 /* ─── Root ───────────────────────────────────────────────────────── */
+/* Compact footer (Nov 2026): smaller brand line, treatment links in two
+   columns on desktop, folding link lists on phones. */
 .ft-root {
   background: var(--color-dark);
-  padding: 88px 0 48px;
+  padding: 56px 0 28px;
 }
 
 .ft-inner {
-  max-width: 1320px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 60px;
+  padding: 0 48px;
 }
 
 /* ─── Brand display ──────────────────────────────────────────────── */
 .ft-brand-block {
   text-align: center;
-  padding-bottom: 64px;
+  padding-bottom: 36px;
 }
 
 .ft-brand-name {
   font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
   font-weight: 300;
-  font-size: clamp(48px, 7.5vw, 112px);
+  font-size: clamp(30px, 4.4vw, 60px);
   color: var(--color-cream);
   letter-spacing: 0.05em;
   line-height: 1;
-  margin-bottom: 28px;
+  margin: 0 0 14px;
   text-transform: uppercase;
 }
 
@@ -33,52 +35,64 @@
 
 .ft-brand-tagline {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(200, 169, 106, 0.95);
   line-height: 1;
+  margin: 0;
 }
 
 /* ─── Divider ────────────────────────────────────────────────────── */
 .ft-divider {
   height: 1px;
   background: rgba(200, 169, 106, 0.18);
-  margin-bottom: 56px;
+  margin-bottom: 36px;
 }
 
 /* ─── Columns ────────────────────────────────────────────────────── */
 .ft-cols {
   display: grid;
-  grid-template-columns: 1.2fr 1.2fr 0.9fr 1.1fr;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1.4fr);
   gap: 40px;
-  margin-bottom: 56px;
+  margin-bottom: 36px;
 }
 
 .ft-col-heading {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--color-gold);
-  margin-bottom: 28px;
+  margin: 0 0 18px;
   font-weight: 700;
 }
 
 .ft-col-links {
   list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  gap: 9px;
+}
+
+/* 15 treatments in two columns instead of one long list */
+.ft-col-links--split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 28px;
+  row-gap: 9px;
 }
 
 .ft-col-links li,
 .ft-col-links a {
   font-family: var(--font-sans);
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.07em;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.45;
   color: rgba(248, 244, 239, 0.85);
   transition: color 0.25s ease;
   text-decoration: none;
@@ -93,17 +107,76 @@
   color: var(--color-cream);
 }
 
+/* Fold toggle (phones only — rendered by JS below 600px) */
+.ft-col-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.ft-col-icon {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.ft-col-icon::before,
+.ft-col-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 12px;
+  height: 1.5px;
+  margin-top: -0.75px;
+  background: currentColor;
+  transition: transform 0.25s ease;
+}
+
+.ft-col-icon::after {
+  transform: rotate(90deg);
+}
+
+.ft-col:not(.is-closed) .ft-col-icon::after {
+  transform: rotate(0deg);
+}
+
+.ft-col.is-closed .ft-col-body {
+  display: none;
+}
+
+.ft-col-toggle:focus-visible,
+.ft-book-btn:focus-visible,
+.ft-social-icon:focus-visible,
+.ft-col-links a:focus-visible,
+.ft-legal a:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
 /* ─── Book button ────────────────────────────────────────────────── */
 .ft-book-btn {
   display: inline-block;
-  margin-top: 32px;
+  margin-top: 20px;
   font-family: var(--font-sans);
   font-size: 0.57rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-gold);
+  background: transparent;
   border: 1px solid rgba(200, 169, 106, 0.38);
-  padding: 14px 28px;
+  padding: 12px 22px;
+  cursor: pointer;
   text-decoration: none;
   transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
@@ -115,10 +188,15 @@
 }
 
 /* ─── Bottom bar ─────────────────────────────────────────────────── */
+.ft-cols + .ft-divider {
+  margin-bottom: 24px;
+}
+
 .ft-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 
 /* Social icons */
@@ -128,8 +206,8 @@
 }
 
 .ft-social-icon {
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: 1px solid rgba(248, 244, 239, 0.15);
   display: flex;
@@ -141,8 +219,8 @@
 }
 
 .ft-social-icon svg {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
 }
 
@@ -157,16 +235,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 
 .ft-copy {
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(248, 244, 239, 0.72);
+  margin: 0;
 }
 
 .ft-credit {
@@ -175,6 +254,7 @@
   font-weight: 500;
   letter-spacing: 0.1em;
   color: rgba(248, 244, 239, 0.48);
+  margin: 0;
 }
 
 .ft-credit a {
@@ -190,12 +270,12 @@
 /* Legal links */
 .ft-legal {
   display: flex;
-  gap: 24px;
+  gap: 20px;
 }
 
 .ft-legal a {
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -205,23 +285,85 @@
 }
 
 .ft-legal a:hover {
-  color: rgba(248, 244, 239, 0.65);
+  color: var(--color-cream);
 }
 
-/* ─── Mobile ─────────────────────────────────────────────────────── */
+/* ─── Tablet ─────────────────────────────────────────────────────── */
 @media (max-width: 1100px) {
-  .ft-cols           { grid-template-columns: 1fr 1fr; gap: 36px; }
-  .ft-cols .ft-col:nth-child(4) { grid-column: span 2; }
+  .ft-cols {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 32px 36px;
+  }
+
+  .ft-col--contact {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 900px) {
-  .ft-inner          { padding: 0 32px; }
-  .ft-root           { padding: 64px 0 40px; }
-  .ft-brand-block    { padding-bottom: 48px; }
-  .ft-cols .ft-col:nth-child(4) { grid-column: span 1; }
+  .ft-inner       { padding: 0 24px; }
+  .ft-root        { padding: 44px 0 24px; }
+  .ft-brand-block { padding-bottom: 28px; }
+  .ft-divider     { margin-bottom: 28px; }
 }
 
+/* ─── Phones ─────────────────────────────────────────────────────── */
 @media (max-width: 600px) {
-  .ft-cols           { grid-template-columns: 1fr; }
-  .ft-bottom         { flex-direction: column; gap: 20px; text-align: center; }
+  .ft-inner       { padding: 0 16px; }
+  .ft-root        { padding: 40px 0 20px; }
+
+  .ft-brand-name  { margin-bottom: 10px; }
+  .ft-brand-block { padding-bottom: 24px; }
+  .ft-divider     { margin-bottom: 4px; }
+  .ft-cols + .ft-divider { margin-bottom: 20px; }
+
+  .ft-cols {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 24px;
+  }
+
+  /* Folding rows: Main Treatments and Pages */
+  .ft-col--treatments,
+  .ft-col:not(.ft-col--contact) {
+    border-bottom: 1px solid rgba(200, 169, 106, 0.18);
+  }
+
+  .ft-col:not(.ft-col--contact) .ft-col-heading {
+    margin: 0;
+  }
+
+  .ft-col-toggle {
+    min-height: 48px;
+  }
+
+  .ft-col:not(.ft-col--contact) .ft-col-body {
+    padding-bottom: 16px;
+  }
+
+  .ft-col--contact {
+    padding-top: 22px;
+  }
+
+  .ft-col--contact .ft-col-heading {
+    margin-bottom: 12px;
+  }
+
+  .ft-col-links li,
+  .ft-col-links a {
+    font-size: 0.82rem;
+  }
+
+  .ft-bottom {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-col-icon::before,
+  .ft-col-icon::after {
+    transition: none;
+  }
 }

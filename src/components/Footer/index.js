@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppointment } from '../../context/AppointmentContext';
 import { EmailLink } from '../../utils/obfuscateEmail';
@@ -21,8 +22,49 @@ const MAIN_TREATMENTS = [
   { label: 'Medical-Grade Skincare',   href: '/main-treatments/medical-grade-skincare' },
 ];
 
+/* On phones the long link lists fold away behind their headings to keep the
+   footer short. The links stay in the HTML (search engines still see them),
+   and everything is open on larger screens and before JavaScript loads. */
+function FooterCol({ id, title, compact, open, onToggle, className = '', children }) {
+  return (
+    <div className={`ft-col ${className}${compact && !open ? ' is-closed' : ''}`}>
+      <h3 className="ft-col-heading">
+        {compact ? (
+          <button
+            type="button"
+            className="ft-col-toggle"
+            aria-expanded={open}
+            aria-controls={`ft-${id}`}
+            onClick={onToggle}
+          >
+            {title}
+            <span className="ft-col-icon" aria-hidden="true" />
+          </button>
+        ) : (
+          title
+        )}
+      </h3>
+      <div className="ft-col-body" id={`ft-${id}`}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
 function Footer() {
   const { openDrawer } = useAppointment();
+  const [compact, setCompact] = useState(false);
+  const [open, setOpen] = useState({ treatments: false, pages: false });
+
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 600px)');
+    const update = () => setCompact(mql.matches);
+    update();
+    mql.addEventListener('change', update);
+    return () => mql.removeEventListener('change', update);
+  }, []);
+
+  const toggle = (key) => setOpen((o) => ({ ...o, [key]: !o[key] }));
 
   return (
     <footer className="ft-root">
@@ -39,22 +81,33 @@ function Footer() {
         {/* ── Divider ── */}
         <div className="ft-divider" />
 
-        {/* ── Four columns ── */}
+        {/* ── Columns ── */}
         <div className="ft-cols">
 
-          <div className="ft-col">
-            <h3 className="ft-col-heading">Main Treatments</h3>
-            <ul className="ft-col-links">
+          <FooterCol
+            id="treatments"
+            title="Main Treatments"
+            className="ft-col--treatments"
+            compact={compact}
+            open={open.treatments}
+            onToggle={() => toggle('treatments')}
+          >
+            <ul className="ft-col-links ft-col-links--split">
               {MAIN_TREATMENTS.map((t) => (
                 <li key={t.href}>
                   <Link to={t.href}>{t.label}</Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </FooterCol>
 
-          <div className="ft-col">
-            <h3 className="ft-col-heading">Pages</h3>
+          <FooterCol
+            id="pages"
+            title="Pages"
+            compact={compact}
+            open={open.pages}
+            onToggle={() => toggle('pages')}
+          >
             <ul className="ft-col-links">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/treatments">Treatments</Link></li>
@@ -64,9 +117,10 @@ function Footer() {
               <li><Link to="/faq">FAQs</Link></li>
               <li><Link to="/locations">Locations</Link></li>
             </ul>
-          </div>
+          </FooterCol>
 
-          <div className="ft-col">
+          {/* Contact stays open on every screen size */}
+          <div className="ft-col ft-col--contact">
             <h3 className="ft-col-heading">Contact</h3>
             <ul className="ft-col-links">
               <li><EmailLink user="kensleyclinic" domain="gmail.com" /></li>
