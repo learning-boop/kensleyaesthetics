@@ -25,6 +25,8 @@ const QUERY = `*[_type == "mainTreatment" && slug.current == $slug][0] {
   benefits,
   ideal,
   faqs[] { q, a },
+  seoTitle,
+  seoDescription,
   subTreatments[]-> {
     "slug": slug.current,
     "title": group,
@@ -49,6 +51,7 @@ function MainTreatmentDetail({ initialTreatment = null }) {
   const [slideDir, setSlideDir]       = useState('right');
 
   useEffect(() => {
+    if (initialTreatment) return;
     client.fetch(QUERY, { slug })
       .then(data => {
         if (data) {
@@ -73,7 +76,7 @@ function MainTreatmentDetail({ initialTreatment = null }) {
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [slug]);
+  }, [slug, initialTreatment]);
 
   if (loading) return null;
   if (!treatment) return (

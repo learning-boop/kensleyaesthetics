@@ -80,11 +80,11 @@ function Blog({ initialPosts = null }) {
     '@type': 'Blog',
     name: 'Kensley Aesthetics Journal',
     description: 'Expert skin and aesthetic advice from the Kensley Aesthetics team.',
-    url: 'https://cancellaesthetic.com/blog',
+    url: 'https://kensleyaesthetics.com/blog',
     publisher: {
       '@type': 'Organization',
       name: 'Kensley Aesthetics',
-      url: 'https://cancellaesthetic.com',
+      url: 'https://kensleyaesthetics.com',
     },
   };
 

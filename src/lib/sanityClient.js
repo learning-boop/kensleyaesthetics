@@ -29,7 +29,7 @@ export const BEFORE_AFTER_QUERY = `*[_type == "beforeAfter"] | order(rank asc) {
 
 // ── Blog ──────────────────────────────────────────────────
 // All published posts — list view (no body to keep payload small)
-export const BLOG_POSTS_QUERY = `*[_type == "blogPost"] | order(featured desc, publishedAt desc) {
+export const BLOG_POSTS_QUERY = `*[_type == "blogPost" && publishedAt <= now()] | order(featured desc, publishedAt desc) {
   "slug": slug.current,
   title,
   excerpt,
@@ -42,7 +42,7 @@ export const BLOG_POSTS_QUERY = `*[_type == "blogPost"] | order(featured desc, p
 }`
 
 // Single post — full detail
-export const BLOG_POST_QUERY = `*[_type == "blogPost" && slug.current == $slug][0] {
+export const BLOG_POST_QUERY = `*[_type == "blogPost" && slug.current == $slug && publishedAt <= now()][0] {
   title,
   "slug": slug.current,
   publishedAt,
@@ -67,7 +67,7 @@ export const BLOG_POST_QUERY = `*[_type == "blogPost" && slug.current == $slug][
 }`
 
 // Recent posts — for sidebar / homepage widget
-export const RECENT_POSTS_QUERY = `*[_type == "blogPost"] | order(publishedAt desc) [0..2] {
+export const RECENT_POSTS_QUERY = `*[_type == "blogPost" && publishedAt <= now()] | order(publishedAt desc) [0..4] {
   "slug": slug.current,
   title,
   publishedAt,
