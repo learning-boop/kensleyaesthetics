@@ -123,7 +123,20 @@
       "Bash(netstat -ano | grep -E \":3001|:3002\" | grep \"LISTENING\")",
       "Bash(taskkill //PID 2444 //F)",
       "Bash(git add:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(tasklist | grep -i -E \"node|next|npm\" 2>/dev/null || echo \"No matching processes\")",
+      "Bash(taskkill //F //IM node.exe 2>/dev/null; echo \"Done killing node processes\")",
+      "Bash(cd D:/creative_touch/renova-next && firebase projects:list 2>&1 | head -20)",
+      "Bash(find /d/creative_touch/renova-next/src /d/creative_touch/renova-next/app -type f \\\\\\( -name \"*.ts\" -o -name \"*.tsx\" -o -name \"*.js\" -o -name \"*.jsx\" \\\\\\) 2>/dev/null | head -40)",
+      "Bash(grep -r \"client.fetch\\\\|TREATMENTS_QUERY\\\\|MAIN_TREATMENTS_QUERY\\\\|SUB_TREATMENT_QUERY\" /d/creative_touch/renova-next/app --include=\"*.js\" --include=\"*.ts\" --include=\"*.tsx\" 2>/dev/null | head -50)",
+      "Bash(grep -r \"client.fetch\\\\|TREATMENTS_QUERY\\\\|MAIN_TREATMENTS_QUERY\\\\|SUB_TREATMENT_QUERY\" /d/creative_touch/renova-next/src --include=\"*.js\" --include=\"*.ts\" --include=\"*.tsx\" 2>/dev/null | head -50)",
+      "Bash(grep -r \"generateStaticParams\\\\|generateMetadata\\\\|fetch.*GROQ\\\\|BLOG\" /d/creative_touch/renova-next/src --include=\"*.js\" --include=\"*.ts\" --include=\"*.tsx\" 2>/dev/null | head -30)",
+      "Bash(grep -r \"revalidate\\\\|revalidatePath\\\\|cache\\\\|ISR\" /d/creative_touch/renova-next/app --include=\"*.js\" --include=\"*.ts\" --include=\"*.tsx\" 2>/dev/null | head -20)",
+      "Bash(find /d/creative_touch/renova-next -name \"*.js\" -o -name \"*.tsx\" | xargs grep -l \"BrowserRouter\\\\|createBrowserRouter\" 2>/dev/null | head -10)",
+      "Bash(grep -A 5 -B 5 \"publishedAt\" /d/creative_touch/renova-next/app/blog/page.js /d/creative_touch/renova-next/app/blog/\\\\[slug\\\\]/page.js 2>/dev/null | head -50)",
+      "Bash(cat /d/creative_touch/renova-next/app/blog/\\\\[slug\\\\]/page.js | head -20)",
+      "Bash(grep -n \"try\\\\|catch\\\\|error\\\\|Error\" /d/creative_touch/renova-next/app/blog/page.js /d/creative_touch/renova-next/app/blog/\\\\[slug\\\\]/page.js 2>/dev/null)",
+      "Bash(cd D:/creative_touch/renova-next && npx next build 2>&1 | tail -40)"
     ]
   }
 }
