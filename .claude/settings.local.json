@@ -136,7 +136,9 @@
       "Bash(grep -A 5 -B 5 \"publishedAt\" /d/creative_touch/renova-next/app/blog/page.js /d/creative_touch/renova-next/app/blog/\\\\[slug\\\\]/page.js 2>/dev/null | head -50)",
       "Bash(cat /d/creative_touch/renova-next/app/blog/\\\\[slug\\\\]/page.js | head -20)",
       "Bash(grep -n \"try\\\\|catch\\\\|error\\\\|Error\" /d/creative_touch/renova-next/app/blog/page.js /d/creative_touch/renova-next/app/blog/\\\\[slug\\\\]/page.js 2>/dev/null)",
-      "Bash(cd D:/creative_touch/renova-next && npx next build 2>&1 | tail -40)"
+      "Bash(cd D:/creative_touch/renova-next && npx next build 2>&1 | tail -40)",
+      "Bash(node -e \"\nconst fs = require\\('fs'\\);\nconst data = fs.readFileSync\\('D:/creative_touch/renova-next/src/data/team.js', 'utf8'\\);\nconst lines = data.split\\('\\\\n'\\);\nlines.forEach\\(\\(line, i\\) => {\n  if \\(/[\\\\u2018\\\\u2019\\\\u201C\\\\u201D]/.test\\(line\\)\\) {\n    console.log\\('Line ' + \\(i+1\\) + ': ' + line.substring\\(0, 120\\)\\);\n  }\n}\\);\n\")",
+      "Bash(node -e \"require\\('D:/creative_touch/renova-next/src/data/team.js'\\)\" 2>&1)"
     ]
   }
 }

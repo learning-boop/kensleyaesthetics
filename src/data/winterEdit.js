@@ -28,7 +28,7 @@ export const WINTER_EDIT = {
       items: [
         // Client's list says "HydraFacial"; the clinic's device is listed on the site as the 3D HydrO2 Facial
         { name: '3D HydrO2 Facial', note: 'Face treatment', was: 199, now: 99, href: '/main-treatments/hydro2-facial' },
-        { name: 'Chemical Peel', note: 'Face treatment', was: 125, now: 79, href: '/main-treatments/chemical-peel' },
+        { name: 'Chemical Peel', note: 'Face treatment', was: 150, now: 99, href: '/main-treatments/chemical-peel' },
       ],
     },
     {
@@ -37,7 +37,6 @@ export const WINTER_EDIT = {
       focus: '40% 32%',
       items: [
         { name: 'Microneedling', note: 'Face treatment', was: 199, now: 129, href: '/main-treatments/microneedling' },
-        { name: 'Microneedling course', note: 'Face treatment · Course of 3 sessions', was: 500, now: 349, href: '/main-treatments/microneedling' },
         { name: 'RF Microneedling', note: 'Face treatment', was: 499, now: 349, href: '/main-treatments/rf-microneedling' },
       ],
     },
@@ -49,7 +48,6 @@ export const WINTER_EDIT = {
         { name: 'Skin Booster', note: 'Face treatment', was: 225, now: 149, href: '/main-treatments/skin-boosters' },
         { name: 'Profhilo', note: 'Face treatment', was: 299, now: 199, href: '/main-treatments/profhilo' },
         { name: 'Polynucleotides', note: 'Face treatment', was: 299, now: 199, href: '/main-treatments/polynucleotides' },
-        { name: 'PRP', note: 'Face treatment', was: 350, now: 249, href: '/main-treatments/prp' },
       ],
     },
     {
