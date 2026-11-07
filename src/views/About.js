@@ -81,12 +81,15 @@ function About() {
                 concerns and medical history, assess your skin and facial structure, and explain
                 your options honestly, including when doing less is the better choice.
               </p>
-              <p className="ab-intro__founder">
-                Kensley Aesthetics was founded by Dr Matla. As Founder and Clinical Lead,
-                Dr Matla oversees a dedicated team of qualified medical aesthetic practitioners
-                who deliver personalised treatments with a strong focus on patient safety,
-                clinical excellence and natural-looking results.
-              </p>
+              <div className="ab-intro__founder-card">
+                <span className="ab-intro__founder-label">Founder &amp; Clinical Lead</span>
+                <h3 className="ab-intro__founder-name">Dr Matla</h3>
+                <p className="ab-intro__founder-text">
+                  Kensley Aesthetics was founded by Dr Matla, who oversees a dedicated
+                  team of qualified medical aesthetic practitioners — with a strong focus
+                  on patient safety, clinical excellence and natural-looking results.
+                </p>
+              </div>
             </div>
           </div>
 

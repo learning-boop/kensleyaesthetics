@@ -89,12 +89,39 @@
   margin: 0 0 22px;
 }
 
-.ab-intro__text .ab-intro__founder {
+.ab-intro__founder-card {
   margin: 34px 0 0;
-  padding-top: 26px;
-  border-top: 1px solid rgba(200, 169, 106, 0.6);
-  font-size: 15px;
-  color: rgba(11, 42, 74, 0.78);
+  padding: 24px 28px;
+  border-left: 3px solid var(--color-gold);
+  background: rgba(200, 169, 106, 0.06);
+}
+
+.ab-intro__founder-label {
+  display: block;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 6px;
+}
+
+.ab-intro__founder-name {
+  font-family: 'Cormorant', 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--color-navy);
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+.ab-intro__founder-text {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(11, 42, 74, 0.7);
+  margin: 0;
 }
 
 .ab-intro__commitments {

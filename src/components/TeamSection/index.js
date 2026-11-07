@@ -3,10 +3,10 @@ import { useAppointment } from '../../context/AppointmentContext';
 import './TeamSection.css';
 
 const TEAM_IMAGES = [
-  { src: '/images/kensley-real/team-a-dr-mariyam-durrani-kensley-aesthetics.webp', alt: 'Dr Mariyam Durrani, Aesthetic Practitioner at Kensley Aesthetics, Newcastle' },
-  { src: '/images/kensley-real/team-b-aesthetic-practitioner-kensley-aesthetics.webp', alt: 'Aesthetic practitioner at Kensley Aesthetics clinic, Newcastle' },
-  { src: '/images/kensley-real/team-c-aesthetic-practitioner-kensley-aesthetics.webp', alt: 'Aesthetic practitioner at Kensley Aesthetics clinic in Jesmond, Newcastle' },
-  { src: '/images/kensley-real/team-d-aesthetic-practitioner-kensley-aesthetics.webp', alt: 'Aesthetic practitioner at Kensley Aesthetics clinic, Newcastle' },
+  { src: '/images/kensley-real/team-a-dr-mariyam-durrani-kensley-aesthetics.webp', alt: 'Dr Mariyam Durrani, Aesthetic Practitioner at Kensley Aesthetics, Newcastle', name: 'Dr Mariyam Durrani', role: 'Facial Aesthetics Practitioner' },
+  { src: '/images/kensley-real/team-b-aesthetic-practitioner-kensley-aesthetics.webp', alt: 'Dr Pamela Inglis, Aesthetic Practitioner at Kensley Aesthetics clinic, Newcastle', name: 'Dr Pamela Inglis', role: 'Aesthetic Practitioner' },
+  { src: '/images/kensley-real/team-c-aesthetic-practitioner-kensley-aesthetics.webp', alt: 'Sophia Azam, Aesthetic Practitioner at Kensley Aesthetics clinic in Jesmond, Newcastle', name: 'Sophia Azam', role: 'Aesthetic Practitioner' },
+  { src: '/images/kensley-real/team-d-aesthetic-practitioner-kensley-aesthetics.webp', alt: 'Jacquelyn Foggin, Aesthetic Practitioner at Kensley Aesthetics clinic, Newcastle', name: 'Jacquelyn Foggin', role: 'Aesthetic Practitioner' },
 ];
 
 /* ── Homepage team slider ──────────────────────────────── */
@@ -32,6 +32,10 @@ export function TeamSplit() {
                 loading="lazy"
                 sizes="(max-width: 860px) 70vw, 320px"
               />
+              <div className="team-slider__info">
+                <p className="team-slider__name">{img.name}</p>
+                <p className="team-slider__role">{img.role}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -41,8 +45,11 @@ export function TeamSplit() {
 }
 
 const PRACTITIONER_ROLES = [
-  { title: 'Aesthetics Practitioner', name: 'Dr Mariyam Durrani', creds: 'Aesthetic Practitioner' },
-  { title: 'Aesthetics Practitioner', name: 'Aesthetics Practitioner', creds: 'Aesthetics Practitioner' },
+  { title: 'Founder & Clinical Lead', name: 'Dr Matla', creds: 'Founder & Clinical Lead' },
+  { title: 'Facial Aesthetics Practitioner', name: 'Dr Mariyam Durrani', creds: 'Facial Aesthetics Practitioner' },
+  { title: 'Aesthetic Practitioner', name: 'Dr Pamela Inglis', creds: 'Aesthetic Practitioner' },
+  { title: 'Aesthetic Practitioner', name: 'Sophia Azam', creds: 'Aesthetic Practitioner' },
+  { title: 'Aesthetic Practitioner', name: 'Jacquelyn Foggin', creds: 'Aesthetic Practitioner' },
 ];
 
 /* ── About page team section ────────────────────────────── */
@@ -84,13 +91,6 @@ export default function TeamSection() {
                 </div>
               </div>
             ))}
-            <div className="ts-about-team__row ts-about-team__row--muted">
-              <span className="ts-about-team__row-num">—</span>
-              <div>
-                <p className="ts-about-team__row-name">+ 2 additional practitioners</p>
-                <p className="ts-about-team__row-creds">Clinically trained &amp; patient focused</p>
-              </div>
-            </div>
           </div>
         </div>
 
