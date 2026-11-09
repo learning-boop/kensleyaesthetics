@@ -212,7 +212,7 @@ export default function WinterEdit({ initialEnded = false }) {
             <Link to="/about" className="we-link">Meet the team</Link>
           </div>
           <ul className="we-team__grid">
-            {TEAM.filter((p) => p.photo).map((p) => (
+            {TEAM.filter((p) => p.photo && !p.aboutOnly).map((p) => (
               <li className="we-team__person" key={p.slug}>
                 <img
                   src={p.photo}

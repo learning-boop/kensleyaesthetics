@@ -1,13 +1,11 @@
 import Image from 'next/image';
 import { useAppointment } from '../../context/AppointmentContext';
+import { TEAM } from '../../data/team';
 import './TeamSection.css';
 
-const TEAM_IMAGES = [
-  { src: '/images/kensley-real/team-a-dr-mariyam-durrani-kensley-aesthetics.webp', alt: 'Dr Mariyam Durrani, Aesthetic Practitioner at Kensley Aesthetics, Newcastle', name: 'Dr Mariyam Durrani', role: 'Facial Aesthetics Practitioner' },
-  { src: '/images/kensley-real/team-b-aesthetic-practitioner-kensley-aesthetics.webp', alt: 'Dr Pamela Inglis, Aesthetic Practitioner at Kensley Aesthetics clinic, Newcastle', name: 'Dr Pamela Inglis', role: 'Aesthetic Practitioner' },
-  { src: '/images/kensley-real/team-c-aesthetic-practitioner-kensley-aesthetics.webp', alt: 'Sophia Azam, Aesthetic Practitioner at Kensley Aesthetics clinic in Jesmond, Newcastle', name: 'Sophia Azam', role: 'Aesthetic Practitioner' },
-  { src: '/images/kensley-real/team-d-aesthetic-practitioner-kensley-aesthetics.webp', alt: 'Jacquelyn Foggin, Aesthetic Practitioner at Kensley Aesthetics clinic, Newcastle', name: 'Jacquelyn Foggin', role: 'Aesthetic Practitioner' },
-];
+// Same people and round photos as the About page (src/data/team.js).
+// Profiles marked aboutOnly (Dr Matla) stay off the homepage.
+const HOME_TEAM = TEAM.filter((p) => p.photo && !p.aboutOnly);
 
 /* ── Homepage team slider ──────────────────────────────── */
 export function TeamSplit() {
@@ -20,21 +18,28 @@ export function TeamSplit() {
 
       <div className="team-slider__track-wrap">
         <div className="team-slider__track">
-          {/* Double the images for seamless infinite loop */}
-          {[...TEAM_IMAGES, ...TEAM_IMAGES].map((img, i) => (
-            <div key={i} className="team-slider__slide">
+          {/* Double the list for a seamless infinite loop; the copy is hidden from screen readers */}
+          {[...HOME_TEAM, ...HOME_TEAM].map((p, i) => (
+            <div
+              key={`${p.slug}-${i}`}
+              className="team-slider__slide"
+              aria-hidden={i >= HOME_TEAM.length ? 'true' : undefined}
+            >
               <Image
-                src={img.src}
-                alt={img.alt}
+                src={p.photoRound || p.photo}
+                alt={i >= HOME_TEAM.length ? '' : `${p.name}, ${p.role} at Kensley Aesthetics, Newcastle`}
                 className="team-slider__img"
-                width={500}
-                height={500}
+                width={600}
+                height={600}
                 loading="lazy"
-                sizes="(max-width: 860px) 70vw, 320px"
+                sizes="(max-width: 480px) 200px, (max-width: 900px) 240px, 280px"
               />
               <div className="team-slider__info">
-                <p className="team-slider__name">{img.name}</p>
-                <p className="team-slider__role">{img.role}</p>
+                <p className="team-slider__name">{p.name}</p>
+                <p className="team-slider__role">{p.role}</p>
+                {p.qualification && (
+                  <p className="team-slider__qual">{p.qualification}</p>
+                )}
               </div>
             </div>
           ))}

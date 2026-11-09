@@ -42,62 +42,87 @@
 }
 
 .team-slider__track-wrap {
+  --team-gap: 56px;
+  --team-photo: 280px;
   width: 100%;
   overflow: hidden;
+  padding-top: 12px; /* room for the gold ring */
 }
 
 .team-slider__track {
   display: flex;
-  gap: 24px;
-  animation: team-scroll 25s linear infinite;
+  gap: var(--team-gap);
+  animation: team-scroll 30s linear infinite;
   width: max-content;
 }
 
 .team-slider__slide {
   flex-shrink: 0;
-  width: 400px;
+  width: calc(var(--team-photo) + 24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Round portraits with a fine gold ring — same treatment as the About page */
 .team-slider__img {
-  width: 100%;
-  height: 400px;
-  object-fit: contain;
   display: block;
-  border-radius: 8px;
+  width: var(--team-photo);
+  height: var(--team-photo);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #EFE9E0;
+  outline: 1px solid rgba(200, 169, 106, 0.55);
+  outline-offset: 8px;
 }
 
 .team-slider__info {
   text-align: center;
-  padding: 14px 8px 0;
+  padding: 26px 8px 0;
 }
 
 .team-slider__name {
   font-family: 'Cormorant', 'Cormorant Garamond', Georgia, serif;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 500;
   color: var(--color-primary);
-  margin: 0 0 2px;
+  margin: 0 0 6px;
   line-height: 1.2;
 }
 
 .team-slider__role {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 11px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #8A6F3A;
+  margin: 0 0 4px;
+}
+
+.team-slider__qual {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
   color: var(--color-primary);
-  opacity: 0.55;
+  opacity: 0.65;
   margin: 0;
 }
 
 @keyframes team-scroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 12px)); }
+  100% { transform: translateX(calc(-50% - var(--team-gap) / 2)); }
 }
 
 /* Pause on hover */
 .team-slider__track-wrap:hover .team-slider__track {
   animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-slider__track {
+    animation: none;
+  }
 }
 
 /* ─── Responsive: slider ─────────────────────────────────── */
@@ -110,26 +135,20 @@
     margin-bottom: 32px;
   }
 
-  .team-slider__slide {
-    width: 320px;
-  }
-
-  .team-slider__img {
-    height: 320px;
-  }
-
-  .team-slider__track {
-    gap: 16px;
+  .team-slider__track-wrap {
+    --team-gap: 36px;
+    --team-photo: 240px;
   }
 }
 
 @media (max-width: 480px) {
-  .team-slider__slide {
-    width: 260px;
+  .team-slider__track-wrap {
+    --team-gap: 28px;
+    --team-photo: 200px;
   }
 
-  .team-slider__img {
-    height: 260px;
+  .team-slider__name {
+    font-size: 22px;
   }
 
   .team-slider__title {

@@ -15,6 +15,12 @@ function initials(name) {
     .toUpperCase();
 }
 
+// "Dr Mariyam Durrani" → "Mariyam"; a single surname keeps its title ("Dr Matla")
+function shortName(name) {
+  const parts = name.replace(/^Dr\s+/i, '').split(/\s+/);
+  return parts.length > 1 ? parts[0] : name;
+}
+
 function Profile({ person }) {
   const [open, setOpen] = useState(false);
   const extra = person.bio.length > PREVIEW_PARAGRAPHS;
@@ -75,7 +81,7 @@ function Profile({ person }) {
             aria-controls={bioId}
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? 'Show less' : `Read more about ${person.name.replace(/^Dr\s+/i, '').split(' ')[0]}`}
+            {open ? 'Show less' : `Read more about ${shortName(person.name)}`}
           </button>
         )}
       </div>
