@@ -9,8 +9,6 @@ import SeoHead from '../components/SeoHead';
 import './pages.css';
 import './Blog.css';
 
-const CATEGORIES = ['All', 'Skin Tips', 'Treatments', 'Aftercare', 'Client Stories', 'News'];
-
 function formatDate(iso) {
   return new Date(iso).toLocaleDateString('en-GB', {
     day: 'numeric', month: 'long', year: 'numeric',
@@ -62,11 +60,10 @@ function Blog({ initialPosts = null }) {
   const [activeCategory, setActive] = useState('All');
 
   useEffect(() => {
-    if (initialPosts) return; // already rendered at build time
     client.fetch(BLOG_POSTS_QUERY)
       .then(setPosts)
       .finally(() => setLoading(false));
-  }, [initialPosts]);
+  }, []);
 
   const filtered = activeCategory === 'All'
     ? posts
@@ -106,21 +103,6 @@ function Blog({ initialPosts = null }) {
 
       <section className="page-section">
         <div className="container">
-
-          {/* Category filter */}
-          <div className="blog-filters" role="tablist" aria-label="Filter by category">
-            {CATEGORIES.map(cat => (
-              <button
-                key={cat}
-                role="tab"
-                aria-selected={activeCategory === cat}
-                className={`blog-filter-btn${activeCategory === cat ? ' blog-filter-btn--active' : ''}`}
-                onClick={() => setActive(cat)}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
 
           {loading && (
             <div className="blog-loading">

@@ -7,6 +7,9 @@ import { sanityImg } from '../utils/sanityImage';
 import { STATIC_SUB_TREATMENTS } from '../data/subTreatments';
 import SeoHead from '../components/SeoHead';
 import QuickContact from '../components/QuickContact';
+import RichText from '../components/RichText';
+import { BookLink, ClosingCta, LongFormSections, TreatmentMedia } from '../components/TreatmentLongForm';
+import { hasSubPages, isRich, localSub } from '../data/richTreatments';
 import './TreatmentDetail.css';
 import './SubTreatmentDetail.css';
 
@@ -22,9 +25,21 @@ function SubTreatmentDetail({ initialTreatment = null }) {
   const tabBarRef                     = useRef(null);
 
   useEffect(() => {
+    // Pre-rendered pages already have their content; don't refetch (avoids a blank flash).
+    if (initialTreatment) return;
     setLoading(true);
     client.fetch(SUB_TREATMENT_QUERY, { slug, subSlug })
+      .catch(() => null)
       .then(data => {
+        // Long-form treatments (Dermal Fillers): local content until it has been pushed to Sanity.
+        if (hasSubPages(slug) && !isRich(data)) {
+          const local = localSub(slug, subSlug);
+          if (local) {
+            setTreatment({ ...local, image: data?.image || local.image || null });
+            setLoading(false);
+            return;
+          }
+        }
         if (data) {
           setTreatment(data);
         } else {
@@ -69,9 +84,8 @@ function SubTreatmentDetail({ initialTreatment = null }) {
           }
         }
         setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, [slug, subSlug]);
+      });
+  }, [slug, subSlug, initialTreatment]);
 
   if (loading) return null;
 
@@ -85,6 +99,11 @@ function SubTreatmentDetail({ initialTreatment = null }) {
       </Link>
     </div>
   );
+
+  // Long-form layout (Dermal Fillers treatment pages)
+  if (isRich(treatment)) {
+    return <SubTreatmentLongForm treatment={treatment} slug={slug} subSlug={subSlug} />;
+  }
 
   const reviews    = treatment.reviews || [];
   const prevReview = () => setReviewIndex(i => (i - 1 + reviews.length) % reviews.length);
@@ -392,6 +411,124 @@ function SubTreatmentDetail({ initialTreatment = null }) {
 
       <QuickContact />
     </>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════
+ * Long-form treatment page (Dermal Fillers sub-treatments):
+ * hero → content sections → FAQs → related → closing CTA.
+ * Structured data (Service, BreadcrumbList, FAQPage) is output
+ * server-side by app/main-treatments/[slug]/[subSlug]/page.js.
+ * ════════════════════════════════════════════════════════════ */
+function SubTreatmentLongForm({ treatment, slug, subSlug }) {
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const parentLabel = treatment.parentLabel || slug
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase());
+  const parentPath = `/main-treatments/${slug}`;
+  const related = (treatment.relatedTreatments || []).filter(r => r && r.slug);
+
+  return (
+    <div className="lf-page">
+      <SeoHead
+        title={treatment.seoTitle || `${treatment.label} Newcastle | Kensley Aesthetics`}
+        exactTitle={Boolean(treatment.seoTitle)}
+        description={(treatment.seoDescription || treatment.tagline || '').slice(0, 160)}
+        path={`${parentPath}/${subSlug}`}
+      />
+
+      {/* ── BREADCRUMB ───────────────────────────────────── */}
+      <nav className="std-breadcrumb" aria-label="Breadcrumb">
+        <Link to="/treatments" className="std-breadcrumb__link">Treatments</Link>
+        <span className="std-breadcrumb__sep">›</span>
+        <Link to={parentPath} className="std-breadcrumb__link">{parentLabel}</Link>
+        <span className="std-breadcrumb__sep">›</span>
+        <span className="std-breadcrumb__current" aria-current="page">{treatment.label}</span>
+      </nav>
+
+      {/* ── HERO: content one side, image the other ──────── */}
+      <section className="lf-subhero">
+        <div className="lf-subhero__content">
+          <span className="lf-subhero__eyebrow">{parentLabel}</span>
+          <h1 className="lf-subhero__title">{treatment.heroTitle || treatment.label}</h1>
+          {treatment.tagline && <p className="lf-subhero__tagline">{treatment.tagline}</p>}
+          <RichText text={treatment.description} className="rt lf-rich" leadClassName="lf-lead" />
+          <div>
+            <BookLink label={treatment.heroCtaLabel || treatment.ctaLabel} />
+          </div>
+        </div>
+        <div className="lf-subhero__media">
+          <TreatmentMedia
+            image={treatment.image}
+            alt={treatment.heroTitle || treatment.label}
+            label={treatment.label}
+            width={1100}
+            height={900}
+            priority
+          />
+        </div>
+      </section>
+
+      {/* ── CONTENT SECTIONS ─────────────────────────────── */}
+      <LongFormSections sections={treatment.pageSections} />
+
+      {/* ── FAQ ──────────────────────────────────────────── */}
+      {treatment.faqs && treatment.faqs.length > 0 && (
+        <section className="std-faq">
+          <div className="std-faq__inner">
+            <span className="std-faq__eyebrow">Common Questions</span>
+            <h2 className={`std-faq__title${treatment.faqHeading ? ' std-faq__title--long' : ''}`}>
+              {treatment.faqHeading || 'Frequently Asked'}
+            </h2>
+            <div className="std-faq__list">
+              {treatment.faqs.map((faq, i) => (
+                <div className="std-faq__item" key={i}>
+                  <button
+                    className="std-faq__btn"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    aria-expanded={openFaq === i}
+                  >
+                    <span className="std-faq__q">{faq.q}</span>
+                    <span className="std-faq__toggle">{openFaq === i ? '−' : '+'}</span>
+                  </button>
+                  <div className={`std-faq__answer${openFaq === i ? ' std-faq__answer--open' : ''}`}>
+                    <p className="std-faq__answer-text">{faq.a}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── RELATED TREATMENTS ───────────────────────────── */}
+      {related.length > 0 && (
+        <section className="std-related">
+          <div className="std-related__inner">
+            <span className="std-related__eyebrow">You May Also Consider</span>
+            <h2 className="std-related__title">Related Treatments</h2>
+            <div className="std-related__grid">
+              {related.map(rt => (
+                <Link key={rt.slug} to={`/main-treatments/${rt.parentSlug || slug}/${rt.slug}`} className="std-related__card">
+                  <span className="std-related__group">{rt.title || parentLabel}</span>
+                  <span className="std-related__name">{rt.name}</span>
+                  <span className="std-related__arrow">→</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── CLOSING CALL TO ACTION + BACK LINK ───────────── */}
+      <ClosingCta
+        heading={treatment.ctaHeading}
+        body={treatment.ctaBody}
+        label={treatment.ctaLabel}
+        back={{ to: parentPath, label: treatment.backLinkLabel || `Back to ${parentLabel}` }}
+      />
+    </div>
   );
 }
 

@@ -20,6 +20,21 @@ RewriteRule ^ https://kensleyaesthetics.com%{REQUEST_URI} [R=301,L]
 #    server because the deploy never deletes files, so answer 410 Gone (with the
 #    site's 404 page) for /main-treatments/<treatment>/<sub-treatment> in any form.
 #    Main treatment pages (/main-treatments/hifu) are not affected.
+#
+#    EXCEPTION (Nov 2026): Dermal Fillers has 10 live treatment pages again.
+#    a) Old Dermal Fillers URLs 301 to their new address (keep in sync with
+#       DERMAL_FILLERS_REDIRECTS in src/data/dermalFillersContent.js).
+RewriteRule ^main-treatments/dermal-fillers/lips-1ml(\.html)?/?$ /main-treatments/dermal-fillers/lip-fillers [R=301,L]
+RewriteRule ^main-treatments/dermal-fillers/cheeks(\.html)?/?$ /main-treatments/dermal-fillers/cheek-fillers [R=301,L]
+RewriteRule ^main-treatments/dermal-fillers/chin(\.html)?/?$ /main-treatments/dermal-fillers/chin-fillers [R=301,L]
+RewriteRule ^main-treatments/dermal-fillers/jawline(\.html)?/?$ /main-treatments/dermal-fillers/jawline-fillers [R=301,L]
+RewriteRule ^main-treatments/dermal-fillers/nasolabial-folds(\.html)?/?$ /main-treatments/dermal-fillers/nasolabial-fold-fillers [R=301,L]
+RewriteRule ^main-treatments/dermal-fillers/marionette-lines(\.html)?/?$ /main-treatments/dermal-fillers/marionette-line-fillers [R=301,L]
+RewriteRule ^main-treatments/dermal-fillers/tear-trough(\.html)?/?$ /main-treatments/dermal-fillers/tear-trough-fillers [R=301,L]
+RewriteRule ^main-treatments/dermal-fillers/temples(\.html)?/?$ /main-treatments/dermal-fillers/temple-fillers [R=301,L]
+#    b) The live pages (and their .txt payloads) skip the 410 rule below.
+#       Add a slug here whenever a Dermal Fillers page is added in Sanity.
+RewriteCond %{REQUEST_URI} !^/main-treatments/dermal-fillers/(lip-fillers|cheek-fillers|chin-fillers|jawline-fillers|nasolabial-fold-fillers|marionette-line-fillers|facial-balancing|non-surgical-rhinoplasty|tear-trough-fillers|temple-fillers)(\.html|\.txt)?/?$
 RewriteRule ^main-treatments/[^/]+/[^/]+ - [G,L]
 
 # 0b) Only real location pages are public. Old town pages left on the server

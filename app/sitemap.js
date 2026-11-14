@@ -1,6 +1,7 @@
 import { LOCATIONS } from '@/src/data/locations';
 import { STATIC_MAIN_TREATMENTS } from '@/src/data/mainTreatments';
 import { client } from '@/src/lib/sanityClient';
+import { getSubPageParams } from '@/src/lib/subPages';
 import { isWinterEditLive } from '@/src/data/winterEdit';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
@@ -24,8 +25,10 @@ const FALLBACK_MAIN_TREATMENT_SLUGS = [
 
 // /book and /treatment-plan are noindexed (thin pages), so they are not listed.
 // Sub-treatment pages (/main-treatments/<slug>/<sub>) were removed from the
-// site in Nov 2026 and are no longer built, so they are not listed here.
-// public/.htaccess returns 410 Gone for any old copies left on the server.
+// site in Nov 2026. Only the treatments in SUB_PAGE_PARENTS
+// (src/data/richTreatments.js — currently Dermal Fillers) have them again;
+// they are listed below from the same source the pages are built from.
+// public/.htaccess returns 410 Gone for every other old copy on the server.
 
 async function fetchSlugs(query, fallback) {
   try {
@@ -97,6 +100,13 @@ export default async function sitemap() {
     lastModified: now,
   }));
 
+  const subTreatmentPages = (await getSubPageParams()).map(({ slug, subSlug }) => ({
+    url: `${SITE_URL}/main-treatments/${slug}/${subSlug}`,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+    lastModified: now,
+  }));
+
   const blogPages = (await fetchBlogPosts()).map((post) => ({
     url: `${SITE_URL}/blog/${post.slug}`,
     changeFrequency: 'monthly',
@@ -111,5 +121,5 @@ export default async function sitemap() {
     lastModified: now,
   }));
 
-  return [...staticPages, ...treatmentPages, ...mainTreatmentPages, ...blogPages, ...locationPages];
+  return [...staticPages, ...treatmentPages, ...mainTreatmentPages, ...subTreatmentPages, ...blogPages, ...locationPages];
 }

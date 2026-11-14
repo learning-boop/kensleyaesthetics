@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { client, BLOG_POST_QUERY, RECENT_POSTS_QUERY } from '@/src/lib/sanityClient';
+import { faqPageJsonLd } from '@/src/data/pageFaqs';
 import BlogPostClient from './BlogPostClient';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
@@ -78,12 +79,21 @@ export default async function BlogPostPage({ params }) {
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${post.slug}` },
   } : null;
 
+  // FAQPage schema — only for posts that have FAQs (matches the visible FAQ section).
+  const faqJsonLd = post ? faqPageJsonLd(post.faqs || []) : null;
+
   return (
     <>
       {jsonLd && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       )}
       <BlogPostClient initialPost={post} initialRelated={related} />

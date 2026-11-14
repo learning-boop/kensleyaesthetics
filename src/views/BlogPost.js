@@ -7,6 +7,7 @@ import { sanityImg, sanitySrcSet } from '../utils/sanityImage';
 import SeoHead from '../components/SeoHead';
 import { SITE_URL } from '../components/SeoHead';
 import CtaSection from '../components/CtaSection';
+import RichText from '../components/RichText';
 import './pages.css';
 import './Blog.css';
 
@@ -120,6 +121,7 @@ function BlogPost({ initialPost = null, initialRelated = [] }) {
   const canonicalPath  = `/blog/${post.slug}`;
 
   const dateModified = post._updatedAt || post.publishedAt;
+  const faqs = (post.faqs || []).filter(f => f && f.q && f.a);
 
   // ── JSON-LD: BlogPosting schema ───────────────────────────
   const jsonLd = {
@@ -163,6 +165,7 @@ function BlogPost({ initialPost = null, initialRelated = [] }) {
         publishedTime={post.publishedAt}
         modifiedTime={dateModified}
         jsonLd={jsonLd}
+        faqs={initialPost ? undefined : faqs}
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Blog', path: '/blog' },
@@ -214,6 +217,26 @@ function BlogPost({ initialPost = null, initialRelated = [] }) {
                   <PortableText value={post.body} components={portableTextComponents} />
                 )}
               </div>
+
+              {/* FAQs (optional, from Sanity). Native <details> keeps every answer in the HTML. */}
+              {faqs.length > 0 && (
+                <section className="bp-faq" aria-labelledby="bp-faq-title">
+                  <h2 id="bp-faq-title" className="bp-faq__title">
+                    {post.faqHeading || 'Frequently Asked Questions'}
+                  </h2>
+                  <div className="bp-faq__list">
+                    {faqs.map((faq, i) => (
+                      <details className="bp-faq__item" key={faq._key || i}>
+                        <summary className="bp-faq__q">
+                          <span>{faq.q}</span>
+                          <span className="bp-faq__icon" aria-hidden="true" />
+                        </summary>
+                        <RichText text={faq.a} className="rt bp-faq__a" />
+                      </details>
+                    ))}
+                  </div>
+                </section>
+              )}
 
               {/* Tags / category footer */}
               <div className="bp-footer">

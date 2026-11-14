@@ -34,7 +34,8 @@ export const mainTreatment = defineType({
       name: 'description',
       title: 'Description',
       type: 'text',
-      rows: 5,
+      rows: 8,
+      description: 'Intro text in the hero. Blank line = new paragraph (the first paragraph is shown as the lead).',
     }),
     defineField({
       name: 'image',
@@ -114,6 +115,79 @@ export const mainTreatment = defineType({
       rows: 3,
       description: 'Custom meta description. Max 160 characters.',
       validation: Rule => Rule.max(160).warning('Aim for under 160 characters'),
+    }),
+    // ── Long-form page (used by treatments with sub-treatment pages, e.g. Dermal Fillers) ──
+    // When "Content Sections" is filled in, the page uses the long-form layout:
+    // hero → intro sections → treatment rows → content sections → FAQs → closing CTA.
+    defineField({
+      name: 'heroTitle',
+      title: 'Page Heading (H1)',
+      type: 'string',
+      description: 'e.g. "Dermal Fillers in Newcastle upon Tyne". Falls back to the treatment name.',
+    }),
+    defineField({
+      name: 'heroCtaLabel',
+      title: 'Hero Button Label',
+      type: 'string',
+      description: 'e.g. "Book a Dermal Filler Consultation"',
+    }),
+    defineField({
+      name: 'introSections',
+      title: 'Intro Sections (before the treatment list)',
+      type: 'array',
+      of: [defineArrayMember({ type: 'pageSection' })],
+    }),
+    defineField({
+      name: 'treatmentsHeading',
+      title: 'Treatment List Heading',
+      type: 'string',
+      description: 'e.g. "Explore Our Dermal Filler Treatments". The list itself comes from "Sub-Treatments" below (in that order).',
+    }),
+    defineField({
+      name: 'treatmentsIntro',
+      title: 'Treatment List Intro',
+      type: 'text',
+      rows: 3,
+    }),
+    defineField({
+      name: 'pageSections',
+      title: 'Content Sections (after the treatment list)',
+      type: 'array',
+      of: [defineArrayMember({ type: 'pageSection' })],
+    }),
+    defineField({
+      name: 'faqHeading',
+      title: 'FAQ Heading',
+      type: 'string',
+      description: 'e.g. "Frequently Asked Questions About Dermal Fillers"',
+    }),
+    defineField({
+      name: 'ctaHeading',
+      title: 'Closing CTA Heading',
+      type: 'string',
+    }),
+    defineField({
+      name: 'ctaBody',
+      title: 'Closing CTA Text',
+      type: 'text',
+      rows: 3,
+    }),
+    defineField({
+      name: 'ctaAddress',
+      title: 'Closing CTA Address',
+      type: 'text',
+      rows: 3,
+      description: 'One line per row. The first line is shown as the clinic name.',
+    }),
+    defineField({
+      name: 'ctaPhone',
+      title: 'Closing CTA Telephone',
+      type: 'string',
+    }),
+    defineField({
+      name: 'ctaLabel',
+      title: 'Closing CTA Button Label',
+      type: 'string',
     }),
     defineField({
       name: 'subTreatments',

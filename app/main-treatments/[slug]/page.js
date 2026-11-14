@@ -1,8 +1,9 @@
-import { client } from '@/src/lib/sanityClient';
+import { client, MAIN_TREATMENT_DETAIL_QUERY } from '@/src/lib/sanityClient';
 import { STATIC_MAIN_TREATMENTS } from '@/src/data/mainTreatments';
 import { STATIC_SUB_TREATMENTS } from '@/src/data/subTreatments';
 import { TREATMENT_KEYWORDS } from '@/src/data/keywords';
 import { treatmentFaqs } from '@/src/data/pageFaqs';
+import { withLocalMain, hasSubPages } from '@/src/data/richTreatments';
 import MainTreatmentDetailClient from './MainTreatmentDetailClient';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
@@ -15,32 +16,8 @@ export async function generateStaticParams() {
   return allSlugs.map((slug) => ({ slug }));
 }
 
-const FULL_QUERY = `*[_type == "mainTreatment" && slug.current == $slug][0] {
-  num,
-  "slug": slug.current,
-  label,
-  tagline,
-  description,
-  "image": image.asset->url,
-  "image_second": image_second.asset->url,
-  "reviews": reviews[].asset->url,
-  benefits,
-  ideal,
-  faqs[] { q, a },
-  seoTitle,
-  seoDescription,
-  subTreatments[]-> {
-    "slug": slug.current,
-    "title": group,
-    "name": label,
-    description,
-    tagline,
-    "image": image.asset->url,
-    duration,
-    priceStandard,
-    priceIntro,
-  }
-}`;
+// Query lives in src/lib/sanityClient.js (shared with the client view).
+const FULL_QUERY = MAIN_TREATMENT_DETAIL_QUERY;
 
 // Adds the AEO/GEO FAQ updates (src/data/pageFaqs.js) on top of the Sanity / static FAQs,
 // so the visible accordion and the FAQPage schema below always match.
@@ -51,7 +28,14 @@ async function getTreatment(slug) {
 }
 
 async function getTreatmentBase(slug) {
-  const data = await client.fetch(FULL_QUERY, { slug });
+  let data = null;
+  try {
+    data = await client.fetch(FULL_QUERY, { slug });
+  } catch (err) {
+    if (!hasSubPages(slug)) throw err;
+  }
+  // Long-form treatments (Dermal Fillers): use local content until it has been pushed to Sanity.
+  if (hasSubPages(slug)) return withLocalMain(slug, data);
   if (data) {
     if (!data.subTreatments || data.subTreatments.length === 0) {
       data.subTreatments = STATIC_SUB_TREATMENTS[slug] || [];
@@ -131,15 +115,15 @@ export default async function MainTreatmentDetailPage({ params }) {
 function buildJsonLd(treatment, slug) {
   const url = `${SITE_URL}/main-treatments/${slug}`;
   const priceFrom = treatment.subTreatments
-    ?.map(s => s.priceIntro || s.priceStandard)
-    .filter(Boolean)
+    ?.map(s => parseFloat(String(s.priceIntro || s.priceStandard || '').replace(/[^0-9.]/g, '')))
+    .filter(n => Number.isFinite(n) && n > 0)
     .sort((a, b) => a - b)[0];
 
   const graph = [
     {
       '@type': 'Service',
       '@id': `${url}#service`,
-      name: `${treatment.label} Newcastle`,
+      name: treatment.heroTitle || `${treatment.label} Newcastle`,
       description: treatment.tagline || treatment.description,
       url,
       provider: { '@id': `${SITE_URL}/#clinic` },

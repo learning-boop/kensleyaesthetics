@@ -138,7 +138,15 @@
       "Bash(grep -n \"try\\\\|catch\\\\|error\\\\|Error\" /d/creative_touch/renova-next/app/blog/page.js /d/creative_touch/renova-next/app/blog/\\\\[slug\\\\]/page.js 2>/dev/null)",
       "Bash(cd D:/creative_touch/renova-next && npx next build 2>&1 | tail -40)",
       "Bash(node -e \"\nconst fs = require\\('fs'\\);\nconst data = fs.readFileSync\\('D:/creative_touch/renova-next/src/data/team.js', 'utf8'\\);\nconst lines = data.split\\('\\\\n'\\);\nlines.forEach\\(\\(line, i\\) => {\n  if \\(/[\\\\u2018\\\\u2019\\\\u201C\\\\u201D]/.test\\(line\\)\\) {\n    console.log\\('Line ' + \\(i+1\\) + ': ' + line.substring\\(0, 120\\)\\);\n  }\n}\\);\n\")",
-      "Bash(node -e \"require\\('D:/creative_touch/renova-next/src/data/team.js'\\)\" 2>&1)"
+      "Bash(node -e \"require\\('D:/creative_touch/renova-next/src/data/team.js'\\)\" 2>&1)",
+      "mcp__claude_ai_Sanity__query_documents",
+      "mcp__claude_ai_Sanity__patch_documents",
+      "mcp__claude_ai_Sanity__publish_documents",
+      "Bash(curl -s \"https://puzajrus.api.sanity.io/v2024-01-01/data/query/production?query=*%5B_type%20%3D%3D%20%22subTreatment%22%5D%20%7C%20order\\(num%20asc\\)%20%7B%20label%2C%20%22slug%22%3A%20slug.current%2C%20%22parentSlug%22%3A%20parentTreatment-%3Eslug.current%2C%20%22parentLabel%22%3A%20parentTreatment-%3Elabel%20%7D\")",
+      "Bash(curl -s \"https://puzajrus.api.sanity.io/v2024-01-01/data/query/production?query=*%5B_type%20%3D%3D%20%22mainTreatment%22%20%26%26%20slug.current%20%3D%3D%20%22anti-wrinkle-treatments%22%5D%5B0%5D%20%7B%20label%2C%20%22slug%22%3A%20slug.current%2C%20_updatedAt%2C%20_createdAt%20%7D\")",
+      "Bash(curl -s \"https://puzajrus.api.sanity.io/v2024-01-01/data/query/production?query=*%5B_type%20%3D%3D%20%22subTreatment%22%20%26%26%20parentTreatment-%3Eslug.current%20%3D%3D%20%22anti-wrinkle-treatments%22%5D%20%7C%20order\\(num%20asc\\)%20%7B%20label%2C%20%22slug%22%3A%20slug.current%2C%20_updatedAt%2C%20_createdAt%20%7D\")",
+      "Bash(curl -s \"https://puzajrus.api.sanity.io/v2024-01-01/data/query/production?query=*%5B_type%20%3D%3D%20%22subTreatment%22%20%26%26%20parentTreatment-%3Eslug.current%20%3D%3D%20%22dermal-fillers%22%5D%20%7C%20order\\(num%20asc\\)%20%7B%20label%2C%20%22slug%22%3A%20slug.current%2C%20_updatedAt%2C%20_createdAt%20%7D\")",
+      "Bash(ls D:/creative_touch/renova-next/next.config*)"
     ]
   }
 }

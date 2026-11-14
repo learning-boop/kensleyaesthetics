@@ -43,3 +43,6 @@ out.zip
 
 # delivery folder (source images, not for the repo)
 kensley-website-ready/
+
+# Dry-run output of scripts/push-*.mjs
+scripts/out/

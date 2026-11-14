@@ -396,6 +396,81 @@
   font-style: italic;
 }
 
+/* ── FAQs (optional, end of article) ─────────────────────── */
+.bp-faq {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(18, 60, 63, 0.1);
+}
+
+.bp-faq__title {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--color-dark);
+  margin: 0 0 24px;
+}
+
+.bp-faq__list {
+  border-top: 1px solid rgba(18, 60, 63, 0.12);
+}
+
+.bp-faq__item {
+  border-bottom: 1px solid rgba(18, 60, 63, 0.12);
+}
+
+.bp-faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-dark);
+  transition: color 0.2s;
+}
+
+.bp-faq__q::-webkit-details-marker { display: none; }
+.bp-faq__q::marker { content: ''; }
+.bp-faq__q:hover { color: var(--color-gold); }
+.bp-faq__q:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 4px; }
+
+/* plus / minus icon */
+.bp-faq__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+}
+.bp-faq__icon::before,
+.bp-faq__icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 14px;
+  height: 1.5px;
+  background: var(--color-gold);
+  transition: transform 0.25s ease;
+}
+.bp-faq__icon::after { transform: rotate(90deg); }
+.bp-faq__item[open] .bp-faq__icon::after { transform: rotate(0deg); }
+
+.bp-faq__a {
+  padding: 0 34px 22px 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-primary);
+}
+.bp-faq__a p { margin: 0 0 12px; }
+.bp-faq__a p:last-child { margin-bottom: 0; }
+.bp-faq__a .rt__list { margin: 0 0 12px 20px; }
+.bp-faq__a .rt__list li { margin-bottom: 6px; }
+
 /* ── Post footer (category tag) ─────────────────────────── */
 .bp-footer {
   display: flex;
@@ -599,6 +674,8 @@
   }
 
   .bp-h2 { font-size: 24px; }
+  .bp-faq__title { font-size: 24px; }
+  .bp-faq__q { font-size: 15px; }
   .bp-h3 { font-size: 20px; }
   .bp-excerpt { font-size: 17px; }
 }

@@ -10,7 +10,7 @@
  *   /locations ...................... Q16, Q17, Q18
  *   /prices ......................... Q13
  *   /skin-concerns .................. Q7, Q9
- *   /main-treatments/dermal-fillers . Q2, Q10
+ *   /main-treatments/dermal-fillers . (none — uses its own content-plan FAQs, Nov 2026)
  *   /main-treatments/skin-boosters .. Q3, Q5
  *   /main-treatments/biostimulators . Q6
  *   /main-treatments/profhilo ....... Q4
@@ -226,18 +226,9 @@ export const TREATMENT_FAQ_UPDATES = {
     },
   ],
 
-  'dermal-fillers': [
-    // Q2
-    {
-      q: 'Can dermal fillers look natural?',
-      a: 'Dermal fillers can be used to make subtle changes to facial volume or contours, but natural-looking results are not guaranteed. The outcome depends on the product, injection site, facial anatomy and practitioner. A consultation should cover the proposed changes, limitations, alternatives and possible complications before you decide.',
-    },
-    // Q10
-    {
-      q: 'What are the risks of having dermal fillers?',
-      a: 'Dermal fillers can cause swelling, bruising, tenderness and unwanted changes in appearance. Less common but more serious complications include infection, damage to tissue and problems caused by injection into a blood vessel, potentially affecting vision. A consultation should explain these risks and how complications would be handled.',
-    },
-  ],
+  // dermal-fillers: Q2 and Q10 were retired in Nov 2026 — the page now carries only the
+  // FAQs from the Dermal Fillers content plan (src/data/dermalFillersContent.js / Sanity).
+
 
   'skin-boosters': [
     // Q3

@@ -4,8 +4,7 @@ import { TEAM } from '../../data/team';
 import './TeamSection.css';
 
 // Same people and round photos as the About page (src/data/team.js).
-// Profiles marked aboutOnly (Dr Matla) stay off the homepage.
-const HOME_TEAM = TEAM.filter((p) => p.photo && !p.aboutOnly);
+const HOME_TEAM = TEAM.filter((p) => p.photo);
 
 /* ── Homepage team slider ──────────────────────────────── */
 export function TeamSplit() {
@@ -37,9 +36,6 @@ export function TeamSplit() {
               <div className="team-slider__info">
                 <p className="team-slider__name">{p.name}</p>
                 <p className="team-slider__role">{p.role}</p>
-                {p.qualification && (
-                  <p className="team-slider__qual">{p.qualification}</p>
-                )}
               </div>
             </div>
           ))}

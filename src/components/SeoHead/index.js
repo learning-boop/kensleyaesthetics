@@ -91,13 +91,14 @@ export default function SeoHead({
   jsonLd,
   faqs,
   breadcrumbs,
+  exactTitle = false, // use `title` exactly as given (no " | Kensley Aesthetics" suffix)
 }) {
   const jsonLdKey = JSON.stringify(jsonLd || null);
   const faqsKey   = JSON.stringify(faqs || null);
   const crumbsKey = JSON.stringify(breadcrumbs || null);
 
   useEffect(() => {
-    const pageTitle = buildTitle(title);
+    const pageTitle = exactTitle && title ? title : buildTitle(title);
     const desc      = (description || '').trim().slice(0, 160);
 
     document.title = pageTitle;
@@ -117,7 +118,7 @@ export default function SeoHead({
     return () => {
       document.documentElement.removeAttribute('data-seo-path');
     };
-  }, [title, description, path, noindex, jsonLdKey, faqsKey, crumbsKey]);
+  }, [title, description, path, noindex, jsonLdKey, faqsKey, crumbsKey, exactTitle]);
 
   return null;
 }

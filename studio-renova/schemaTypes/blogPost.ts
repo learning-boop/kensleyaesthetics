@@ -159,6 +159,46 @@ export const blogPost = defineType({
       validation: Rule => Rule.required().min(1),
     }),
 
+    // ── FAQs (optional) ───────────────────────────────────
+    // Shown as an accordion at the end of the article and added to the page
+    // as FAQPage structured data (Google / AI answers).
+    defineField({
+      name: 'faqHeading',
+      title: 'FAQ Heading (optional)',
+      type: 'string',
+      description: 'Shown above the questions. Leave blank for "Frequently Asked Questions".',
+    }),
+    defineField({
+      name: 'faqs',
+      title: 'FAQs (optional)',
+      type: 'array',
+      description: 'Questions and answers shown at the end of the article. Keep each answer accurate and complete on its own — search engines and AI assistants may quote it.',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'faq',
+          title: 'FAQ',
+          fields: [
+            defineField({
+              name: 'q',
+              title: 'Question',
+              type: 'string',
+              validation: Rule => Rule.required().max(200),
+            }),
+            defineField({
+              name: 'a',
+              title: 'Answer',
+              type: 'text',
+              rows: 4,
+              description: 'Plain text. A blank line starts a new paragraph; start a line with "- " for a bullet.',
+              validation: Rule => Rule.required(),
+            }),
+          ],
+          preview: { select: { title: 'q', subtitle: 'a' } },
+        }),
+      ],
+    }),
+
     // ── SEO Overrides ─────────────────────────────────────
     defineField({
       name: 'seo',

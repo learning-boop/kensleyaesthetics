@@ -91,6 +91,74 @@ export const subTreatment = defineType({
       description: 'Bullet-point benefits shown in the benefits strip',
     }),
 
+    // ── Long-form page (Dermal Fillers treatment pages) ─────
+    // When "Content Sections" is filled in, the page uses the long-form layout:
+    // hero → content sections → FAQs → related → closing CTA.
+    defineField({
+      name: 'heroTitle',
+      title: 'Page Heading (H1)',
+      type: 'string',
+      description: 'e.g. "Lip Fillers in Newcastle upon Tyne". Falls back to the treatment name.',
+    }),
+    defineField({
+      name: 'heroCtaLabel',
+      title: 'Hero Button Label',
+      type: 'string',
+      description: 'Optional. Falls back to the closing CTA button label.',
+    }),
+    defineField({
+      name: 'cardTitle',
+      title: 'Row Title (on the parent page)',
+      type: 'string',
+      description: 'e.g. "Lip Fillers in Newcastle"',
+    }),
+    defineField({
+      name: 'cardBody',
+      title: 'Row Text (on the parent page)',
+      type: 'text',
+      rows: 8,
+      description: 'Blank line = new paragraph.',
+    }),
+    defineField({
+      name: 'cardLinkLabel',
+      title: 'Row Button Label',
+      type: 'string',
+      description: 'e.g. "Explore Lip Fillers"',
+    }),
+    defineField({
+      name: 'pageSections',
+      title: 'Content Sections',
+      type: 'array',
+      of: [defineArrayMember({ type: 'pageSection' })],
+    }),
+    defineField({
+      name: 'faqHeading',
+      title: 'FAQ Heading',
+      type: 'string',
+    }),
+    defineField({
+      name: 'ctaHeading',
+      title: 'Closing CTA Heading',
+      type: 'string',
+    }),
+    defineField({
+      name: 'ctaBody',
+      title: 'Closing CTA Text',
+      type: 'text',
+      rows: 3,
+    }),
+    defineField({
+      name: 'ctaLabel',
+      title: 'Closing CTA Button Label',
+      type: 'string',
+    }),
+    defineField({
+      name: 'backLinkLabel',
+      title: 'Back Link Label',
+      type: 'string',
+      description: 'e.g. "Back to All Dermal Filler Treatments"',
+    }),
+
     // ── Extended Content ──────────────────────────────────
     defineField({
       name: 'introduction',

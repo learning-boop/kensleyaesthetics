@@ -1,44 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Image from 'next/image';
-import { client } from '../lib/sanityClient';
+import { client, MAIN_TREATMENT_DETAIL_QUERY } from '../lib/sanityClient';
 import { useAppointment } from '../context/AppointmentContext';
 import { sanityImg } from '../utils/sanityImage';
 import SeoHead from '../components/SeoHead';
+import RichText from '../components/RichText';
+import { BookLink, LongFormSections, TreatmentRows, ClosingCta } from '../components/TreatmentLongForm';
 import { TREATMENT_KEYWORDS } from '../data/keywords';
 import { STATIC_SUB_TREATMENTS } from '../data/subTreatments';
 import { STATIC_MAIN_TREATMENTS } from '../data/mainTreatments';
 import { treatmentFaqs } from '../data/pageFaqs';
+import { hasSubPages, isRich, withLocalMain } from '../data/richTreatments';
 import './pages.css';
 import './TreatmentDetail.css';
 import './MainTreatmentDetail.css';
-
-const QUERY = `*[_type == "mainTreatment" && slug.current == $slug][0] {
-  num,
-  "slug": slug.current,
-  label,
-  tagline,
-  description,
-  "image": image.asset->url,
-  "image_second": image_second.asset->url,
-  "reviews": reviews[].asset->url,
-  benefits,
-  ideal,
-  faqs[] { q, a },
-  seoTitle,
-  seoDescription,
-  subTreatments[]-> {
-    "slug": slug.current,
-    "title": group,
-    "name": label,
-    description,
-    tagline,
-    "image": image.asset->url,
-    duration,
-    priceStandard,
-    priceIntro,
-  }
-}`;
 
 function MainTreatmentDetail({ initialTreatment = null }) {
   const { slug } = useParams();
@@ -52,9 +28,12 @@ function MainTreatmentDetail({ initialTreatment = null }) {
 
   useEffect(() => {
     if (initialTreatment) return;
-    client.fetch(QUERY, { slug })
+    client.fetch(MAIN_TREATMENT_DETAIL_QUERY, { slug })
+      .catch(() => null)
       .then(data => {
-        if (data) {
+        if (hasSubPages(slug)) {
+          data = withLocalMain(slug, data);
+        } else if (data) {
           if (!data.subTreatments || data.subTreatments.length === 0) {
             data.subTreatments = STATIC_SUB_TREATMENTS[slug] || [];
           }
@@ -74,8 +53,7 @@ function MainTreatmentDetail({ initialTreatment = null }) {
         }
         setTreatment(data ? { ...data, faqs: treatmentFaqs(slug, data.faqs) } : data);
         setLoading(false);
-      })
-      .catch(() => setLoading(false));
+      });
   }, [slug, initialTreatment]);
 
   if (loading) return null;
@@ -94,42 +72,47 @@ function MainTreatmentDetail({ initialTreatment = null }) {
     </div>
   );
 
+  // Long-form layout (Dermal Fillers): content sections, treatment rows, closing CTA.
+  const rich     = isRich(treatment);
+  const showRows = rich && hasSubPages(slug) && (treatment.subTreatments || []).length > 0;
+
   const reviews = treatment.reviews || [];
   const prevReview = () => { setSlideDir('left');  setReviewIndex(i => (i - 1 + reviews.length) % reviews.length); };
   const nextReview = () => { setSlideDir('right'); setReviewIndex(i => (i + 1) % reviews.length); };
 
-  const seoDescription = treatment.tagline
+  const fallbackDescription = treatment.tagline
     ? `${treatment.tagline} — ${TREATMENT_KEYWORDS[slug] || 'non-surgical aesthetic treatment'} at Kensley Aesthetics in Newcastle.`
     : `Expert ${treatment.label} at Kensley Aesthetics. ${TREATMENT_KEYWORDS[slug] || 'Non-surgical aesthetic treatments'} in Newcastle.`;
 
-  // Derive lowest intro price across sub-treatments for schema + glance block
+  // Derive lowest numeric price across sub-treatments for schema
   const priceFrom = treatment.subTreatments
-    ?.map(s => s.priceIntro || s.priceStandard)
-    .filter(Boolean)
+    ?.map(s => parseFloat(String(s.priceIntro || s.priceStandard || '').replace(/[^0-9.]/g, '')))
+    .filter(n => Number.isFinite(n) && n > 0)
     .sort((a, b) => a - b)[0];
 
-  // When the page is pre-rendered (initialTreatment), FAQPage schema is already output
-  // server-side by app/main-treatments/[slug]/page.js — skip it here to avoid a duplicate.
+  // When the page is pre-rendered (initialTreatment), FAQPage + Service schema is already output
+  // server-side by app/main-treatments/[slug]/page.js — skip it here to avoid duplicates.
   return (
     <>
       <SeoHead
-        title={`${treatment.label} Newcastle | Kensley Aesthetics`}
-        description={seoDescription.slice(0, 160)}
+        title={treatment.seoTitle || `${treatment.label} Newcastle | Kensley Aesthetics`}
+        exactTitle={Boolean(treatment.seoTitle)}
+        description={(treatment.seoDescription || fallbackDescription).slice(0, 160)}
         image={treatment.image}
         path={`/main-treatments/${slug}`}
         faqs={initialTreatment ? undefined : treatment.faqs}
-        breadcrumbs={[
+        breadcrumbs={initialTreatment ? undefined : [
           { name: 'Home',           path: '/' },
           { name: 'Treatments',     path: '/treatments' },
           { name: treatment.label,  path: `/main-treatments/${slug}` },
         ]}
-        jsonLd={{
+        jsonLd={initialTreatment ? undefined : {
           '@context': 'https://schema.org',
           '@graph': [
             {
               '@type': 'Service',
               '@id': `https://kensleyaesthetics.com/main-treatments/${slug}#service`,
-              name: `${treatment.label} Newcastle`,
+              name: treatment.heroTitle || `${treatment.label} Newcastle`,
               description: treatment.tagline || treatment.description,
               url: `https://kensleyaesthetics.com/main-treatments/${slug}`,
               provider: { '@id': 'https://kensleyaesthetics.com/#clinic' },
@@ -152,31 +135,37 @@ function MainTreatmentDetail({ initialTreatment = null }) {
       />
 
       {/* ── HERO: split layout ───────────────────────────── */}
-      <section className="mtd-hero">
+      <section className={`mtd-hero${rich ? ' mtd-hero--long' : ''}`}>
         <div className="mtd-hero__content">
           <span className="mtd-hero__eyebrow">Kensley Aesthetics</span>
-          <h1 className="mtd-hero__title">{treatment.label}</h1>
+          <h1 className="mtd-hero__title">{treatment.heroTitle || treatment.label}</h1>
           {treatment.tagline && (
             <p className="mtd-hero__tagline">{treatment.tagline}</p>
           )}
-          {treatment.description && (
+          {rich ? (
+            <RichText text={treatment.description} className="rt mtd-hero__rich" leadClassName="lf-lead" />
+          ) : treatment.description && (
             <p className="mtd-hero__desc">{treatment.description}</p>
           )}
           <div className="mtd-hero__actions">
-            <button className="mtd-btn mtd-btn--dark" onClick={openDrawer}>
-              Schedule Your Consultation
-            </button>
+            {rich ? (
+              <BookLink label={treatment.heroCtaLabel || treatment.ctaLabel} className="mtd-btn mtd-btn--dark" />
+            ) : (
+              <button className="mtd-btn mtd-btn--dark" onClick={openDrawer}>
+                Schedule Your Consultation
+              </button>
+            )}
           </div>
         </div>
         <div className="mtd-hero__image-wrap">
           {treatment.image && (
-            <Image src={sanityImg(treatment.image, { width: 800 })} alt={treatment.label} className="mtd-hero__image" width={800} height={1000} sizes="(max-width: 768px) 100vw, 50vw" />
+            <Image src={sanityImg(treatment.image, { width: 800 })} alt={treatment.heroTitle || treatment.label} className="mtd-hero__image" width={800} height={1000} sizes="(max-width: 768px) 100vw, 50vw" priority />
           )}
         </div>
       </section>
 
-      {/* ── SECOND IMAGE + DESCRIPTION SPLIT ────────────── */}
-      {treatment.image_second && (
+      {/* ── SECOND IMAGE + DESCRIPTION SPLIT (standard layout only) ── */}
+      {!rich && treatment.image_second && (
         <section className="mtd-split">
           <div className="mtd-split__img-wrap">
             <Image src={sanityImg(treatment.image_second, { width: 700 })} alt={treatment.label} className="mtd-split__img" width={700} height={875} loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" />
@@ -195,13 +184,29 @@ function MainTreatmentDetail({ initialTreatment = null }) {
         </section>
       )}
 
+      {/* ── LONG-FORM: intro sections → treatment rows → further sections ── */}
+      {rich && <LongFormSections sections={treatment.introSections} />}
+
+      {showRows && (
+        <TreatmentRows
+          parentSlug={slug}
+          heading={treatment.treatmentsHeading}
+          intro={treatment.treatmentsIntro}
+          items={treatment.subTreatments}
+        />
+      )}
+
+      {rich && <LongFormSections sections={treatment.pageSections} />}
+
       {/* ── FAQ ACCORDION ───────────────────────────────── */}
       {treatment.faqs && treatment.faqs.length > 0 && (
         <section className="mtd-faq">
           <div className="mtd-faq__inner">
             <div className="mtd-faq__header">
               <span className="mtd-faq__eyebrow">Common Questions</span>
-              <h2 className="mtd-faq__title">Frequently Asked</h2>
+              <h2 className={`mtd-faq__title${treatment.faqHeading ? ' mtd-faq__title--long' : ''}`}>
+                {treatment.faqHeading || 'Frequently Asked'}
+              </h2>
             </div>
             <div className="mtd-faq__list">
               {treatment.faqs.map((faq, i) => (
@@ -209,6 +214,7 @@ function MainTreatmentDetail({ initialTreatment = null }) {
                   <button
                     className="mtd-faq__btn"
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    aria-expanded={openFaq === i}
                   >
                     <span className="mtd-faq__q">{faq.q}</span>
                     <span className={`mtd-faq__toggle ${openFaq === i ? 'mtd-faq__toggle--open' : ''}`}>
@@ -251,6 +257,16 @@ function MainTreatmentDetail({ initialTreatment = null }) {
         </section>
       )}
 
+      {/* ── CLOSING CALL TO ACTION (long-form) ──────────── */}
+      {rich && (
+        <ClosingCta
+          heading={treatment.ctaHeading}
+          body={treatment.ctaBody}
+          address={treatment.ctaAddress}
+          phone={treatment.ctaPhone}
+          label={treatment.ctaLabel}
+        />
+      )}
     </>
   );
 }

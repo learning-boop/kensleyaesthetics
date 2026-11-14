@@ -59,6 +59,8 @@ export const BLOG_POST_QUERY = `*[_type == "blogPost" && slug.current == $slug &
       "asset": asset->{ url, metadata { dimensions } },
     }
   },
+  faqHeading,
+  faqs[] { _key, q, a },
   seo {
     metaTitle,
     metaDescription,
@@ -74,6 +76,54 @@ export const RECENT_POSTS_QUERY = `*[_type == "blogPost" && publishedAt <= now()
   category,
   "coverImage": coverImage.asset->url,
   "coverImageAlt": coverImage.alt,
+}`
+
+// ── Main treatment detail page ───────────────────────────
+// Shared by app/main-treatments/[slug]/page.js and src/views/MainTreatmentDetail.js.
+// The long-form fields (heroTitle … ctaLabel) are used by treatments in
+// SUB_PAGE_PARENTS (src/data/richTreatments.js); other treatments ignore them.
+const PAGE_SECTION = `{ heading, body, linkLabel, linkUrl }`
+
+export const MAIN_TREATMENT_DETAIL_QUERY = `*[_type == "mainTreatment" && slug.current == $slug][0] {
+  num,
+  "slug": slug.current,
+  label,
+  tagline,
+  description,
+  "image": image.asset->url,
+  "image_second": image_second.asset->url,
+  "reviews": reviews[].asset->url,
+  benefits,
+  ideal,
+  faqs[] { q, a },
+  seoTitle,
+  seoDescription,
+  heroTitle,
+  heroCtaLabel,
+  introSections[] ${PAGE_SECTION},
+  treatmentsHeading,
+  treatmentsIntro,
+  pageSections[] ${PAGE_SECTION},
+  faqHeading,
+  ctaHeading,
+  ctaBody,
+  ctaAddress,
+  ctaPhone,
+  ctaLabel,
+  subTreatments[]-> {
+    "slug": slug.current,
+    "title": group,
+    "name": label,
+    description,
+    tagline,
+    "image": image.asset->url,
+    duration,
+    priceStandard,
+    priceIntro,
+    cardTitle,
+    cardBody,
+    cardLinkLabel,
+  }
 }`
 
 // ── Sub-Treatment ─────────────────────────────────────────
@@ -111,6 +161,14 @@ export const SUB_TREATMENT_QUERY = `*[_type == "subTreatment" && slug.current ==
   suitability,
   sideEffectsAndRisks,
   whyKensley,
+  heroTitle,
+  heroCtaLabel,
+  pageSections[] ${PAGE_SECTION},
+  faqHeading,
+  ctaHeading,
+  ctaBody,
+  ctaLabel,
+  backLinkLabel,
   "relatedTreatments": relatedTreatments[]-> {
     "slug": slug.current,
     "name": label,

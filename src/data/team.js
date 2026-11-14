@@ -8,12 +8,11 @@
  * page (Nov 2026). Set `photo: null` to
  * show the empty frame with the person's initials instead.
  *
- * QUALIFICATION: shown under each photo on the homepage only. The About
- * page shows no qualification row and keeps Experience and bios focused on
- * aesthetics, without earlier careers (client direction, Nov 2026).
+ * Homepage and About show name + role only, with Experience and bios
+ * focused on aesthetics, without earlier careers (client direction, Nov 2026).
  *
- * aboutOnly: true keeps a profile on the About page only (not on the
- * homepage slider or the Black Friday page).
+ * hideOnBlackFriday: true keeps a profile off the Black Friday team grid.
+ * Everyone appears on the homepage slider and the About page.
  *
  * REGISTRATION: add the professional register and number when the clinic
  * confirms them (GDC for dentists, NMC for nurses, GPhC for pharmacists),
@@ -25,8 +24,7 @@ export const TEAM = [
     slug: 'dr-matla',
     name: 'Dr Matla',
     role: 'Founder & Clinical Lead',
-    qualification: 'MBBS, MRCGP, DFSRH, PGCert Aesthetics & Cosmetic Medicine',
-    aboutOnly: true,
+    hideOnBlackFriday: true,
     photo: '/images/team/dr-matla.webp',
     photoRound: '/images/team/dr-matla-round.webp',
     registration: null,
@@ -44,7 +42,6 @@ export const TEAM = [
     slug: 'dr-mariyam-durrani',
     name: 'Dr Mariyam Durrani',
     role: 'Facial Aesthetics Practitioner',
-    qualification: 'Dentist',
     photo: '/images/team/dr-mariyam-durrani.webp',
     photoRound: '/images/team/dr-mariyam-durrani-round.webp',
     registration: null,
@@ -65,7 +62,6 @@ export const TEAM = [
     slug: 'dr-pamela-inglis',
     name: 'Dr Pamela Inglis',
     role: 'Aesthetic Practitioner',
-    qualification: 'Registered Nurse & Independent Prescriber',
     photo: '/images/team/dr-pamela-inglis.webp',
     photoRound: '/images/team/dr-pamela-inglis-round.webp',
     registration: null,
@@ -83,7 +79,6 @@ export const TEAM = [
     slug: 'sophia-azam',
     name: 'Sophia Azam',
     role: 'Aesthetic Practitioner',
-    qualification: 'Pharmacist Independent Prescriber',
     photo: '/images/team/sophia-azam.webp',
     photoRound: '/images/team/sophia-azam-round.webp',
     registration: null,
@@ -100,7 +95,6 @@ export const TEAM = [
     slug: 'jacquelyn-foggin',
     name: 'Jacquelyn Foggin',
     role: 'Aesthetic Practitioner',
-    qualification: 'Registered Nurse',
     photo: '/images/team/jacquelyn-foggin.webp',
     photoRound: '/images/team/jacquelyn-foggin-round.webp',
     registration: null,

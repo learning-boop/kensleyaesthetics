@@ -23,6 +23,16 @@ Website: https://kensleyaesthetics.com
 ## Main treatments offered
 - Anti-Wrinkle Treatments (Botulinum toxin): https://kensleyaesthetics.com/main-treatments/anti-wrinkle-treatments
 - Dermal Fillers: https://kensleyaesthetics.com/main-treatments/dermal-fillers
+  - Lip Fillers: https://kensleyaesthetics.com/main-treatments/dermal-fillers/lip-fillers
+  - Cheek Fillers: https://kensleyaesthetics.com/main-treatments/dermal-fillers/cheek-fillers
+  - Chin Fillers: https://kensleyaesthetics.com/main-treatments/dermal-fillers/chin-fillers
+  - Jawline Fillers: https://kensleyaesthetics.com/main-treatments/dermal-fillers/jawline-fillers
+  - Nasolabial Fold Fillers: https://kensleyaesthetics.com/main-treatments/dermal-fillers/nasolabial-fold-fillers
+  - Marionette Line Fillers: https://kensleyaesthetics.com/main-treatments/dermal-fillers/marionette-line-fillers
+  - Facial Balancing: https://kensleyaesthetics.com/main-treatments/dermal-fillers/facial-balancing
+  - Non-Surgical Rhinoplasty: https://kensleyaesthetics.com/main-treatments/dermal-fillers/non-surgical-rhinoplasty
+  - Tear Trough Fillers: https://kensleyaesthetics.com/main-treatments/dermal-fillers/tear-trough-fillers
+  - Temple Fillers: https://kensleyaesthetics.com/main-treatments/dermal-fillers/temple-fillers
 - Skin Boosters (Profhilo, Restylane Vital, Juvederm Volite): https://kensleyaesthetics.com/main-treatments/skin-boosters
 - Regenerative Treatments (PRP, PNCT, Exosomes): https://kensleyaesthetics.com/main-treatments/regenerative-treatments
 - Biostimulators (Sculptra, Radiesse): https://kensleyaesthetics.com/main-treatments/biostimulators
