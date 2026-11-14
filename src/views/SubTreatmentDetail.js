@@ -25,9 +25,9 @@ function SubTreatmentDetail({ initialTreatment = null }) {
   const tabBarRef                     = useRef(null);
 
   useEffect(() => {
-    // Pre-rendered pages already have their content; don't refetch (avoids a blank flash).
-    if (initialTreatment) return;
-    setLoading(true);
+    // Always fetch fresh data from Sanity so marketer edits appear immediately.
+    // initialTreatment (from static build) is shown until the fetch completes.
+    if (!slug || !subSlug) return;
     client.fetch(SUB_TREATMENT_QUERY, { slug, subSlug })
       .catch(() => null)
       .then(data => {

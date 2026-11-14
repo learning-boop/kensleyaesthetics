@@ -14,11 +14,10 @@ function Gallery({ initialItems = null }) {
   const [activeCategory, setActiveCategory] = useState('All');
 
   useEffect(() => {
-    if (initialItems) return; // already rendered at build time
     client.fetch(BEFORE_AFTER_QUERY)
       .then((data) => { setItems(data); setLoading(false); })
       .catch(() => setLoading(false));
-  }, [initialItems]);
+  }, []);
 
   // Build category list dynamically from data
   const categories = ['All', ...Array.from(new Set(items.map((i) => i.category))).filter(Boolean)];

@@ -55,12 +55,11 @@ function TreatmentShowcase({ initialTreatments = null }) {
   const [cards, setCards] = useState(() => toShowcaseCards(initialTreatments || []));
 
   useEffect(() => {
-    if (initialTreatments && initialTreatments.length) return; // rendered at build time
     client
       .fetch(MAIN_TREATMENTS_QUERY)
       .then((data) => setCards(toShowcaseCards(data)))
       .catch((err) => console.error('TreatmentShowcase fetch error:', err));
-  }, [initialTreatments]);
+  }, []);
 
   return (
     <section className="tc-section" aria-labelledby="tc-title">

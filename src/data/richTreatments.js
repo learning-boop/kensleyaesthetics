@@ -16,11 +16,17 @@ import {
   DERMAL_FILLERS_MAIN,
   DERMAL_FILLERS_SUBS,
 } from './dermalFillersContent';
+import {
+  ANTI_WRINKLE_SLUG,
+  ANTI_WRINKLE_MAIN,
+  ANTI_WRINKLE_SUBS,
+} from './antiWrinkleContent';
 
-export const SUB_PAGE_PARENTS = [DERMAL_FILLERS_SLUG];
+export const SUB_PAGE_PARENTS = [DERMAL_FILLERS_SLUG, ANTI_WRINKLE_SLUG];
 
 const LOCAL_CONTENT = {
   [DERMAL_FILLERS_SLUG]: { main: DERMAL_FILLERS_MAIN, subs: DERMAL_FILLERS_SUBS },
+  [ANTI_WRINKLE_SLUG]: { main: ANTI_WRINKLE_MAIN, subs: ANTI_WRINKLE_SUBS },
 };
 
 export const hasSubPages = (slug) => SUB_PAGE_PARENTS.includes(slug);

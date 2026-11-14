@@ -27,7 +27,9 @@ function MainTreatmentDetail({ initialTreatment = null }) {
   const [slideDir, setSlideDir]       = useState('right');
 
   useEffect(() => {
-    if (initialTreatment) return;
+    // Always fetch fresh data from Sanity so marketer edits appear immediately.
+    // initialTreatment (from static build) is shown until the fetch completes.
+    if (!slug) return;
     client.fetch(MAIN_TREATMENT_DETAIL_QUERY, { slug })
       .catch(() => null)
       .then(data => {
@@ -54,7 +56,7 @@ function MainTreatmentDetail({ initialTreatment = null }) {
         setTreatment(data ? { ...data, faqs: treatmentFaqs(slug, data.faqs) } : data);
         setLoading(false);
       });
-  }, [slug, initialTreatment]);
+  }, [slug]);
 
   if (loading) return null;
   if (!treatment) return (

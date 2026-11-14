@@ -92,8 +92,7 @@ function BlogPost({ initialPost = null, initialRelated = [] }) {
   const [loading, setLoading] = useState(!initialPost);
 
   useEffect(() => {
-    if (initialPost) return;
-    setLoading(true);
+    if (!slug) return;
     Promise.all([
       client.fetch(BLOG_POST_QUERY, { slug }),
       client.fetch(RECENT_POSTS_QUERY),
@@ -102,7 +101,7 @@ function BlogPost({ initialPost = null, initialRelated = [] }) {
       setPost(postData);
       setRelated(recentData.filter(p => p.slug !== slug).slice(0, 2));
     }).finally(() => setLoading(false));
-  }, [slug, navigate, initialPost]);
+  }, [slug, navigate]);
 
   if (loading) {
     return (
