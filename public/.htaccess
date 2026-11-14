@@ -35,6 +35,13 @@ RewriteRule ^main-treatments/dermal-fillers/temples(\.html)?/?$ /main-treatments
 #    b) The live pages (and their .txt payloads) skip the 410 rule below.
 #       Add a slug here whenever a Dermal Fillers page is added in Sanity.
 RewriteCond %{REQUEST_URI} !^/main-treatments/dermal-fillers/(lip-fillers|cheek-fillers|chin-fillers|jawline-fillers|nasolabial-fold-fillers|marionette-line-fillers|facial-balancing|non-surgical-rhinoplasty|tear-trough-fillers|temple-fillers)(\.html|\.txt)?/?$
+#    c) Anti-Wrinkle Consultations — 11 live consultation pages (Nov 2026).
+RewriteCond %{REQUEST_URI} !^/main-treatments/anti-wrinkle-treatments/(frown-lines|forehead-lines|crows-feet|bunny-lines|gummy-smile|chin-dimpling|downturned-mouth-corners|masseter-jaw-muscles|neck-bands|underarm-sweating|trapezius-muscles)(\.html|\.txt)?/?$
+#    d) Old anti-wrinkle slugs 301 to their new address.
+RewriteRule ^main-treatments/anti-wrinkle-treatments/pebble-chin(\.html)?/?$ /main-treatments/anti-wrinkle-treatments/chin-dimpling [R=301,L]
+RewriteRule ^main-treatments/anti-wrinkle-treatments/jawline-slimming(\.html)?/?$ /main-treatments/anti-wrinkle-treatments/masseter-jaw-muscles [R=301,L]
+RewriteRule ^main-treatments/anti-wrinkle-treatments/nefertiti-lift(\.html)?/?$ /main-treatments/anti-wrinkle-treatments/neck-bands [R=301,L]
+RewriteRule ^main-treatments/anti-wrinkle-treatments/traptox(\.html)?/?$ /main-treatments/anti-wrinkle-treatments/trapezius-muscles [R=301,L]
 RewriteRule ^main-treatments/[^/]+/[^/]+ - [G,L]
 
 # 0b) Only real location pages are public. Old town pages left on the server
