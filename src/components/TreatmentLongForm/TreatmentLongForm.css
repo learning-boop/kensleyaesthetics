@@ -189,10 +189,16 @@
   position: sticky;
   top: 104px;
   display: block;
-  aspect-ratio: 4 / 3;
+  /* Frame takes the picture's own shape (set inline from the image URL),
+     so portrait photos show in full. Capped to fit the screen height. */
+  aspect-ratio: var(--lf-media-ratio, 4 / 3);
+  width: 100%;
+  max-width: calc((100svh - 140px) * var(--lf-media-ar, 1.3333));
+  justify-self: start;
   overflow: hidden;
   background: var(--color-beige);
 }
+.lf-row--reverse .lf-row__media { justify-self: end; }
 .lf-row__media:hover .lf-media__img { transform: scale(1.03); }
 .lf-row__content { padding-top: 6px; }
 .lf-row__num {
@@ -346,6 +352,8 @@
   position: relative;
   overflow: hidden;
   background: var(--color-beige);
+  /* Tall enough for the whole picture (shape set inline from the image URL) */
+  aspect-ratio: var(--lf-media-ratio, auto);
 }
 .lf-subhero__media .lf-media__img,
 .lf-subhero__media .lf-media__placeholder {
@@ -367,7 +375,7 @@
   .lf-rows__header { margin-bottom: 36px; }
   .lf-row { grid-template-columns: 1fr; gap: 24px; padding: 44px 0; }
   .lf-row--reverse .lf-row__media { order: 0; }
-  .lf-row__media { position: relative; top: auto; aspect-ratio: 3 / 2; }
+  .lf-row__media { position: relative; top: auto; aspect-ratio: var(--lf-media-ratio, 3 / 2); max-width: 100%; justify-self: stretch; }
 
   .lf-cta { padding: 64px 24px 72px; }
 
@@ -376,6 +384,6 @@
   .mtd-hero__rich { max-width: 100%; }
 
   .lf-subhero { grid-template-columns: 1fr; min-height: 0; }
-  .lf-subhero__media { order: -1; height: 56vw; min-height: 220px; max-height: 380px; }
+  .lf-subhero__media { order: -1; height: auto; min-height: 220px; width: 100%; max-width: calc(85svh * var(--lf-media-ar, 1.7778)); margin-inline: auto; aspect-ratio: var(--lf-media-ratio, 16 / 9); }
   .lf-subhero__content { padding: 32px 24px 48px; }
 }

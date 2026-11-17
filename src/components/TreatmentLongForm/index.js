@@ -6,7 +6,7 @@
 import Image from 'next/image';
 import { Link } from 'react-router-dom';
 import RichText from '../RichText';
-import { sanityImg } from '../../utils/sanityImage';
+import { sanityImg, sanityRatioStyle } from '../../utils/sanityImage';
 import { subTreatmentPath } from '../../data/richTreatments';
 import './TreatmentLongForm.css';
 
@@ -76,7 +76,7 @@ export function TreatmentRows({ parentSlug, heading, intro, items = [] }) {
           const title = s.cardTitle || s.name;
           return (
             <li key={s.slug} className={`lf-row${i % 2 ? ' lf-row--reverse' : ''}`}>
-              <Link to={href} className="lf-row__media" tabIndex={-1} aria-hidden="true">
+              <Link to={href} className="lf-row__media" style={sanityRatioStyle(s.image)} tabIndex={-1} aria-hidden="true">
                 <TreatmentMedia image={s.image} alt={title} num={num} label={s.name} />
               </Link>
               <div className="lf-row__content">

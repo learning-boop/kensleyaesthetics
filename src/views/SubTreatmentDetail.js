@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import Image from 'next/image';
 import { client, SUB_TREATMENT_QUERY } from '../lib/sanityClient';
 import { useAppointment } from '../context/AppointmentContext';
-import { sanityImg } from '../utils/sanityImage';
+import { sanityImg, sanityRatioStyle } from '../utils/sanityImage';
 import { STATIC_SUB_TREATMENTS } from '../data/subTreatments';
 import SeoHead from '../components/SeoHead';
 import QuickContact from '../components/QuickContact';
@@ -458,7 +458,7 @@ function SubTreatmentLongForm({ treatment, slug, subSlug }) {
             <BookLink label={treatment.heroCtaLabel || treatment.ctaLabel} />
           </div>
         </div>
-        <div className="lf-subhero__media">
+        <div className="lf-subhero__media" style={sanityRatioStyle(treatment.image)}>
           <TreatmentMedia
             image={treatment.image}
             alt={treatment.heroTitle || treatment.label}
