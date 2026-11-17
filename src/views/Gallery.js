@@ -37,7 +37,7 @@ function Gallery({ initialItems = null }) {
       <PageHero
         label="Before & After"
         title={<>Real Results,<br />Real Clients</>}
-        subtitle="Authentic transformations achieved by our team. Every result is unique — just like every client."
+        subtitle="Real results from our team. Every result is unique — just like every client."
       />
 
       <section className="page-section">
@@ -130,7 +130,7 @@ function Gallery({ initialItems = null }) {
       <section className="page-section page-section--tinted">
         <div className="container page-centered">
           <p className="section-label">Your Turn</p>
-          <h2 className="section-title">Start Your Transformation</h2>
+          <h2 className="section-title">Start With a Consultation</h2>
           <p className="page-body-text" style={{ maxWidth: 480, margin: '24px auto 40px' }}>
             Book a consultation and we'll talk through a personalised plan with you.
           </p>

@@ -33,7 +33,7 @@ export const DERMAL_FILLERS_MAIN = {
 
 Perhaps you're interested in adding a little definition to your lips, restoring volume to your cheeks or understanding how different facial features work together.
 
-At Kensley Aesthetics in Jesmond, Newcastle upon Tyne, we believe the best place to begin is with an honest conversation about your goals.
+At Kensley Aesthetics in Jesmond, Newcastle upon Tyne, we believe the right place to begin is with an honest conversation about your goals.
 
 Dermal fillers can be used to enhance certain facial contours, restore lost volume and soften the appearance of selected lines. Every face is different, and not every concern needs filler.
 
@@ -673,7 +673,7 @@ However, the location where the fold is visible is not always the only area that
 
 Changes in cheek volume and surrounding tissue support can influence the way a fold looks.
 
-This is why directly placing filler into the line may not always be the best approach.`,
+This is why directly placing filler into the line may not always be the right approach.`,
       },
       {
         heading: 'What Happens at Your Consultation?',

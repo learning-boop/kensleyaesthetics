@@ -157,7 +157,7 @@ export default function Services() {
         </h2>
         <p className="tr-intro__body">
           Kensley Aesthetics offers a curated suite of professional training programmes for
-          doctors, nurses, and aesthetic practitioners. Our courses fuse cutting-edge clinical
+          doctors, nurses, and aesthetic practitioners. Our courses combine current clinical
           technique with deep anatomical knowledge — delivered by specialists who perform these
           treatments every single day. Whether you are stepping into aesthetics for the first time
           or expanding an established practice, our programmes are built around one goal: lasting

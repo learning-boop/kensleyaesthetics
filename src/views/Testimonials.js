@@ -70,7 +70,7 @@ function Testimonials() {
       <PageHero
         label="Client Stories"
         title={<>Words from{' '}<br />Our Clients</>}
-        subtitle="Real experiences from real people. Every transformation is a story we're proud to tell."
+        subtitle="Real experiences from real people. We're grateful to everyone who shares their experience."
       />
 
       <section className="page-section">

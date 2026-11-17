@@ -60,7 +60,7 @@ Your practitioner should explain what is realistically possible, what may not ch
   pageSections: [
     {
       heading: 'Which Consultation Is Right for Me?',
-      body: 'You do not need to select an area or decide on a procedure in advance. If several concerns seem related, a clinician can assess them together. The most useful starting point is explaining what you have noticed, how long it has been present and what you hope to understand or change. Sometimes the best outcome of the appointment is reassurance, skincare advice or referral rather than a cosmetic intervention.',
+      body: 'You do not need to select an area or decide on a procedure in advance. If several concerns seem related, a clinician can assess them together. The most useful starting point is explaining what you have noticed, how long it has been present and what you hope to understand or change. Sometimes the most useful outcome of the appointment is reassurance, skincare advice or referral rather than a cosmetic intervention.',
     },
     {
       heading: 'What Happens During an Anti-Wrinkle Consultation?',
@@ -672,7 +672,7 @@ If a new droop has appeared suddenly, particularly on one side, this is a medica
       },
       {
         heading: 'Options, Alternatives and Realistic Expectations',
-        body: 'Depending on the cause, options may include observing the area, skincare, assessment of marionette folds or a suitable non-prescription procedure. Some people may be referred to a dentist or doctor if a structural or neurological concern is suspected. There is no single option for every mouth shape, and no treatment is sometimes the best advice.',
+        body: 'Depending on the cause, options may include observing the area, skincare, assessment of marionette folds or a suitable non-prescription procedure. Some people may be referred to a dentist or doctor if a structural or neurological concern is suspected. There is no single option for every mouth shape, and no treatment is sometimes the right advice.',
       },
       {
         heading: 'Recovery, Aftercare and Possible Risks',
@@ -753,7 +753,7 @@ Mention previous jaw or dental treatment, night-time symptoms and any changes in
       },
       {
         heading: 'Options, Alternatives and Realistic Expectations',
-        body: `For possible bruxism or jaw pain, dental assessment, a suitable mouth guard, physiotherapy advice and addressing contributing habits or stress may be more appropriate than a cosmetic procedure. For facial-shape concerns, the clinician should discuss realistic limitations and whether no intervention is the best choice.
+        body: `For possible bruxism or jaw pain, dental assessment, a suitable mouth guard, physiotherapy advice and addressing contributing habits or stress may be more appropriate than a cosmetic procedure. For facial-shape concerns, the clinician should discuss realistic limitations and whether no intervention is the right choice.
 
 Certain uses of prescription medicines sometimes discussed online may be off-label. They are not automatically suitable or available and require independent prescriber review.`,
       },

@@ -46,7 +46,7 @@ Prices include VAT where applicable. Treatment packages are non-transferable and
     title: '6. Results & Expectations',
     content: `Aesthetic treatments are not an exact science and individual results vary. We will always provide an honest assessment of the likely outcomes, but we cannot promise specific results.
 
-Any before and after images shown on our website or social media are representative of real client results and are not a guarantee of the outcome you will achieve. Results depend on individual skin type, anatomy, lifestyle and adherence to aftercare advice.`,
+Any before and after images shown on our website or social media are representative of real client results and do not promise the outcome you will achieve. Results depend on individual skin type, anatomy, lifestyle and adherence to aftercare advice.`,
   },
   {
     title: '7. Aftercare & Client Responsibilities',
@@ -86,7 +86,7 @@ Nothing in these terms excludes liability for death, personal injury caused by n
     title: '11. Website Use',
     content: `You agree to use this website only for lawful purposes and in a manner that does not infringe the rights of others.
 
-We reserve the right to restrict or remove access to our website at any time without notice. We do not guarantee that the website will be available at all times or that content is error-free.
+We reserve the right to restrict or remove access to our website at any time without notice. We cannot promise that the website will be available at all times or that content is error-free.
 
 Links to third-party websites are provided for convenience only. We are not responsible for the content or practices of any external sites.`,
   },
