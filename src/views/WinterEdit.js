@@ -113,7 +113,7 @@ export default function WinterEdit({ initialEnded = false }) {
           )}
           <div className="we-actions">
             <button type="button" className="we-btn we-btn--gold" onClick={openDrawer}>
-              Book a consultation
+              Book a Consultation
             </button>
             {ended ? (
               <Link to="/prices" className="we-btn we-btn--light">View our prices</Link>
@@ -263,7 +263,7 @@ export default function WinterEdit({ initialEnded = false }) {
             <a href="tel:+443330570295">0333 057 0295</a>.
           </p>
           <button type="button" className="we-btn we-btn--gold" onClick={openDrawer}>
-            Book a consultation
+            Book a Consultation
           </button>
         </div>
       </section>

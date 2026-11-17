@@ -27,7 +27,7 @@ function TreatmentDetail({ initialTreatment = null }) {
   const reviews = treatment.reviews || [];
   const steps = treatment.steps || [];
   const faqs = treatment.faqs || [];
-  const ctaLabel = treatment.ctaLabel || 'Schedule Your Consultation';
+  const ctaLabel = treatment.ctaLabel || 'Book a Consultation';
 
   const prevReview = () => { setSlideDir('left');  setReviewIndex(i => (i - 1 + reviews.length) % reviews.length); };
   const nextReview = () => { setSlideDir('right'); setReviewIndex(i => (i + 1) % reviews.length); };

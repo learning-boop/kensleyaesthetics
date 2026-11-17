@@ -75,7 +75,7 @@ function TreatmentShowcase({ initialTreatments = null }) {
           <div className="tc-head__actions">
             <Link to="/treatments" className="tc-btn tc-btn--line">View all treatments</Link>
             <button type="button" className="tc-btn tc-btn--navy" onClick={openDrawer}>
-              Book a consultation
+              Book a Consultation
             </button>
           </div>
         </div>

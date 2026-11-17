@@ -101,7 +101,7 @@ export default function PinnedShowcase({ items, treatmentSlug }) {
           {/* CTAs */}
           <div className="ps-actions">
             <button className="ps-book-btn" onClick={openDrawer}>
-              Schedule Your Consultation
+              Book a Consultation
               <span className="ps-book-btn__arrow">→</span>
             </button>
 

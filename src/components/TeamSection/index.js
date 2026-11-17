@@ -26,7 +26,7 @@ export function TeamSplit() {
             >
               <Image
                 src={p.photoRound || p.photo}
-                alt={i >= HOME_TEAM.length ? '' : `${p.name}, ${p.role} at Kensley Aesthetics, Newcastle`}
+                alt={`${p.name}, ${p.role} at Kensley Aesthetics, Newcastle`}
                 className="team-slider__img"
                 width={600}
                 height={600}
@@ -75,7 +75,7 @@ export default function TeamSection() {
             counsel, and care that puts the patient first.
           </p>
           <button className="ts-about-team__btn" onClick={openDrawer}>
-            Schedule Your Consultation
+            Book a Consultation
           </button>
         </div>
 

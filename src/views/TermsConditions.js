@@ -14,7 +14,7 @@ Kensley Aesthetics is based at Old Brewery Court, 156 Sandyford Rd, Jesmond, New
   },
   {
     title: '2. Our Services',
-    content: `Kensley Aesthetics provides non-surgical aesthetic treatments including but not limited to: anti-wrinkle injections, dermal fillers, skin boosters, regenerative treatments, biostimulators, microneedling, RF microneedling and HIFU.
+    content: `Kensley Aesthetics provides non-surgical aesthetic treatments including but not limited to: anti-wrinkle treatments, dermal fillers, skin boosters, regenerative treatments, biostimulators, microneedling, RF microneedling and HIFU.
 
 All treatments are performed by or under the supervision of qualified and insured aesthetic practitioners. We reserve the right to decline treatment at our clinical discretion — for example if we believe a treatment is not suitable, safe or in your best interest.`,
   },
@@ -44,7 +44,7 @@ Prices include VAT where applicable. Treatment packages are non-transferable and
   },
   {
     title: '6. Results & Expectations',
-    content: `Aesthetic treatments are not an exact science and individual results vary. We will always provide an honest assessment of the likely outcomes, but we cannot guarantee specific results.
+    content: `Aesthetic treatments are not an exact science and individual results vary. We will always provide an honest assessment of the likely outcomes, but we cannot promise specific results.
 
 Any before and after images shown on our website or social media are representative of real client results and are not a guarantee of the outcome you will achieve. Results depend on individual skin type, anatomy, lifestyle and adherence to aftercare advice.`,
   },

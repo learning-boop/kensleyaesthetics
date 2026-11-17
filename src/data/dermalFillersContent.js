@@ -81,7 +81,7 @@ A carefully planned treatment considers your existing features, facial proportio
 
 For some patients, this may mean exploring a small amount of volume in one area. For others, it may mean discussing how several facial features relate to one another.
 
-However, natural-looking results cannot be guaranteed. The outcome depends on anatomy, product choice, treatment technique, healing and individual response.
+However, natural-looking results cannot be promised. The outcome depends on anatomy, product choice, treatment technique, healing and individual response.
 
 You should feel comfortable discussing your preferences and concerns before making any decision.`,
     },
@@ -178,7 +178,7 @@ We encourage you to ask questions, understand your options and make an informed 
   faqs: [
     {
       q: 'Do dermal fillers look natural?',
-      a: 'Dermal fillers can create subtle changes, but natural-looking results depend on facial anatomy, product choice, practitioner technique and individual response. No particular appearance can be guaranteed.',
+      a: 'Dermal fillers can create subtle changes, but natural-looking results depend on facial anatomy, product choice, practitioner technique and individual response. No particular appearance can be promised.',
     },
     {
       q: 'Are dermal fillers suitable for everyone?',
@@ -186,7 +186,7 @@ We encourage you to ask questions, understand your options and make an informed 
     },
     {
       q: 'Can dermal fillers be dissolved?',
-      a: 'Certain hyaluronic acid fillers can be treated with hyaluronidase, but dissolving treatment has its own risks and cannot guarantee a complete reversal of every effect or complication.',
+      a: 'Certain hyaluronic acid fillers can be treated with hyaluronidase, but dissolving treatment has its own risks and cannot promise a complete reversal of every effect or complication.',
     },
     {
       q: 'How long do dermal fillers last?',
@@ -304,7 +304,7 @@ The final appearance should not be judged immediately after treatment.`,
     faqs: [
       {
         q: 'Will lip fillers make my lips look unnatural?',
-        a: 'Not necessarily, but no appearance can be guaranteed. The outcome depends on your anatomy, product choice, amount used, treatment technique and healing.',
+        a: 'Not necessarily, but no appearance can be promised. The outcome depends on your anatomy, product choice, amount used, treatment technique and healing.',
       },
       {
         q: 'How much lip filler will I need?',
@@ -502,7 +502,7 @@ You should receive clear aftercare instructions, information about possible comp
     faqs: [
       {
         q: 'Can chin fillers improve my side profile?',
-        a: 'Chin fillers may alter the appearance of projection or contour in suitable patients. The outcome depends on your existing anatomy and cannot be guaranteed.',
+        a: 'Chin fillers may alter the appearance of projection or contour in suitable patients. The outcome depends on your existing anatomy and cannot be promised.',
       },
       {
         q: 'Are chin fillers the same as jawline fillers?',
@@ -598,7 +598,7 @@ Your practitioner should explain the recovery process, aftercare and warning sig
     faqs: [
       {
         q: 'Can jawline filler give me a sharper jawline?',
-        a: 'It may add definition in selected patients, but the result depends on your anatomy and cannot be guaranteed.',
+        a: 'It may add definition in selected patients, but the result depends on your anatomy and cannot be promised.',
       },
       {
         q: 'Can jawline fillers remove a double chin?',
@@ -883,7 +883,7 @@ The number of treatment areas and amount of product should never be decided by a
         heading: 'What Can Facial Balancing Realistically Achieve?',
         body: `In suitable patients, carefully selected filler treatment may alter particular facial contours.
 
-However, fillers do not correct all structural differences, and facial symmetry cannot be guaranteed.
+However, fillers do not correct all structural differences, and facial symmetry cannot be promised.
 
 There is also no universal ideal facial proportion.
 
@@ -1012,7 +1012,7 @@ Any visual disturbance or suspected vascular complication requires immediate med
       },
       {
         q: 'How long do nose fillers last?',
-        a: 'Duration varies according to product, anatomy and individual response. A fixed result duration cannot be guaranteed.',
+        a: 'Duration varies according to product, anatomy and individual response. A fixed result duration cannot be promised.',
       },
       {
         q: 'Does every aesthetics clinic offer nose fillers?',
@@ -1224,7 +1224,7 @@ You should receive clear written aftercare and emergency instructions.`,
       },
       {
         q: 'Will temple fillers make my face look younger?',
-        a: 'A particular appearance or age-related result cannot be guaranteed. The potential outcome depends on the individual and proposed treatment.',
+        a: 'A particular appearance or age-related result cannot be promised. The potential outcome depends on the individual and proposed treatment.',
       },
       {
         q: 'How long do temple fillers last?',

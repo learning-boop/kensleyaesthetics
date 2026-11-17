@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppointment } from '../../context/AppointmentContext';
 import { EmailLink } from '../../utils/obfuscateEmail';
+import { CLINIC_HOURS_TEXT } from '../../data/clinic';
 import './Footer.css';
 
 const MAIN_TREATMENTS = [
@@ -126,8 +127,9 @@ function Footer() {
               <li><EmailLink user="kensleyclinic" domain="gmail.com" /></li>
               <li><a href="tel:+443330570295">0333 057 0295</a></li>
               <li>Old Brewery Court, 156 Sandyford Rd,<br />Jesmond, Newcastle upon Tyne, NE2 1XG</li>
+              <li>{CLINIC_HOURS_TEXT}</li>
             </ul>
-            <button onClick={openDrawer} className="ft-book-btn">Schedule Your Consultation</button>
+            <button onClick={openDrawer} className="ft-book-btn">Book a Consultation</button>
           </div>
 
         </div>

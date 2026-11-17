@@ -132,9 +132,9 @@ function Gallery({ initialItems = null }) {
           <p className="section-label">Your Turn</p>
           <h2 className="section-title">Start Your Transformation</h2>
           <p className="page-body-text" style={{ maxWidth: 480, margin: '24px auto 40px' }}>
-            Book a consultation and let our experts design a personalised plan for your best results.
+            Book a consultation and we'll talk through a personalised plan with you.
           </p>
-          <Link to="/book" className="btn-primary">Schedule Your Consultation</Link>
+          <Link to="/book" className="btn-primary">Book a Consultation</Link>
         </div>
       </section>
 

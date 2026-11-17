@@ -154,7 +154,7 @@ function MainTreatmentDetail({ initialTreatment = null }) {
               <BookLink label={treatment.heroCtaLabel || treatment.ctaLabel} className="mtd-btn mtd-btn--dark" />
             ) : (
               <button className="mtd-btn mtd-btn--dark" onClick={openDrawer}>
-                Schedule Your Consultation
+                Book a Consultation
               </button>
             )}
           </div>
@@ -180,7 +180,7 @@ function MainTreatmentDetail({ initialTreatment = null }) {
               check it suits you and explain what to expect, including results, recovery and possible risks.
             </p>
             <button className="mtd-btn mtd-btn--dark" onClick={openDrawer}>
-              Schedule Your Consultation
+              Book a Consultation
             </button>
           </div>
         </section>

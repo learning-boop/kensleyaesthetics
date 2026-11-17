@@ -252,12 +252,12 @@ function BlogPost({ initialPost = null, initialRelated = [] }) {
               {/* CTA card */}
               <div className="bp-sidebar__card bp-sidebar__card--cta">
                 <p className="section-label">Ready to Start?</p>
-                <h3 className="bp-sidebar__heading">Schedule Your Consultation</h3>
+                <h3 className="bp-sidebar__heading">Book a Consultation</h3>
                 <p className="bp-sidebar__text">
                   Talk to our team about the treatments that are right for you.
                 </p>
                 <Link to="/book" className="btn-primary" style={{ display: 'block', textAlign: 'center', marginTop: 24 }}>
-                  Schedule Your Consultation
+                  Book a Consultation
                 </Link>
               </div>
 

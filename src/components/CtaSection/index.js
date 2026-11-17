@@ -9,11 +9,11 @@ function CtaSection() {
           Let's Create Something{' '}<br />Beautiful Together
         </h2>
         <p className="section-subtitle">
-          Book your personal consultation today and take the first step toward
-          the transformation you deserve.
+          Talk through your options with our doctor-led team in Jesmond. We listen
+          first, then suggest only what suits you.
         </p>
         <div className="cta-section__actions">
-          <a href="#contact" className="btn-primary">Schedule Your Consultation</a>
+          <a href="/book" className="btn-primary">Book a Consultation</a>
           {/* <a href="#contact" className="btn-outline">Contact Us</a> */}
         </div>
       </div>

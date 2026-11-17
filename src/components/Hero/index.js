@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAppointment } from '../../context/AppointmentContext';
 import { HERO_PROMO, isPromoLive } from '../../data/heroPromo';
+import { CLINIC_HOURS_TEXT } from '../../data/clinic';
 import './Hero.css';
 
 const SLIDE_MS = 7000;
@@ -34,7 +35,7 @@ function PromoSlide({ promo, onBook }) {
           src={img.desktop}
           srcSet={`${img.desktop1280} 1280w, ${img.desktop} 1672w`}
           sizes="100vw"
-          alt=""
+          alt={promo.imageAlt || ''}
           className="hero-promo__img"
           width={1672}
           height={941}
@@ -46,9 +47,10 @@ function PromoSlide({ promo, onBook }) {
 
       <div className="hero-promo__content">
         {promo.eyebrow && <p className="hero-promo__eyebrow">{promo.eyebrow}</p>}
-        <h2 className="hero-promo__title">
+        {/* A <p>, not a heading: the page's first heading must be the h1 */}
+        <p className="hero-promo__title">
           {promo.title} <em>{promo.titleAccent}</em>
-        </h2>
+        </p>
         <p className="hero-promo__offer">
           {promo.offer.lead} <strong>{promo.offer.highlight}</strong> {promo.offer.rest}
         </p>
@@ -227,9 +229,15 @@ function Hero() {
               by Experienced <em>Medical</em><br />
               <em>Professionals</em>
             </h1>
+            <p className="hero__lead">
+              A doctor-led aesthetic clinic in Jesmond, Newcastle upon Tyne, offering
+              anti-wrinkle consultations, dermal fillers, skin boosters, microneedling,
+              HIFU and chemical peels. Every treatment starts with a consultation.
+            </p>
+            <p className="hero__hours">{CLINIC_HOURS_TEXT}</p>
             <div className="hero__actions">
               <button className="hero__btn hero__btn--primary" onClick={openDrawer}>
-                Schedule Your Consultation
+                Book a Consultation
               </button>
               <button className="hero__btn hero__btn--ghost" onClick={() => navigate('/about')}>
                 About Kensley Aesthetics

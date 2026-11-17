@@ -5,18 +5,18 @@ import './JourneySteps.css';
 // ── Step data ────────────────────────────────────────────────────────
 const STEPS = [
   {
-    title: 'Schedule Your Consultation',
-    desc: "Get in touch online or by phone to book your consultation. We'll find a time that works for you.",
+    title: 'Book Your Consultation',
+    desc: "Book online or by phone, and we'll find a time that works for you.",
   },
   {
     title: 'Your Consultation',
-    desc: "Meet with your clinician to discuss your goals, concerns and medical history. We'll recommend the best options for you.",
+    desc: "Meet with your clinician to discuss your goals, concerns and medical history. We'll explain the options that suit you, including whether treatment is right for you at all.",
     image: '/images/kensley-real/practitioner-patient-consultation-kensley-aesthetics.webp',
     imageAlt: 'Practitioner during patient consultation at Kensley Aesthetics',
   },
   {
     title: 'Your Personalised Treatment Plan',
-    desc: 'Receive a tailored plan designed around your needs, including the recommended treatments, expected results and costs.',
+    desc: 'Receive a tailored plan designed around your needs, including the recommended treatments, what to expect and the costs.',
   },
   {
     title: 'Preparing for Treatment',
@@ -111,8 +111,8 @@ export default function JourneySteps() {
     <section className="js-section">
       {/* Eyebrow */}
       <div className="js-eyebrow">
-        <p>7 steps toward</p>
-        <p>your transformation</p>
+        <p>How your visit works,</p>
+        <p>in 7 simple steps</p>
       </div>
 
       {/* Steps */}

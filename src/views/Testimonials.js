@@ -95,9 +95,9 @@ function Testimonials() {
           <p className="section-label">Join Our Clients</p>
           <h2 className="section-title">Begin Your Story</h2>
           <p className="page-body-text" style={{ maxWidth: 480, margin: '24px auto 40px' }}>
-            Book a consultation and take the first step towards your best skin.
+            Book a consultation and talk through your options with our team.
           </p>
-          <Link to="/book" className="btn-primary">Schedule Your Consultation</Link>
+          <Link to="/book" className="btn-primary">Book a Consultation</Link>
         </div>
       </section>
     </>

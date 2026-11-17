@@ -288,7 +288,7 @@ export const TREATMENT_FAQ_UPDATES = {
   'anti-wrinkle-treatments': [
     // K-21/K-12: avoid naming a prescription-only medicine brand in public content
     {
-      q: 'Is this only about anti-wrinkle injections?',
+      q: 'Is this only about injectable treatments?',
       replaces: ['Is this just about Botox?'],
       a: 'No. Prescription-only injectable treatments are one option, but your consultation may also consider skincare, skin-boosting treatments or other approaches, depending on your concerns.',
     },

@@ -267,7 +267,7 @@ export const STATIC_SUB_TREATMENTS = {
       faqs: [
         { q: 'Is three areas too much for a natural result?', a: 'Not when done correctly. With male-specific dosing and conservative technique, three areas delivers a balanced, natural refresh — not a frozen look.' },
         { q: 'How long will results last?', a: 'Typically 3–4 months. Many clients find results last longer the more regularly they maintain treatment.' },
-        { q: 'Do I need to take time off work?', a: 'No. There is no downtime with anti-wrinkle injections. Most clients return to work and normal activities immediately.' },
+        { q: 'Do I need to take time off work?', a: 'No. There is usually little or no downtime after anti-wrinkle treatment. Most clients return to work and normal activities immediately.' },
       ],
       relatedTreatments: [],
     },

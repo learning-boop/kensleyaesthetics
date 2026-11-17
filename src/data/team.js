@@ -53,7 +53,7 @@ export const TEAM = [
       'I have around four years of experience in facial aesthetics and have completed advanced training, including a year-long mentorship with Mediject Academy.',
       'My main focus is full-face balancing and rejuvenation, using treatments such as dermal fillers, anti-wrinkle treatments, skin boosters and polynucleotides. I also offer microneedling and chemical peels to support skin quality.',
       'I love the combination of science, creativity and getting to know people. I have a keen appreciation of how the smile and surrounding facial features work together, and I use that understanding to help patients feel more confident while still looking like themselves.',
-      'I also love exploring innovative treatments and understanding the science behind how they work, so I can bring evidence-led options into clinic and help my patients achieve the best possible results.',
+      'I also love exploring innovative treatments and understanding the science behind how they work, so I can bring evidence-led options into clinic and help my patients make well-informed choices about their care.',
       'I look at the face as a whole, taking time to understand each patient’s features, concerns and goals. My approach is thoughtful and gradual, with a focus on balance, proportion and skin quality. I’m honest about what treatment can achieve and will advise against it if I don’t feel it is appropriate.',
       'I’m approachable, down to earth and happy to answer questions. I want patients to feel comfortable telling me what concerns them, without feeling judged or pressured into treatment. Consultations are a chance for us to get to know each other and build a plan that feels right for them.',
     ],
@@ -72,7 +72,7 @@ export const TEAM = [
     bio: [
       'I’m Dr Pamela Inglis, an advanced aesthetic practitioner. With many years of clinical experience and a background in teaching, I bring a strong foundation of clinical knowledge, care and professionalism to my practice.',
       'My approach is personalised, with a focus on natural-looking results that help people feel more confident in their appearance. I take time to understand each person’s goals, assess their suitability for treatment and explain the options, helping them feel informed and comfortable throughout their care.',
-      'I am passionate about aesthetics and the positive impact it can have on a person’s confidence and wellbeing. I focus on promoting healthy ageing and maintaining a fresh appearance while enhancing each individual’s natural features. I love making a genuine difference to people’s lives, helping them feel confident, refreshed and the very best version of themselves.',
+      'I am passionate about aesthetics and the positive impact it can have on a person’s confidence and wellbeing. I focus on promoting healthy ageing and maintaining a fresh appearance while enhancing each individual’s natural features. I love making a genuine difference to people’s lives, helping them feel confident and refreshed.',
     ],
   },
   {
@@ -105,10 +105,10 @@ export const TEAM = [
     bio: [
       'I am Jacquelyn Foggin, an advanced aesthetic practitioner with over 39 years of experience in healthcare and a passion for aesthetics, which I have been practising since 2020. I undertook my aesthetic training with Dr Matla and Dr Inglis.',
       'I specialise in anti-wrinkle treatments, dermal fillers and peels, and I love being able to make a positive difference to people’s confidence and self-esteem.',
-      'What I enjoy most about aesthetic medicine is helping people feel happier and more confident in their own skin. I believe the best results are those that enhance your natural features rather than change the way you look.',
+      'What I enjoy most about aesthetic medicine is helping people feel happier and more confident in their own skin. I believe good results are those that enhance your natural features rather than change the way you look.',
       'My approach is always personalised. I take time to listen to each patient’s individual needs, offer honest professional advice and make sure treatments are tailored to achieve subtle, natural-looking results. I believe in enhancing, never overdoing.',
       'I would describe myself as friendly, professional and enthusiastic, with a keen eye for detail. I want every patient to feel comfortable, listened to and confident that they are in good hands.',
-      'My aim is simple: to help you look and feel like the very best version of yourself, while always keeping you looking naturally you.',
+      'My aim is simple: to help you look and feel refreshed and confident, while always keeping you looking naturally you.',
     ],
   },
 ];

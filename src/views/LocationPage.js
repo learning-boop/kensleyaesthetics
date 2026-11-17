@@ -94,7 +94,7 @@ export default function LocationPage() {
 
           <div className="lp-actions">
             <button type="button" className="lp-btn lp-btn--gold" onClick={openDrawer}>
-              Book a consultation
+              Book a Consultation
             </button>
             <a className="lp-btn lp-btn--line-light" href={CLINIC.phoneHref}>
               Call {CLINIC.phoneDisplay}
@@ -223,7 +223,7 @@ export default function LocationPage() {
           <p>{loc.cta}</p>
           <div className="lp-actions lp-actions--center">
             <button type="button" className="lp-btn lp-btn--navy" onClick={openDrawer}>
-              Book a consultation
+              Book a Consultation
             </button>
             <a className="lp-btn lp-btn--line-dark" href={CLINIC.phoneHref}>
               Call {CLINIC.phoneDisplay}

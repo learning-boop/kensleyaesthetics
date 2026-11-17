@@ -36,7 +36,7 @@ export default function HomeFaq() {
           </p>
           <div className="hf-actions">
             <button type="button" className="hf-btn" onClick={openDrawer}>
-              Book a consultation
+              Book a Consultation
             </button>
             <Link to="/faq" className="hf-link">Visit our FAQ page</Link>
           </div>

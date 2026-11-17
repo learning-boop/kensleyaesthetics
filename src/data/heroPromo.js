@@ -19,15 +19,18 @@ export const HERO_PROMO = {
   eyebrow: '', // small line above the title; left empty on purpose
   title: 'Black Friday',
   titleAccent: 'at Kensley',
-  offer: { lead: 'Up to', highlight: '50% off', rest: 'selected treatments' },
-  text: 'Considered treatments for the season ahead, each starting with a consultation.',
+  offer: { lead: 'Up to', highlight: '50% off', rest: 'selected skin treatments, from £99' },
+  text: 'HIFU, 3D HydrO2 Facial, chemical peels, microneedling, RF microneedling, skin boosters, Profhilo and polynucleotides. Each starts with a complimentary consultation.',
 
   // A `to` makes a link; no `to` opens booking.
   primary: { label: 'Explore the offers', to: '/black-friday' },
-  secondary: { label: 'Book a consultation' },
+  secondary: { label: 'Book a Consultation' },
 
-  terms: '', // no small print on the banner (clinic's decision)
+  // DSB(P) audit (Nov 2026): an offer must show its closing date (CAP 8.17).
+  // Set to '' to hide it again.
+  terms: `Offer ends ${WINTER_EDIT.endLabel}. Full prices on the Black Friday page.`,
 
+  imageAlt: 'Woman in a navy satin top against a dark blue background, Black Friday at Kensley Aesthetics',
   image: {
     desktop: '/images/promo/kensley-winter-edit-desktop.webp', // 1672 × 941
     desktop1280: '/images/promo/kensley-winter-edit-desktop-1280.webp',

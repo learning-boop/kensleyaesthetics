@@ -13,7 +13,7 @@ const MAIN_TREATMENTS = [
   { num: '02', label: 'Dermal Fillers',              slug: 'dermal-fillers',          sub: 'Restore selected areas of lost volume or enhance facial balance with a personalised, natural-looking approach.' },
   { num: '03', label: 'Skin Boosters',               slug: 'skin-boosters',           sub: 'Improve skin hydration and quality with injectable treatments selected for your individual skin concerns.' },
   { num: '04', label: 'Biostimulators',              slug: 'biostimulators',          sub: 'Discover collagen-stimulating treatments designed to support gradual changes in facial volume and skin quality.' },
-  { num: '05', label: 'Microneedling',               slug: 'microneedling',           sub: 'Improve the appearance of acne scars, uneven texture and fine lines through controlled skin renewal.' },
+  { num: '05', label: 'Microneedling',               slug: 'microneedling',           sub: 'Microneedling uses very fine needles on the skin. Ask us in your consultation what it can and can\'t do for you.' },
   { num: '06', label: 'RF Microneedling',            slug: 'rf-microneedling',        sub: 'Combine microneedling with radiofrequency energy for selected texture and mild skin laxity concerns.' },
   { num: '07', label: 'HIFU',                        slug: 'hifu',                    sub: 'Explore ultrasound-based treatment options for selected concerns involving mild skin laxity.' },
 ];
@@ -70,7 +70,7 @@ export default function Treatments() {
                 )}
                 <div className="tr-card__body">
                   <span className="tr-card__num">{t.num}</span>
-                  <h3 className="tr-card__title tr-card__title--light">{t.label}</h3>
+                  <h2 className="tr-card__title tr-card__title--light">{t.label}</h2>
                   <p className="tr-card__sub tr-card__sub--light">{extra.tagline || t.sub}</p>
                   <span className="tr-card__cta tr-card__cta--light">Explore →</span>
                 </div>
@@ -94,7 +94,7 @@ export default function Treatments() {
                 )}
                 <div className="tr-card__body">
                   <span className="tr-card__num">{t.num}</span>
-                  <h3 className="tr-card__title tr-card__title--light">{t.label}</h3>
+                  <h2 className="tr-card__title tr-card__title--light">{t.label}</h2>
                   <p className="tr-card__sub tr-card__sub--light">{extra.tagline || t.sub}</p>
                   <span className="tr-card__cta tr-card__cta--light">Explore →</span>
                 </div>

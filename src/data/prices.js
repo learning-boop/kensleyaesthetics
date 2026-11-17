@@ -8,8 +8,8 @@
 export const PRICE_TREATMENTS = [
   {
     id: 'anti-wrinkle',
-    name: 'Anti-Wrinkle Treatments',
-    intro: 'Expertly administered anti-wrinkle injections to smooth expression lines and restore a naturally refreshed appearance.',
+    name: 'Anti-Wrinkle Consultations',
+    intro: 'Every anti-wrinkle appointment starts with a consultation. Your practitioner will assess your concerns and medical history, explain your options and tell you honestly if treatment is not right for you.',
     groups: [
       {
         label: 'Women',
@@ -31,10 +31,10 @@ export const PRICE_TREATMENTS = [
         label: 'Advanced',
         items: [
           { name: 'Standard Anti-Wrinkle Areas', standard: '£150', intro: '£130' },
-          { name: 'Nefertiti Lift',              standard: '£350', intro: '£300' },
-          { name: 'Jawline Slimming',            standard: '£350', intro: '£300' },
+          { name: 'Neck Bands',                  standard: '£350', intro: '£300' },
+          { name: 'Jaw Muscles (Masseter)',      standard: '£350', intro: '£300' },
           { name: 'Teeth Grinding',              standard: '£350', intro: '£300' },
-          { name: 'TrapTox',                     standard: '£500', intro: '£450' },
+          { name: 'Trapezius Muscles',           standard: '£500', intro: '£450' },
           { name: 'Migraine Treatment',          standard: '£600', intro: '£550' },
         ],
       },
@@ -43,7 +43,7 @@ export const PRICE_TREATMENTS = [
   {
     id: 'dermal-fillers',
     name: 'Dermal Fillers',
-    intro: 'Premium dermal filler treatments to restore volume, define features and achieve natural-looking facial harmony.',
+    intro: 'Dermal filler treatments for selected areas of the face, planned around your features after a full consultation.',
     groups: [
       {
         label: 'All Areas',
@@ -68,7 +68,7 @@ export const PRICE_TREATMENTS = [
   {
     id: 'microneedling',
     name: 'Microneedling',
-    intro: 'Precision microneedling to stimulate collagen production, refine skin texture and address a wide range of skin concerns.',
+    intro: 'Microneedling uses very fine needles on the skin. Ask us in your consultation what it can and can\'t do for you.',
     groups: [
       {
         label: 'Standard',
@@ -111,7 +111,7 @@ export const PRICE_TREATMENTS = [
   {
     id: 'profhilo',
     name: 'Profhilo',
-    intro: 'One of the highest concentrations of hyaluronic acid available — Profhilo remodels skin from within, improving tone, texture and hydration.',
+    intro: 'Profhilo is an injectable hyaluronic acid treatment for skin hydration and quality. Your practitioner will explain what to expect at your consultation.',
     groups: [
       {
         label: 'All Areas',
@@ -129,7 +129,7 @@ export const PRICE_TREATMENTS = [
   {
     id: 'prp',
     name: 'PRP (Platelet-Rich Plasma)',
-    intro: 'Harnessing your body\'s own growth factors to stimulate collagen, accelerate healing and deliver natural skin regeneration.',
+    intro: 'PRP uses a small sample of your own blood, prepared and returned to the skin. Your practitioner will explain what to expect and the possible side effects.',
     groups: [
       {
         label: 'All Areas',
@@ -150,7 +150,7 @@ export const PRICE_TREATMENTS = [
   {
     id: 'polynucleotides',
     name: 'Polynucleotides',
-    intro: 'Cutting-edge DNA-based regenerative treatment that deeply repairs, hydrates and rejuvenates skin at a cellular level.',
+    intro: 'Polynucleotides are injected into the skin to support skin quality. Your practitioner will explain what to expect and the possible side effects.',
     groups: [
       {
         label: 'All Areas',

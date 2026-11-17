@@ -45,7 +45,7 @@ Sun exposure, genetics, skin quality, facial anatomy and everyday expressions ca
       heading: 'What Can an Anti-Wrinkle Consultation Help You Understand?',
       body: `A consultation can help you understand the type of lines you are noticing, the role of facial movement and skin quality, and the range of appropriate options. Depending on your circumstances, these may include skincare, sun protection, non-prescription skin treatments, medical assessment or no treatment.
 
-Your practitioner should explain what is realistically possible, what may not change, relevant risks and the limits of each approach. Natural facial movement is normal, and an entirely line-free face is neither necessary nor a guaranteed treatment outcome.`,
+Your practitioner should explain what is realistically possible, what may not change, relevant risks and the limits of each approach. Natural facial movement is normal, and an entirely line-free face is neither necessary nor a realistic aim for everyone.`,
     },
     {
       heading: 'A Personal Approach to Facial Expression',
@@ -66,7 +66,7 @@ Your practitioner should explain what is realistically possible, what may not ch
       heading: 'What Happens During an Anti-Wrinkle Consultation?',
       body: `Your clinician should ask about your medical history, allergies, relevant medicines, previous cosmetic procedures and any health conditions that might affect suitability. They may assess facial expression and skin changes, or examine jaw, neck or sweating concerns as appropriate.
 
-You should have time to discuss possible options, alternatives, costs where relevant, risks, aftercare and follow-up arrangements. If prescription-only treatment is ever considered after a proper clinical assessment, the prescriber must determine suitability, explain the medicine and whether its use is licensed for the proposed indication, and obtain informed consent. Booking a consultation does not guarantee that any treatment will be offered.`,
+You should have time to discuss possible options, alternatives, costs where relevant, risks, aftercare and follow-up arrangements. If prescription-only treatment is ever considered after a proper clinical assessment, the prescriber must determine suitability, explain the medicine and whether its use is licensed for the proposed indication, and obtain informed consent. Booking a consultation does not mean that any treatment will be offered.`,
     },
     {
       heading: 'Recovery, Aftercare and Possible Risks',
@@ -104,7 +104,7 @@ Depending on the medical intervention, risks may include bruising, discomfort, a
     },
     {
       q: 'Will treatment stop me looking like myself?',
-      a: 'Any procedure that changes muscle activity or skin appearance can affect how a feature looks. The potential effects, limitations and risks should be discussed before you decide. No particular appearance can be guaranteed.',
+      a: 'Any procedure that changes muscle activity or skin appearance can affect how a feature looks. The potential effects, limitations and risks should be discussed before you decide. No particular appearance can be promised.',
     },
     {
       q: 'Are all the concerns listed on this page treated with the same medicine?',
@@ -255,7 +255,7 @@ Your brow position matters: some people recruit the forehead muscle to help keep
         heading: 'What Might You Want to Understand?',
         body: `You might be curious about lines that show in photographs, a crease that remains at rest or how your eyebrows sit. These are not necessarily the same concern. A good consultation explores how much movement you would want to preserve and whether the lines themselves, brow position or skin quality are most relevant.
 
-There is no one-size-fits-all solution and a completely smooth forehead is not a suitable or guaranteed goal for everyone.`,
+There is no one-size-fits-all solution and a completely smooth forehead is not a suitable or realistic goal for everyone.`,
       },
       {
         heading: 'What Happens During a Consultation?',
@@ -337,7 +337,7 @@ The lines themselves are common and do not require treatment.`,
         heading: 'What Can a Consultation Clarify?',
         body: `You may wish to know whether the lines are mainly visible when you smile or whether they reflect skin changes while your face is relaxed. Those distinctions help shape sensible advice.
 
-The clinician should also ask what matters to you about your expression. Preserving a comfortable, natural smile is an important consideration for many people, and no specific aesthetic outcome can be guaranteed.`,
+The clinician should also ask what matters to you about your expression. Preserving a comfortable, natural smile is an important consideration for many people, and no specific aesthetic outcome can be promised.`,
       },
       {
         heading: 'What Happens During a Consultation?',
@@ -662,7 +662,7 @@ A downward angle is not itself a medical condition. Understanding the particular
         heading: 'What Do Patients Usually Want to Understand?',
         body: `Some people are interested in the way their mouth looks at rest; others notice a change in photographs or want to know whether nearby folds contribute. Your practitioner should explore what you have noticed, when it started and whether it changes when you smile.
 
-The goal of assessment is not to promise a permanently lifted smile. Natural expressions are complex and no outcome can be guaranteed.`,
+The goal of assessment is not to promise a permanently lifted smile. Natural expressions are complex and no outcome can be promised.`,
       },
       {
         heading: 'What Happens During a Consultation?',
@@ -855,7 +855,7 @@ Ask how any proposed intervention might affect normal neck function and how comp
       },
       {
         q: 'Can a procedure remove every neck line?',
-        a: 'No. Different lines have different causes, and no treatment can guarantee a completely smooth neck.',
+        a: 'No. Different lines have different causes, and no treatment can promise a completely smooth neck.',
       },
       {
         q: 'What risks should I ask about for neck procedures?',
@@ -906,7 +906,7 @@ New sweating, sweating at night or symptoms affecting the whole body may call fo
         heading: 'When Might It Be Worth Seeking Advice?',
         body: `If sweating affects everyday clothing, comfort, work or social activities, it is reasonable to ask for help. It is also worth seeking a GP assessment if symptoms have lasted for months, are worsening, happen during the night, or are accompanied by other new symptoms.
 
-The goal of an assessment is to identify an appropriate course of care, not to guarantee that sweating can be eliminated.`,
+The goal of an assessment is to identify an appropriate course of care, not to promise that sweating can be eliminated.`,
       },
       {
         heading: 'What Happens During a Consultation?',

@@ -54,10 +54,10 @@ function PriceTreatmentCard({ treatment }) {
       {/* Footer */}
       <div className="price-card__footer">
         <p className="price-card__note">
-          All prices include a complimentary consultation. A patch test is required 48 hours prior to treatment.
+          All prices include a complimentary consultation. A patch test is needed at least 48 hours before treatment; we arrange it with you when you book.
         </p>
         <button className="price-card__cta" onClick={openDrawer}>
-          Schedule Your Consultation
+          Book a Consultation
         </button>
       </div>
     </article>
@@ -89,7 +89,7 @@ function Prices() {
       {/* Notice */}
       <div className="prices-notice">
         <span className="prices-notice__text">
-          All treatments performed by Dr Tiru Matla.&nbsp;·&nbsp;
+          Treatments are carried out by our practitioners under the clinical oversight of Dr Tiru Matla.&nbsp;·&nbsp;
           <strong>Free consultations available.</strong>
         </span>
       </div>

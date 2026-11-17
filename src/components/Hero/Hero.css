@@ -86,6 +86,26 @@
   color: var(--color-gold);
 }
 
+/* ── What we offer + opening hours (DSB(P) audit, Nov 2026) ── */
+.hero__lead {
+  font-family: var(--font-sans);
+  font-size: clamp(14px, 1.05vw, 17px);
+  line-height: 1.65;
+  color: var(--color-navy);
+  opacity: 0.82;
+  max-width: 34em;
+  margin: -12px 0 10px;
+}
+
+.hero__hours {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--color-navy);
+  opacity: 0.6;
+  margin: 0 0 28px;
+}
+
 /* ── CTA Buttons ── */
 .hero__actions {
   display: flex;
@@ -432,6 +452,17 @@
   .hero__title {
     font-size: clamp(26px, 7.5vw, 42px);
     margin-bottom: 16px;
+  }
+
+  .hero__lead {
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin: -4px 0 8px;
+  }
+
+  .hero__hours {
+    font-size: 11px;
+    margin-bottom: 18px;
   }
 
   .hero__btn {
