@@ -17,9 +17,9 @@ const MAIN_TREATMENTS = [
   { label: '3D HydrO2 Facial',         href: '/main-treatments/hydro2-facial' },
   { label: 'Mesotherapy',              href: '/main-treatments/mesotherapy' },
   { label: 'LED Light Therapy',        href: '/main-treatments/led-light-therapy' },
-  { label: 'Profhilo',                 href: '/main-treatments/profhilo' },
+  { label: 'Profhilo',                 href: '/main-treatments/skin-boosters/profhilo-newcastle' },
   { label: 'PRP',                      href: '/main-treatments/prp' },
-  { label: 'Polynucleotides',          href: '/main-treatments/polynucleotides' },
+  { label: 'Polynucleotides',          href: '/main-treatments/skin-boosters/polynucleotides-newcastle' },
   { label: 'Medical-Grade Skincare',   href: '/main-treatments/medical-grade-skincare' },
 ];
 

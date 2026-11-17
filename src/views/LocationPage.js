@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useAppointment } from '../context/AppointmentContext';
 import SeoHead from '../components/SeoHead';
 import { LOCATIONS_BY_SLUG } from '../data/locations';
+import { mainTreatmentPath } from '../data/movedTreatments';
 import './LocationPage.css';
 
 /* ── Clinic details (shared by every location page) ───────────── */
@@ -201,7 +202,7 @@ export default function LocationPage() {
           <ul className="lp-treat__list">
             {TREATMENTS.map((t) => (
               <li key={t.slug}>
-                <Link to={`/main-treatments/${t.slug}`} className="lp-treat__item">
+                <Link to={mainTreatmentPath(t.slug)} className="lp-treat__item">
                   <span className="lp-treat__name">{t.name}</span>
                   <span className="lp-treat__note">{t.note}</span>
                 </Link>

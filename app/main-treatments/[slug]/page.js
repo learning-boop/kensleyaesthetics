@@ -4,6 +4,7 @@ import { STATIC_SUB_TREATMENTS } from '@/src/data/subTreatments';
 import { TREATMENT_KEYWORDS } from '@/src/data/keywords';
 import { treatmentFaqs } from '@/src/data/pageFaqs';
 import { withLocalMain, hasSubPages } from '@/src/data/richTreatments';
+import { isMovedMainTreatment } from '@/src/data/movedTreatments';
 import MainTreatmentDetailClient from './MainTreatmentDetailClient';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
@@ -12,7 +13,8 @@ export async function generateStaticParams() {
   const sanity = await client.fetch(`*[_type == "mainTreatment"]{ "slug": slug.current }`);
   const sanitySlugs = sanity.map((t) => t.slug);
   const staticSlugs = Object.keys(STATIC_MAIN_TREATMENTS);
-  const allSlugs = [...new Set([...sanitySlugs, ...staticSlugs])];
+  // Profhilo / Polynucleotides moved under Skin Boosters (Nov 2026): not built, old URL 301s.
+  const allSlugs = [...new Set([...sanitySlugs, ...staticSlugs])].filter((s) => !isMovedMainTreatment(s));
   return allSlugs.map((slug) => ({ slug }));
 }
 

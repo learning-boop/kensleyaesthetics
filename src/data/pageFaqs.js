@@ -11,10 +11,10 @@
  *   /prices ......................... Q13
  *   /skin-concerns .................. Q7, Q9
  *   /main-treatments/dermal-fillers . (none — uses its own content-plan FAQs, Nov 2026)
- *   /main-treatments/skin-boosters .. Q3, Q5
+ *   /main-treatments/skin-boosters .. (none — uses its own content-plan FAQs, Nov 2026)
  *   /main-treatments/biostimulators . Q6
- *   /main-treatments/profhilo ....... Q4
- *   /main-treatments/polynucleotides  Q12
+ *   /main-treatments/profhilo ....... (moved under Skin Boosters, Nov 2026 — Q4 retired)
+ *   /main-treatments/polynucleotides  (moved under Skin Boosters, Nov 2026 — Q12 retired)
  *   /main-treatments/rf-microneedling Q11
  *   /main-treatments/chemical-peel .. Q8
  *   /main-treatments/anti-wrinkle-treatments  Q15
@@ -230,18 +230,8 @@ export const TREATMENT_FAQ_UPDATES = {
   // FAQs from the Dermal Fillers content plan (src/data/dermalFillersContent.js / Sanity).
 
 
-  'skin-boosters': [
-    // Q3
-    {
-      q: 'What is a skin booster, and is it the same as skincare?',
-      a: 'Skin boosters are injectable treatments intended to improve aspects of skin quality, often through hyaluronic-acid-based formulations. They are different from everyday skincare products applied to the skin. They also differ from dermal fillers used mainly to create volume or shape. The expected effects depend on the product and individual suitability.',
-    },
-    // Q5
-    {
-      q: 'What is the difference between a skin booster and dermal filler?',
-      a: 'Skin boosters are generally used to address skin quality and hydration, while traditional dermal fillers are designed mainly to add volume or contour selected facial areas. Both can involve injectable hyaluronic-acid products, but they differ in formulation and intended use. Choosing between them requires an assessment of your actual concern.',
-    },
-  ],
+  // skin-boosters: Q3 and Q5 were retired in Nov 2026 — the page now carries only the
+  // FAQs from the Skin Boosters content plan (src/data/skinBoostersContent.js / Sanity).
 
   biostimulators: [
     // Q6
@@ -252,22 +242,8 @@ export const TREATMENT_FAQ_UPDATES = {
     },
   ],
 
-  profhilo: [
-    // Q4
-    {
-      q: 'What is the difference between Profhilo and polynucleotides?',
-      a: 'Profhilo is a specific injectable hyaluronic-acid product used for skin-quality concerns, while polynucleotides are a different group of injectable compounds studied for skin appearance and tissue-related effects. Their formulations, evidence and intended uses differ. Neither can be considered universally better, and suitability depends on the individual and exact product.',
-    },
-  ],
-
-  polynucleotides: [
-    // Q12
-    {
-      q: 'Are polynucleotide injections suitable for the under-eye area?',
-      replaces: ['Are they safe for the under-eye area?', 'Are polynucleotides suitable for the under-eye area?'],
-      a: 'Some polynucleotide products are used in aesthetic practice around the eyes, but suitability depends on the specific formulation, treatment indication, anatomy and individual medical history. They are not an appropriate solution for every under-eye concern. A qualified practitioner must assess the area and explain the evidence, possible benefits and risks.',
-    },
-  ],
+  // profhilo (Q4) and polynucleotides (Q12): those pages moved under Skin Boosters in
+  // Nov 2026 and use the content-plan FAQs there.
 
   'rf-microneedling': [
     // Q11

@@ -3,6 +3,7 @@ import { STATIC_MAIN_TREATMENTS } from '@/src/data/mainTreatments';
 import { client } from '@/src/lib/sanityClient';
 import { getSubPageParams } from '@/src/lib/subPages';
 import { isWinterEditLive } from '@/src/data/winterEdit';
+import { isMovedMainTreatment } from '@/src/data/movedTreatments';
 
 const SITE_URL = 'https://kensleyaesthetics.com';
 
@@ -26,7 +27,7 @@ const FALLBACK_MAIN_TREATMENT_SLUGS = [
 // /book and /treatment-plan are noindexed (thin pages), so they are not listed.
 // Sub-treatment pages (/main-treatments/<slug>/<sub>) were removed from the
 // site in Nov 2026. Only the treatments in SUB_PAGE_PARENTS
-// (src/data/richTreatments.js — currently Dermal Fillers) have them again;
+// (src/data/richTreatments.js — Dermal Fillers, Anti-Wrinkle, Skin Boosters) have them again;
 // they are listed below from the same source the pages are built from.
 // public/.htaccess returns 410 Gone for every other old copy on the server.
 
@@ -63,7 +64,7 @@ export default async function sitemap() {
       ...(await fetchSlugs(`*[_type == "mainTreatment"]{ "slug": slug.current }`, FALLBACK_MAIN_TREATMENT_SLUGS)),
       ...Object.keys(STATIC_MAIN_TREATMENTS),
     ]),
-  ].sort();
+  ].filter((slug) => !isMovedMainTreatment(slug)).sort();
 
   const staticPages = [
     { url: `${SITE_URL}/`, changeFrequency: 'weekly', priority: 1.0 },

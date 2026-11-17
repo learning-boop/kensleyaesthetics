@@ -50,6 +50,9 @@ const nextConfig = {
           },
         ],
       },
+      // Long-lived caching only for production builds. In `next dev` these made the
+      // browser keep stale code after edits (dev chunk URLs don't change).
+      ...(process.env.NODE_ENV !== 'production' ? [] : [
       {
         source: '/assets/:path*',
         headers: [
@@ -80,6 +83,7 @@ const nextConfig = {
           { key: 'Cache-Control', value: 'public, max-age=2592000' },
         ],
       },
+      ]),
     ];
   },
 };

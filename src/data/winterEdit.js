@@ -46,8 +46,8 @@ export const WINTER_EDIT = {
       focus: '50% 58%',
       items: [
         { name: 'Skin Booster', note: 'Face treatment', was: 225, now: 149, href: '/main-treatments/skin-boosters' },
-        { name: 'Profhilo', note: 'Face treatment', was: 299, now: 199, href: '/main-treatments/profhilo' },
-        { name: 'Polynucleotides', note: 'Face treatment', was: 299, now: 199, href: '/main-treatments/polynucleotides' },
+        { name: 'Profhilo', note: 'Face treatment', was: 299, now: 199, href: '/main-treatments/skin-boosters/profhilo-newcastle' },
+        { name: 'Polynucleotides', note: 'Face treatment', was: 299, now: 199, href: '/main-treatments/skin-boosters/polynucleotides-newcastle' },
       ],
     },
     {

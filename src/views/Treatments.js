@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Link } from 'react-router-dom';
 import { client, MAIN_TREATMENTS_QUERY } from '../lib/sanityClient';
 import { sanityImg } from '../utils/sanityImage';
+import { mainTreatmentPath } from '../data/movedTreatments';
 import PageHero from '../components/PageHero';
 import SeoHead from '../components/SeoHead';
 import './Treatments.css';
@@ -60,7 +61,7 @@ export default function Treatments() {
             return (
               <Link
                 key={t.slug}
-                to={`/main-treatments/${t.slug}`}
+                to={mainTreatmentPath(t.slug)}
                 className="tr-card tr-card--dark"
               >
                 {extra.image && (
@@ -84,7 +85,7 @@ export default function Treatments() {
             return (
               <Link
                 key={t.slug}
-                to={`/main-treatments/${t.slug}`}
+                to={mainTreatmentPath(t.slug)}
                 className="tr-card tr-card--dark"
               >
                 {extra.image && (

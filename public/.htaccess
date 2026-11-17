@@ -38,10 +38,18 @@ RewriteRule ^main-treatments/anti-wrinkle-treatments/pebble-chin(\.html)?/?$ /ma
 RewriteRule ^main-treatments/anti-wrinkle-treatments/jawline-slimming(\.html)?/?$ /main-treatments/anti-wrinkle-treatments/masseter-jaw-muscles [R=301,L]
 RewriteRule ^main-treatments/anti-wrinkle-treatments/nefertiti-lift(\.html)?/?$ /main-treatments/anti-wrinkle-treatments/neck-bands [R=301,L]
 RewriteRule ^main-treatments/anti-wrinkle-treatments/traptox(\.html)?/?$ /main-treatments/anti-wrinkle-treatments/trapezius-muscles [R=301,L]
-#    d) Live sub-treatment pages skip the 410 rule. Both conditions must fail
+#    c2) Skin Boosters (Nov 2026): Profhilo and Polynucleotides moved from their
+#        own main pages to Skin Boosters; old Skin Boosters slugs 301 to the new ones.
+RewriteRule ^main-treatments/profhilo(\.html)?/?$ /main-treatments/skin-boosters/profhilo-newcastle [R=301,L]
+RewriteRule ^main-treatments/polynucleotides(\.html)?/?$ /main-treatments/skin-boosters/polynucleotides-newcastle [R=301,L]
+RewriteRule ^main-treatments/skin-boosters/profhilo-skin-booster(\.html)?/?$ /main-treatments/skin-boosters/profhilo-newcastle [R=301,L]
+RewriteRule ^main-treatments/skin-boosters/polynucleotides(\.html)?/?$ /main-treatments/skin-boosters/polynucleotides-newcastle [R=301,L]
+RewriteRule ^main-treatments/skin-boosters/exosomes(\.html)?/?$ /main-treatments/skin-boosters/exosomes-newcastle [R=301,L]
+#    d) Live sub-treatment pages skip the 410 rule. All conditions must pass
 #       (i.e. the URL is NOT a live page) for the 410 to fire.
 RewriteCond %{REQUEST_URI} !^/main-treatments/dermal-fillers/(lip-fillers|cheek-fillers|chin-fillers|jawline-fillers|nasolabial-fold-fillers|marionette-line-fillers|facial-balancing|non-surgical-rhinoplasty|tear-trough-fillers|temple-fillers)(\.html|\.txt)?/?$
 RewriteCond %{REQUEST_URI} !^/main-treatments/anti-wrinkle-treatments/(frown-lines|forehead-lines|crows-feet|bunny-lines|gummy-smile|chin-dimpling|downturned-mouth-corners|masseter-jaw-muscles|neck-bands|underarm-sweating|trapezius-muscles)(\.html|\.txt)?/?$
+RewriteCond %{REQUEST_URI} !^/main-treatments/skin-boosters/(profhilo-newcastle|skinvive-newcastle|nctf-135-newcastle|polynucleotides-newcastle|exosomes-newcastle)(\.html|\.txt)?/?$
 RewriteRule ^main-treatments/[^/]+/[^/]+ - [G,L]
 
 # 0b) Only real location pages are public. Old town pages left on the server
